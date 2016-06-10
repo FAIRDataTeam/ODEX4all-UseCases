@@ -1,0 +1,95 @@
+taxonomy_id	species_name
+9606	Homo sapiens (human) 
+10090	Mus musculus (mouse)
+3702	Arabidopsis thaliana (thale cress)
+4932	Saccharomyces cerevisiae (baker's yeast)
+1488	Clostridium acetobutylicum
+562	Escherichia coli
+5061	Aspergillus niger (fungus)
+349741	Akkermansia muciniphila ATCC BAA-835
+279010	Bacillus licheniformis DSM 13 = ATCC 14580
+246787	Bacteroides cellulosilyticus
+28111	Bacteroides eggerthii
+272559	Bacteroides fragilis NCTC 9343
+329854	Bacteroides intestinalis
+28116	Bacteroides ovatus
+226186	Bacteroides thetaiotaomicron VPI-5482
+820	Bacteroides uniformis
+1680	Bifidobacterium adolescentis
+411481	Bifidobacterium adolescentis L2-32
+28025	Bifidobacterium animalis
+1681	Bifidobacterium bifidum
+1685	Bifidobacterium breve
+1686	Bifidobacterium catenulatum
+1689	Bifidobacterium dentium
+78342	Bifidobacterium gallicum
+216816	Bifidobacterium longum
+1682	Bifidobacterium longum subsp. infantis
+391904	Bifidobacterium longum subsp. infantis ATCC 15697 = JCM 1222 = DSM 20088
+1679	Bifidobacterium longum subsp. longum
+28026	Bifidobacterium pseudocatenulatum
+1694	Bifidobacterium pseudolongum
+35833	Bilophila wadsworthia
+572511	Blautia
+40520	Blautia obeum
+45851	Butyrivibrio crossotus
+1492	Clostridium butyricum
+74426	Collinsella aerofaciens
+410072	Coprococcus comes
+751585	Coprococcus sp. ART55/1
+901	Desulfovibrio piger
+333849	Enterococcus faecium DO
+39488	Eubacterium hallii
+39492	Eubacterium siraeum
+39496	Eubacterium ventriosum
+853	Faecalibacterium prausnitzii
+411483	Faecalibacterium prausnitzii A2-165
+748671	Lactobacillus crispatus ST1
+324831	Lactobacillus gasseri ATCC 33323 = JCM 1131
+880633	Lactobacillus helveticus R0052
+257314	Lactobacillus johnsonii NCC 533
+557436	Lactobacillus reuteri DSM 20016
+362948	Lactobacillus salivarius UCC118
+907	Megasphaera elsdenii
+2173	Methanobrevibacter smithii
+165179	Prevotella copri
+301301	Roseburia hominis
+166486	Roseburia intestinalis
+1263	Ruminococcus
+40518	Ruminococcus bromii
+33038	Ruminococcus gnavus
+33039	Ruminococcus torques
+347253	Streptococcus salivarius JIM8777
+9823	Sus scrofa (pig)
+10116	Rattus norvegicus (rat)
+9913	Bos taurus (cow) 
+9915	Bos indicus (zebu)
+9925	Capra hircus (goat)
+9940	Ovis aries (sheep)
+9031	Gallus gallus (chicken)
+7955	Danio rerio (zebrafish)
+4530	Oryza sativa (rice)
+15368	Brachypodium distachyon (stiff brome)
+4577	Zea mays (mays)
+4513	Hordeum vulgare (barley)
+4565	Triticum aestivum (bread wheat)
+4081	Solanum lycopersicum (tomato)
+195583	Solanum lycopersicum var. cerasiforme (cherry tomato)
+869827	Cucumis sativus var. sativus (cucumber)
+109376	Brassica oleracea var. oleracea
+4084	Solanum pimpinellifolium (currant tomato)
+142759	Solanum cheesmaniae
+315350	Solanum galapagense
+62889	Solanum chmielewskii
+376710	Solanum arcanum
+4083	Solanum chilense
+230663	Solanum corneliomuelleri
+62890	Solanum habrochaites
+588598	Solanum huaylasense
+62891	Solanum neorickii
+28526	Solanum pennellii
+4082	Solanum peruvianum (Peruvian tomato)
+4113	Solanum tuberosum (potato)
+4111	Solanum melongena (eggplant)
+4072	Capsicum annuum 
+80379	Capsicum chinense (Scotch bonnet)
