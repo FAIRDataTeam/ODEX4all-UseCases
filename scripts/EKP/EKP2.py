@@ -71,6 +71,8 @@ class connection:
         return [types_dictionary, code_map]
 
     def getPredicates(self, raw = False):
+        if type(raw) is not bool:
+            return "Function requires boolean operator to work"
         # Get all predicates, and their mapped codes. Their definitions can be obtained as well by setting "raw" to True.
         response = self.r.get(self.url + "/external/predicates", headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         predicates = response['content']
