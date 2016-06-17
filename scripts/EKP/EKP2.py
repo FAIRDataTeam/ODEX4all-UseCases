@@ -83,8 +83,15 @@ class connection:
         if raw == False:
             predicates_dictionary = {}
             for p in predicates:
-                predicates_dictionary[p['name']] = p['id']
+                predicates_dictionary[p['id']] = p['name']
             return predicates_dictionary
+
+    def mapPredicate(self, predicate_id):
+        # A number of functions only return predicate ID's. This function easily maps these ID's to their labels.
+        return self.Predicates[predicate_id]
+
+    def Predicates(self):
+        print("\n".join(list(self.Predicates.values()).sort()))
 
     def updateTaxonomy(self):
         # Get a list of all taxonomies in the database, and write it out to a file.
@@ -97,7 +104,7 @@ class connection:
             page_response = self.r.post(self.url + "/external/taxonomies", params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             for p in page_response:
                 Taxonomy.append(p['name'])
-        taxonomy_file = open("Taxonomy.csv", "w")
+        taxonomy_file = open(self.directory + "/Taxonomy.csv", "w")
         out = csv.writer(taxonomy_file)
         for t in Taxonomy:
             out.writerow([t])
@@ -105,7 +112,7 @@ class connection:
     def getTaxonomy(self):
         # Read in the Taxonomy from a pre-written file (Re-loading the taxonomy every time the class is created takes a long time).
         import csv
-        taxonomy_file = open("Taxonomy.csv", "r")
+        taxonomy_file = open(self.directory + "/Taxonomy.csv", "r")
         reader = csv.reader(taxonomy_file)
         Taxonomy = []
         for line in reader:
@@ -146,8 +153,8 @@ class connection:
                 filtergroup += ["st:" + self.ST_map[sem]]
             elif sem in self.ST_map.values():
                 filtergroup += ["st:" + sem]
-            elif sem in self.Predicates.keys():
-                filtergroup += ["pred:" + sem]
+            elif sem in self.Predicates.values():
+                filtergroup += ["pred:" + list(self.Predicates.keys())[list(self.Predicates.values()).index(sem)]]
             elif sem in self.Taxonomy:
                 filtergroup += ["tax:" + sem]
             else:
@@ -243,7 +250,6 @@ class connection:
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
         return response
-
 
     def getPubliciations(self, pub_ids):
         # Get data about publications. Takes a list of publication ID's as input.

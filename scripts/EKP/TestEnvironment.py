@@ -1,11 +1,11 @@
-
 # Load the connection
-from EKP2 import connection
+from scripts.EKP.EKP2 import connection
 
 # Get the config file
 import configparser
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('scripts/EKP/config.ini')
 
 
 c = connection(config)
+c.setDirectory("Roche")
