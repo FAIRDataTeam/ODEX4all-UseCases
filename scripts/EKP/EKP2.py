@@ -7,6 +7,7 @@ class connection:
         # Load packages required for the connection.
         # Set variables required in the class.
         # Execute functions to get variables from the platform, and set them.
+        self.logging = __import__("logging")
         self.r = __import__("requests")
         self.json = __import__("json")
         self.url = config['address']['url']
@@ -20,6 +21,7 @@ class connection:
         self.Categories = self.getSemanticCategories()
         self.Taxonomy = self.getTaxonomy()
         self.Predicates = self.getPredicates()
+        self.logging.basicConfig(filename='EKP_connection.log', level=self.logging.DEBUG)
 
     def setDirectory(self, sub_directory = None):
         # Create a working directory for the specific date.
@@ -27,25 +29,31 @@ class connection:
         if sub_directory is None:
             todays_directory = self.directory + "/" + datetime.datetime.today().strftime("%Y_%m_%d")
         else:
-            todays_directory = self.directory + "/" + sub_directory + "/ " + datetime.datetime.today().strftime("%Y_%m_%d")
+            todays_directory = self.directory + "/" + sub_directory + "/" + datetime.datetime.today().strftime("%Y_%m_%d")
         if not os.path.exists(todays_directory):
             os.makedirs(todays_directory)
         os.chdir(todays_directory)
+        self.logging.basicConfig(filename='EKP_connection.log', level=self.logging.DEBUG)
+        self.logging.info("Set working directory to " + todays_directory)
 
     def getToken(self):
         # Get the authorization token to access the platform.
         call = "/login/authenticate"
         payload = {'username': self.username, 'password': self.password}
         token = self.r.post(self.url + call, json=payload)
-        if token.ok == True:
+        self.logging.info("Requested token at " + self.url + call)
+        if token.ok:
+            self.logging.debug("Connection accepted with token " + token.json()['token'])
             return token.json()['token']
         else:
             print("Could not connect to the server")
+            self.logging.critical("Failed to set up connection")
 
     def getSemanticCategories(self):
         # Get the list of Semantic Categories.
         SC = self.r.get(self.url + "/external/semantic-categories",
                    headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
+        self.logging.debug("Retrieved semantic categories from platform")
         categories = []
         for sc in SC:
             categories.append(sc['name'])
@@ -60,6 +68,7 @@ class connection:
         for page in range(2, SemanticTypes['totalPages'] + 1):
             ST += self.r.get(self.url + "/external/semantic-types", params = {"page" : page},
                             headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
+        self.logging.debug("Retrieved semantic types from platform")
         types_dictionary = {}
         code_map = {}
         for st in ST:
@@ -78,7 +87,8 @@ class connection:
         predicates = response['content']
         for page in range(2, response['totalPages'] + 1):
             predicates += self.r.get(self.url + "/external/predicates", params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
-        if raw == True:
+        self.logging.debug("Retrieved list of predicates from platform")
+        if raw:
             return predicates
         if raw == False:
             predicates_dictionary = {}
@@ -104,10 +114,13 @@ class connection:
             page_response = self.r.post(self.url + "/external/taxonomies", params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             for p in page_response:
                 Taxonomy.append(p['name'])
+        self.logging.debug("Extracted list of taxonomies from platform")
         taxonomy_file = open(self.directory + "/Taxonomy.csv", "w")
         out = csv.writer(taxonomy_file)
         for t in Taxonomy:
             out.writerow([t])
+        taxonomy_file.close()
+        self.logging.info("Written new taxonomy file")
 
     def getTaxonomy(self):
         # Read in the Taxonomy from a pre-written file (Re-loading the taxonomy every time the class is created takes a long time).
@@ -117,6 +130,7 @@ class connection:
         Taxonomy = []
         for line in reader:
             Taxonomy.append(line[0])
+        self.logging.debug("Loaded taxonomy file")
         return Taxonomy
 
     def SemanticTypes(self):
@@ -131,6 +145,7 @@ class connection:
         # Generic execution function. Api-call, json-query, paramters have to be customly defined and supplied.
         # As it will be commonly be used for more complex calls, it is set to POST.
         response = self.r.post(self.url + api_call, json = query, params = parameters, headers = {'Content-type': 'application/json', "X-Token": self.token})
+        self.logging.info("Executed " + api_call + "\n with query " + query + "\n with parameters " + parameters)
         return response
 
     def mapSemanticType(self, semanticType):
@@ -160,6 +175,7 @@ class connection:
             else:
                 print("Cannot map " + sem)
                 continue
+        self.logging.debug("Created filtergroup " + str(filtergroup))
         return filtergroup
 
     def getID(self, term, semantics = None, source = None, **kwargs):
@@ -179,6 +195,7 @@ class connection:
                     "searchType": "TOKEN"
                     }
         concept = self.r.post(self.url + call, json=query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
+        self.logging.info("Executed " + call + " with query " + str(query) + ", returned " + str(len(concept)) + " concepts")
         return concept
 
     def getConcepts(self, IDs):
@@ -189,6 +206,7 @@ class connection:
                     "ids" : IDs
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
+        self.logging.info("Executed " + call + " with query " + str(query))
         return response
 
     def getDirectRelationship(self, start, end, linkweight = "PWS"):
@@ -202,13 +220,20 @@ class connection:
                     "sort": "DESC"
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        connections = response['content']
-        if response['totalPages'] > 1:
-            for page in range(2, response['totalPages'] + 1):
-                connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
-        return connections
+        self.logging.info("Executed " + call + " with query " + str(query))
+        if 'content' in response.keys():
+            connections = response['content']
+            if response['totalPages'] > 1:
+                for page in range(2, response['totalPages'] + 1):
+                    connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
+            return connections
+        else:
+            return response
 
     def getIndirectRelationship(self, start, end, intermediateFilters, linkweight = "PWS"):
+        # Get all the indirect relationships between (sets of) concepts
+        # Requires a filter for the intermediate concepts (Semantic category/type, species, etc.)
+        # Filters can be created the createFilter function
         call = "/external/concept-to-concept/indirect"
         query =     {
                     "additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes"],
@@ -219,7 +244,15 @@ class connection:
                     "sort": "DESC"
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        return response
+        self.logging.info("Executed " + call + " with query " + str(query))
+        if 'content' in response.keys():
+            connections = response['content']
+            if response['totalPages'] > 1:
+                for page in range(2, response['totalPages'] + 1):
+                    connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
+            return connections
+        else:
+            return response
 
     def getDirectlyConnected(self, input_concepts, input_semantics, linkweight = "PWS"):
         # Get all concepts of a selected semantic type/category, which are directly connected to the input-concepts.
@@ -233,9 +266,10 @@ class connection:
                     "sort": "DESC"
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
+        self.logging.info("Executed " + call + " with query " + query)
         if response['totalPages'] > 1:
             output = response['content']
-            for page in range(2, response['totalPages'] + 1):
+            for page in range(2, response['totalPages']):
                 output += self.r.post(self.url + call, json=query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             return output
         else:
@@ -249,14 +283,33 @@ class connection:
                     "ids": triple_ids
                     }
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
+        self.logging.info("Executed " + call + " with query " + str(query))
         return response
 
     def getPubliciations(self, pub_ids):
         # Get data about publications. Takes a list of publication ID's as input.
         call = "/external/publications"
-        query =     {
+
+        # Platform cannot handle too many pub ids at once, therefore long lists of pub ids are split up.
+        # Chunks function should help with this
+
+        def chunks(l, n):
+            """Yield successive n-sized chunks from l."""
+            for i in range(0, len(l), n):
+                yield l[i:i + n]
+
+        partition = list(chunks(pub_ids, 10))
+
+        out = []
+
+        for part in partition:
+            query =     {
                     "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC"],
-                    "ids": pub_ids
+                    "ids": part
                     }
-        response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
-        return response
+            response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
+            self.logging.info("Executed " + call + " with query " + str(query))
+            if response.ok and 'message' not in response.json():
+                out += response.json()
+
+        return out

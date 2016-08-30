@@ -8,4 +8,12 @@ config.read('scripts/EKP/config.ini')
 
 
 c = connection(config)
-c.setDirectory("Roche")
+#c.setDirectory("Roche")
+
+migraine = c.getID("migraine", "Disorders")[0]['id']
+headache = c.getID("headache", "Disorders")[0]['id']
+
+custom_filter = c.createFilter(["Chemicals & Drugs"])
+test = c.getIndirectRelationship([migraine], [headache], custom_filter)
+
+c.getDirectRelationship([migraine], [headache])
