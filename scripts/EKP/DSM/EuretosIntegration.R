@@ -30,35 +30,42 @@ yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 
 
 # Execute the query
-pr <- POST(url = paste(base_url, query, sep =""), 
-           add_headers('X-token' = token),
-           body=fromJSON('{ "queryString": "term:s000004214", "searchType": "STRING" }'),
-           encode = "json", 
-           accept_json(),verbose())
-a<-content(pr)
+#pr <- POST(url = paste(base_url, query, sep =""), 
+#           add_headers('X-token' = token),
+#           body=fromJSON('{ "queryString": "term:s000004214", "searchType": "STRING" }'),
+#           encode = "json", 
+#           accept_json(),verbose())
+#a<-content(pr)
 
-for (i in 1:length(yeast_genes)){
-  b<-paste0("'{",'"queryString":"term:',yeast_genes[i,],'","searchType":"STRING"',"}'")
-  
-  pr <- POST(url = paste(base_url, query, sep =""), 
-             add_headers('X-token' = token),
-             body=b,
-             encode = "json", 
-             accept_json(),verbose())
-  a<-content(pr)
+
+## A generic function that takes list of SGD Ids and returns back a table with SGD_Id, Concept_Id and Gene names
+getConceptID<-function(yeast_genes){
+  out<-NULL
+  for (i in 1:dim(yeast_genes)[1]){
+    b<-paste("{",'"queryString":"term:',yeast_genes[i,],'","searchType":"STRING"',"}")
+    pr <- POST(url = paste(base_url, query, sep =""), 
+               add_headers('X-token' = token),
+               body=fromJSON(b),
+               encode = "json", 
+               accept_json(),verbose())
+    a<-content(pr)
+    a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
+    a<-cbind(yeast_genes[i,],a)
+    out<-rbind(out,a)
+  }
+  colnames(out)<-c("SGD_Id","EKP_Concept_Id","Gene_name")
+  return(out)
 }
 
-
-
 ##########################################################
-query<- "/external/semantic-categories"
-gr = GET(
-  url = paste(base_url, query, sep =""),
-  add_headers('X-token' = token),
-  body=fromJSON('{"additionalFields": ["egfr"]}'),
-  encode = "json",
-  accept_json()
-)
+#query<- "/external/semantic-categories"
+#gr = GET(
+#  url = paste(base_url, query, sep =""),
+#  add_headers('X-token' = token),
+#  body=fromJSON('{"additionalFields": ["egfr"]}'),
+#  encode = "json",
+#  accept_json()
+#)
 
-content(gr)
+#content(gr)
 
