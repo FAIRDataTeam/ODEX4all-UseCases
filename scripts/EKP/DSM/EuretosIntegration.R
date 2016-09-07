@@ -1,12 +1,15 @@
 library(httr)
 library(jsonlite)
 library(magrittr)
+library(yaml)
+
+config<-yaml.load_file("config.yml")
 
 ## connect to Euretos server with login credentials of 
 login <- "http://178.63.49.197:8080/spine-ws/login/authenticate"
 pars <- list(
-  username = "a.gavai@esciencecenter.nl",
-  password = "hwZi5VVPqNfGNbzTxa3"
+  username =  config$EKP$username,
+  password =  config$EKP$password
 )
 
 res <- POST(login, body = pars,encode="json",verbose())
@@ -25,7 +28,7 @@ base_url <- "http://178.63.49.197:8080/spine-ws"
 
 ####### DSM work flow starts here ###############
 
-setwd("/home/anandgavai/ODEX4all/ODEX4all-UseCases/scripts/EKP/DSM")
+setwd("/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM")
 yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 
 
@@ -56,6 +59,11 @@ getConceptID<-function(yeast_genes){
   colnames(out)<-c("SGD_Id","EKP_Concept_Id","Gene_name")
   return(out)
 }
+
+getConceptID(yeast_genes)
+write.csv(out,file="Example_output.csv")
+
+
 
 ##########################################################
 #query<- "/external/semantic-categories"
