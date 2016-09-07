@@ -32,6 +32,15 @@ setwd("/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM")
 yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 
 
+phenotype <- read.csv("/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM/dropbox/Resistance_terms.txt",header=FALSE)
+
+# separate onto columns
+phenotype <- separate(data = phenotype, col = V1, into = c("terms", "class"), sep = "\tequals\t")
+
+
+
+
+
 # Execute the query
 #pr <- POST(url = paste(base_url, query, sep =""), 
 #           add_headers('X-token' = token),
