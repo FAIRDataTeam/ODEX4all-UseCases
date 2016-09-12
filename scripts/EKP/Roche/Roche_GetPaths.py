@@ -3,8 +3,10 @@ from scripts.EKP.EKP2 import connection
 import os
 import csv
 import configparser
+import logging
 os.chdir('/Users/Wytze/git/ODEX4all-UseCases/scripts/EKP')
-
+logging.basicConfig(filename='logs/Roche.log',level=logging.DEBUG)
+logging.info("===================== Started a new session =====================")
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -61,3 +63,6 @@ for line in reader:
                                BC_predicates + BC_sourceNames)
 
 signals.close()
+
+
+# Analyse uitvoeren met Caret package in R

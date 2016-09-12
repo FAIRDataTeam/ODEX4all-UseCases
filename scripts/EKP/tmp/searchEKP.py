@@ -18,7 +18,7 @@ import time
 import AnalyzeResults
 import sys
 
-opts = parser.parse_args()  
+opts = parser.parse_args()
 config = ConfigParser.ConfigParser()
 config.read("config.ini")
 sections = config.sections()
@@ -35,7 +35,7 @@ def main():
 	EKP = EKPsearch(username, password, url)
 	#Retrieve all categories and semantic types in EKP.
 	EKP.setSemanticTypeDict()
-	commensals_list = csvcommensalstoIDs()	
+	commensals_list = csvcommensalstoIDs()
 	filter_typename = config.get('groups', 'input')
 	input_ids, notfoundcommensals = EKP.nametoID(commensals_list, filter_typename=filter_typename)
 	print input_ids
@@ -44,7 +44,7 @@ def main():
 		log_file.write("The number of unfound commensals were "+str(len(notfoundcommensals)))
 		AnalyzeResults.main(output_name, log_file)
 	EKP.logout()
-	
+
 def csvcommensalstoIDs():
 	'''
 	Reads the input csv file and checks if the commensals are in the
@@ -62,7 +62,7 @@ def csvcommensalstoIDs():
 		commensals_list.append(commensal)
 	input_file.close()
 	return commensals_list
-	
+
 def FiletoDict(infile):
 	'''
 	Parses a tab delimited file to a dictionary. The first colom functions
@@ -129,7 +129,7 @@ def getEKPrelations(EKP, input_ids):
 			indirect_all= indirect_all + response['content']
 	output_name = writeoutput(EKP, indirect_all, gut_all, intestines_all)
 	return output_name
-	
+
 def searchEKPrelations(EKP, input_group, category, concepts, output_list):
 	'''
 	Searches EKP for direct relations between concepts.
@@ -147,12 +147,12 @@ def searchEKPrelations(EKP, input_group, category, concepts, output_list):
 		for g in connected_concepts['content']:
 			output_list.append(g['tier1Concept']['gi'])
 	return output_list
-	
+
 
 def writeoutput(EKP, indirect_all, gut_all, intestines_all):
 	'''
 	Obtains all the data from the dictionaries and writes them to the outputfile.
-	Parameters: 
+	Parameters:
 	EKP: Object that retrieves information from the Euretos database
 	indirect_all: a list with all the indirect relationships
 	gut_all: a list with all the concepts that are in the gut
@@ -175,7 +175,7 @@ def writeoutput(EKP, indirect_all, gut_all, intestines_all):
 		intermediate = relation['tier1Concept']['name']
 		intermediate_cat = relation['tier1Concept']['category']
 		intermediate_concept = EKP.getConcept(relation['tier1Concept']['gi'])
-		location_ID = relation['tier1Concept']['gi'] 
+		location_ID = relation['tier1Concept']['gi']
 		output_STs = ""
 		for g in intermediate_concept['semanticTypes']:
 			for key, value in EKP.semantictypes_dict.items():
@@ -194,7 +194,7 @@ def writeoutput(EKP, indirect_all, gut_all, intestines_all):
 		pubs1 = []
 		pubs2 = []
 		#searches for publications for each relation
-		for w in range(0,nrows):				
+		for w in range(0,nrows):
 			if w <= len(relation['tier01TripleInformation']) - 1:
 				predicate1 = relation['tier01TripleInformation'][w]['predicateName']
 				pub_info = EKP.getPublications(relation['tier01TripleInformation'][w]['tripleUuid'])
@@ -221,11 +221,11 @@ def writeoutput(EKP, indirect_all, gut_all, intestines_all):
 				triple_list.append(triple2)
 	indirect_out.close()
 	return output_name
-	
-	
+
+
 if __name__ == '__main__':
 	'''
-	When you call the script form the command line there are a few variables you can initiate. 
+	When you call the script form the command line there are a few variables you can initiate.
 	Otherwise these variables can be determined by the connecting script.
 	'''
 	parser = argparse.ArgumentParser(usage=__doc__)
@@ -237,4 +237,4 @@ if __name__ == '__main__':
 		date = datetime.datetime.today().strftime("%Y_%m_%d")
 		log_file.write("------------------------------\n Run on "+str(date)+" "+str(cur_time)+"\n")
 	main()
-	
+

@@ -10,6 +10,8 @@ config.read('scripts/EKP/config.ini')
 c = connection(config)
 #c.setDirectory("Roche")
 
+
+BT = c.getID("Bivalirudin")
 migraine = c.getID("migraine", "Disorders")[0]['id']
 headache = c.getID("headache", "Disorders")[0]['id']
 

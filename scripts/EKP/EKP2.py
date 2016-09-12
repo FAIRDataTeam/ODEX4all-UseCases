@@ -21,7 +21,6 @@ class connection:
         self.Categories = self.getSemanticCategories()
         self.Taxonomy = self.getTaxonomy()
         self.Predicates = self.getPredicates()
-        self.logging.basicConfig(filename='EKP_connection.log', level=self.logging.DEBUG)
 
     def setDirectory(self, sub_directory = None):
         # Create a working directory for the specific date.
@@ -33,7 +32,6 @@ class connection:
         if not os.path.exists(todays_directory):
             os.makedirs(todays_directory)
         os.chdir(todays_directory)
-        self.logging.basicConfig(filename='EKP_connection.log', level=self.logging.DEBUG)
         self.logging.info("Set working directory to " + todays_directory)
 
     def getToken(self):
@@ -195,7 +193,7 @@ class connection:
                     "searchType": "TOKEN"
                     }
         concept = self.r.post(self.url + call, json=query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + str(query) + ", returned " + str(len(concept)) + " concepts")
+        self.logging.info("Executed " + call + " with query " + str(query) + ", returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept]))
         return concept
 
     def getConcepts(self, IDs):
@@ -224,7 +222,7 @@ class connection:
         if 'content' in response.keys():
             connections = response['content']
             if response['totalPages'] > 1:
-                for page in range(2, response['totalPages'] + 1):
+                for page in range(1, response['totalPages']):
                     connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             return connections
         else:
@@ -246,9 +244,9 @@ class connection:
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         self.logging.info("Executed " + call + " with query " + str(query))
         if 'content' in response.keys():
-            connections = response['content']
             if response['totalPages'] > 1:
-                for page in range(2, response['totalPages'] + 1):
+                connections = response['content']
+                for page in range(1, response['totalPages']):
                     connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             return connections
         else:
@@ -269,7 +267,7 @@ class connection:
         self.logging.info("Executed " + call + " with query " + query)
         if response['totalPages'] > 1:
             output = response['content']
-            for page in range(2, response['totalPages']):
+            for page in range(1, response['totalPages']):
                 output += self.r.post(self.url + call, json=query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             return output
         else:
