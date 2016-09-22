@@ -2,10 +2,10 @@
 
 use strict;
 
+my $table = $ARGV[0] || 'B4F.odex4all.QTL';
 my $header = <>; # first line must be a header
 chomp($header);
 my $colist = '"' . join('","', split /\t/, $header) . '"'; # ordered list of collumn names
-my $table = 'B4F.odex4all.ONTO';
 while (<>) {
    chomp;
    my @values;
