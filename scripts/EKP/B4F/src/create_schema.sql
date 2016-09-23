@@ -1,3 +1,5 @@
+USER_CREATE('odex4all', 'odex4all');
+
 CREATE TABLE "B4F"."odex4all"."QTL" (
    "chromosome"		VARCHAR,
    "source"		VARCHAR,
