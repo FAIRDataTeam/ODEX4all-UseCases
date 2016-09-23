@@ -1,12 +1,18 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/env perl
 
 use strict;
+use warnings;
 
 my $table = $ARGV[0] || 'B4F.odex4all.QTL'; # catalog.schema.name in Virtuoso jargon
-my $header = <>; # first line must be a header
+my $infile = $ARGV[1];
+
+die "Usage: $0 [catalog.schema.name] [*.tsv file]\n" unless $infile;
+
+open IN, $infile or die "Can't open $infile.\n";
+my $header = <IN>; # first line must be a header
 chomp($header);
 my $colist = '"' . join('","', split /\t/, $header) . '"'; # ordered list of collumn names
-while (<>) {
+while (<IN>) {
    chomp;
    my @values;
    foreach my $val(split /\t/) {
@@ -17,4 +23,5 @@ while (<>) {
    $vals =~ s/''/NULL/g;
    print "INSERT INTO $table ($colist) VALUES ($vals);\n";
 }
+close IN;
 
