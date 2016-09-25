@@ -18,7 +18,7 @@ docker build -t nlesc/virtuoso .</code>
 
 `docker exec -i vos isql < create_db.sql`
 
-**5. Prepare input data.**
+**5. Prepare data for import.**
 <pre>
 <code>./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
 ./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql</code>
@@ -26,7 +26,8 @@ docker build -t nlesc/virtuoso .</code>
 
 **6. Import data into Virtuoso relational store (RDB).**
 <pre>
-<code>docker exec -i vos isql < QTL.sql
-docker exec -i vos isql < ONTO.sql
-docker exec -i vos isql < update_db.sql</code>
+<code>ARG="VERBOSE=OFF"
+docker exec -i vos isql $ARG < QTL.sql
+docker exec -i vos isql $ARG < ONTO.sql
+docker exec -i vos isql $ARG < update_db.sql</code>
 </pre>
