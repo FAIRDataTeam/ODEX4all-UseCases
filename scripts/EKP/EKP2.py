@@ -63,7 +63,7 @@ class connection:
                    headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         ST = SemanticTypes['content']
 
-        for page in range(2, SemanticTypes['totalPages'] + 1):
+        for page in range(1, SemanticTypes['totalPages']):
             ST += self.r.get(self.url + "/external/semantic-types", params = {"page" : page},
                             headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
         self.logging.debug("Retrieved semantic types from platform")
@@ -83,7 +83,7 @@ class connection:
         # Get all predicates, and their mapped codes. Their definitions can be obtained as well by setting "raw" to True.
         response = self.r.get(self.url + "/external/predicates", headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         predicates = response['content']
-        for page in range(2, response['totalPages'] + 1):
+        for page in range(1, response['totalPages']):
             predicates += self.r.get(self.url + "/external/predicates", params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
         self.logging.debug("Retrieved list of predicates from platform")
         if raw:
@@ -108,7 +108,7 @@ class connection:
         response = self.r.post(self.url + "/external/taxonomies", headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         for t in response['content']:
             Taxonomy.append(t["name"])
-        for page in range(2, response['totalPages'] + 1):
+        for page in range(1, response['totalPages']):
             page_response = self.r.post(self.url + "/external/taxonomies", params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
             for p in page_response:
                 Taxonomy.append(p['name'])
@@ -142,9 +142,13 @@ class connection:
     def execute(self, api_call, query, parameters):
         # Generic execution function. Api-call, json-query, paramters have to be customly defined and supplied.
         # As it will be commonly be used for more complex calls, it is set to POST.
-        response = self.r.post(self.url + api_call, json = query, params = parameters, headers = {'Content-type': 'application/json', "X-Token": self.token})
-        self.logging.info("Executed " + api_call + "\n with query " + query + "\n with parameters " + parameters)
-        return response
+        self.logging.info("Executing " + api_call + "\n with query " + str(query) + "\n with parameters " + str(parameters))
+        response = self.r.post(self.url + api_call, json = query, params = parameters, headers = {'Content-type': 'application/json', "X-Token": self.token}).json()
+        if 'content' in response.keys():
+            self.logging.info("Returned " + str(len(response)) + " items")
+            return response['content']
+        else:
+            return response
 
     def mapSemanticType(self, semanticType):
         # Input semantic types should always be supplied as a "T" code.
@@ -192,8 +196,9 @@ class connection:
                     "queryString":  qs,
                     "searchType": "TOKEN"
                     }
+        self.logging.info("Executing " + call + " with query " + str(query))
         concept = self.r.post(self.url + call, json=query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + str(query) + ", returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept]))
+        self.logging.info("Returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept]))
         return concept
 
     def getConcepts(self, IDs):
@@ -203,8 +208,8 @@ class connection:
                     "additionalFields": ["synonyms", "description", "semanticCategory", "semanticTypes", "taxonomies", "measures", "accessMappings", "hasTriples", "source", "knowledgebase"],
                     "ids" : IDs
                     }
+        self.logging.info("Executing " + call + " with query " + str(query))
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + str(query))
         return response
 
     def getDirectRelationship(self, start, end, linkweight = "PWS"):
@@ -217,14 +222,17 @@ class connection:
                     "relationshipWeightAlgorithm": linkweight,
                     "sort": "DESC"
                     }
+        self.logging.info("Executing " + call + " with query " + str(query))
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + str(query))
         if 'content' in response.keys():
             connections = response['content']
             if response['totalPages'] > 1:
                 for page in range(1, response['totalPages']):
                     connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
-            return connections
+                self.logging.info("Returned " + str(len(connections)) + " items")
+                return connections
+            else:
+                return response
         else:
             return response
 
@@ -241,14 +249,17 @@ class connection:
                     "relationshipWeightAlgorithm": linkweight,
                     "sort": "DESC"
                     }
+        self.logging.info("Executing " + call + " with query " + str(query))
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + str(query))
         if 'content' in response.keys():
             if response['totalPages'] > 1:
                 connections = response['content']
                 for page in range(1, response['totalPages']):
                     connections += self.r.post(self.url + call, json = query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
-            return connections
+                self.logging.info("Returned " + str(len(connections)) + " items")
+                return connections
+            else:
+                return response
         else:
             return response
 
@@ -263,12 +274,13 @@ class connection:
                     "relationshipWeightAlgorithm": linkweight,
                     "sort": "DESC"
                     }
+        self.logging.info("Executing " + call + " with query " + query)
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Executed " + call + " with query " + query)
         if response['totalPages'] > 1:
             output = response['content']
             for page in range(1, response['totalPages']):
                 output += self.r.post(self.url + call, json=query, params = {"page" : page}, headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
+            self.logging.info("Returned " + str(len(output)) + " paths")
             return output
         else:
             return response['content']
@@ -280,8 +292,9 @@ class connection:
                     "additionalFields": ["predicateName", "measures", "accessMappings"],
                     "ids": triple_ids
                     }
+        self.logging.info("Executing " + call + " with query " + str(query))
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
-        self.logging.info("Executed " + call + " with query " + str(query))
+        self.logging.info("Returned " + str(len(response)) + " publication ID's")
         return response
 
     def getPubliciations(self, pub_ids):
@@ -305,9 +318,9 @@ class connection:
                     "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC"],
                     "ids": part
                     }
+            self.logging.info("Executing " + call + " with query " + str(query))
             response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
-            self.logging.info("Executed " + call + " with query " + str(query))
             if response.ok and 'message' not in response.json():
                 out += response.json()
-
+        self.logging.info("Returned " + str(len(response)) + " publications")
         return out

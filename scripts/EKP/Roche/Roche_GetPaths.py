@@ -14,6 +14,17 @@ config.read('config.ini')
 # Set up the connection
 c = connection(config)
 
+# Read in the targets of the drugs
+target_dict = {}
+input = open("Roche/drug_target_uniprot_links.csv", "r")
+reader = csv.reader(input, delimiter = ",")
+for line in reader:
+    if line[0] not in target_dict.keys():
+        target_dict[line[0]] = [line[3]]
+    else:
+        target_dict[line[0]].append(line[3])
+input.close()
+
 # Load the data
 input = open("Roche/DiseaseTarget_referenceSet.csv", "r")
 reader = csv.reader(input, delimiter = ";")
@@ -24,7 +35,7 @@ c.setDirectory("Roche")
 
 intermediate_filter = c.createFilter(["T116", "homo sapiens"])
 
-signals = open("Functional drugs.csv", "w")
+signals = open("Functional drugs.csv", "w", encoding='utf-8')
 out_write = csv.writer(signals, delimiter = ";")
 
 # Map to concepts and get paths
@@ -36,15 +47,10 @@ for line in reader:
     gene_ids = []
     for g in genes:
         gene_ids.append(c.getID("[entrezgene]" + g, "T028")[0]['id'])
-    drug_id = c.getID(line[0], "T121")
-    if len(drug_id) == 0:
-        print("Could not map " + line[0] + " to concept Identifier")
-        drugs = []
-        drug_id = c.getID(line[1], "T121")
-        # Apparently there can be more than one concept ID for each drug, and they are split according to brand name. We will select them all.
-        for d in drug_id:
-           drugs.append(d['id'])
-    paths = c.getIndirectRelationship(drugs, gene_ids, intermediate_filter)
+    drug_targets = []
+    for t in target_dict[line[0]]:
+        drug_targets.append(c.getID(t, source = 'uniprot')[0]['id'])
+    paths = c.getIndirectRelationship(drug_targets, gene_ids, intermediate_filter)
     if type(paths) is list:
         for p in paths:
             start = [p['concepts'][0]['name'], p['concepts'][0]['id'], p['concepts'][0]['semanticTypes']]
@@ -54,15 +60,12 @@ for line in reader:
             AB_predicates = [c.mapPredicate(x) for x in p['relationships'][0]['predicateIds']]
             AB_pubs = c.getPubliciations(p['relationships'][0]['publicationIds'])
             AB_sourceNames = [y['sourceName'] for y in AB_pubs]
-            AB_sourceIds = [z['sourceId'] for z in AB_pubs]
+            #AB_sourceIds = [z['sourceId'] for z in AB_pubs]
             BC_predicates = [c.mapPredicate(x) for x in p['relationships'][1]['predicateIds']]
             BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
             BC_sourceNames = [y['sourceName'] for y in BC_pubs]
-            BC_sourceIds = [z['sourceId'] for z in BC_pubs]
-            out_write.writerow(start + middle + end + [score] + AB_predicates + AB_sourceNames +
-                               BC_predicates + BC_sourceNames)
+            #BC_sourceIds = [z['sourceId'] for z in BC_pubs]
+            out_write.writerow(start + middle + end + [score] + [AB_predicates] + AB_sourceNames + [BC_predicates] +
+                                BC_sourceNames)
 
 signals.close()
-
-
-# Analyse uitvoeren met Caret package in R
