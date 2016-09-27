@@ -1,4 +1,4 @@
-
+library(dplyr)
 
 ## Introduction: To identify genotype-phenotype relationships for yeast genes related to butanol tolerance using the Euretos Knowledge platform 
 
@@ -31,24 +31,33 @@ start<-getConceptID(as.character(yeast_genes[,1]))
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
 
 query = "/external/concepts/search"
-end1 <- getConceptID("resistance to chemicals")
+end <- getConceptID("resistance to chemicals")
 
-
-
-## Step 1c: Get the ending concept identifiers for "butanol tolerance"
-query = "/external/concepts/search"
-end2 <- getConceptID("botanol tolerance")
 
 
 ## Step 2a: Get Indirect relationships from EKP for ending terms "resistance to chemicals"
 query = "/external/concept-to-concept/indirect"
-resistance2Chemicals<-getIndirectRelation(start,end1)
+resistance2Chemicals<-getIndirectRelation(start,end)
+
+df<-fromJSON(toJSON(resistance2Chemicals),flatten=TRUE)
+
+do.call(rbind,df) %>% as.data.frame ->b
+
+write.csv(dfs,file="Example_output.csv")
 
 
-## Step 2b: Get Indirect relationships from EKP for ending terms "butanol tolerance"
-query = "/external/concept-to-concept/indirect"
-butanolTolerance<-getIndirectRelation(start,end2)
 
 
-write.csv(out,file="Example_output.csv")
+
+
+
+
+
+
+
+
+
+
+
+
 
