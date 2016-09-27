@@ -1,5 +1,13 @@
+--
+-- Create RDB schema for pig QTLdb data.
+--
+-- Author: Arnold Kuzniar
+--
+
+-- create user
 USER_CREATE('odex4all', 'odex4all');
 
+-- create database tables
 CREATE TABLE "B4F"."odex4all"."QTL" (
    "chromosome"		VARCHAR,
    "source"		VARCHAR,
@@ -33,6 +41,8 @@ CREATE TABLE "B4F"."odex4all"."QTL" (
 );
 CREATE INDEX idx_QTL_chromosome ON B4F.odex4all.QTL("chromosome");
 CREATE INDEX idx_QTL_region ON B4F.odex4all.QTL("start_pos","end_pos");
+CREATE INDEX idx_QTL_start ON B4F.odex4all.QTL("start_pos");
+CREATE INDEX idx_QTL_end ON B4F.odex4all.QTL("end_pos");
 CREATE INDEX idx_QTL_pmid ON B4F.odex4all.QTL("pmid");
 CREATE INDEX idx_QTL_cmo_md5 ON B4F.odex4all.QTL("cmo_md5");
 CREATE INDEX idx_QTL_vt_md5 ON B4F.odex4all.QTL("vt_md5");
@@ -46,3 +56,16 @@ CREATE TABLE "B4F"."odex4all"."ONTO" (
    PRIMARY KEY ("id")
 );
 CREATE INDEX idx_ONTO_name_md5 ON B4F.odex4all.ONTO("name_md5");
+
+-- create views
+CREATE VIEW B4F.odex4all.V_QTL AS
+SELECT DISTINCT chromosome, start_pos, end_pos
+FROM B4F.odex4all.QTL;
+
+CREATE VIEW B4F.odex4all.V_QTL_CHROM AS
+SELECT DISTINCT chromosome FROM B4F.odex4all.QTL;
+
+-- grant select privilege on created tables/views to user
+GRANT SELECT ON B4F.odex4all.QTL TO SPARQL_SELECT;
+GRANT SELECT ON B4F.odex4all.V_QTL TO SPARQL_SELECT;
+GRANT SELECT ON B4F.odex4all.V_QTL_CHROM TO SPARQL_SELECT;
