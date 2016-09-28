@@ -1,5 +1,7 @@
 --
--- Post-installation: Virtuoso Faceted Browser
+-- Post-installation script for Virtuoso Faceted Browser
+--
+-- Author: Arnold Kuzniar
 --
 
 -- build full-text indices

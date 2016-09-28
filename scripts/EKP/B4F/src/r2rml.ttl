@@ -25,7 +25,7 @@
         rr:template "http://localhost:8890/genome/Sus_scrofa/qtl/{qtl_id}" ;
         rr:class obo:SO_0000771 ;
         rr:termType rr:IRI ;
-        rr:graph <http://localhost:8890/B4F>
+        rr:graph <>
     ] ;
 
     rr:predicateObjectMap [
@@ -40,24 +40,25 @@
     rr:predicateObjectMap [
         rr:predicate faldo:location ;
         rr:objectMap [
-            rr:parentTriplesMap <#ChrRegTriplesMap>
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}-{end_pos}" ;
+            rr:termType rr:IRI
         ] ;
     ] .
 
-<#ChrRegTriplesMap>
+<#RegionTriplesMap>
     a rr:TriplesMap ;
 
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "QTL"
+        rr:tableName   "V_QTL"
     ] ;
 
     rr:subjectMap [
         rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}-{end_pos}" ;
-        rr:class faldo:Region ;
+        rr:class faldo:Region;
         rr:termType rr:IRI ;
-        rr:graph <http://localhost:8890/B4F>
+        rr:graph <>
     ] ;
 
     rr:predicateObjectMap [
@@ -71,24 +72,26 @@
     rr:predicateObjectMap [
         rr:predicate faldo:begin ;
         rr:objectMap [
-            rr:parentTriplesMap <#ChrRegStartTriplesMap>
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}" ;
+            rr:termType rr:IRI
         ] ;
     ] ;
 
     rr:predicateObjectMap [
         rr:predicate faldo:end ;
         rr:objectMap [
-            rr:parentTriplesMap <#ChrRegEndTriplesMap>
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{end_pos}" ;
+            rr:termType rr:IRI
         ] ;
     ] .
 
-<#ChrRegStartTriplesMap>
+<#RegionStartTriplesMap>
     a rr:TriplesMap ;
 
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "QTL"
+        rr:tableName   "V_QTL"
     ] ;
 
     rr:subjectMap [
@@ -96,7 +99,7 @@
         rr:class faldo:ExactPosition ;
         rr:class faldo:Position ;
         rr:termType rr:IRI ;
-        rr:graph <http://localhost:8890/B4F>
+        rr:graph <>
     ] ;
 
     rr:predicateObjectMap [
@@ -122,15 +125,15 @@
             rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
             rr:termType rr:IRI
         ] ;
-    ] .
+     ] .
 
-<#ChrRegEndTriplesMap>
+<#RegionEndTriplesMap>
     a rr:TriplesMap ;
 
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "QTL"
+        rr:tableName   "V_QTL"
     ] ;
 
     rr:subjectMap [
@@ -138,7 +141,7 @@
         rr:class faldo:ExactPosition ;
         rr:class faldo:Position ;
         rr:termType rr:IRI ;
-        rr:graph <http://localhost:8890/B4F>
+        rr:graph <>
     ] ;
 
     rr:predicateObjectMap [
@@ -163,5 +166,38 @@
         rr:objectMap [
             rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
             rr:termType rr:IRI
+        ] ;
+    ] .
+
+<#ChromTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_QTL_CHROM"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
+        rr:class obo:SO_0000340 ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [
+            rr:template "chromosome {chromosome}" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dcterms:identifier ;
+        rr:objectMap [
+            rr:column "chromosome" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:string
         ] ;
     ] .
