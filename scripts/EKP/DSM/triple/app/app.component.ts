@@ -73,7 +73,7 @@ export class AppComponent {
             var ry = 0;
             var colors = d3.scale.category10();
             d3.select("svg").remove();
-            var svg = d3.select("#graph").append("svg").attr({ "width": w, "height": h ,class:'graphcla'});
+            var svg = d3.select("#graph").append("svg").attr({ "width": '100%', "height": '100%' ,class:'graphcla'});
             var force = d3.layout.force()
                 .nodes(this.nodes)
                 .links(this.edges)
@@ -204,6 +204,7 @@ export class AppComponent {
                     }
                 });
             });
+
     }
     /**
      * search by predicate

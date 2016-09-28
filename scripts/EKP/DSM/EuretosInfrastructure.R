@@ -75,6 +75,55 @@ getIndirectRelation<-function(start,end){
   }
 
 
+
+
+
+## Get Concept name from concept id
+query<- "/external/concepts"
+out<-NULL
+getConceptName<-function(ids){
+  ids<-unique(ids)
+  for (i in 1:length(ids)){
+    b<-paste0("{",'"ids":','["',as.character(ids[i]),'"]',"}",sep="")
+    pr <- POST(url = paste(base_url, query, sep =""), 
+               add_headers('X-token' = token),
+               body=fromJSON(b,simplifyVector = FALSE),
+               encode = "json", 
+               accept_json(),verbose())
+    a<-content(pr)
+    #print (a)
+    a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
+    out<-rbind(out,a)
+  }
+  return(out)
+}
+
+
+
+## Get predicate name predicate
+getPredicateName<-function(){
+  pr <- POST(url = paste(base_url, query, sep =""), 
+             add_headers('X-token' = token),
+             body=NULL,
+             encode = "json", 
+             accept_json(),verbose())
+  a<-content(pr)
+  pages<-list()
+  for (i in 1:a$totalPages){
+    pr <- POST(url = paste(base_url, query,"?page=",i ,sep =""), 
+               add_headers('X-token' = token),
+               body=NULL,
+               encode = "json", 
+               accept_json(),verbose())
+    b<-content(pr)
+    message("Retrieving page ", i)
+    pages[[i+1]]<-b$content
+  }
+  return(pages)
+}
+
+
+
 ##########################################################
 
 #           Examples to run queries                      #

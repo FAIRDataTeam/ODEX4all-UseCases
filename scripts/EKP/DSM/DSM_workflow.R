@@ -1,4 +1,6 @@
 library(dplyr)
+library(tidyr)
+setwd("/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM")
 
 ## Introduction: To identify genotype-phenotype relationships for yeast genes related to butanol tolerance using the Euretos Knowledge platform 
 
@@ -43,7 +45,37 @@ df<-fromJSON(toJSON(resistance2Chemicals),flatten=TRUE)
 
 do.call(rbind,df) %>% as.data.frame ->b
 
-write.csv(dfs,file="Example_output.csv")
+### Get only the relationships
+
+rel<-b[,2]
+
+### collapse into a list
+dfs<-do.call(rbind,rel)
+
+
+tt<-fromJSON(toJSON(dfs),flatten = TRUE)
+row.names(tt)<-NULL
+colnames(tt)<-NULL
+
+tt[,1]<-unlist(tt[,1])
+tt[,2]<-unlist(tt[,2])
+tt[,3]<-sapply(tt[,3], paste0, collapse=",")
+colnames(tt)<-c("sub","obj","pred")
+
+tt%>% mutate(pred=strsplit(as.character(pred),",")) %>% unnest(pred) -> tripleId
+row.names(tt)<-NULL
+tripleId<-tripleId[,c(1,3,2)]
+
+
+subject<-getConceptName(tripleId[,1])
+object<-getConceptName(tripleId[,3])
+
+
+### Load reference predicate database ####
+
+cbind(subject[,2],tripleId[,2],object[,2])
+
+write.table(tripleId,file="/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM/triple/app/triple.csv",sep=";")
 
 
 
