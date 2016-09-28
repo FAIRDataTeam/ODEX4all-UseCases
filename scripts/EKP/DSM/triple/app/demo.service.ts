@@ -34,24 +34,26 @@ export class DemoService {
         var arr = res._body.split("\n");
         for (var index in arr) // for acts as a foreach
         {
-            var splitnode = arr[index].split(';');
-            subject = splitnode[0].replace(/"/g, '');
-            object = splitnode[2].replace(/"/g, '');
-            predicate = splitnode[1].replace(/"/g, '');
-            if(nodeArray.indexOf(subject)<0){
-                nodeArray.push(subject);
-            }
-            if(nodeArray.indexOf(object)<0){
-                nodeArray.push(object);
-            }
-            subjectIndex = nodeArray.indexOf(subject);
-            objectIndex = nodeArray.indexOf(object);
-            if(subjectIndex>=0 && objectIndex>=0){
-                edges.push({
-                    source: subjectIndex,
-                    target: objectIndex,
-                    predicate: predicate
-                });
+            if(arr[index]!==undefined && arr[index]!==null && arr[index]!==''){
+                var splitnode = arr[index].split(';');
+                subject = splitnode[0].replace(/"/g, '');
+                object = splitnode[2].replace(/"/g, '');
+                predicate = splitnode[1].replace(/"/g, '');
+                if(nodeArray.indexOf(subject)<0){
+                    nodeArray.push(subject);
+                }
+                if(nodeArray.indexOf(object)<0){
+                    nodeArray.push(object);
+                }
+                subjectIndex = nodeArray.indexOf(subject);
+                objectIndex = nodeArray.indexOf(object);
+                if(subjectIndex>=0 && objectIndex>=0){
+                    edges.push({
+                        source: subjectIndex,
+                        target: objectIndex,
+                        predicate: predicate
+                    });
+                }
             }
         }
         for (var nodeindex in nodeArray) // for acts as a foreach
