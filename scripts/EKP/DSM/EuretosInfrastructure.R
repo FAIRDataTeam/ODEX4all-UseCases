@@ -79,9 +79,23 @@ getIndirectRelation<-function(start,end){
 
 
 ## Get Concept name from concept id
-
-getConceptName<-function(a){
-
+query<- "/external/concepts"
+out<-NULL
+getConceptName<-function(ids){
+  ids<-unique(ids)
+  for (i in 1:length(ids)){
+    b<-paste0("{",'"ids":','["',as.character(ids[i]),'"]',"}",sep="")
+    pr <- POST(url = paste(base_url, query, sep =""), 
+               add_headers('X-token' = token),
+               body=fromJSON(b,simplifyVector = FALSE),
+               encode = "json", 
+               accept_json(),verbose())
+    a<-content(pr)
+    #print (a)
+    a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
+    out<-rbind(out,a)
+  }
+  return(out)
 }
 
 
