@@ -58,14 +58,14 @@ CREATE TABLE "B4F"."odex4all"."ONTO" (
 CREATE INDEX idx_ONTO_name_md5 ON B4F.odex4all.ONTO("name_md5");
 
 -- create views
-CREATE VIEW B4F.odex4all.V_QTL AS
+CREATE VIEW B4F.odex4all.V_QTL_POS AS
 SELECT DISTINCT chromosome, start_pos, end_pos
 FROM B4F.odex4all.QTL;
 
-CREATE VIEW B4F.odex4all.V_QTL_CHROM AS
+CREATE VIEW B4F.odex4all.V_CHROM AS
 SELECT DISTINCT chromosome FROM B4F.odex4all.QTL;
 
 -- grant select privilege on created tables/views to user
 GRANT SELECT ON B4F.odex4all.QTL TO SPARQL_SELECT;
-GRANT SELECT ON B4F.odex4all.V_QTL TO SPARQL_SELECT;
-GRANT SELECT ON B4F.odex4all.V_QTL_CHROM TO SPARQL_SELECT;
+GRANT SELECT ON B4F.odex4all.V_QTL_POS TO SPARQL_SELECT;
+GRANT SELECT ON B4F.odex4all.V_CHROM TO SPARQL_SELECT;

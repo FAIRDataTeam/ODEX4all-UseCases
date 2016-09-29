@@ -51,7 +51,7 @@
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "V_QTL"
+        rr:tableName   "V_QTL_POS"
     ] ;
 
     rr:subjectMap [
@@ -91,7 +91,7 @@
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "V_QTL"
+        rr:tableName   "V_QTL_POS"
     ] ;
 
     rr:subjectMap [
@@ -133,7 +133,7 @@
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "V_QTL"
+        rr:tableName   "V_QTL_POS"
     ] ;
 
     rr:subjectMap [
@@ -175,7 +175,7 @@
     rr:logicalTable [
         rr:tableSchema "B4F" ;
         rr:tableOwner  "odex4all" ;
-        rr:tableName   "V_QTL_CHROM"
+        rr:tableName   "V_CHROM"
     ] ;
 
     rr:subjectMap [
