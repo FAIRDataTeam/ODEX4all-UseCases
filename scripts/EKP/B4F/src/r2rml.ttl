@@ -1,0 +1,203 @@
+#
+# R2RML mappings from RDB (pig QTLdb) to RDF graph.
+# 
+# Author: Arnold Kuzniar
+#
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+
+<#QtlTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "QTL"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/qtl/{qtl_id}" ;
+        rr:class obo:SO_0000771 ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dcterms:identifier ;
+        rr:objectMap [
+            rr:column "qtl_id" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:positiveInteger
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:location ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}-{end_pos}" ;
+            rr:termType rr:IRI
+        ] ;
+    ] .
+
+<#RegionTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_QTL_POS"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}-{end_pos}" ;
+        rr:class faldo:Region;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [
+            rr:template "region {start_pos}-{end_pos} bp on chromosome {chromosome}" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:begin ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}" ;
+            rr:termType rr:IRI
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:end ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{end_pos}" ;
+            rr:termType rr:IRI
+        ] ;
+    ] .
+
+<#RegionStartTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_QTL_POS"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{start_pos}" ;
+        rr:class faldo:ExactPosition ;
+        rr:class faldo:Position ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [
+            rr:template "position at {start_pos} bp on chromosome {chromosome}" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+    
+    rr:predicateObjectMap [
+        rr:predicate faldo:position ;
+        rr:objectMap [
+            rr:column "start_pos" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:positiveInteger
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:reference ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
+            rr:termType rr:IRI
+        ] ;
+     ] .
+
+<#RegionEndTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_QTL_POS"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{end_pos}" ;
+        rr:class faldo:ExactPosition ;
+        rr:class faldo:Position ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [
+            rr:template "position at {end_pos} bp on chromosome {chromosome}" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:position ;
+        rr:objectMap [
+            rr:column "end_pos" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:positiveInteger
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate faldo:reference ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
+            rr:termType rr:IRI
+        ] ;
+    ] .
+
+<#ChromTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_CHROM"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
+        rr:class obo:SO_0000340 ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:comment ;
+        rr:objectMap [
+            rr:template "chromosome {chromosome}" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dcterms:identifier ;
+        rr:objectMap [
+            rr:column "chromosome" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:string
+        ] ;
+    ] .

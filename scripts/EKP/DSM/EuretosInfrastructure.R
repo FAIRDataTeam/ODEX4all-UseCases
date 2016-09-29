@@ -31,10 +31,6 @@ token <- content(res)$token
 base_url <- "http://178.63.49.197:8080/spine-ws"
 
 
-
-
-
-
 ## A generic function that takes list of SGD Ids and returns back a table with SGD_Id, Concept_Id and Gene names
 ### double quotes are embeded in single q
 ## "quotes are not necessary inside square braces"
@@ -61,24 +57,71 @@ getConceptID<-function(terms){
 ## Get indirect relationships at this URL
 getIndirectRelation<-function(start,end){
   d<-NULL
+  pages<-list()
   for (i in 1:length(start$EKP_Concept_Id)){
     for (j in 1:length(end$EKP_Concept_Id)){
-      template<-paste("{",'"additionalFields": ["semanticCategory"]',",",'"leftInputs":[',start$EKP_Concept_Id[i],']',",",'"rightInputs":[',end$EKP_Concept_Id[j],']',"}",sep="")
-      template<-fromJSON(template,simplifyVector = FALSE)
+      template<-paste0("{",'"additionalFields": ["semanticCategory","predicateIds"]',",",'"leftInputs":[',start$EKP_Concept_Id[i],']',",",'"rightInputs":[',end$EKP_Concept_Id[j],']',"}")
+      template<-fromJSON(template,simplifyVector = FALSE,"&page=",i)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
                  body=template,
                  encode = "json", 
                  accept_json(),verbose())
       a<-content(pr)
-      a<-unlist(a)
-      if(a[["totalElements"]]>0){
-        d<-rbind(d,a)
-      }
+      pages[[i+1]]<-a$content
     }
   }
-  return(d)
+  return(pages)
   }
+
+
+
+
+
+## Get Concept name from concept id
+query<- "/external/concepts"
+out<-NULL
+getConceptName<-function(ids){
+  ids<-unique(ids)
+  for (i in 1:length(ids)){
+    b<-paste0("{",'"ids":','["',as.character(ids[i]),'"]',"}",sep="")
+    pr <- POST(url = paste(base_url, query, sep =""), 
+               add_headers('X-token' = token),
+               body=fromJSON(b,simplifyVector = FALSE),
+               encode = "json", 
+               accept_json(),verbose())
+    a<-content(pr)
+    #print (a)
+    a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
+    out<-rbind(out,a)
+  }
+  return(out)
+}
+
+
+
+## Get predicate name predicate
+getPredicateName<-function(){
+  pr <- POST(url = paste(base_url, query, sep =""), 
+             add_headers('X-token' = token),
+             body=NULL,
+             encode = "json", 
+             accept_json(),verbose())
+  a<-content(pr)
+  pages<-list()
+  for (i in 1:a$totalPages){
+    pr <- POST(url = paste(base_url, query,"?page=",i ,sep =""), 
+               add_headers('X-token' = token),
+               body=NULL,
+               encode = "json", 
+               accept_json(),verbose())
+    b<-content(pr)
+    message("Retrieving page ", i)
+    pages[[i+1]]<-b$content
+  }
+  return(pages)
+}
+
 
 
 ##########################################################

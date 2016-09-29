@@ -1,3 +1,9 @@
+--
+-- Update tables & reconcile IDs/names for CMO, VT and LPT ontologies.
+--
+-- Author: Arnold Kuzniar
+--
+
 UPDATE B4F.odex4all.QTL SET cmo_md5 = substring(md5(cmo_name), 1, 7) WHERE cmo_name IS NOT NULL;
 UPDATE B4F.odex4all.QTL SET vt_md5 = substring(md5(vt_name), 1, 7) WHERE vt_name IS NOT NULL;
 UPDATE B4F.odex4all.QTL SET lpt_md5 = substring(md5(lpt_name), 1, 7) WHERE lpt_name IS NOT NULL;
