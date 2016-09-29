@@ -172,8 +172,8 @@ class connection:
                 filtergroup += ["st:" + sem]
             elif sem in self.Predicates.values():
                 filtergroup += ["pred:" + list(self.Predicates.keys())[list(self.Predicates.values()).index(sem)]]
-            elif sem in self.Taxonomy:
-                filtergroup += ["tax:" + sem]
+            elif sem.lower() in self.Taxonomy:
+                filtergroup += ["tax:" + sem.lower()]
             else:
                 print("Cannot map " + sem)
                 continue
@@ -190,7 +190,7 @@ class connection:
             if semantics in self.ST_map.keys() or semantics in self.ST_map.values():
                 qs += " AND semantictype : '" + str(int(self.mapSemanticType(semantics).split("T")[1])) + "'"
         if source is not None:
-            qs += "AND source : '" + source + "'"
+            qs += " AND source : '" + source + "'"
         query =     {
                     "additionalFields": ["synonyms", "source"],
                     "queryString":  qs,
@@ -216,7 +216,7 @@ class connection:
         # Get the direct relationships between (sets of) concepts.
         call = "/external/concept-to-concept/direct"
         query =     {
-                    "additionalFields":["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes"],
+                    "additionalFields":["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"],
                     "leftInputs": start,
                     "rightInputs": end,
                     "relationshipWeightAlgorithm": linkweight,
@@ -242,7 +242,7 @@ class connection:
         # Filters can be created the createFilter function
         call = "/external/concept-to-concept/indirect"
         query =     {
-                    "additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes"],
+                    "additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"],
                     "leftInputs": start,
                     "rightInputs": end,
                     "positiveFilters" : intermediateFilters,
@@ -263,18 +263,22 @@ class connection:
         else:
             return response
 
-    def getDirectlyConnected(self, input_concepts, input_semantics, linkweight = "PWS"):
+    def getDirectlyConnected(self, input_concepts, input_semantics, linkweight = "PWS", **kwargs):
         # Get all concepts of a selected semantic type/category, which are directly connected to the input-concepts.
         call = "/external/concept-to-semantic/direct"
         semantics = self.createFilter(input_semantics)
         query =     {
-                    "additionalFields": ["publicationIds", "tripleIds", "predicateIds"],
+                    "additionalFields": ["publicationIds", "tripleIds", "predicateIds", "taxonomies"],
                     "leftInputs": input_concepts,
                     "rightInputs": semantics,
                     "relationshipWeightAlgorithm": linkweight,
                     "sort": "DESC"
                     }
-        self.logging.info("Executing " + call + " with query " + query)
+        if 'positive' in kwargs.keys():
+            query.update({"positiveFilters" : kwargs['positive']})
+        if 'negative' in kwargs.keys():
+            query.update({"negativeFilters": kwargs['negative']})
+        self.logging.info("Executing " + call + " with query " + str(query))
         response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         if response['totalPages'] > 1:
             output = response['content']
@@ -322,5 +326,5 @@ class connection:
             response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
             if response.ok and 'message' not in response.json():
                 out += response.json()
-        self.logging.info("Returned " + str(len(response)) + " publications")
+        self.logging.info("Returned " + str(len(out)) + " publications")
         return out
