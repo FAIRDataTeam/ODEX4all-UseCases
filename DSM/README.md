@@ -1,7 +1,6 @@
 
 
-### This workflow consists following steps the main objective is to identify genotype-phenotype relationship for the DSM 
-### usecase on yeast
+### This workflow consists following steps the main objective is to identify genotype-phenotype relationship for the DSM usecase on yeast
 
 
 ### Step 1a : Get the starting concept identifiers
