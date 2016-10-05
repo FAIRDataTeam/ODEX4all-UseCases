@@ -1,0 +1,360 @@
+butanol tolerance	equals	resistance to butan-1-ol 
+tolerant to butanol	equals	resistance to butan-1-ol 
+tolerance to butanol	equals	resistance to butan-1-ol 
+butanol-tolerant	equals	resistance to butan-1-ol 
+butanol tolerant	equals	resistance to butan-1-ol 
+butanol resistant	equals	resistance to butan-1-ol 
+resistance to butanol	equals	resistance to butan-1-ol 
+butanol resistance	equals	resistance to butan-1-ol 
+n-butanol tolerance	equals	resistance to butan-1-ol 
+tolerant to n-butanol	equals	resistance to butan-1-ol 
+tolerance to n-butanol	equals	resistance to butan-1-ol 
+n-butanol-tolerant	equals	resistance to butan-1-ol 
+n-butanol tolerant	equals	resistance to butan-1-ol 
+n-butanol resistant	equals	resistance to butan-1-ol 
+resistance to n-butanol	equals	resistance to butan-1-ol 
+n-butanol resistance	equals	resistance to butan-1-ol 
+C4H9OH tolerance	equals	resistance to butan-1-ol 
+tolerant to C4H9OH	equals	resistance to butan-1-ol 
+tolerance to C4H9OH	equals	resistance to butan-1-ol 
+C4H9OH-tolerant	equals	resistance to butan-1-ol 
+C4H9OH tolerant	equals	resistance to butan-1-ol 
+C4H9OH resistant	equals	resistance to butan-1-ol 
+resistance to C4H9OH	equals	resistance to butan-1-ol 
+C4H9OH resistance	equals	resistance to butan-1-ol 
+butyl alcohol tolerance	equals	resistance to butan-1-ol 
+tolerant to butyl alcohol	equals	resistance to butan-1-ol 
+tolerance to butyl alcohol	equals	resistance to butan-1-ol 
+butyl alcohol-tolerant	equals	resistance to butan-1-ol 
+butyl alcohol tolerant	equals	resistance to butan-1-ol 
+butyl alcohol resistant	equals	resistance to butan-1-ol 
+resistance to butyl alcohol	equals	resistance to butan-1-ol 
+butyl alcohol resistance	equals	resistance to butan-1-ol 
+1-butanol tolerance	equals	resistance to butan-1-ol 
+tolerant to 1-butanol	equals	resistance to butan-1-ol 
+tolerance to 1-butanol	equals	resistance to butan-1-ol 
+1-butanol-tolerant	equals	resistance to butan-1-ol 
+1-butanol tolerant	equals	resistance to butan-1-ol 
+1-butanol resistant	equals	resistance to butan-1-ol 
+resistance to 1-butanol	equals	resistance to butan-1-ol 
+1-butanol resistance	equals	resistance to butan-1-ol 
+C4H10O tolerance	equals	resistance to butan-1-ol 
+tolerant to C4H10O	equals	resistance to butan-1-ol 
+tolerance to C4H10O	equals	resistance to butan-1-ol 
+C4H10O-tolerant	equals	resistance to butan-1-ol 
+C4H10O tolerant	equals	resistance to butan-1-ol 
+C4H10O resistant	equals	resistance to butan-1-ol 
+resistance to C4H10O	equals	resistance to butan-1-ol 
+C4H10O resistance	equals	resistance to butan-1-ol 
+biobutanol tolerance	equals	resistance to butan-1-ol 
+tolerant to biobutanol	equals	resistance to butan-1-ol 
+tolerance to biobutanol	equals	resistance to butan-1-ol 
+biobutanol-tolerant	equals	resistance to butan-1-ol 
+biobutanol tolerant	equals	resistance to butan-1-ol 
+biobutanol resistant	equals	resistance to butan-1-ol 
+resistance to biobutanol	equals	resistance to butan-1-ol 
+biobutanol resistance	equals	resistance to butan-1-ol 
+sec-butanol tolerance	equals	resistance to butan-2-ol 
+tolerant to sec-butanol	equals	resistance to butan-2-ol 
+tolerance to sec-butanol	equals	resistance to butan-2-ol 
+sec-butanol-tolerant	equals	resistance to butan-2-ol 
+sec-butanol tolerant	equals	resistance to butan-2-ol 
+sec-butanol resistant	equals	resistance to butan-2-ol 
+resistance to sec-butanol	equals	resistance to butan-2-ol 
+sec-butanol resistance	equals	resistance to butan-2-ol 
+2-butanol tolerance	equals	resistance to butan-2-ol 
+tolerant to 2-butanol	equals	resistance to butan-2-ol 
+tolerance to 2-butanol	equals	resistance to butan-2-ol 
+2-butanol-tolerant	equals	resistance to butan-2-ol 
+2-butanol tolerant	equals	resistance to butan-2-ol 
+2-butanol resistant	equals	resistance to butan-2-ol 
+resistance to 2-butanol	equals	resistance to butan-2-ol 
+2-butanol resistance	equals	resistance to butan-2-ol 
+2-methyl-1-propanol tolerance	equals	resistance to isobutanol
+tolerant to 2-methyl-1-propanol	equals	resistance to isobutanol
+tolerance to 2-methyl-1-propanol	equals	resistance to isobutanol
+2-methyl-1-propanol-tolerant	equals	resistance to isobutanol
+2-methyl-1-propanol tolerant	equals	resistance to isobutanol
+2-methyl-1-propanol resistant	equals	resistance to isobutanol
+resistance to 2-methyl-1-propanol	equals	resistance to isobutanol
+2-methyl-1-propanol resistance	equals	resistance to isobutanol
+isobutanol tolerance	equals	resistance to isobutanol
+tolerant to isobutanol	equals	resistance to isobutanol
+tolerance to isobutanol	equals	resistance to isobutanol
+isobutanol-tolerant	equals	resistance to isobutanol
+isobutanol tolerant	equals	resistance to isobutanol
+isobutanol resistant	equals	resistance to isobutanol
+resistance to isobutanol	equals	resistance to isobutanol
+isobutanol resistance	equals	resistance to isobutanol
+2-methyl-2-propanol tolerance	equals	resistance to tert-butanol 
+tolerant to 2-methyl-2-propanol	equals	resistance to tert-butanol 
+tolerance to 2-methyl-2-propanol	equals	resistance to tert-butanol 
+2-methyl-2-propanol-tolerant	equals	resistance to tert-butanol 
+2-methyl-2-propanol tolerant	equals	resistance to tert-butanol 
+2-methyl-2-propanol resistant	equals	resistance to tert-butanol 
+resistance to 2-methyl-2-propanol	equals	resistance to tert-butanol 
+2-methyl-2-propanol resistance	equals	resistance to tert-butanol 
+tert-butanol tolerance	equals	resistance to tert-butanol 
+tolerant to tert-butanol	equals	resistance to tert-butanol 
+tolerance to tert-butanol	equals	resistance to tert-butanol 
+tert-butanol-tolerant	equals	resistance to tert-butanol 
+tert-butanol tolerant	equals	resistance to tert-butanol 
+tert-butanol resistant	equals	resistance to tert-butanol 
+resistance to tert-butanol	equals	resistance to tert-butanol 
+tert-butanol resistance	equals	resistance to tert-butanol 
+propanol tolerance	equals	resistance to propanol
+tolerant to propanol	equals	resistance to propanol
+tolerance to propanol	equals	resistance to propanol
+propanol-tolerant	equals	resistance to propanol
+propanol tolerant	equals	resistance to propanol
+propanol resistant	equals	resistance to propanol
+resistance to propanol	equals	resistance to propanol
+propanol resistance	equals	resistance to propanol
+1-propanol tolerance	equals	resistance to propanol
+tolerant to 1-propanol	equals	resistance to propanol
+tolerance to 1-propanol	equals	resistance to propanol
+1-propanol-tolerant	equals	resistance to propanol
+1-propanol tolerant	equals	resistance to propanol
+1-propanol resistant	equals	resistance to propanol
+resistance to 1-propanol	equals	resistance to propanol
+1-propanol resistance	equals	resistance to propanol
+2-propanol tolerance	equals	resistance to propanol
+tolerant to 2-propanol	equals	resistance to propanol
+tolerance to 2-propanol	equals	resistance to propanol
+2-propanol-tolerant	equals	resistance to propanol
+2-propanol tolerant	equals	resistance to propanol
+2-propanol resistant	equals	resistance to propanol
+resistance to 2-propanol	equals	resistance to propanol
+2-propanol resistance	equals	resistance to propanol
+ethanol tolerance	equals	resistance to ethanol
+tolerant to ethanol	equals	resistance to ethanol
+tolerance to ethanol	equals	resistance to ethanol
+ethanol-tolerant	equals	resistance to ethanol
+ethanol tolerant	equals	resistance to ethanol
+ethanol resistant	equals	resistance to ethanol
+resistance to ethanol	equals	resistance to ethanol
+ethanol resistance	equals	resistance to ethanol
+ethyl alcohol tolerance	equals	resistance to ethanol
+tolerant to ethyl alcohol	equals	resistance to ethanol
+tolerance to ethyl alcohol	equals	resistance to ethanol
+ethyl alcohol-tolerant	equals	resistance to ethanol
+ethyl alcohol tolerant	equals	resistance to ethanol
+ethyl alcohol resistant	equals	resistance to ethanol
+resistance to ethyl alcohol	equals	resistance to ethanol
+ethyl alcohol resistance	equals	resistance to ethanol
+C2H6O tolerance	equals	resistance to ethanol
+tolerant to C2H6O	equals	resistance to ethanol
+tolerance to C2H6O	equals	resistance to ethanol
+C2H6O-tolerant	equals	resistance to ethanol
+C2H6O tolerant	equals	resistance to ethanol
+C2H6O resistant	equals	resistance to ethanol
+resistance to C2H6O	equals	resistance to ethanol
+C2H6O resistance	equals	resistance to ethanol
+alcohol tolerance	equals	resistance to ethanol
+tolerant to alcohol	equals	resistance to ethanol
+tolerance to alcohol	equals	resistance to ethanol
+alcohol-tolerant	equals	resistance to ethanol
+alcohol tolerant	equals	resistance to ethanol
+alcohol resistant	equals	resistance to ethanol
+resistance to alcohol	equals	resistance to ethanol
+alcohol resistance	equals	resistance to ethanol
+butanol toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of butanol	equals	resistance to butan-1-ol 
+sensitive towards butanol	equals	resistance to butan-1-ol 
+butanol sensitive	equals	resistance to butan-1-ol 
+butanol sensitivity	equals	resistance to butan-1-ol 
+butanol stress	equals	resistance to butan-1-ol 
+butanol susceptibility	equals	resistance to butan-1-ol 
+sensitive to butanol	equals	resistance to butan-1-ol 
+hypersensitive to butanol	equals	resistance to butan-1-ol 
+hypersensitive towards butanol	equals	resistance to butan-1-ol 
+n-butanol toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of n-butanol	equals	resistance to butan-1-ol 
+sensitive towards n-butanol	equals	resistance to butan-1-ol 
+n-butanol sensitive	equals	resistance to butan-1-ol 
+n-butanol sensitivity	equals	resistance to butan-1-ol 
+n-butanol stress	equals	resistance to butan-1-ol 
+n-butanol susceptibility	equals	resistance to butan-1-ol 
+sensitive to n-butanol	equals	resistance to butan-1-ol 
+hypersensitive to n-butanol	equals	resistance to butan-1-ol 
+hypersensitive towards n-butanol	equals	resistance to butan-1-ol 
+C4H9OH toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of C4H9OH	equals	resistance to butan-1-ol 
+sensitive towards C4H9OH	equals	resistance to butan-1-ol 
+C4H9OH sensitive	equals	resistance to butan-1-ol 
+C4H9OH sensitivity	equals	resistance to butan-1-ol 
+C4H9OH stress	equals	resistance to butan-1-ol 
+C4H9OH susceptibility	equals	resistance to butan-1-ol 
+sensitive to C4H9OH	equals	resistance to butan-1-ol 
+hypersensitive to C4H9OH	equals	resistance to butan-1-ol 
+hypersensitive towards C4H9OH	equals	resistance to butan-1-ol 
+C4H10O toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of C4H10O	equals	resistance to butan-1-ol 
+sensitive towards C4H10O	equals	resistance to butan-1-ol 
+C4H10O sensitive	equals	resistance to butan-1-ol 
+C4H10O sensitivity	equals	resistance to butan-1-ol 
+C4H10O stress	equals	resistance to butan-1-ol 
+C4H10O susceptibility	equals	resistance to butan-1-ol 
+sensitive to C4H10O	equals	resistance to butan-1-ol 
+hypersensitive to C4H10O	equals	resistance to butan-1-ol 
+hypersensitive towards C4H10O	equals	resistance to butan-1-ol 
+butyl alcohol toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of butyl alcohol	equals	resistance to butan-1-ol 
+sensitive towards butyl alcohol	equals	resistance to butan-1-ol 
+butyl alcohol sensitive	equals	resistance to butan-1-ol 
+butyl alcohol sensitivity	equals	resistance to butan-1-ol 
+butyl alcohol stress	equals	resistance to butan-1-ol 
+butyl alcohol susceptibility	equals	resistance to butan-1-ol 
+sensitive to butyl alcohol	equals	resistance to butan-1-ol 
+hypersensitive to butyl alcohol	equals	resistance to butan-1-ol 
+hypersensitive towards butyl alcohol	equals	resistance to butan-1-ol 
+1-butanol toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of 1-butanol	equals	resistance to butan-1-ol 
+sensitive towards 1-butanol	equals	resistance to butan-1-ol 
+1-butanol sensitive	equals	resistance to butan-1-ol 
+1-butanol sensitivity	equals	resistance to butan-1-ol 
+1-butanol stress	equals	resistance to butan-1-ol 
+1-butanol susceptibility	equals	resistance to butan-1-ol 
+sensitive to 1-butanol	equals	resistance to butan-1-ol 
+hypersensitive to 1-butanol	equals	resistance to butan-1-ol 
+hypersensitive towards 1-butanol	equals	resistance to butan-1-ol 
+biobutanol toxicity	equals	resistance to butan-1-ol 
+inhibitory effect of biobutanol	equals	resistance to butan-1-ol 
+sensitive towards butanol</IRIbiobutanol	equals	resistance to butan-1-ol 
+biobutanol sensitive	equals	resistance to butan-1-ol 
+biobutanol sensitivity	equals	resistance to butan-1-ol 
+biobutanol stress	equals	resistance to butan-1-ol 
+biobutanol susceptibility	equals	resistance to butan-1-ol 
+sensitive to biobutanol	equals	resistance to butan-1-ol 
+hypersensitive to biobutanol	equals	resistance to butan-1-ol 
+hypersensitive towards biobutanol	equals	resistance to butan-1-ol 
+sec-butanol toxicity	equals	resistance to butan-2-ol 
+inhibitory effect of sec-butanol	equals	resistance to butan-2-ol 
+sensitive towards butanol</IRIsec-butanol	equals	resistance to butan-2-ol 
+sec-butanol sensitive	equals	resistance to butan-2-ol 
+sec-butanol sensitivity	equals	resistance to butan-2-ol 
+sec-butanol stress	equals	resistance to butan-2-ol 
+sec-butanol susceptibility	equals	resistance to butan-2-ol 
+sensitive to sec-butanol	equals	resistance to butan-2-ol 
+hypersensitive to sec-butanol	equals	resistance to butan-2-ol 
+hypersensitive towards sec-butanol	equals	resistance to butan-2-ol 
+2-butanol toxicity	equals	resistance to butan-2-ol 
+inhibitory effect of 2-butanol	equals	resistance to butan-2-ol 
+sensitive towards butanol</IRI2-butanol	equals	resistance to butan-2-ol 
+2-butanol sensitive	equals	resistance to butan-2-ol 
+2-butanol sensitivity	equals	resistance to butan-2-ol 
+2-butanol stress	equals	resistance to butan-2-ol 
+2-butanol susceptibility	equals	resistance to butan-2-ol 
+sensitive to 2-butanol	equals	resistance to butan-2-ol 
+hypersensitive to 2-butanol	equals	resistance to butan-2-ol 
+hypersensitive towards 2-butanol	equals	resistance to butan-2-ol 
+2-methyl-1-propanol toxicity	equals	resistance to isobutanol
+inhibitory effect of 2-methyl-1-propanol	equals	resistance to isobutanol
+sensitive towards butanol</IRI2-methyl-1-propanol	equals	resistance to isobutanol
+2-methyl-1-propanol sensitive	equals	resistance to isobutanol
+2-methyl-1-propanol sensitivity	equals	resistance to isobutanol
+2-methyl-1-propanol stress	equals	resistance to isobutanol
+2-methyl-1-propanol susceptibility	equals	resistance to isobutanol
+sensitive to 2-methyl-1-propanol	equals	resistance to isobutanol
+hypersensitive to 2-methyl-1-propanol	equals	resistance to isobutanol
+hypersensitive towards 2-methyl-1-propanol	equals	resistance to isobutanol
+isobutanol toxicity	equals	resistance to isobutanol
+inhibitory effect of isobutanol	equals	resistance to isobutanol
+sensitive towards butanol</IRIisobutanol	equals	resistance to isobutanol
+isobutanol sensitive	equals	resistance to isobutanol
+isobutanol sensitivity	equals	resistance to isobutanol
+isobutanol stress	equals	resistance to isobutanol
+isobutanol susceptibility	equals	resistance to isobutanol
+sensitive to isobutanol	equals	resistance to isobutanol
+hypersensitive to isobutanol	equals	resistance to isobutanol
+hypersensitive towards isobutanol	equals	resistance to isobutanol
+2-methyl-2-propanol toxicity	equals	resistance to tert-butanol 
+inhibitory effect of 2-methyl-2-propanol	equals	resistance to tert-butanol 
+sensitive towards butanol</IRI2-methyl-2-propanol	equals	resistance to tert-butanol 
+2-methyl-2-propanol sensitive	equals	resistance to tert-butanol 
+2-methyl-2-propanol sensitivity	equals	resistance to tert-butanol 
+2-methyl-2-propanol stress	equals	resistance to tert-butanol 
+2-methyl-2-propanol susceptibility	equals	resistance to tert-butanol 
+sensitive to 2-methyl-2-propanol	equals	resistance to tert-butanol 
+hypersensitive to 2-methyl-2-propanol	equals	resistance to tert-butanol 
+hypersensitive towards 2-methyl-2-propanol	equals	resistance to tert-butanol 
+tert-butanol toxicity	equals	resistance to tert-butanol 
+inhibitory effect of tert-butanol	equals	resistance to tert-butanol 
+sensitive towards butanol</IRItert-butanol	equals	resistance to tert-butanol 
+tert-butanol sensitive	equals	resistance to tert-butanol 
+tert-butanol sensitivity	equals	resistance to tert-butanol 
+tert-butanol stress	equals	resistance to tert-butanol 
+tert-butanol susceptibility	equals	resistance to tert-butanol 
+sensitive to tert-butanol	equals	resistance to tert-butanol 
+hypersensitive to tert-butanol	equals	resistance to tert-butanol 
+hypersensitive towards tert-butanol	equals	resistance to tert-butanol 
+propanol toxicity	equals	resistance to propanol
+inhibitory effect of propanol	equals	resistance to propanol
+sensitive towards butanol</IRIpropanol	equals	resistance to propanol
+propanol sensitive	equals	resistance to propanol
+propanol sensitivity	equals	resistance to propanol
+propanol stress	equals	resistance to propanol
+propanol susceptibility	equals	resistance to propanol
+sensitive to propanol	equals	resistance to propanol
+hypersensitive to propanol	equals	resistance to propanol
+hypersensitive towards propanol	equals	resistance to propanol
+1-propanol toxicity	equals	resistance to propanol
+inhibitory effect of 1-propanol	equals	resistance to propanol
+sensitive towards butanol</IRI1-propanol	equals	resistance to propanol
+1-propanol sensitive	equals	resistance to propanol
+1-propanol sensitivity	equals	resistance to propanol
+1-propanol stress	equals	resistance to propanol
+1-propanol susceptibility	equals	resistance to propanol
+sensitive to 1-propanol	equals	resistance to propanol
+hypersensitive to 1-propanol	equals	resistance to propanol
+hypersensitive towards 1-propanol	equals	resistance to propanol
+2-propanol toxicity	equals	resistance to propanol
+inhibitory effect of 2-propanol	equals	resistance to propanol
+sensitive towards butanol</IRI2-propanol	equals	resistance to propanol
+2-propanol sensitive	equals	resistance to propanol
+2-propanol sensitivity	equals	resistance to propanol
+2-propanol stress	equals	resistance to propanol
+2-propanol susceptibility	equals	resistance to propanol
+sensitive to 2-propanol	equals	resistance to propanol
+hypersensitive to 2-propanol	equals	resistance to propanol
+hypersensitive towards 2-propanol	equals	resistance to propanol
+ethanol toxicity	equals	resistance to ethanol
+inhibitory effect of ethanol	equals	resistance to ethanol
+sensitive towards butanol</IRIethanol	equals	resistance to ethanol
+ethanol sensitive	equals	resistance to ethanol
+ethanol sensitivity	equals	resistance to ethanol
+ethanol stress	equals	resistance to ethanol
+ethanol susceptibility	equals	resistance to ethanol
+sensitive to ethanol	equals	resistance to ethanol
+hypersensitive to ethanol	equals	resistance to ethanol
+hypersensitive towards ethanol	equals	resistance to ethanol
+alcohol toxicity	equals	resistance to ethanol
+inhibitory effect of alcohol	equals	resistance to ethanol
+sensitive towards butanol</IRIalcohol	equals	resistance to ethanol
+alcohol sensitive	equals	resistance to ethanol
+alcohol sensitivity	equals	resistance to ethanol
+alcohol stress	equals	resistance to ethanol
+alcohol susceptibility	equals	resistance to ethanol
+sensitive to alcohol	equals	resistance to ethanol
+hypersensitive to alcohol	equals	resistance to ethanol
+hypersensitive towards alcohol	equals	resistance to ethanol
+ethyl alcohol toxicity	equals	resistance to ethanol
+inhibitory effect of ethyl alcohol	equals	resistance to ethanol
+sensitive towards butanol</IRIethyl alcohol	equals	resistance to ethanol
+ethyl alcohol sensitive	equals	resistance to ethanol
+ethyl alcohol sensitivity	equals	resistance to ethanol
+ethyl alcohol stress	equals	resistance to ethanol
+ethyl alcohol susceptibility	equals	resistance to ethanol
+sensitive to ethyl alcohol	equals	resistance to ethanol
+hypersensitive to ethyl alcohol	equals	resistance to ethanol
+hypersensitive towards ethyl alcohol	equals	resistance to ethanol
+C2H6O toxicity	equals	resistance to ethanol
+inhibitory effect of C2H6O	equals	resistance to ethanol
+sensitive towards butanol</IRIC2H6O	equals	resistance to ethanol
+C2H6O sensitive	equals	resistance to ethanol
+C2H6O sensitivity	equals	resistance to ethanol
+C2H6O stress	equals	resistance to ethanol
+C2H6O susceptibility	equals	resistance to ethanol
+sensitive to C2H6O	equals	resistance to ethanol
+hypersensitive to C2H6O	equals	resistance to ethanol
+hypersensitive towards C2H6O	equals	resistance to ethanol

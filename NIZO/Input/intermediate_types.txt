@@ -1,0 +1,12 @@
+Food	Objects
+Organ or Tissue Function	Physiology
+Finding	Disorders
+Disease or Syndrome	Disorders
+Chemical Viewed Functionally	Chemicals & Drugs
+Biologically Active Substance	Chemicals & Drugs
+Tissue	Anatomy
+Body Location or Region	Anatomy
+Body Part, Organ, or Organ Component	Anatomy
+Body Space or Junction	Anatomy
+Body System	Anatomy
+Cell	Anatomy
