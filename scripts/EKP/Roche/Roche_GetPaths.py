@@ -50,7 +50,11 @@ for line in reader:
     drug_targets = []
     if line[0] in target_dict.keys():
         for t in target_dict[line[0]]:
-            drug_targets.append(c.getID(t, source = 'uniprot')[0]['id'])
+            target_id = c.getID(t, source = 'uniprot')
+            if len(target_id) > 0:
+                drug_targets.append(target_id[0]['id'])
+            else:
+                print("Unable to map UNIPROT ID " + t)
         paths = c.getIndirectRelationship(drug_targets, gene_ids, intermediate_filter)
         if type(paths) is list:
             for p in paths:

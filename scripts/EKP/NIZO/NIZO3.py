@@ -77,7 +77,7 @@ output.close()
 
 
 # Potential: Filter concepts based on relationship with intermediate term
-filter_concept = c.getID("FILTER")
+#filter_concept = c.getID("FILTER")
 # intermediate_filter = c.createFilter(types)
 # filter_list = c.getDirectlyConnected(filter_concept, intermediate_filter)
 
@@ -111,6 +111,6 @@ if len(paths) > 0:
         BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
         BC_sourceNames = [y['sourceName'] for y in BC_pubs]
         #BC_sourceIds = [z['sourceId'] for z in BC_pubs]
-        output.writerow(start + middle + end + [score] + [AB_predicates] + AB_sourceNames +
+        csv_writer.writerow(start + middle + end + [score] + [AB_predicates] + AB_sourceNames +
                            [BC_predicates] + BC_sourceNames)
 output.close()

@@ -3,21 +3,41 @@ zea mays
 mus musculus
 arabidopsis thaliana
 sorghum bicolor (vulgare)
+oryza sativa japonica
 brassica rapa
 brassica napus
 rattus norvegicus
 solanum tuberosum
-oryza sativa japonica
 danio rerio
-bos taurus
 drosophila melanogaster
+bos taurus
 linum usitatissimum
-drosophila pseudoobscura pseudoobscura
 drosophila persimilis
 brassica oleracea
+drosophila pseudoobscura pseudoobscura
 drosophila sechellia
+drosophila simulans
 drosophila yakuba
-drosophila willistoni
+vibrio tasmaniensis (strain lgp32)
+nitrosospira multiformis (strain atcc 25196 / ncimb 11849)
+symbiobacterium thermophilum (strain t / iam 14863)
+histophilus somni (strain 2336)
+rhodoferax ferrireducens (strain atcc baa-621 / dsm 15236 / t118)
+alkalilimnicola ehrlichii (strain atcc baa-1101 / dsm 17681 / mlhe-1)
+marinobacter hydrocarbonoclasticus (strain atcc 700491 / dsm 11845 / vt8)
+neisseria meningitidis serogroup c / serotype 2a (strain atcc 700532 / dsm 15464 / fam18)
+pelobacter carbinolicus (strain dsm 2380 / gra bd 1)
+thermus thermophilus (strain hb27 / atcc baa-163 / dsm 7039)
+azoarcus sp. (strain bh72)
+geobacter metallireducens (strain gs-15 / atcc 53774 / dsm 7210)
+rhodopirellula baltica (strain dsm 10527 / ncimb 13988 / sh1)
+methylobacillus flagellatus (strain kt / atcc 51484 / dsm 6875)
+burkholderia pseudomallei (strain 668)
+rhodopseudomonas palustris (strain haa2)
+sinorhizobium medicae (strain wsm419)
+listeria monocytogenes serotype 4b (strain clip80459)
+thiomicrospira crunogena (strain xcl-2)
+bordetella avium (strain 197n)
 streptococcus equi subsp. zooepidemicus (strain mgcs10565)
 lactobacillus delbrueckii subsp. bulgaricus (strain atcc baa-365)
 desulfovibrio vulgaris (strain miyazaki f / dsm 19637)
@@ -27,43 +47,47 @@ methylobacterium radiotolerans (strain atcc 27329 / dsm 1819 / jcm 2831)
 streptococcus suis (strain 05zyh33)
 hamiltonella defensa subsp. acyrthosiphon pisum (strain 5at)
 lactobacillus helveticus (strain dpc 4571)
-chlamydophila felis (strain fe/c-56)
+chlamydia felis (strain fe/c-56)
 lactobacillus fermentum (strain nbrc 3956 / lmg 18251)
 picrophilus torridus (strain atcc 700027 / dsm 9790 / jcm 10055 / nbrc 100828)
 arthrobacter sp. (strain fb24)
 chlorobium phaeobacteroides (strain bs1)
 tropheryma whipplei (strain tw08/27)
 tropheryma whipplei (strain twist)
-human cytomegalovirus (strain ad169)
-macrococcus caseolyticus (strain jcsc5402)
 methanosphaera stadtmanae (strain atcc 43021 / dsm 3091 / jcm 11832 / mcb-3)
+macrococcus caseolyticus (strain jcsc5402)
+human cytomegalovirus (strain ad169)
 campylobacter curvus (strain 525.92)
-carica papaya
 bothrops jararaca
 acidithiobacillus ferrooxidans
 bacillus licheniformis
 enterobacteria phage t7
 oltmannsiellopsis viridis
 talaromyces stipitatus (strain atcc 10500 / cbs 375.48 / qm 6759 / nrrl 1006)
+chaetomium thermophilum (strain dsm 1495 / cbs 144.50 / imi 039719)
 epstein-barr virus (strain ag876)
-saimiriine herpesvirus 2 (strain 11)
 brugia malayi
+enterobacteria phage lambda
+saimiriine herpesvirus 2 (strain 11)
 tetraodon nigroviridis
 ajellomyces capsulatus (strain g186ar / h82 / atcc mya-2454 / rmscc 2432)
-enterobacteria phage lambda
-equine herpesvirus 2 (strain 86/87)
 mannheimia haemolytica
 trimeresurus stejnegeri
+equine herpesvirus 2 (strain 86/87)
 ophiophagus hannah
 clavispora lusitaniae (strain atcc 42720)
-psittacid herpesvirus 1 (isolate amazon parrot/-/97-0001/1997)
 rhizobium leguminosarum bv. viciae
+staphylococcus epidermidis
+notechis scutatus scutatus
+artemia franciscana
+swinepox virus (strain kasza)
 volvox carteri
 bacillus phage spbeta
 echis ocellatus
 elephas maximus
 erwinia amylovora
 lilium longiflorum
+methanothermococcus thermolithotrophicus
 sicarius cf. damarensis (strain gjb-2008)
 sparus aurata
 ciona intestinalis
@@ -74,10 +98,12 @@ otolemur garnettii
 streptomyces niveus
 thunnus obesus
 enterocytozoon bieneusi (strain h348)
-galleria mellonella
-herpetosiphon aurantiacus
-rana dybowskii
-anabaena sp. (strain l31)
+macropus robustus
+paracoccus pantotrophus
+paramecium bursaria chlorella virus 1
+silene latifolia
+solanum demissum
+streptococcus salivarius
 streptomyces peucetius
 zaire ebolavirus (strain mayinga-76)
 zygosaccharomyces rouxii
@@ -86,18 +112,15 @@ cryphonectria parasitica
 escherichia coli (strain b / rel606)
 gloydius blomhoffii
 haemonchus contortus
-leuconostoc mesenteroides
+lactobacillus delbrueckii subsp. lactis
+lupinus angustifolius
 momordica charantia
 mycobacterium intracellulare
-pantoea ananatis (strain lmg 20103)
 pseudomonas chlororaphis
 pseudomonas phage pf1
-pseudomonas pseudoalcaligenes
-rice stripe virus
-rickettsia montanensis
-rotavirus a (strain human/united states/ds-1/1976 g2-p1b[4]-i2-r2-c2-m2-a2-n2-t2-e2-h2)
-barley yellow dwarf virus
-bat coronavirus rp3/2004
+heterosigma akashiwo (strain ccmp452)
+influenza a virus (strain a/brazil/11/1978 h1n1)
+influenza a virus (strain a/chicken/hong kong/715.5/2001 h5n1 genotype e)
 influenza a virus (strain a/chicken/hong kong/96.1/2002 h5n1 genotype y)
 influenza a virus (strain a/chicken/hong kong/yu22/2002 h5n1 genotype z)
 influenza a virus (strain a/goose/guangxi/345/2005 h5n1 genotype g)
@@ -115,13 +138,19 @@ polysphondylium pallidum
 porcine transmissible gastroenteritis coronavirus (strain fs772/70)
 pseudomonas fragi
 rhizobium fredii
-rhodocyclus tenuis
-salmo trutta
-simian immunodeficiency virus (isolate mm142-83)
+reston ebolavirus (strain philippines-96)
+rice ragged stunt virus
+saara hardwickii
+saccharomycopsis fibuligera
+shelfordella lateralis
+sminthopsis macroura
+sterkiella nova
+streptomyces rimosus
 sudan ebolavirus (strain uganda-00)
 synechococcus sp. (strain wh8103)
 taenia solium
 tamias sibiricus
+trachemys scripta
 trichoplusia ni
 trifolium repens
 wound tumor virus
@@ -129,512 +158,503 @@ zobellia galactanivorans (strain dsm 12802 / cip 106680 / ncimb 13871 / dsij)
 abutilon mosaic virus
 acinetobacter guillouiae
 agrobacterium tumefaciens (strain t37)
-alouatta seniculus
-atrax robustus
-bat coronavirus 512/2005
-bradyrhizobium sp. (strain anu 289)
-bunodosoma granuliferum
-callimico goeldii
-carollia perspicillata
-chionoecetes opilio
-cichorium intybus
-mortierella alpina
+equus grevyi
+hepatitis delta virus genotype ii
+heterololigo bleekeri
+human papillomavirus type 18
+human papillomavirus type 33
+hypsiboas raniceps
+lactobacillus plantarum
+methanocaldococcus fervens (strain dsm 4213 / jcm 157852 / ag86)
+methanothermobacter thermautotrophicus (strain winter)
+methanothermobacter wolfeii
+micromonospora echinospora
+micropogonias undulatus
 murine polyomavirus (strain 3)
 mycoplasma hominis
 narcissus pseudonarcissus
+oenococcus oeni
 pantherophis obsoletus
 passalora fulva
 phascolarctos cinereus
 phomopsis amygdali
-photorhabdus asymbiotica subsp. asymbiotica (strain atcc 43949 / 3105-77)
-podocoryna carnea
-polistes dominula
-pseudomonas fluorescens biotype c
-pseudomonas knackmussii (strain dsm 6978 / lmg 23759 / b13)
-rabies virus (strain pm1503/avo1)
-salmonella muenchen
-shallot virus x
-shigella boydii
-streptoalloteichus tenebrarius (strain atcc 17920 / dsm 40477 / ncib 11028)
-streptomyces bingchenggensis (strain bcw-1)
-streptomyces coelicolor
+antheraea mylitta
+apple stem pitting virus
+aptenodytes patagonicus
+aptera fusca
+arabidopsis lyrata
+arbacia lixula
+archimandrita tessellata
+arctogadus glacialis
+artocarpus integer
+aspergillus ficuum
+avahi cleesei
+avian infectious bronchitis virus (strain beaudette ck)
+bacillus thuringiensis subsp. finitimus
+bantua robusta
 blepharodera discoidalis
 bovine papillomavirus type 3
 bovine papillomavirus type 5
 bradyrhizobium sp
 cabomba caroliniana
 canine oral papillomavirus (strain y62)
-canis latrans
-citrus limon
-clarias gariepinus
-clostridium beijerinckii
-clostridium stercorarium
-crotalus durissus cascavella
-cryptococcus gattii serotype b (strain wm276 / atcc mya-4071)
-cyamopsis tetragonoloba
-deropeltis atra
-deropeltis integerrima
-drosophila madeirensis
-drosophila melanogaster sigma virus
-drymarchon melanurus erebennus
-duck hepatitis b virus (strain germany/dhbv-3)
+cornus mas
+crocus sativus
+cryptocercus darwini
+cryptocercus kyebangensis
+cucumber mosaic virus (strain q)
+cuphea lanceolata
+cymbidium ringspot virus
+delonix regia
+dolichospermum flosaquae
+drosophila guanche
 echis multisquamatus
 edwardsiella tarda (strain fl6-60)
 enterobacteria phage hk97
+enterobacteria phage k3
 enterobacteria phage p7
 erythrolamprus poecilogyrus
 euglena stellata
 gerbera hybrida
 guanarito mammarenavirus
 gymnodraco acuticeps
-human papillomavirus type 10
-human papillomavirus type 12
-human papillomavirus type 15
-human papillomavirus type 17
-human papillomavirus type 19
-human papillomavirus type 20
-human papillomavirus type 22
-human papillomavirus type 23
-human papillomavirus type 24
-human papillomavirus type 25
-human papillomavirus type 26
+anthopleura fuscoviridis
+anthopleura sp. (strain 'zhanjiang')
+antonospora locustae
+armadillidium vulgare
+aspergillus sojae
+astacus leptodactylus
+avian infectious bronchitis virus (strain de072)
+bacillus methanolicus
+bacillus sp. (strain neb-606)
+bacteroides stercoris
+bean yellow dwarf virus
+bibersteinia trehalosi
+bothrops matogrossensis
+bovine papillomavirus type 6
+bowenia serrulata
+bradyrhizobium sp. (strain nc92)
 buchnera aphidicola subsp. tetraneura caerulescens
 butomus umbellatus
 callistephus chinensis
 campylobacter jejuni
-cassava vein mosaic virus
-cerebratulus lacteus
-cerrophidion godmani
-chaenocephalus aceratus
-choristoneura biennis entomopoxvirus
-citrus psorosis virus (isolate spain/p-121)
-clostridium hungatei
-clostridium sporogenes
-conus planorbis
-conus villepinii
-crotalus durissus ruruima
-cunninghamella elegans
-cuscuta japonica
-cygnodraco mawsoni
-dactylococcopsis salina
-dasyurus hallucatus
-influenza a virus (strain a/duck/ukraine/1/1963 h3n8)
-influenza a virus (strain a/equine/miami/1/1963 h3n8)
-influenza a virus (strain a/gull/astrakhan/227/1984 h13n6)
-influenza a virus (strain a/herring gull/de/677/1988 h2n8)
-influenza a virus (strain a/swine/hong kong/127/1982 h3n2)
-influenza a virus (strain a/swine/netherlands/12/1985 h1n1)
-influenza a virus (strain a/tern/turkmenia/18/1972 h3n3)
-influenza a virus (strain a/turkey/canada/1963 h6n8)
-influenza b virus (strain b/hong kong/8/1973)
-inia geoffrensis
-juniperus ashei
-kassina maculata
-kogia sima
-lachancea fermentati
-lactate dehydrogenase-elevating virus
-lagenorhynchus acutus
-lagos bat virus
-larus ridibundus
-laxta sp. (strain sr-2005)
-leontopithecus chrysomelas
-coffea canephora
-commelina yellow mottle virus
-condylactis passiflora
-conexibacter woesei (strain dsm 14684 / jcm 11494 / nbrc 100937 / id131577)
-conger conger
-connochaetes taurinus
-conus emaciatus
-conus figulinus
-convolvulus arvensis
-coprinus comatus
-coriandrum sativum
-corynebacterium diphtheriae
-crocodylus novaeguineae
-crotalus durissus durissus
-crotalus oreganus concolor
-cryptococcus neoformans var. grubii
-cuscuta pentagona
-cyclopes didactylus
-cygnus atratus
-cymbidium mosaic virus (strain singapore)
-hylobates muelleri
-hyperoodon ampullatus
-ignisphaera aggregans (strain dsm 17230 / jcm 13409 / aq1.s1)
-ilyobacter polytropus (strain dsm 2926 / cuhbu1)
-imperata cylindrica
-infectious hematopoietic necrosis virus (strain round butte)
-infectious pancreatic necrosis virus (strain jasper)
-influenza a virus (strain a/duck/new zealand/31/1976 h4n6)
-influenza a virus (strain a/gull/maryland/1815/1979 h13n6)
-influenza a virus (strain a/mallard/ohio/556/1987 h5n9)
-influenza a virus (strain a/ri/5-/1957 h2n2)
-influenza a virus (strain a/swine/29/1937 h1n1)
-influenza a virus (strain a/swine/may/1954 h1n1)
-ixodes ricinus
-jaculus jaculus
-klebsiella pneumoniae subsp. ozaenae
-lactococcus phage r1t
-lagenorhynchus albirostris
-lagenorhynchus obliquidens
-larimichthys crocea
-methylomonas methanica (strain mc09)
-micranthus junceus
-micromurexia habbema
-microtus oeconomus
-micrurus mipartitus
-mirza zaza
-monophyllus redmani
-moranella endobia (strain pcit)
-mormoops megalophylla
-mumps virus (strain enders)
-murexechinus melanurus
-murine coronavirus (strain 1)
-mustelus griseus
-mycobacterium chitae
-mycobacterium fallax
-mycobacterium shimoidei
-mycoplana dimorpha
-myodes gapperi
-myoictis melas
-myoictis wallacei
-myotis macrotarsus
-myrmecia banksi
-mytilus trossulus
-narcissus elegans
-neanthes japonica
-neurospora crassa
-neurotrichus gibbsii
-nicotiana rustica
-nigella sativa
-nocardioides simplex
-odorrana schmackeri
-oenothera ammophila
-oncorhynchus clarkii
-ophrys arachnitiformis subsp. archipelagi
-oreochromis aureus
-oryctes rhinoceros
-osmunda lancea
-ovine astrovirus 1
-papaver bracteatum
-papio papio
-lepus alleni
-lepus americanus
-lepus californicus
-lepus timidus
-leucaena leucocephala
-leucoagaricus gongylophorus
-leucoraja ocellata
-liasis mackloti savuensis
-liasis olivaceus
-linaria vulgaris
-lingula reevii
-lingulodinium polyedrum
-liomys spectabilis
-lipomyces kononenkoae
-liquidambar styraciflua
-listeria monocytogenes serotype 1/2a (strain 08-5578)
-listeria seeligeri serovar 1/2b (strain atcc 35967 / dsm 20751 / cip 100100 / slcc 3954)
-litchi chinensis
-loa loa
-loligo vulgaris
-avian endogenous virus ev-1
-avian erythroblastosis virus (strain es4)
-avian infectious bronchitis virus (strain d274)
-avian infectious bronchitis virus (strain d41)
-avian infectious bursal disease virus (strain australian 002-73)
-avian papillomavirus fpv-l
-avian retrovirus mh2
-avian retrovirus rpl30
-bacillus acidopullulyticus
-bacillus phage m2
-bacillus sp. (strain b-0618)
-bacillus sp. (strain hil-y85/54728)
-bacillus sp. (strain ksm-522)
-bacillus sp. (strain ym-1)
-bacteriophage ps119
-bacteroides helcogenes (strain atcc 35417 / dsm 20613 / jcm 6297 / p 36-108)
-bacteroides uniformis
-baeolophus inornatus
-balaenoptera acutorostrata scammoni
-balaenoptera brydei
-hamamelis mollis
-harpactes diardii
-harpiocephalus mordax
-helicobacter felis
-helminthosporium victoriae virus-190s
-hemitragus hylocrius
-hemitragus jayakari
-hemitripterus americanus
-hepatitis b virus genotype g subtype adw2
-hepatitis c virus genotype 1b (strain hc-j4)
-herpestes edwardsi
-herpestes naso
-herpetotheres cachinnans
-heterodon simus
-heteromys anomalus
-heteromys gaumeri
-heteropneustes fossilis
-hexaprotodon liberiensis
-himantura chaophraya
-himantura gerrardi
-pentalagus furnessi
-perameles nasuta
-perca fluviatilis
-percopsis transmontana
-perognathus alticolus
-perognathus fasciatus
-perognathus flavescens
-perognathus flavescens apache
-perognathus inornatus
-perognathus longimembris
-perognathus merriami
-perognathus parvus
-peromyscus truei
-petaurista albiventer
-petaurista elegans
-petaurista hainana
-petaurista philippensis
-petaurista xanthotis
-petaurista yunanensis
-petromyscus collinus
-acrochordus javanicus
-actinoplanes sp. (strain atcc 31351 / 3876)
-adamsia palliata
-adenanthera pavonina
-agalychnis spurrelli
-agaricus bitorquis
-agarivorans albus
-agriotes lineatus
-ajuga reptans
-alaria esculenta
-allenrolfea occidentalis
-alvinoconcha hessleri symbiotic bacterium
-amaranthus tricolor
-amphiuma means
-anaerolinea thermophila (strain dsm 14523 / jcm 11388 / nbrc 100420 / uni-1)
-ancylobacter aquaticus
-ancylostoma caninum
-anguilla australis
-annona cherimola
-anomala cuprea
-procambarus bouvieri
-propionibacterium acnes (strain sk137)
-prunus armeniaca phytoplasma
-pseudacanthotermes spiniger
-pseudoalteromonas sp. (strain sm9913)
-pseudomonas amyloderamosa
-pseudomonas phage kpp10
-pseudomonas sp. (strain m1)
-pseudomonas sp. (strain rs-16)
-pseudomonas sp. (strain sy-77)
-pseudonocardia thermophila
-pseudorasbora parva
-pyramimonas orientalis virus
-pyrococcus sp. (strain gb-d)
-pyropia dentata
-pyropia katadae
-pythium hypogynum
-pythium oligandrum
-pythium vexans
-rahnella aquatilis (strain atcc 33071 / dsm 4594 / jcm 1683 / nbrc 105701 / ncimb 13365 / cip 78.65)
-hadrurus aztecus
-halobatrachus didactylus
-halomonas halodenitrificans
-hamamelis japonica
-helenium bigelovii
-heliobacterium chlorum
-heliothis armigera granulosis virus
-heteranthelium piliferum
-heterohyrax brucei
-hofmeisteria fasciculata
-homo sapiens neanderthalensis
-hulsea algida
-human adenovirus d serotype 15/h9
-human hepatitis a virus genotype ia (isolate cr326)
-human hepatitis a virus genotype ia (isolate gbm)
-human herpesvirus 1 (strain a44)
-human herpesvirus 1 (strain cvg-2)
-human herpesvirus 1 (strain mgh-10)
-human herpesvirus 1 (strain r15)
-human herpesvirus 7 (strain rk)
-agrobacterium sp. (strain cp4)
-agrobacterium sp. (strain knk712)
-agrobacterium tumefaciens (strain apple 185)
-agrobacterium tumefaciens (strain b2a)
-agropyron cristatum
-agrotis segetum granulosis virus
-agrotis segetum nuclear polyhedrosis virus
-ailanthus altissima
-aiptasia diaphana
-aix galericulata
-akania bidwillii
-albizia kalkora
-aleuria aurantia
-alexandrium tamarense
-alicycliphilus denitrificans (strain dsm 14773 / cip 107495 / k601)
-alisma canaliculatum
-allagelena opulenta
-allamanda cathartica
-alliaria petiolata
-alopochen aegyptiacus
-dioclea wilsonii
-dioon edule
-dioon spinulosum
-diospyros virginiana
-diphyscium foliosum
-diplacus aurantiacus
-dipodomys merriami
-disporum sessile
-dofleinia armata
-dracula chimaera
-drimia maritima
-drosophila adunca
-drosophila cyrtoloma
-drosophila dasycnemia
-drosophila disjuncta
-drosophila iki
-drosophila lineosetae
-drosophila lowei
-drosophila nasuta f
-drosophila petalopeza
-lyonia lucida
-macaca brunnescens
-macaca cyclopis
-macaca pagensis
-macrobrachium rosenbergii nodavirus
-macropus parma
-macrozamia communis
-mactra chinensis
-magnolia champaca
-magnolia figo
-magnolia pyramidata
-maianthemum dilatatum
-maihuenia poeppigii
-malacomys longipes
-malacosoma neustria nuclear polyhedrosis virus
-malacothrix typica
-malbranchea cinnamomea
-malus baccata var. xiaojinensis
-mammillaria haageana
-mandragora officinarum
-reticulomyxa filosa
-rhabdomys pumilio
-rhea pennata
-rheum palmatum
-rhinolophus darlingi
-rhipicephalus bursa
-rhizobium sp. (strain mpik3030)
-rhizobium sullae
-rhizopus javanicus
-rhododendron ferrugineum
-rhododendron tomentosum
-rhododendron tsusiophyllum
-rhodotypos scandens
-rhopalosiphum padi
-rhopilema nomadica
-rhynchonycteris naso
-rhynchosporium secalis
-ribgrass mosaic virus (strain cab)
-rickettsia slovaca (strain 13-b)
-rinderpest virus (strain kuwait 82/1)
-acidovorax delafieldii
-acinetobacter oleivorans (strain jcm 16667 / kctc 23045 / dr1)
-acinetobacter sp. (strain ak226)
-acinetobacter sp. (strain ra3849)
-acrostichum aureum
-actinidia eriantha
-actinobacillus equuli
-actinomyces viscosus
-actinomycete sp. (strain k97-0003)
-actinomycete sp. (strain l585-6 / atcc 53650)
-actinoplanes utahensis
-actinosynnema pretiosum subsp. auranticum
-acutisoma longipes
-adenium obesum
-adiantum pedatum
-adoxa moschatellina
-aepypodius arfakianus
-aepyprymnus rufescens
-aerococcus urinae (strain acs-120-v-col10a)
-aeromonas enteropelogenes
-cottinella boulengeri
-cottocomephorus grewingkii
-cottocomephorus inermis
-coturnix delegorguei
-couroupita guianensis
-coxiella burnetii
-coxsackievirus a16 (strain g-10)
-coxsackievirus a16 (strain tainan/5079/98)
-coxsackievirus a21 (strain coe)
-coxsackievirus a24 (strain eh24/70)
-coxsackievirus a9 (strain griggs)
-coxsackievirus b1 (strain japan)
-coxsackievirus b3 (strain woodruff)
-coxsackievirus b4 (strain e2)
-coxsackievirus b4 (strain jvb / benschoten / new york/51)
-coxsackievirus b5 (strain peterborough / 1954/uk/85)
-crambe hispanica subsp. abyssinica
-crassula marnierana
-creopus spinulosus
-crocosmia sp. (strain porto alegre 034)
-hybanthus parviflorus
-hybomitra bimaculata
-hydnophytum formicarum
-hydra oligactis
-hydractinia echinata
-hydrophis torquatus
-hydrophyllum virginianum
-hymenobacter ocellatus
-hymenocallis littoralis
-hyphomicrobium sp. (strain x)
-hypnea japonica
+enterobacteria phage fr
+enterobacteria phage ga
+enterobacteria phage ms2
+enterobacteria phage ox2
+enterobacteria phage sp
+erythrina variegata
+euglena granulata
+exophiala jeanselmei
+flaveria anomala
+fucus vesiculosus
+gazella gazella
+gluconacetobacter polyoxogenes
+glycyrrhiza uralensis
+goose circovirus
+gracilaria gracilis
+haloarcula hispanica (strain atcc 33960 / dsm 4426 / jcm 8911 / nbrc 102182 / ncimb 2187 / vkm b-1755)
+haloarcula japonica
+halobacillus halophilus (strain atcc 35676 / dsm 2266 / jcm 20832 / nbrc 102448/ ncimb 2269)
+helicobacter pylori bacteriophage khp30
+hepatitis e virus genotype 3 (isolate swine/united states/swus1)
+bothriechis lateralis
+bovine parvovirus
+brasenia schreberi
+broadhaven virus
+bromus inermis
+burkholderia phage bcepmu
+burkholderia rhizoxinica (strain dsm 19002 / cip 109453 / hki 454)
+buthus paris
+calanus finmarchicus
+calisoga sp.
+callithrix humeralifera
+callithrix sp.
+callorhinus ursinus
+calystegia sepium
+carnation ringspot virus
+cellulomonas flavigena (strain atcc 482 / dsm 20109 / ncib 8073 / nrs 134)
+cellvibrio japonicus
+ceratogyrus marshalli
+chelyosoma productum
+cherax destructor
+eulemur mongoz
+eulemur rubriventer
+fagus sylvatica
+feline calicivirus (strain cat/united states/urbana/1960)
+feline sarcoma virus (strain snyder-theilen)
+festuca arundinacea
+flammulina velutipes
+galemys pyrenaicus
+gazella spekei
+gazella subgutturosa
+grampus griseus
+grosmannia clavigera (strain kw1407 / uamh 11150)
+gulo gulo
+haloferax volcanii
+heliobacterium gestii
+heliocidaris erythrogramma
+heliocidaris tuberculata
+hemiechinus auritus
+hemitragus jemlahicus
+heriaeus melloteei
+influenza b virus (strain b/leningrad/179/1986)
+iotyrris cingulifera
+labrenzia aggregata (strain atcc 25650 / dsm 13394 / jcm 20685 / nbrc 16684 / ncimb 2208 / iam 12614)
+lactobacillus sp. (strain 30a)
+larix decidua
+larix laricina
+lasiodora parahybana
+latrodectus geometricus
+lavandula angustifolia
+leioheterodon madagascariensis
+leiostomus xanthurus
+leishmania enriettii
+leishmania rna virus 1 - 1
+lepocinclis buetschlii
+lepomis macrochirus
+leptospira meyeri
+leuconostoc gelidum subsp. gasicomitatum (strain dsm 15947 / cect 5767 / jcm 12535 / lmg 18811 / tb1-10)
+liparis tunicatus
+listeria phage a118
+liza ramada
+macaca sinica
+maconellicoccus hirsutus
+macrotyloma axillare
+magnolia acuminata
+mantis religiosa
+mareca penelope
+marichromatium gracile
+marmota bobak
+marmota marmota
+megaselia scalaris
+megoura viciae
+meleagrid herpesvirus 1 (strain h2)
+mesomys hispidus
+methylobacterium organophilum
+methylomonas sp. (strain j)
+methylotenera mobilis (strain jlw8 / atcc baa-1282 / dsm 17540)
+methylovorus sp. (strain mp688)
+microbacterium ammoniaphilum
+microbotryum violaceum
+microtus gerbei
+hyaloraphidium curvatum
+hylopetes lepidus
 hypocrea atroviridis (strain atcc 20476 / imi 206040)
-hypopterygium didictyon
-hypopterygium laricinum
-hypsiboas albopunctatus
-hypsiboas punctatus
-hypsiprymnodon moschatus
-hyptis suaveolens
-icacina mannii
-icaria sp.
-passiflora quadrangularis
-passionfruit woodiness virus (strain mild)
-passionfruit woodiness virus (strain severe)
-passionfruit woodiness virus (strain tip blight)
-patagonotothen tessellata
-patella granatina
-patersonia fragilis
-patersonia sp. (strain lejeune 1997)
-paulownia kawakamii
-pedobacter heparinus
-pedosphaera parvula (strain ellin514)
-peirates turpis
-pelargonium grandiflorum
-peliperdix coqui
-pellaea andromedifolia
-pellaea rotundifolia
-pellia neesiana
-pelobacter acetylenicus
-pelophylax fukienensis
-penicillium echinulatum
-sweet potato mild mottle virus
-swine vesicular disease virus (strain h/3 '76)
-sylvia borin
-symphoricarpos albus
-syritta pipiens
-syrmaticus mikado
-tabebuia heterophylla
-tacaribe virus (strain trvl 11598)
-tacaribe virus (strain v5)
-tacaribe virus (strain v7)
-tachysurus fulvidraco
-taenia asiatica
-takifugu obscurus
-tamandua mexicana
-tamarillo mosaic virus
-tamarindus indica
-tanacetum cinerariifolium
-taraxacum kok-saghyz
-tasmannia insipida
-taurulus bubalis
+hypsibius dujardini
+ictiobus bubalus
+influenza a virus (strain a/chicken/japan/1924 h7n7)
+influenza a virus (strain a/duck/australia/749/1980 h1n1)
+influenza a virus (strain a/equine/algiers/1972 h3n8)
+influenza a virus (strain a/mallard/alberta/88/1976 h3n8)
+influenza a virus (strain a/mynah/haneda-thai/1976 h3n1)
+influenza a virus (strain a/new jersey/8/1976 h1n1)
+influenza a virus (strain a/pintail/alberta/268/1978 h6n2)
+influenza c virus (strain c/yamagata/1964)
+ipomoea cordatotriloba
+ipomoea triloba
+irpex lacteus
+isochrysis galbana
+isometrus vittatus
+kluyvera cryocrescens
+komagataeibacter europaeus
+arapaima gigas
+araucaria heterophylla
+archboldomys luzonensis
+arcobacter nitrofigilis (strain atcc 33309 / dsm 7299 / lmg 7604 / nctc 12251 / ci)
+arctocebus calabarensis
+arctogalidia trivirgata
+arctonyx collaris
+aristea glauca
+arthrobacter oxydans
+arthrobacter sp. (strain te1826)
+artibeus amplus
+artibeus anderseni
+artibeus fimbriatus
+artibeus fraterculus
+artibeus glaucus
+artibeus glaucus gnomus
+artibeus glaucus watsoni
+artibeus hirsutus
+artibeus inopinatus
+artibeus intermedius
+genetta johnstoni
+genetta maculata
+genetta pardina
+genetta thierryi
+genetta tigrina
+geomys arenarius
+geomys bursarius lutescens
+geomys pinetis
+geomys tropicalis
+geothlypis aequinoctialis
+geothlypis trichas
+gibberella pulicaris
+gladiolus papilio
+glaucomys sabrinus
+glaucomys volans
+glironia venusta
+glyphonycteris daviesi
+glyphonycteris sylvestris
+glyptemys muhlenbergii
+gorilla gorilla beringei
+pachyptila salvini
+pachyptila turtur
+paenibacillus sp
+panthera tigris tigris
+pantherophis bairdi
+pantherophis vulpinus
+pantodon buchholzi
+paracoccus sp. (strain pc1)
+paradisaea minor
+paradisaea raggiana
+paradisaea rubra
+paradisaea rudolphi
+paranaja multifasciata
+parascalops breweri
+paraspadella gotoi
+pariacoto virus
+parula americana
+parula gutturalis
+passerina cyanea
+pastinachus sephen
+voalavo gymnocaudus
+vormela peregusna
+weissella koreensis (strain kacc 15510)
+white clover cryptic virus 1
+wilsonia canadensis
+xanthomonas campestris
+xanthomonas sp. (strain t-22)
+xenoturbella bocki
+xerospermophilus mohavensis
+xerospermophilus perotensis
+xerospermophilus spilosoma
+xerospermophilus tereticaudus
+xerus rutilus
+yersinia aldovae
+yersinia bercovieri
+yersinia frederiksenii
+yersinia mollaretii
+yersinia pestis (strain z176003)
+yersinia rohdei
+zaire ebolavirus (strain eckron-76)
+pasteurella aerogenes
+pea seed-borne mosaic virus (strain dpd1)
+peanut mottle virus (strain m)
+pelodiscus sinensis japonicus
+pelomonas saccharophila
+pelophylax porosus brevipodus
+pelvetia fastigiata
+penaeus sp.
+penicillium brevicompactum
+penicillium patulum
+penicillium urticae
+peniophora sp. (strain sg)
+pepper mottle virus (isolate california)
+peromyscus crinitus
+petalonia fascia
+phlebiopsis gigantea
+phoradendron liga
+phrynops hilarii
+phyllocrania paradoxa
+phyllomedusa tomopterna
+enterobacteria phage rb6
+enterobacteria phage rb8
+enterobacteria phage rb9
+enterobacteria phage sv14
+enterobacteria phage sv76
+enydra sessilis
+eriophyllum congdonii
+eriophyllum staechadifolium
+erwinia aphidicola
+escherichia albertii (strain tw07627)
+escherichia coli (strain ms 21-1)
+eucomis bicolor
+eucomis montana
+eudistoma sp. (strain fj04-12-071)
+eudynamys scolopaceus
+eutetras palmeri
+felis silvestris lybica
+fervidobacterium pennivorans (strain dsm 9078 / ven5)
+festuca gigantea
+flavobacterium lutescens
+acer campestre
+acer opalus
+acer palmatum
+acer platanoides
+acetobacterium woodii
+acetohalobium arabaticum (strain atcc 49924 / dsm 5501 / z-7288)
+achatina achatina
+achlya ambisexualis
+acidaminococcus sp. (strain bv3l6)
+acidianus infernus
+acidianus sp. (strain a1-3)
+acidiphilium cryptum
+acidiphilium multivorum
+acidiphilium organovorum
+acidocella facilis
+acinetobacter bereziniae
+acinetobacter sp. (strain atcc 33308 / bd413 erpe27)
+acinetobacter sp. (strain ed45-25)
+acinetobacter sp. (strain seip 12.81)
+acinetobacter sp. (strain t4)
+cucumber mosaic virus (strain c)
+cucumber mosaic virus (strain dkrd)
+cucumber mosaic virus (strain e5)
+cucumber mosaic virus (strain fc)
+cucumber mosaic virus (strain p6)
+cucumber mosaic virus (strain wl)
+cucumis ficifolius
+culex tarsalis
+cullen corylifolia
+cuon alpinus
+cupaniopsis anacardioides
+curvularia inaequalis
+cyanochen cyanoptera
+cycas panzhihuaensis
+cyclobacterium marinum (strain atcc 25205 / dsm 745)
+cynictis penicillata
+cynoscion nebulosus
+cypripedium calceolus
+dacnomys millardi
+dalbergia nigrescens
+lemna minuta
+lemna trisulca
+lemniscomys barbarus
+lens ervoides
+lentinus tuber-regium
+leopoldamys sabanus
+lepidium campestre
+lepidobatrachus laevis
+lepidozamia peroffskyana
+lepilemur mitsinjoensis
+leptodactylus fallax
+leucojum aestivum
+leuconostoc carnosum
+leuconostoc sp. (strain c2)
+lilium davidii
+lilium regale
+lilium tsingtauense
+limanda ferruginea
+limnanthes alba
+lindera benzoin
+pseudomonas fulva (strain 12-x)
+pseudomonas panacis
+pseudomonas pavonaceae
+pseudomonas phage kpp22
+pseudomonas phage phikz
+pseudomonas putida (strain s16)
+pseudomonas sp. (strain 109)
+pseudomonas sp. (strain a14)
+pseudomonas sp. (strain ad1)
+pseudomonas sp. (strain jr1 / k1)
+pseudomonas sp. (strain nk87)
+pseudomonas sp. (strain tji-51)
+pseudonocardia autotrophica
+pseudoturritis turrita
+pseudozyma antarctica
+pseudozyma aphidis (strain atcc 32657 / cbs 517.83 / dsm 70725 / jcm 10318 / nbrc 10182 / nrrl y-7954 / st-0401)
+psychotria longipes
+psychrobacter sp. (strain st1)
+psychrobacter sp. (strain ta137)
+pteropus rodricensis
+vibrio orientalis
+vibrio phage cp-t1
+vibrio sp. (strain 343)
+vibrio sp. (strain ant-300)
+vigna subterranea
+viral hemorrhagic septicemia virus (strain makah)
+virgibacillus salexigens
+vulcanisaeta distributa (strain dsm 14429 / jcm 11212 / nbrc 100878 / ic-017)
+vulpes corsac
+vulpes macrotis
+vulpes zerda
+wallemia muriae
+wallemia sebi
+wiseana iridescent virus
+wisteria frutescens
+wolffia arrhiza
+wolffiella gladiata
+xanthomonas campestris pv. malvacearum
+xanthomonas oryzae pv. oryzae
+xenorhabdus bovienii
+clostridium sp. (strain m-e)
+clostridium sp. (strain sy8519)
+cocal virus
+cochlearia officinalis
+cochliobolus cymbopogonis
+cochliobolus ellisii
+cochliobolus kusanoi
+cochliobolus sativus (strain nd90pr / atcc 201652)
+codium fragile
+coelognathus radiatus
+coleochaete scutata
+colletia armata
+colletotrichum dematium
+colletotrichum gloeosporioides (strain cg-14)
+colletotrichum sublineola
+comamonas terrigena
+combretum indicum
+comephorus dybowskii
+condylostoma magnum
+conopholis americana
+hericium erinaceus
+herpesvirus ateles
+herpesvirus ateles type 1 (strain lennette)
+heterometrus bengalensis
+heuchera micrantha
+hieracium piloselloides
+hippasa partita
+hippocratea richardiana
+hipposideros commersoni
+hirtodrosophila pictiventris
+hoeflea phototrophica (strain dsm 17068 / ncimb 14078 / dfl-43)
+hordeum chilense
+human astrovirus-2
+human astrovirus-3
+human astrovirus-6
+human astrovirus-7
+human cytomegalovirus (strain 1042)
+human cytomegalovirus (strain 119)
+human cytomegalovirus (strain 2387)
+human cytomegalovirus (strain 4654)
+nothoprocta cinerascens
+notothixos subaureus
+nyssa ogeche
+obelia geniculata
+obelia longissima
+oceanicola batsensis (strain atcc baa-863 / dsm 15984 / htcc2597)
+oceanimonas sp. (strain gk1)
+oceanospirillum linum
+odorrana margaretae
+omphalotus olearius
+onion yellows phytoplasma
+onoclea sensibilis
+onychium japonicum
+onychogalea fraenata
+opisthorchis felineus
+opisthorchis sinensis
+opuntia streptacantha
+orconectes australis
+orconectes virilis
+oreortyx pictus
+streptococcus alactolyticus
+streptococcus criceti
+streptococcus cristatus
+streptococcus dysgalactiae
+streptococcus gallolyticus
+streptococcus gallolyticus (strain atcc 43143 / f-1867)
+streptococcus oralis (strain uo5)
+streptococcus phage o1205
+streptococcus porcinus
+streptococcus pyogenes phage h10403
+streptococcus pyogenes serotype m5
+streptococcus salivarius (strain cchss3)
+streptococcus salivarius (strain jim8777)
+streptococcus sp. (strain 19909)
+streptococcus suis (strain gz1)
+streptococcus vestibularis
+streptomyces acrimycini
+streptomyces albulus
+streptomyces antifibrinolyticus
+streptomyces atratus
