@@ -1,7 +1,12 @@
+#
+# Dockerfile to build an image with Virtuoso Universal Server.
+#
+
 FROM ubuntu:16.04
 
 MAINTAINER Arnold Kuzniar <a.kuzniar@esciencecenter.nl>
 
+# update packages & install dependencies for Virtuoso
 RUN apt-get update && apt-get install -y \
     git \
     build-essential \
@@ -15,37 +20,39 @@ RUN apt-get update && apt-get install -y \
     net-tools \
     && rm -rf /var/lib/apt/lists/*
 
-ARG VOS_VER=stable/7
+# set command-line args including defaults
+ARG VOS_VERSION=stable/7
 ARG VOS_PREFIX=/usr/local/virtuoso-opensource
 
+# compile & install Virtuoso including serveral VAD packages
 WORKDIR /tmp
-
-RUN git clone -b $VOS_VER https://github.com/openlink/virtuoso-opensource.git
-
+RUN git clone -b ${VOS_VERSION} https://github.com/openlink/virtuoso-opensource.git
 WORKDIR virtuoso-opensource
-
 ENV CFLAGS="-O2 -m64"
-
-RUN ./autogen.sh && ./configure --prefix=$VOS_PREFIX \
+RUN ./autogen.sh && ./configure --prefix=${VOS_PREFIX} \
     --enable-conductor-vad \
     --enable-rdb2rdf-vad \
     --enable-rdfmappers-vad \
     --enable-fct-vad \
     && make -j $(nproc) && make install
-
-ENV PATH=${VOS_PREFIX}/bin:$PATH
-
 WORKDIR /tmp
+RUN rm -fr virtuoso-opensource
 
-RUN rm -fr $(basename $VOS_PREFIX)
+# add Virtuoso binaries to PATH
+ENV PATH=${VOS_PREFIX}/bin:${PATH}
 
-VOLUME /tmp/data
+# add volume for data sharing
+ENV VOS_SHARE=/tmp/share
+VOLUME ${VOS_SHARE}
 
-WORKDIR ${VOS_PREFIX}/var/lib/virtuoso/db
+# append volume to DirsAllowed in Virtuoso config file
+ENV VOS_CONFIG=${VOS_PREFIX}/var/lib/virtuoso/db/virtuoso.ini
+RUN sed -i "/DirsAllowed/ s:$:,${VOS_SHARE}:" ${VOS_CONFIG}
+WORKDIR ${VOS_SHARE}
 
-RUN sed -i '/DirsAllowed/ s:$:,/tmp/data:' virtuoso.ini
-
+# expose (default) Virtuoso server ports
 EXPOSE 8890
 EXPOSE 1111
 
-CMD ["virtuoso-t", "+wait", "+foreground", "+configfile", "virtuoso.ini"]
+# start Virtuoso server
+CMD ["sh", "-c", "virtuoso-t +wait +foreground +configfile ${VOS_CONFIG}"]
