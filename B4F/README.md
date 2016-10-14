@@ -1,4 +1,4 @@
-# [Pig QTLdb-LD](http://www.animalgenome.org/cgi-bin/QTLdb/SS/index) (Linked Data) deployment 
+# [Pig QTLdb](http://www.animalgenome.org/cgi-bin/QTLdb/SS/index) Linked Data deployment
 
 **1. Build a [Docker](https://www.docker.com/) container with [Virtuoso Universal Server](http://virtuoso.openlinksw.com/) (open source edition).**
 
