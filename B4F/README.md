@@ -1,4 +1,4 @@
-# pig QTLdb-Linked Data deployment
+# [Pig QTLdb-LD](http://www.animalgenome.org/cgi-bin/QTLdb/SS/index) (Linked Data) deployment 
 
 **1. Build a [Docker](https://www.docker.com/) container with [Virtuoso Universal Server](http://virtuoso.openlinksw.com/) (open source edition).**
 
@@ -10,15 +10,14 @@
 
 **3. Prepare input data (*.tsv files) for database import.**
 
-<pre><code>./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
+<pre><code>gzip -rd ../data
+./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
 ./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql
 </code></pre>
 
-**4. Build & deploy pig QTLdb as Linked Data.**
+**4. Build & deploy pig QTLdb-LD.**
 
-<pre><code>docker exec -it vos /bin/bash
-./build.sh
-</code></pre>
+`docker exec vos ./build.sh`
 
 **5. [Login](http://localhost:8890/conductor) to your running Virtuoso instance.**
 
