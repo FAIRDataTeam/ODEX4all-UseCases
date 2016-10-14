@@ -23,6 +23,6 @@
 
 Use `dba` for both account name and password.
 
-**6. Access pig QTLdb via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
+**6. Access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
 
-Use the (default) graph IRI:`http://localhost:8890/B4F`.
+Use the (default) RDF graph IRI:`http://localhost:8890/B4F`.
