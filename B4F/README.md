@@ -1,37 +1,28 @@
-# pig QTLdb-Linked Data deployment
+# [Pig QTLdb](http://www.animalgenome.org/cgi-bin/QTLdb/SS/index) Linked Data deployment
 
 **1. Build a [Docker](https://www.docker.com/) container with [Virtuoso Universal Server](http://virtuoso.openlinksw.com/) (open source edition).**
 
 `cd src; docker build -t nlesc/virtuoso .`
 
-**2. Start the server & listen to port 8890.**
+**2. Start the server.**
 
-`docker run --name vos -d -p 8890:8890 nlesc/virtuoso`
+`docker run --name vos -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
 
-**3. Install required VAD packages.**
+**3. Prepare input data (*.tsv files) for database import.**
 
-<pre><code>docker exec -i vos isql < install_vad_pkgs.sql
-docker exec -i vos isql < post_install_fct.sql</code></pre>
-
-**4. Populate database schema for pig QTLdb data.**
-
-`docker exec -i vos isq < create_db.sql`
-
-**5. Prepare input data (*.tsv files) for database import.**
-
-<pre><code>./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
+<pre><code>gzip -rd ../data
+./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
 ./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql
 </code></pre>
 
-**6. Import data into Virtuoso RDB.**
+**4. Build & deploy pig QTLdb-LD.**
 
-<pre><code>docker exec -i vos isql < QTL.sql
-docker exec -i vos isql < ONTO.sql
-docker exec -i vos isql < update_db.sql
-</code></pre>
+`docker exec vos ./build.sh`
 
-**7. Transform RDB to RDF.**
+**5. [Login](http://localhost:8890/conductor) to your running Virtuoso instance.**
 
-<pre><code>docker cp r2rml.ttl vos:/tmp/data
-docker exec -i vos isql < semantify_db.sql
-</code></pre>
+Use `dba` for both account name and password.
+
+**6. Access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
+
+Use the (default) RDF graph IRI:`http://localhost:8890/B4F`.

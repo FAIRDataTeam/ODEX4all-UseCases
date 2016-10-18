@@ -45,6 +45,29 @@
         ] ;
     ] .
 
+<#QtlTermTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:logicalTable [
+        rr:tableSchema "B4F" ;
+        rr:tableOwner  "odex4all" ;
+        rr:tableName   "V_QTL_TERM"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://localhost:8890/genome/Sus_scrofa/qtl/{qtl_id}" ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate obo:RO_0002610 ;
+        rr:objectMap [
+            rr:template "http://purl.obolibrary.org/obo/{term_id}" ;
+            rr:termType rr:IRI
+        ] ;
+    ] .
+
 <#RegionTriplesMap>
     a rr:TriplesMap ;
 

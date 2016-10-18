@@ -39,6 +39,7 @@ CREATE TABLE "B4F"."odex4all"."QTL" (
    "qtl_id"		INTEGER NOT NULL,
    PRIMARY KEY ("qtl_id")
 );
+
 CREATE INDEX idx_QTL_chromosome ON B4F.odex4all.QTL("chromosome");
 CREATE INDEX idx_QTL_region ON B4F.odex4all.QTL("start_pos","end_pos");
 CREATE INDEX idx_QTL_start ON B4F.odex4all.QTL("start_pos");
@@ -47,6 +48,9 @@ CREATE INDEX idx_QTL_pmid ON B4F.odex4all.QTL("pmid");
 CREATE INDEX idx_QTL_cmo_md5 ON B4F.odex4all.QTL("cmo_md5");
 CREATE INDEX idx_QTL_vt_md5 ON B4F.odex4all.QTL("vt_md5");
 CREATE INDEX idx_QTL_lpt_md5 ON B4F.odex4all.QTL("lpt_md5");
+CREATE INDEX idx_QTL_cmo_id ON B4F.odex4all.QTL("cmo_id");
+CREATE INDEX idx_QTL_vt_id ON B4F.odex4all.QTL("vt_id");
+CREATE INDEX idx_QTL_lpt_id ON B4F.odex4all.QTL("lpt_id");
 
 
 CREATE TABLE "B4F"."odex4all"."ONTO" (
@@ -55,9 +59,27 @@ CREATE TABLE "B4F"."odex4all"."ONTO" (
    "name_md5"	VARCHAR,
    PRIMARY KEY ("id")
 );
+
 CREATE INDEX idx_ONTO_name_md5 ON B4F.odex4all.ONTO("name_md5");
 
+
 -- create views
+CREATE VIEW B4F.odex4all.V_QTL_TERM AS
+SELECT qtl_id, REPLACE(term_id, ':', '_') AS term_id
+FROM (
+    SELECT qtl_id, cmo_id AS term_id
+    FROM B4F.odex4all.QTL
+    WHERE cmo_id IS NOT NULL
+    UNION
+    SELECT qtl_id, vt_id AS term_id
+    FROM B4F.odex4all.QTL
+    WHERE vt_id IS NOT NULL
+    UNION
+    SELECT qtl_id, lpt_id AS term_id
+    FROM B4F.odex4all.QTL
+    WHERE lpt_id IS NOT NULL
+) V;
+
 CREATE VIEW B4F.odex4all.V_QTL_POS AS
 SELECT DISTINCT chromosome, start_pos, end_pos
 FROM B4F.odex4all.QTL;
@@ -65,7 +87,9 @@ FROM B4F.odex4all.QTL;
 CREATE VIEW B4F.odex4all.V_CHROM AS
 SELECT DISTINCT chromosome FROM B4F.odex4all.QTL;
 
+
 -- grant select privilege on created tables/views to user
 GRANT SELECT ON B4F.odex4all.QTL TO SPARQL_SELECT;
+GRANT SELECT ON B4F.odex4all.V_QTL_TERM TO SPARQL_SELECT;
 GRANT SELECT ON B4F.odex4all.V_QTL_POS TO SPARQL_SELECT;
 GRANT SELECT ON B4F.odex4all.V_CHROM TO SPARQL_SELECT;
