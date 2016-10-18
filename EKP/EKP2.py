@@ -297,8 +297,8 @@ class connection:
                     "ids": triple_ids
                     }
         self.logging.info("Executing " + call + " with query " + str(query))
-        response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token})
-        self.logging.info("Returned " + str(len(response)) + " publication ID's")
+        response = self.r.post(self.url + call, json = query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
+        self.logging.info("Returned " + str(len(response)) + " triples")
         return response
 
     def getPubliciations(self, pub_ids):

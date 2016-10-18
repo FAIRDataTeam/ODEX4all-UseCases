@@ -1,17 +1,8 @@
-from scripts.EKP.EKP2 import connection
+from EKP.EKP2 import connection
 import os
 import csv
 import configparser
 import logging
-os.chdir('/Users/Wytze/git/ODEX4all-UseCases/scripts/EKP')
-logging.basicConfig(filename='logs/NIZO.log', level=logging.DEBUG)
-logging.info("===================== Started a new session =====================")
-
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-# Set up the connection
-c = connection(config)
 
 # Read in the files
 input_file = open("NIZO/Input/List commensals for textmining_v3.txt", "r")
@@ -40,6 +31,17 @@ for line in csv_reader:
     healthbenefits.append(line[0])
 
 input_file.close()
+
+# Load the config file and start the connection
+os.chdir('/Users/Wytze/git/ODEX4all-UseCases/EKP')
+logging.basicConfig(filename='logs/NIZO.log', level=logging.DEBUG)
+logging.info("===================== Started a new session =====================")
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Set up the connection
+c = connection(config)
 
 # Set the output directory
 c.setDirectory("NIZO")
@@ -111,6 +113,6 @@ if len(paths) > 0:
         BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
         BC_sourceNames = [y['sourceName'] for y in BC_pubs]
         #BC_sourceIds = [z['sourceId'] for z in BC_pubs]
-        csv_writer.writerow(start + middle + end + [score] + [AB_predicates] + AB_sourceNames +
-                           [BC_predicates] + BC_sourceNames)
+        csv_writer.writerow(start + middle + end + score + [AB_predicates] + [AB_sourceNames] +
+                           [BC_predicates] + [BC_sourceNames])
 output.close()

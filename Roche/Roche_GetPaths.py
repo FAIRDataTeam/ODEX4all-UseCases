@@ -70,8 +70,8 @@ for line in reader:
                 BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
                 BC_sourceNames = [y['sourceName'] for y in BC_pubs]
                 #BC_sourceIds = [z['sourceId'] for z in BC_pubs]
-                out_write.writerow(start + middle + end + [score] + [AB_predicates] + AB_sourceNames + [BC_predicates] +
-                                    BC_sourceNames)
+                out_write.writerow(start + middle + end + score + [AB_predicates] + [AB_sourceNames] + [BC_predicates] +
+                                    [BC_sourceNames])
     else:
         print(line[0] + " not in target dictionary.")
 
