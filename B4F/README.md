@@ -23,6 +23,11 @@
 
 Use `dba` for both account name and password.
 
-**6. Access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
+**6. Query the RDB version of the pig QTLdb using SQL, e.g.**
+
+`SELECT * FROM B4F.odex4all.QTL; -- schema.owner.table`
+
+
+**7. Or access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
 
 Use the (default) RDF graph IRI:`http://localhost:8890/B4F`.
