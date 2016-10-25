@@ -10,7 +10,7 @@
 
 **3. Prepare input data (*.tsv files) for database import.**
 
-<pre><code>gzip -rd ../data
+<pre><code>tar xvzf ../data/pigQTLdb.tar.gz -C ../data
 ./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
 ./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql
 </code></pre>
