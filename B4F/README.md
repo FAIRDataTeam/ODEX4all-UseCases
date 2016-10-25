@@ -6,7 +6,7 @@
 
 **2. Start the server.**
 
-`docker run --name vos -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
+`docker run --name b4f -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
 
 **3. Prepare input data (*.tsv files) for database import.**
 
@@ -17,7 +17,7 @@
 
 **4. Build & deploy pig QTLdb-LD.**
 
-`docker exec vos ./build.sh`
+`docker exec b4f ./build.sh`
 
 **5. [Login](http://localhost:8890/conductor) to your running Virtuoso instance.**
 
