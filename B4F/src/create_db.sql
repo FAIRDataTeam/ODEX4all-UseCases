@@ -65,17 +65,17 @@ CREATE INDEX idx_ONTO_name_md5 ON B4F.odex4all.ONTO("name_md5");
 
 -- create views
 CREATE VIEW B4F.odex4all.V_QTL_TERM AS
-SELECT qtl_id, REPLACE(term_id, ':', '_') AS term_id
+SELECT qtl_id, REPLACE(term_id, ':', '_') AS term_id, term_name
 FROM (
-    SELECT qtl_id, cmo_id AS term_id
+    SELECT qtl_id, cmo_id AS term_id, cmo_name AS term_name
     FROM B4F.odex4all.QTL
     WHERE cmo_id IS NOT NULL
     UNION
-    SELECT qtl_id, vt_id AS term_id
+    SELECT qtl_id, vt_id AS term_id, vt_name AS term_name
     FROM B4F.odex4all.QTL
     WHERE vt_id IS NOT NULL
     UNION
-    SELECT qtl_id, lpt_id AS term_id
+    SELECT qtl_id, lpt_id AS term_id, lpt_name AS term_name
     FROM B4F.odex4all.QTL
     WHERE lpt_id IS NOT NULL
 ) V;

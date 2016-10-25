@@ -66,6 +66,15 @@
             rr:template "http://purl.obolibrary.org/obo/{term_id}" ;
             rr:termType rr:IRI
         ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rr:column "term_name" ;
+            rr:termType rr:Literal ;
+            rr:datatype xsd:string
+        ] ;
     ] .
 
 <#RegionTriplesMap>
