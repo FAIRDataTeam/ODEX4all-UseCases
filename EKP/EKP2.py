@@ -293,7 +293,7 @@ class connection:
         # Get data about triples. Takes a list of triple ID's as input.
         call = "/external/triples"
         query =     {
-                    "additionalFields": ["predicateName", "measures", "accessMappings"],
+                    "additionalFields": ["predicateName", "measures", "accessMappings", "publicationIds"],
                     "ids": triple_ids
                     }
         self.logging.info("Executing " + call + " with query " + str(query))
@@ -319,7 +319,7 @@ class connection:
 
         for part in partition:
             query =     {
-                    "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC"],
+                    "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC", "accessMappings", "measures"],
                     "ids": part
                     }
             self.logging.info("Executing " + call + " with query " + str(query))

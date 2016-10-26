@@ -1,11 +1,11 @@
 # Due to the composite way in which the concept "Butanol tolerance" is modelled, I (Wytze) have created my own testsuite to play around with the data.
 
 # Load the connection
-from scripts.EKP.EKP2 import connection
+from EKP.EKP2 import connection
 import os
 import configparser
 import logging
-os.chdir('/Users/Wytze/git/ODEX4all-UseCases/scripts/EKP')
+os.chdir('/Users/Wytze/git/ODEX4all-UseCases/EKP')
 logging.basicConfig(filename='logs/DSM.log',level=logging.DEBUG)
 logging.info("===================== Started a new session =====================")
 

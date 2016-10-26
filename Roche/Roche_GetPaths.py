@@ -1,5 +1,5 @@
 # Load the connection
-from scripts.EKP.EKP2 import connection
+from EKP.EKP2 import connection
 import os
 import csv
 import configparser
@@ -64,14 +64,18 @@ for line in reader:
                 score = p['score']
                 AB_predicates = [c.mapPredicate(x) for x in p['relationships'][0]['predicateIds']]
                 AB_pubs = c.getPubliciations(p['relationships'][0]['publicationIds'])
+                AB_RD = [x['accessMappings'][0]['researchDomain'] for x in AB_pubs]
+                AB_RT = [x['accessMappings'][0]['researchTarget'] for x in AB_pubs]
                 AB_sourceNames = [y['sourceName'] for y in AB_pubs]
                 #AB_sourceIds = [z['sourceId'] for z in AB_pubs]
                 BC_predicates = [c.mapPredicate(x) for x in p['relationships'][1]['predicateIds']]
                 BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
+                BC_RD = [x['accessMappings'][0]['researchDomain'] for x in BC_pubs]
+                BC_RT = [x['accessMappings'][0]['researchTarget'] for x in BC_pubs]
                 BC_sourceNames = [y['sourceName'] for y in BC_pubs]
                 #BC_sourceIds = [z['sourceId'] for z in BC_pubs]
-                out_write.writerow(start + middle + end + score + [AB_predicates] + [AB_sourceNames] + [BC_predicates] +
-                                    [BC_sourceNames])
+                out_write.writerow(start + middle + end + score + [AB_predicates] + [AB_sourceNames] + [AB_RD] + [AB_RT] + [BC_predicates] +
+                                    [BC_sourceNames] + [BC_RD] + [BC_RT])
     else:
         print(line[0] + " not in target dictionary.")
 
