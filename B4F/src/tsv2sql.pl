@@ -3,10 +3,10 @@
 use strict;
 use warnings;
 
-my $table = $ARGV[0] || 'B4F.odex4all.QTL'; # catalog.schema.name in Virtuoso jargon
+my $table = $ARGV[0] || 'B4F.odex4all.QTL'; # catalog.owner.table in Virtuoso jargon
 my $infile = $ARGV[1];
 
-die "Usage: $0 [catalog.schema.name] [*.tsv file]\n" unless $infile;
+die "Usage: $0 [catalog.owner.table] [*.tsv file]\n" unless $infile;
 
 open IN, $infile or die "Can't open $infile.\n";
 my $header = <IN>; # first line must be a header
@@ -24,4 +24,3 @@ while (<IN>) {
    print "INSERT INTO $table ($colist) VALUES ($vals);\n";
 }
 close IN;
-

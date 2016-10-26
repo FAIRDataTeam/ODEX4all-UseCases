@@ -6,23 +6,28 @@
 
 **2. Start the server.**
 
-`docker run --name vos -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
+`docker run --name b4f -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
 
 **3. Prepare input data (*.tsv files) for database import.**
 
-<pre><code>gzip -rd ../data
+<pre><code>tar xvzf ../data/pigQTLdb.tar.gz -C ../data
 ./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
 ./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql
 </code></pre>
 
 **4. Build & deploy pig QTLdb-LD.**
 
-`docker exec vos ./build.sh`
+`docker exec b4f ./build.sh`
 
 **5. [Login](http://localhost:8890/conductor) to your running Virtuoso instance.**
 
 Use `dba` for both account name and password.
 
-**6. Access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
+**6. Query the RDB version of the pig QTLdb using SQL, e.g.**
+
+`SELECT * FROM B4F.odex4all.QTL; -- schema.owner.table`
+
+
+**7. Or access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
 
 Use the (default) RDF graph IRI:`http://localhost:8890/B4F`.
