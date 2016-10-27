@@ -115,6 +115,14 @@
             rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}#{end_pos}" ;
             rr:termType rr:IRI
         ] ;
+    ] ;
+    
+    rr:predicateObjectMap [
+        rr:predicate obo:SO_part_of ;
+        rr:objectMap [
+            rr:template "http://localhost:8890/genome/Sus_scrofa/chromosome/{chromosome}" ;
+            rr:termType rr:IRI
+        ] ;
     ] .
 
 <#RegionStartTriplesMap>
@@ -231,5 +239,55 @@
             rr:column "chromosome" ;
             rr:termType rr:Literal ;
             rr:datatype xsd:string
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate obo:SO_part_of ;
+        rr:objectMap [
+            rr:constant <http://localhost:8890/genome/Sus_scrofa> ;
+            rr:termType rr:IRI
+        ] ;
+    ] .
+
+<#GenomeTriplesMap>
+    a rr:TriplesMap ;
+
+    rr:subjectMap [
+        rr:constant <http://localhost:8890/genome/Sus_scrofa> ;
+        rr:class obo:SO_0001026 ;
+        rr:termType rr:IRI ;
+        rr:graph <>
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rr:constant "genome of Sus scrofa domesticus (domestic pig)" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dcterms:title ;
+        rr:objectMap [
+            rr:constant "genome of Sus scrofa domesticus (domestic pig)" ;
+            rr:termType rr:Literal
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate dcterms:source ;
+        rr:objectMap [
+            rr:constant <http://www.animalgenome.org/cgi-bin/QTLdb/SS/download?file=gbpSS_10.2> ;
+            rr:termType rr:IRI
+        ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate obo:SO_genome_of ;
+        rr:objectMap [
+            rr:constant obo:NCBITaxon_9825 ;
+            rr:termType rr:IRI
         ] ;
     ] .
