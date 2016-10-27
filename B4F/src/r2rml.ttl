@@ -94,7 +94,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
+        rr:predicate rdfs:label ;
         rr:objectMap [
             rr:template "region {start_pos}-{end_pos} bp on chromosome {chromosome}" ;
             rr:termType rr:Literal
@@ -135,7 +135,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
+        rr:predicate rdfs:label ;
         rr:objectMap [
             rr:template "position at {start_pos} bp on chromosome {chromosome}" ;
             rr:termType rr:Literal
@@ -177,7 +177,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
+        rr:predicate rdfs:label ;
         rr:objectMap [
             rr:template "position at {end_pos} bp on chromosome {chromosome}" ;
             rr:termType rr:Literal
@@ -218,7 +218,7 @@
     ] ;
 
     rr:predicateObjectMap [
-        rr:predicate rdfs:comment ;
+        rr:predicate rdfs:label ;
         rr:objectMap [
             rr:template "chromosome {chromosome}" ;
             rr:termType rr:Literal
