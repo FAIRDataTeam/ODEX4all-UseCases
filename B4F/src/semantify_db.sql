@@ -6,7 +6,7 @@
 
 -- set local variables
 SET u{GRAPH_IRI} http://localhost:8890/B4F;
-SET u{R2RML_GRAPH_IRI} http://temp/B4F;
+SET u{R2RML_GRAPH_IRI} http://localhost:8890/r2rml;
 SET u{R2RML_FILE} /tmp/share/r2rml.ttl;
 
 -- clear graphs
@@ -23,6 +23,4 @@ DB.DBA.TTLP(file_to_string('$u{R2RML_FILE}'), '$u{GRAPH_IRI}', '$u{R2RML_GRAPH_I
 -- convert R2RML into Virtuoso's own Linked Data Views script
 EXEC('SPARQL ' || DB.DBA.R2RML_MAKE_QM_FROM_G('$u{R2RML_GRAPH_IRI}'));
 
--- TODO:
--- set R2RML_FILE variable dynamically using to docker command-line arg
--- materialize RDF/Linked Data view(s), http://docs.openlinksw.com/virtuoso/fn_rdf_view_sync_to_physical/
+-- an alternative approach described at http://docs.openlinksw.com/virtuoso/r2rmlgenlviewisql/
