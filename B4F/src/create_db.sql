@@ -1,95 +1,78 @@
 --
--- Create RDB schema for pig QTLdb data.
+-- Create SQLite db schema for pigQTLdb data.
 --
 -- Author: Arnold Kuzniar
 --
 
--- create user
-USER_CREATE('odex4all', 'odex4all');
-
--- create database tables
-CREATE TABLE "B4F"."odex4all"."QTL" (
-   "chromosome"		VARCHAR,
-   "source"		VARCHAR,
-   "feature_type"	VARCHAR,
-   "start_pos"		INTEGER,
-   "end_pos"		INTEGER,
-   "additive_effect"	FLOAT,
-   "dominance_effect"	FLOAT,
-   "bayes_value"	FLOAT,
-   "likelihood_ratio"	FLOAT,
-   "p_value"		FLOAT,
-   "variance"		FLOAT,
-   "f_stat"		FLOAT,
-   "lod_score"		FLOAT,
-   "cmo_name"		VARCHAR,
-   "cmo_md5"		VARCHAR,
-   "cmo_id"		VARCHAR,
-   "vt_name"		VARCHAR,
-   "vt_md5"		VARCHAR,
-   "vt_id"		VARCHAR,
-   "lpt_name"		VARCHAR,
-   "lpt_md5"		VARCHAR,
-   "lpt_id"		VARCHAR,
-   "map_type"		VARCHAR,
-   "model"		VARCHAR,
-   "flanking_markers"	VARCHAR,
-   "breed"		VARCHAR,
-   "pmid"		INTEGER,
-   "qtl_id"		INTEGER NOT NULL,
-   PRIMARY KEY ("qtl_id")
+-- create tables
+DROP TABLE IF EXISTS QTL;
+CREATE TABLE QTL (
+   qtl_id NUMERIC NOT NULL,
+   chromosome TEXT,
+   start NUMERIC,
+   end NUMERIC,
+   dominance_effect NUMERIC,
+   additive_effect NUMERIC,
+   bayes_value NUMERIC,
+   likelihood_ratio NUMERIC,
+   p_value NUMERIC,
+   variance NUMERIC,
+   f_stat NUMERIC,
+   lod_score NUMERIC,
+   cmo_name	TEXT,
+   vt_name TEXT,
+   lpt_name TEXT,
+   qtl_class TEXT,
+   map_type TEXT,
+   model TEXT,
+   markers TEXT,
+   breed TEXT,
+   pmid NUMERIC,
+   PRIMARY KEY(qtl_id)
 );
-
-CREATE INDEX idx_QTL_chromosome ON B4F.odex4all.QTL("chromosome");
-CREATE INDEX idx_QTL_region ON B4F.odex4all.QTL("start_pos","end_pos");
-CREATE INDEX idx_QTL_start ON B4F.odex4all.QTL("start_pos");
-CREATE INDEX idx_QTL_end ON B4F.odex4all.QTL("end_pos");
-CREATE INDEX idx_QTL_pmid ON B4F.odex4all.QTL("pmid");
-CREATE INDEX idx_QTL_cmo_md5 ON B4F.odex4all.QTL("cmo_md5");
-CREATE INDEX idx_QTL_vt_md5 ON B4F.odex4all.QTL("vt_md5");
-CREATE INDEX idx_QTL_lpt_md5 ON B4F.odex4all.QTL("lpt_md5");
-CREATE INDEX idx_QTL_cmo_id ON B4F.odex4all.QTL("cmo_id");
-CREATE INDEX idx_QTL_vt_id ON B4F.odex4all.QTL("vt_id");
-CREATE INDEX idx_QTL_lpt_id ON B4F.odex4all.QTL("lpt_id");
+CREATE INDEX idx_QTL_chromosome ON QTL(chromosome);
+CREATE INDEX idx_QTL_region ON QTL(start,end);
+CREATE INDEX idx_QTL_cmo_name ON QTL(cmo_name);
+CREATE INDEX idx_QTL_vt_name ON QTL(vt_name);
+CREATE INDEX idx_QTL_lpt_name ON QTL(lpt_name);
+CREATE INDEX idx_QTL_pmid ON QTL(pmid);
 
 
-CREATE TABLE "B4F"."odex4all"."ONTO" (
-   "id"		VARCHAR,
-   "name"	VARCHAR,
-   "name_md5"	VARCHAR,
-   PRIMARY KEY ("id")
+DROP TABLE IF EXISTS QNTO;
+CREATE TABLE ONTO (
+   id TEXT,
+   name TEXT,
+   PRIMARY KEY(id)
 );
-
-CREATE INDEX idx_ONTO_name_md5 ON B4F.odex4all.ONTO("name_md5");
+CREATE INDEX idx_ONTO_name ON ONTO(name);
 
 
 -- create views
-CREATE VIEW B4F.odex4all.V_QTL_TERM AS
-SELECT qtl_id, REPLACE(term_id, ':', '_') AS term_id, term_name
-FROM (
-    SELECT qtl_id, cmo_id AS term_id, cmo_name AS term_name
-    FROM B4F.odex4all.QTL
-    WHERE cmo_id IS NOT NULL
-    UNION
-    SELECT qtl_id, vt_id AS term_id, vt_name AS term_name
-    FROM B4F.odex4all.QTL
-    WHERE vt_id IS NOT NULL
-    UNION
-    SELECT qtl_id, lpt_id AS term_id, lpt_name AS term_name
-    FROM B4F.odex4all.QTL
-    WHERE lpt_id IS NOT NULL
-) V;
-
-CREATE VIEW B4F.odex4all.V_QTL_POS AS
-SELECT DISTINCT chromosome, start_pos, end_pos
-FROM B4F.odex4all.QTL;
-
-CREATE VIEW B4F.odex4all.V_CHROM AS
-SELECT DISTINCT chromosome FROM B4F.odex4all.QTL;
-
-
--- grant select privilege on created tables/views to user
-GRANT SELECT ON B4F.odex4all.QTL TO SPARQL_SELECT;
-GRANT SELECT ON B4F.odex4all.V_QTL_TERM TO SPARQL_SELECT;
-GRANT SELECT ON B4F.odex4all.V_QTL_POS TO SPARQL_SELECT;
-GRANT SELECT ON B4F.odex4all.V_CHROM TO SPARQL_SELECT;
+DROP VIEW IF EXISTS V_QTL;
+CREATE VIEW V_QTL AS
+SELECT
+   qtl_id,
+   chromosome,
+   start,
+   end,
+   dominance_effect,
+   additive_effect,
+   bayes_value,
+   likelihood_ratio,
+   p_value,
+   variance,
+   f_stat,
+   lod_score,
+   cmo_name,
+   (SELECT id FROM ONTO WHERE INSTR(id, 'CMO:') > 0 AND ONTO.name = QTL.cmo_name) AS cmo_id,
+   vt_name,
+   (SELECT id FROM ONTO WHERE INSTR(id, 'VT:') > 0 AND ONTO.name = QTL.vt_name) AS vt_id,
+   lpt_name,
+   (SELECT id FROM ONTO WHERE INSTR(id, 'LPT:') > 0 AND ONTO.name = QTL.lpt_name) AS lpt_id,
+   qtl_class,
+   map_type,
+   model,
+   markers,
+   breed,
+   pmid
+FROM QTL;
