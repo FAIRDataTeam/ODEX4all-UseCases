@@ -19,6 +19,6 @@ docker exec b4f ./build.sh
 
 Use `dba` for both account name and password.
 
-**6. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
+**5. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
 Use the (default) RDF graph IRI: `http://www.animalgenome.org/QTLdb/pig`.
