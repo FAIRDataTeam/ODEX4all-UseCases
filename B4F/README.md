@@ -15,10 +15,10 @@ mv ../data/pigQTLdb.ttl .
 docker exec b4f ./build.sh
 </code></pre>
 
-**5. [Login](http://localhost:8890/conductor) to running Virtuoso instance for admin tasks.**
+**4. [Login](http://localhost:8890/conductor) to running Virtuoso instance for admin tasks.**
 
 Use `dba` for both account name and password.
 
-**7. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
+**6. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
 Use the (default) RDF graph IRI: `http://www.animalgenome.org/QTLdb/pig`.
