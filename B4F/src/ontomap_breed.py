@@ -10,21 +10,19 @@
 #    three columns separated by \t: id, name, LBO breed IDs
 #
 
-import csv
-
 sep='\t'
-infile1 ='../data/ONTO.tsv'
-infile2 ='../data/pigQTLdb.tsv'
+file1 ='../data/ONTO.tsv'
+file2 ='../data/pigQTLdb.tsv'
 lookup = dict()
 
-with open(infile1, 'r') as fin1:
-   for ln in fin1.readlines():
+with open(file1) as fin:
+   for ln in fin:
       ln = ln.rstrip()
       id, name = ln.split(sep)
       lookup[name.lower()] = id
 
-with open(infile2, 'r') as fin2:
-   for ln in fin2.readlines():
+with open(file2) as fin:
+   for ln in fin:
       ln = ln.rstrip()
       cols = ln.split(sep)
       if len(cols) == 2:
