@@ -3,7 +3,7 @@
 # This script maps breed names to Livestock Breed Ontology (LBO) IDs.
 #
 # Input files:
-#   ONTO.tsv with two columns: id and name
+#   ONTO.tsv with two columns: id (format: <ontology_acronym>:<term_id>) and name
 #   pigQTLdb.tsv with two columns: qtl_id and breed (comma-separated field of values)
 #
 # Output (STDOUT):
