@@ -9,7 +9,7 @@ library(jsonlite)
 library(magrittr)
 library(yaml)
 library(tidyr)
-setwd("/home/anandgavai/ODEX4all-UseCases/ODEX4all-UseCases/scripts/EKP/DSM")
+
 config<-yaml.load_file("config.yml")
 ## connect to Euretos server with login credentials of 
 login <- "http://178.63.49.197:8080/spine-ws/login/authenticate"
@@ -62,7 +62,7 @@ getIndirectRelation<-function(start,end){
   pages<-list()
   for (i in 1:length(start$EKP_Concept_Id)){
     for (j in 1:length(end$EKP_Concept_Id)){
-      template<-paste0("{",'"additionalFields": ["semanticCategory","predicateIds"]',",",'"leftInputs":[',start$EKP_Concept_Id[i],']',",",'"rightInputs":[',end$EKP_Concept_Id[j],']',"}")
+      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start$EKP_Concept_Id[i],']',",",'"rightInputs":[',end$EKP_Concept_Id[j],']',"}")
       template<-fromJSON(template,simplifyVector = FALSE)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
