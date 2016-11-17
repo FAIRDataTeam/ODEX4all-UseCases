@@ -4,8 +4,19 @@
 1. Start solr server: 
 Run from commandline solr start
 
-2. Go to url 
+## Go to url 
 
 http://localhost:8983/solr/#/
 
-3. Select terms in the dropdown menu on the left side
+## Select terms in the dropdown menu on the left side
+
+These terms are extracted from following ontologies to form dictionary
+
+### http://planteome.org/
+
+### http://archive.gramene.org/plant_ontology/#to
+
+### http://www.cropontology.org/ontology/CO_322/Maize
+
+
+
