@@ -13,6 +13,7 @@ declare -A RDF
 RDF[FALDO]="http://biohackathon.org/resource/faldo.rdf"
 RDF[SO]="http://purl.obolibrary.org/obo/so.owl"
 RDF[RO]="http://localhost:8890/about/rdf/http://purl.obolibrary.org/obo/ro.owl"
+RDF[SIO]="http://semanticscience.org/ontology/sio.owl"
 RDF[VT]="http://localhost:8890/about/rdf/http://purl.obolibrary.org/obo/vt.owl"
 RDF[CMO]="http://localhost:8890/about/rdf/http://purl.obolibrary.org/obo/cmo.owl"
 RDF[LPT]="http://localhost:8890/about/rdf/http://data.bioontology.org/ontologies/LPT/download?apikey=8b5b7825-538d-40e0-9e9e-5ab9274a9aeb&download_format=rdf"
