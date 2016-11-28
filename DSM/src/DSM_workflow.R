@@ -29,17 +29,18 @@ yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 query = "/external/concepts/search"
 start<-getConceptID(as.character(yeast_genes[,1]))
 
+start<-start[,"EKP_Concept_Id"]
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
-end <- getConceptID("resistance to chemicals")
-
-## filter only the information related to chemicals
-end <- end[which(end$name=="chemicals"),]
+end <- unlist(getResistanceEKPID())
+end<-end["content.id"] #EKP ID of resistance to chemicals
 
 
 ## Step 1c: Get the ending concept identifiers for "butanol tolerance"
-end2<- getConceptID("butanol tolerance")
+end2<- unlist(getButanolID())
+end2<-end2["content.id"] # EKP ID of butanol
+
 
 ## Step 2a: Get Indirect relationships from EKP for ending terms "resistance to chemicals"
 resistance2Chemicals<-getIndirectRelation(start,end)
@@ -53,23 +54,30 @@ rel<-b[,2]
 
 ### collapse into a data frame
 dfs<-do.call(rbind,rel)
-
-
-
 colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate")
-tt<-fromJSON(toJSON(dfs),flatten = TRUE)
-row.names(tt)<-NULL
-colnames(tt)<-NULL
 
-tt[,1]<-unlist(tt[,1])
-tt[,2]<-unlist(tt[,2])
-tt[,5]<-sapply(tt[,5], paste0, collapse=",")
-colnames(tt)<-c("sub","obj","ekpid","pubmedid","pred")
+### Select subject,predicate and object columns
+dfs<-cbind(unlist(dfs[,1]),unlist(dfs[,2]),as.character.default(dfs[,3]))
+colnames(dfs)<-c("Subject","Object","Predicate")
+dfs<-dfs[,c(1,3,2)]
 
-tt%>% mutate(pred=strsplit(as.character(pred),",")) %>% unnest(pred) -> tripleId
-row.names(tt)<-NULL
-tripleId<-tripleId[,c(1,3,2)]
 
+####################################################################
+#tt<-fromJSON(toJSON(dfs),flatten = TRUE)
+#row.names(tt)<-NULL
+#colnames(tt)<-NULL
+
+#tt[,1]<-unlist(tt[,1])
+#tt[,2]<-unlist(tt[,2])
+#tt[,5]<-sapply(tt[,5], paste0, collapse=",")
+#colnames(tt)<-c("sub","obj","ekpid","pubmedid","pred")
+
+#tt%>% mutate(pred=strsplit(as.character(pred),",")) %>% unnest(pred) -> tripleId
+#row.names(tt)<-NULL
+#tripleId<-tripleId[,c(1,3,2)]
+#######################################################################
+
+cSplit(dfs,"Predicate",",","long")
 
 
 ### Step 3: Map human redable triples from the reference database 

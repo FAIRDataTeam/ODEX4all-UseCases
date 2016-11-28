@@ -46,11 +46,11 @@ getConceptID<-function(terms){
                accept_json(),verbose())
     a<-content(pr)
     #print (a)
-    a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
-    a<-cbind(terms[i],a)
+    #a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
+    a<-cbind(terms[i],t(unlist(a)))
     out<-rbind(out,a)
   }
-  colnames(out)<-c("Id","EKP_Concept_Id","name")
+  colnames(out)<-c("geneId","EKP_Concept_Id","content.name","totalElements","totalPates","last","numberOfElements","first","size","number")
   return(out)
 }
 
@@ -60,9 +60,9 @@ getIndirectRelation<-function(start,end){
   d<-NULL
   query = "/external/concept-to-concept/indirect"
   pages<-list()
-  for (i in 1:length(start$EKP_Concept_Id)){
-    for (j in 1:length(end$EKP_Concept_Id)){
-      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start$EKP_Concept_Id[i],']',",",'"rightInputs":[',end$EKP_Concept_Id[j],']',"}")
+  for (i in 1:length(start)){
+    for (j in 1:length(end)){
+      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
       template<-fromJSON(template,simplifyVector = FALSE)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
@@ -77,6 +77,31 @@ getIndirectRelation<-function(start,end){
   }
 
 
+### Function to retrieve resistance to chemicals
+getResistanceEKPID<-function(){
+  query="/external/concepts/search"
+  template<-paste("{",'"queryString":"term:',"'apo:0000087'",'","searchType":"STRING"',"}",sep="")
+  pr <- POST(url = paste(base_url, query, sep =""), 
+             add_headers('X-token' = token),
+             body=fromJSON(template),
+             encode = "json", 
+             accept_json(),verbose())
+  a<-content(pr)
+}
+
+
+### Function to retrieve butanol tolerance
+
+getButanolID<-function(){
+  query="/external/concepts/search"
+  template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
+  pr <- POST(url = paste(base_url, query, sep =""), 
+             add_headers('X-token' = token),
+             body=fromJSON(template),
+             encode = "json", 
+             accept_json(),verbose())
+  a<-content(pr)
+}
 
 
 
