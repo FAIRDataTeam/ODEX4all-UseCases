@@ -18,6 +18,7 @@ class connection:
         self.Types = self.getSemanticTypes()
         self.ST_hierarchy = self.Types[0]
         self.ST_map = self.Types[1]
+        self.rev_map = {v: k for k, v in self.Types[1].items()}
         self.Categories = self.getSemanticCategories()
         self.Taxonomy = self.getTaxonomy()
         self.Predicates = self.getPredicates()
@@ -63,7 +64,7 @@ class connection:
                    headers={'Content-type': 'application/json', "X-Token": self.token}).json()
         ST = SemanticTypes['content']
 
-        for page in range(1, SemanticTypes['totalPages']):
+        for page in range(0, SemanticTypes['totalPages'] + 1):
             ST += self.r.get(self.url + "/external/semantic-types", params = {"page" : page},
                             headers={'Content-type': 'application/json', "X-Token": self.token}).json()['content']
         self.logging.debug("Retrieved semantic types from platform")
@@ -194,11 +195,12 @@ class connection:
         query =     {
                     "additionalFields": ["synonyms", "source"],
                     "queryString":  qs,
-                    "searchType": "TOKEN"
+                    "searchType": "TOKEN",
+                    "hasTriples": "False"
                     }
         self.logging.info("Executing " + call + " with query " + str(query))
         concept = self.r.post(self.url + call, json=query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        self.logging.info("Returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept]))
+        self.logging.info("Returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept['content']]))
         return concept
 
     def getConcepts(self, IDs):
@@ -327,4 +329,23 @@ class connection:
             if response.ok and 'message' not in response.json():
                 out += response.json()
         self.logging.info("Returned " + str(len(out)) + " publications")
+        return out
+
+    # Get ONLY the number of concepts related to the input concept(s). Additional parameter is the semantic type
+    def getConceptCount(self, ids, categories):
+        call = "/external/direct-connections-count/semantic-types"
+        query =     {
+            "additionalFields": ["taxonomies", "totalCount"],
+            "ids": ids,
+            "semanticCategories": categories
+        }
+        self.logging.info("Executing " + call + " with query " + str(query))
+        response = self.r.post(self.url + call, json=query,
+                               headers={'Content-type': 'application/json', "X-Token": self.token}).json()
+        if len(response) > 1:
+            out = {}
+            for j in response:
+                out[j['name']] = j['count']
+        else:
+            out = response
         return out

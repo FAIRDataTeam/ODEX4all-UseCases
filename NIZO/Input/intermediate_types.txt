@@ -1,12 +1,23 @@
-Food	Objects
-Organ or Tissue Function	Physiology
-Finding	Disorders
-Disease or Syndrome	Disorders
-Chemical Viewed Functionally	Chemicals & Drugs
-Biologically Active Substance	Chemicals & Drugs
-Tissue	Anatomy
-Body Location or Region	Anatomy
-Body Part, Organ, or Organ Component	Anatomy
-Body Space or Junction	Anatomy
-Body System	Anatomy
-Cell	Anatomy
+T103	Chemical
+T104	Chemical Viewed Structurally
+T109	Organic Chemical
+T110	Steroid
+T111	Eicosanoid
+T114	Nucleic Acid, Nucleoside, or Nucleotide
+T115	Organophosphorus Compound
+T116	Amino Acid, Peptide, or Protein
+T118	Carbohydrate
+T119	Lipid
+T120	Chemical Viewed Functionally
+T121	Pharmacologic Substance
+T122	Biomedical or Dental Material
+T123	Biologically Active Substance
+T124	Neuroreactive Substance or Biogenic Amine
+T125	Hormone
+T126	Enzyme
+T127	Vitamin
+T129	Immunologic Factor
+T130	Indicator, Reagent, or Diagnostic Aid
+T131	Hazardous or Poisonous Substance
+T167	Substance
+T168	Food

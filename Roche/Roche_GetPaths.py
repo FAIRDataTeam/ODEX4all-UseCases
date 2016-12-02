@@ -4,7 +4,7 @@ import os
 import csv
 import configparser
 import logging
-os.chdir('/Users/Wytze/git/ODEX4all-UseCases/scripts/EKP')
+os.chdir('/Users/Wytze/git/ODEX4all-UseCases/EKP')
 logging.basicConfig(filename='logs/Roche.log',level=logging.DEBUG)
 logging.info("===================== Started a new session =====================")
 
