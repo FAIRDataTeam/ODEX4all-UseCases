@@ -1,4 +1,4 @@
-# [Pig QTLdb](http://www.animalgenome.org/cgi-bin/QTLdb/SS/index) Linked Data deployment
+# [Pig QTLdb](http://www.animalgenome.org/QTLdb/pig) Linked Data deployment
 
 **1. Build a [Docker](https://www.docker.com/) container with [Virtuoso Universal Server](http://virtuoso.openlinksw.com/) (open source edition).**
 
@@ -8,26 +8,19 @@
 
 `docker run --name b4f -v $(pwd):/tmp/share -p 8890:8890 -d nlesc/virtuoso`
 
-**3. Prepare input data (*.tsv files) for database import.**
+**3. Build & deploy pig QTLdb-LD.**
 
 <pre><code>tar xvzf ../data/pigQTLdb.tar.gz -C ../data
-./tsv2sql.pl B4F.odex4all.QTL ../data/QTL.tsv > QTL.sql
-./tsv2sql.pl B4F.odex4all.ONTO ../data/ONTO.tsv > ONTO.sql
+mv ../data/pigQTLdb.ttl .
+docker exec b4f ./build.sh
 </code></pre>
 
-**4. Build & deploy pig QTLdb-LD.**
-
-`docker exec b4f ./build.sh`
-
-**5. [Login](http://localhost:8890/conductor) to your running Virtuoso instance.**
+**4. [Login](http://localhost:8890/conductor) to running Virtuoso instance for admin tasks.**
 
 Use `dba` for both account name and password.
 
-**6. Query the RDB version of the pig QTLdb using SQL, e.g.**
+**5. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
-`SELECT * FROM B4F.odex4all.QTL; -- schema.owner.table`
+Use the (default) RDF graph IRI: `http://www.animalgenome.org/QTLdb/pig`.
 
-
-**7. Or access pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) (no login required).**
-
-Use the (default) RDF graph IRI:`http://localhost:8890/B4F`.
+For further details visit the [wiki](https://github.com/DTL-FAIRData/ODEX4all-UseCases/wiki/Breed4Food) page.

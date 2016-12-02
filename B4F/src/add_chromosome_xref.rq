@@ -1,0 +1,31 @@
+-- 
+-- SPARQL query to cross-reference pig chromosome in two RDF graphs.
+--   graph URI: http://www.animalgenome.org/QTLdb/pig
+--     chromosome URI: e.g. http://localhost:8890/genome/Sus_scrofa/chromosome/17
+--
+--   graph URI: http://ensembl.org/Sus_scrofa
+--     chromosome URI: e.g. http://rdf.ebi.ac.uk/resource/ensembl/86/sus_scrofa/Sscrofa10.2/17
+--
+-- Prerequisite: GRANT SPARQL_UPDATE to "SPARQL";
+--
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+INSERT INTO <http://www.animalgenome.org/QTLdb/pig> {
+   ?chr1 owl:sameAs ?chr2
+}   
+WHERE {
+   GRAPH <http://www.animalgenome.org/QTLdb/pig> {
+      ?chr1 a obo:SO_0000340 .
+      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/86/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
+   }
+}
+
+--
+-- SPARQL query to delete above triples
+--
+-- PREFIX owl: <http://www.w3.org/2002/07/owl#>
+-- WITH  <http://www.animalgenome.org/QTLdb/pig>
+-- DELETE { ?s ?p ?o }
+-- { ?s ?p ?o ; owl:sameAs ?o }
