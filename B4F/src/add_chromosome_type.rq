@@ -5,7 +5,6 @@
 --
 
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 INSERT INTO <http://ensembl.org/Sus_scrofa> {
    ?chr2 a obo:SO_0000340
@@ -20,7 +19,7 @@ WHERE {
 --
 -- SPARQL query to delete above triples
 --
--- PREFIX owl: <http://www.w3.org/2002/07/owl#>
+-- PREFIX obo: <http://purl.obolibrary.org/obo/>
 -- WITH  <http://ensembl.org/Sus_scrofa>
 -- DELETE { ?s ?p ?o }
 -- { ?s ?p ?o ; a obo:SO_0000340 }
