@@ -1,5 +1,5 @@
 -- 
--- SPARQL query to cross-reference pig chromosome in two RDF graphs.
+-- SPARQL query to cross-reference chromosomes in two RDF graphs.
 --   graph URI: http://www.animalgenome.org/QTLdb/pig
 --     chromosome URI: e.g. http://localhost:8890/genome/Sus_scrofa/chromosome/17
 --
@@ -27,5 +27,5 @@ WHERE {
 --
 -- PREFIX owl: <http://www.w3.org/2002/07/owl#>
 -- WITH  <http://www.animalgenome.org/QTLdb/pig>
--- DELETE { ?s ?p ?o }
--- { ?s ?p ?o ; owl:sameAs ?o }
+-- DELETE WHERE
+-- { ?s owl:sameAs ?o }
