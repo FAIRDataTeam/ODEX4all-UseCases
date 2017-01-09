@@ -87,6 +87,26 @@ getIndirectRelation<-function(start,end){
   }
 
 
+# Function that returns formatted data from EKP in a tabular format
+getTableFromJson<-function(indirectRelationResultsFromEKP){
+  df<-fromJSON(toJSON(indirectRelationResultsFromEKP),flatten=TRUE)
+  do.call(rbind,df) %>% as.data.frame ->b
+  
+  ### parse only the relationships
+  rel<-b[,2]
+  
+  ### collapse into a data frame
+  dfs<-do.call(rbind,rel)
+  colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate")
+  
+  ### Select subject,predicate and object columns
+  dfs<-cbind(unlist(dfs[,1]),unlist(dfs[,2]),as.character.default(dfs[,3]))
+  colnames(dfs)<-c("Subject","Object","Predicate")
+  dfs<-dfs[,c(1,3,2)]
+  dfs<-cSplit(dfs,"Predicate",",","long")
+}
+
+
 ### Function to retrieve resistance to chemicals
 getResistanceEKPID<-function(){
   query="/external/concepts/search"

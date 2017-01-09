@@ -46,39 +46,14 @@ end2<-end2["content.id"] # EKP ID of butanol
 ## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
 resistance2Chemicals<-getIndirectRelation(start,end)
 
-df<-fromJSON(toJSON(resistance2Chemicals),flatten=TRUE)
-
-do.call(rbind,df) %>% as.data.frame ->b
-
-### parse only the relationships
-rel<-b[,2]
-
-### collapse into a data frame
-dfs<-do.call(rbind,rel)
-colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate")
-
-### Select subject,predicate and object columns
-dfs<-cbind(unlist(dfs[,1]),unlist(dfs[,2]),as.character.default(dfs[,3]))
-colnames(dfs)<-c("Subject","Object","Predicate")
-dfs<-dfs[,c(1,3,2)]
+## Step 2c: Get Indirect relationships between "yeast genes"(start) and "resistance to Butanol"(end)
+resistance2Butanol<-getIndirectRelation(start,end2)
 
 
-####################################################################
-#tt<-fromJSON(toJSON(dfs),flatten = TRUE)
-#row.names(tt)<-NULL
-#colnames(tt)<-NULL
 
-#tt[,1]<-unlist(tt[,1])
-#tt[,2]<-unlist(tt[,2])
-#tt[,5]<-sapply(tt[,5], paste0, collapse=",")
-#colnames(tt)<-c("sub","obj","ekpid","pubmedid","pred")
+dfs1<-getTableFromJson(resistance2Chemicals)
 
-#tt%>% mutate(pred=strsplit(as.character(pred),",")) %>% unnest(pred) -> tripleId
-#row.names(tt)<-NULL
-#tripleId<-tripleId[,c(1,3,2)]
-#######################################################################
-
-dfs<-cSplit(dfs,"Predicate",",","long")
+dfs2<-getTableFromJson(resistance2Butanol)
 
 
 ### Step 3: Map human redable triples from the reference database 
