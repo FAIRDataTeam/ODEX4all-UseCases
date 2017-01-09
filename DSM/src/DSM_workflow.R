@@ -1,6 +1,7 @@
 library(dplyr)
 library(tidyr)
 library(sqldf)
+library(splitstackshape)
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
 
 ## Objective: To identify genotype-phenotype trait association in yeast
@@ -42,7 +43,7 @@ end2<- unlist(getButanolID())
 end2<-end2["content.id"] # EKP ID of butanol
 
 
-## Step 2a: Get Indirect relationships from EKP for ending terms "resistance to chemicals"
+## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
 resistance2Chemicals<-getIndirectRelation(start,end)
 
 df<-fromJSON(toJSON(resistance2Chemicals),flatten=TRUE)
@@ -77,7 +78,7 @@ dfs<-dfs[,c(1,3,2)]
 #tripleId<-tripleId[,c(1,3,2)]
 #######################################################################
 
-cSplit(dfs,"Predicate",",","long")
+dfs<-cSplit(dfs,"Predicate",",","long")
 
 
 ### Step 3: Map human redable triples from the reference database 

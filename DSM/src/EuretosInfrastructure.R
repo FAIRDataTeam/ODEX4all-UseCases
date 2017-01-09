@@ -55,6 +55,15 @@ getConceptID<-function(terms){
 }
 
 
+
+## Template
+#{"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", 
+#                      "taxonomies"],
+#"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences"],
+#"leftInputs":[5243207],"rightInputs":[6526817]}
+
+
+
 ## Get indirect relationships at this URL
 getIndirectRelation<-function(start,end){
   d<-NULL
@@ -62,7 +71,8 @@ getIndirectRelation<-function(start,end){
   pages<-list()
   for (i in 1:length(start)){
     for (j in 1:length(end)){
-      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      #template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
       template<-fromJSON(template,simplifyVector = FALSE)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
