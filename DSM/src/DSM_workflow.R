@@ -32,7 +32,10 @@ yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 query = "/external/concepts/search"
 start<-getConceptID(as.character(yeast_genes[,1]))
 
-start<-start[,"EKP_Concept_Id"]
+
+## remove this head when testing is over
+start<-head(start[,"EKP_Concept_Id"])
+start<-start[1:3]
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
@@ -54,16 +57,21 @@ resistance2Butanol<-getIndirectRelation(start,end2)
 
 ### unconventional way to format strings, but it works
 dfs1<-as.matrix(getTableFromJson(resistance2Chemicals))
-dfs1[,2]<-str_replace_all(dfs1[,2], "[^[:alnum:]]","")
-dfs1[,2]<-str_replace_all(dfs1[,2], "c","")
-dfs1<- data.frame(lapply(dfs1, as.character), stringsAsFactors=FALSE)
+dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "[^[:alnum:]]","")
+dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "c","")
+dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "[^[:alnum:]]","")
+dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "c","")
+dfs1<- data.frame(dfs1, stringsAsFactors=FALSE)
 
 
 ### unconventional way to format strings, but it works
 dfs2<-as.matrix(getTableFromJson(resistance2Butanol))
-dfs2[,2]<-str_replace_all(dfs2[,2], "[^[:alnum:]]","")
-dfs2[,2]<-str_replace_all(dfs2[,2], "c","")
-dfs2<- data.frame(lapply(dfs2, as.character), stringsAsFactors=FALSE)
+dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "[^[:alnum:]]","")
+dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "c","")
+dfs2[,"Publications"]<-str_replace_all(dfs2[,"Publications"], "[^[:alnum:]]","")
+dfs2[,"Publications"]<-str_replace_all(dfs2[,"Publications"], "c","")
+dfs2<- data.frame(dfs2, stringsAsFactors=FALSE)
+
 
 ### Step 3: Intersect "resistance to chemicals" and "1-butanol" concepts
 comparison <- compare(dfs1,dfs2,allowAll=TRUE)
@@ -79,16 +87,15 @@ pred<-pred[,c(2,3)]
 colnames(pred)<-c("pred","names")
 
 
-
 subject_name<-getConceptName(dfs[,"Subject"])
 dfs<-cbind(dfs,subject_name[,2])
 
 object_name<-getConceptName(dfs[,"Object"])
 dfs<-cbind(dfs,object_name[,2])
 
-predicate_name<-sqldf('select * from dfs left join pred on pred.Pred=dfs.predicateIds')
+predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
-tripleName<-cbind(subject[,2],as.character(predicate[,5]),object[,2])
+tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"])
 
 
 write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/triple/app/triple.csv",sep=";")

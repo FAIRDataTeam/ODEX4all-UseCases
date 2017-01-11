@@ -93,17 +93,18 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
   do.call(rbind,df) %>% as.data.frame ->b
   
   ### parse only the relationships
-  rel<-b[,2]
-  
+  rel<-b[,"relationships"]
+
   ### collapse into a data frame
   dfs<-do.call(rbind,rel)
   colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate")
   
   ### Select subject,predicate and object columns
-  dfs<-cbind(unlist(dfs[,1]),unlist(dfs[,2]),as.character.default(dfs[,3]))
-  colnames(dfs)<-c("Subject","Object","Predicate")
-  dfs<-dfs[,c(1,3,2)]
+  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(dfs[,"Predicate"]),as.character.default(dfs[,"publicationIds"]))
+  colnames(dfs)<-c("Subject","Object","Predicate","Publications")
+  dfs<-dfs[,c(1,3,2,4)]
   dfs<-cSplit(dfs,"Predicate",",","long")
+  dfs<-cSplit(dfs,"Publications",",","long")
 }
 
 
@@ -121,7 +122,6 @@ getResistanceEKPID<-function(){
 
 
 ### Function to retrieve butanol tolerance
-
 getButanolID<-function(){
   query="/external/concepts/search"
   template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
