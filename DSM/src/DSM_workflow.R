@@ -2,6 +2,7 @@ library(dplyr)
 library(tidyr)
 library(sqldf)
 library(splitstackshape)
+library(stringr)
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
 
 ## Objective: To identify genotype-phenotype trait association in yeast
@@ -50,10 +51,16 @@ resistance2Chemicals<-getIndirectRelation(start,end)
 resistance2Butanol<-getIndirectRelation(start,end2)
 
 
+### unconventional way to format strings, but it works
+dfs1<-as.matrix(getTableFromJson(resistance2Chemicals))
+dfs1[,2]<-str_replace_all(dfs1[,2], "[^[:alnum:]]","")
+dfs1[,2]<-str_replace_all(dfs1[,2], "c","")
 
-dfs1<-getTableFromJson(resistance2Chemicals)
 
-dfs2<-getTableFromJson(resistance2Butanol)
+### unconventional way to format strings, but it works
+dfs2<-as.matrix(getTableFromJson(resistance2Butanol))
+dfs2[,2]<-str_replace_all(dfs2[,2], "[^[:alnum:]]","")
+dfs2[,2]<-str_replace_all(dfs2[,2], "c","")
 
 
 ### Step 3: Map human redable triples from the reference database 

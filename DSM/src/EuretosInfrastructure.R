@@ -87,7 +87,7 @@ getIndirectRelation<-function(start,end){
   }
 
 
-# Function that returns formatted data from EKP in a tabular format
+# Function that returns table from json objects as returned by EKP
 getTableFromJson<-function(indirectRelationResultsFromEKP){
   df<-fromJSON(toJSON(indirectRelationResultsFromEKP),flatten=TRUE)
   do.call(rbind,df) %>% as.data.frame ->b
