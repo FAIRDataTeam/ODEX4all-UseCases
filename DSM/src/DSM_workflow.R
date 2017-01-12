@@ -5,7 +5,7 @@ library(splitstackshape)
 library(stringr)
 library(compare)
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
-
+date()
 ## Objective: To identify genotype-phenotype trait association in yeast
 ### Develop a workflow to identify genes indirectly associated with a certain yeast phenotype (butanol tolerance) using EKP and visualize them in an interactive knowledge graph.
 
@@ -34,8 +34,8 @@ start<-getConceptID(as.character(yeast_genes[,1]))
 
 
 ## remove this head when testing is over
-start<-head(start[,"EKP_Concept_Id"])
-start<-start[1:3]
+start<-start[,"EKP_Concept_Id"]
+## start<-start[1:3]
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
@@ -100,7 +100,7 @@ tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),o
 
 write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/triple/app/triple.csv",sep=";")
 
-
+date()
 
 
 
