@@ -73,7 +73,7 @@ getIndirectRelation<-function(start,end){
     for (j in 1:length(end)){
       #template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
       template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences","sc:Physiology"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
-      template<-fromJSON(template,simplifyVector = FALSE)
+      template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
                  body=template,
@@ -94,15 +94,20 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
   
   ### parse only the relationships
   rel<-b[,"relationships"]
-
+  
+  for (i in 1:length(rel)){
+      rel[[i]]<-c(rel[[i]],score=as.list(b$score[i]))
+  }
+  
   ### collapse into a data frame
   dfs<-do.call(rbind,rel)
-  colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate")
+  colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate","Score")
   
+  dfs<-as.data.frame(dfs)
   ### Select subject,predicate and object columns
-  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(dfs[,"Predicate"]),as.character.default(dfs[,"publicationIds"]))
-  colnames(dfs)<-c("Subject","Object","Predicate","Publications")
-  dfs<-dfs[,c(1,3,2,4)]
+  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(unlist(dfs[,"Predicate"])),as.character.default(unlist(dfs[,"publicationIds"])),unlist(dfs[,"Score"]))
+  colnames(dfs)<-c("Subject","Object","Predicate","Publications","Score")
+  dfs<-dfs[,c(1,3,2,4,5)]
   dfs<-cSplit(dfs,"Predicate",",","long")
   dfs<-cSplit(dfs,"Publications",",","long")
 }

@@ -50,12 +50,13 @@ end2<-end2["content.id"] # EKP ID of butanol
 
 ## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
 resistance2Chemicals<-getIndirectRelation(start,end)
+save(resistance2Chemicals, file = "resistance2Chemicals.rda")
 
-## Step 2c: Get Indirect relationships between "yeast genes"(start) and "resistance to Butanol"(end)
+## Step 2b: Get Indirect relationships between "yeast genes"(start) and "resistance to Butanol"(end)
 resistance2Butanol<-getIndirectRelation(start,end2)
+save(resistance2Butanol, file = "resistance2Butanol.rda")
 
-
-### unconventional way to format strings, but it works
+### Formatting and data cleaning
 dfs1<-as.matrix(getTableFromJson(resistance2Chemicals))
 dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "[^[:alnum:]]","")
 dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "c","")
@@ -64,7 +65,7 @@ dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "c","")
 dfs1<- data.frame(dfs1, stringsAsFactors=FALSE)
 
 
-### unconventional way to format strings, but it works
+### Formatting and data cleaning
 dfs2<-as.matrix(getTableFromJson(resistance2Butanol))
 dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "[^[:alnum:]]","")
 dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "c","")
@@ -95,10 +96,10 @@ dfs<-cbind(dfs,object_name[,2])
 
 predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
-tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"])
+tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
+colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-
-write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/triple/app/triple.csv",sep=";")
+write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=";",row.names = FALSE)
 
 date()
 
