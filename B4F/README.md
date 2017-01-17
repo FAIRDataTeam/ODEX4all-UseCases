@@ -21,6 +21,8 @@ Use `dba` for both account name and password.
 
 **5. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
-Use the (default) RDF graph IRI: `http://www.animalgenome.org/QTLdb/pig`.
+RDF graphs (IRIs):
+  * Pig QTLdb: `http://www.animalgenome.org/QTLdb/pig`
+  * Ensembl: `http://ensembl.org/Sus_scrofa`
 
 For further details visit the [wiki](https://github.com/DTL-FAIRData/ODEX4all-UseCases/wiki/Breed4Food) page.
