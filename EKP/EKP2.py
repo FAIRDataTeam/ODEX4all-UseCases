@@ -193,6 +193,8 @@ class connection:
                 qs += " AND semantictype : '" + str(int(self.mapSemanticType(semantics).split("T")[1])) + "'"
         if source is not None:
             qs += " AND source : '" + source + "'"
+        if 'knowledgebase' in kwargs.keys():
+            qs += " AND knowledgebase : '" + kwargs['knowledgebase'] + "'"
         query =     {
                     "additionalFields": ["synonyms", "source"],
                     "queryString":  qs,
@@ -201,7 +203,7 @@ class connection:
                     }
         logging.info("Executing " + call + " with query " + str(query))
         concept = r.post(self.url + call, json=query, headers={'Content-type': 'application/json', "X-Token": self.token}).json()
-        logging.info("Returned " + str(len(concept)) + " concepts, " + str([x['id'] for x in concept['content']]))
+        logging.info("Returned " + str(len(concept['content'])) + " concepts, " + str([x['id'] for x in concept['content']]))
         return concept
 
     def getConcepts(self, IDs):
@@ -262,7 +264,7 @@ class connection:
                 logging.info("Returned " + str(len(connections)) + " items")
                 return connections
             else:
-                return response
+                return response['content']
         else:
             return response
 
@@ -322,7 +324,7 @@ class connection:
 
         for part in partition:
             query =     {
-                    "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC", "accessMappings", "measures"],
+                    "additionalFields": ["sourceId", "sourceName", "meshHeadList", "publicationDateHumanReadableUTC", "accessMappings", "measures", "authors", "url"],
                     "ids": part
                     }
             logging.info("Executing " + call + " with query " + str(query))
@@ -333,6 +335,7 @@ class connection:
         return out
 
     # Get ONLY the number of concepts related to the input concept(s). Additional parameter is the semantic type
+    # Do NOT use filterobjects for this call, but just the name of the semantic category
     def getConceptCount(self, ids, categories):
         call = "/external/direct-connections-count/semantic-types"
         query =     {
@@ -352,25 +355,19 @@ class connection:
         return out
 
     # Get source identifiers for relationships, and clickable links. For now, only PubMed links are supported.
-    def getSourceIdentifiers(self, provenances, Links = False):
+    def getSourceIdentifiers(self, provenances):
         out = {'sourceName' : [], 'Database' : [], 'sourceId' : [], 'sourceScore' : []}
-        url_dictionary = {"Pubmed" : "https://www.ncbi.nlm.nih.gov/pubmed/"}
-        if Links == True:
-            out['url'] = []
         for p in provenances:
             out['sourceName'].append(p['sourceName'])
-            out['sourceScore'].append(p['measures'][0]['value'])
+            #out['sourceScore'].append(p['measures'][0]['value'])
             sourceDB = self.DBmap.MapRDRTtoName(p['accessMappings'][0]['researchDomain'], p['accessMappings'][0]['researchTarget'])
             out['Database'].append(sourceDB)
+            out['url'] = p['url']
             if sourceDB == "Pubmed":
                 out['sourceId'].append(p['documentId'])
-                if Links == True:
-                    out['url'].append(url_dictionary[sourceDB] + p['documentId'])
             else:
                 if 'sourceId' in p.keys():
                     out['sourceId'].append(p['sourceId'])
-                    if Links == True and sourceDB in url_dictionary.keys():
-                        out["url"].append(url_dictionary[sourceDB] + p["sourceId"])
                 else:
                     out['sourceId'].append("Not available")
         return out
