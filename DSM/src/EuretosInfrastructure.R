@@ -55,6 +55,15 @@ getConceptID<-function(terms){
 }
 
 
+
+## Template
+#{"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", 
+#                      "taxonomies"],
+#"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences"],
+#"leftInputs":[5243207],"rightInputs":[6526817]}
+
+
+
 ## Get indirect relationships at this URL
 getIndirectRelation<-function(start,end){
   d<-NULL
@@ -62,8 +71,9 @@ getIndirectRelation<-function(start,end){
   pages<-list()
   for (i in 1:length(start)){
     for (j in 1:length(end)){
-      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
-      template<-fromJSON(template,simplifyVector = FALSE)
+      #template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences","sc:Physiology"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
                  pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
                  body=template,
@@ -75,6 +85,32 @@ getIndirectRelation<-function(start,end){
   }
   return(pages)
   }
+
+
+# Function that returns table from json objects as returned by EKP
+getTableFromJson<-function(indirectRelationResultsFromEKP){
+  df<-fromJSON(toJSON(indirectRelationResultsFromEKP),flatten=TRUE)
+  do.call(rbind,df) %>% as.data.frame ->b
+  
+  ### parse only the relationships
+  rel<-b[,"relationships"]
+  
+  for (i in 1:length(rel)){
+      rel[[i]]<-c(rel[[i]],score=as.list(b$score[i]))
+  }
+  
+  ### collapse into a data frame
+  dfs<-do.call(rbind,rel)
+  colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate","Score")
+  
+  dfs<-as.data.frame(dfs)
+  ### Select subject,predicate and object columns
+  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(unlist(dfs[,"Predicate"])),as.character.default(unlist(dfs[,"publicationIds"])),unlist(dfs[,"Score"]))
+  colnames(dfs)<-c("Subject","Object","Predicate","Publications","Score")
+  dfs<-dfs[,c(1,3,2,4,5)]
+  dfs<-cSplit(dfs,"Predicate",",","long")
+  dfs<-cSplit(dfs,"Publications",",","long")
+}
 
 
 ### Function to retrieve resistance to chemicals
@@ -91,7 +127,6 @@ getResistanceEKPID<-function(){
 
 
 ### Function to retrieve butanol tolerance
-
 getButanolID<-function(){
   query="/external/concepts/search"
   template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
