@@ -18,7 +18,8 @@ options(warn=-1)
 ### DSM workflow starts here: 
 ### Load Input data provided by DSM this data consists of a list of yeast genes and a list of terms that represent butanol tolerance
 
-yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
+#yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
+yeast_genes<-read.csv("20170119_GeneList_DSM.txt",header=TRUE,sep="\t")
 #phenotype <- read.csv("Resistance_terms.txt",header=FALSE)
 # separate onto columns
 #phenotype <- separate(data = phenotype, col = V1, into = c("terms", "class"), sep = "\tequals\t")
@@ -29,12 +30,10 @@ yeast_genes<-read.csv("yeast_genes_sgdID.csv",header=TRUE)
 ## Step 1a : Get the starting concept identifiers
 ## start<-getStartConceptID(as.character(yeast_genes[,1]))
 
-query = "/external/concepts/search"
-start<-getConceptID(as.character(yeast_genes[,1]))
+start<-getConceptID(tolower(as.character(yeast_genes[,"SGD_ID"])))
 
-
-## remove this head when testing is over
 start<-start[,"EKP_Concept_Id"]
+start<-head(start)
 ## start<-start[1:3]
 
 
@@ -96,20 +95,31 @@ dfs<-cbind(dfs,object_name[,2])
 
 predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
+#pbs<-getPubMedId(dfs$Publications)
+
 tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=";",row.names = FALSE)
+write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=",",row.names = FALSE)
 
 date()
 
+#### Post processing: Results ################
+setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
+start<-as.data.frame(start)
 
+triples<-read.csv("triples.csv",header=TRUE)
 
+freqSubject<-table(triples$Subject)
 
+freqObject<-table(triples$Object)
+concept_Subject<-names(freqSubject)  
+idxSub<-which (concept_Subject %in% start$content.name)
 
+s<-as.data.frame(sort(freqSubject[idxSub],decreasing = TRUE))
+o<-as.data.frame(as.matrix(freqObject))
 
-
-
+freqObject[idxObj]
 
 
 
