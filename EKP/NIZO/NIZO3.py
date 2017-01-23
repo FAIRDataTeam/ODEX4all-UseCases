@@ -3,6 +3,9 @@ import csv
 import configparser
 import logging
 import datetime
+import os
+
+os.chdir("/Users/Wytze/git/ODEX4all-UseCases/")
 
 logging.basicConfig(filename='EKP/logs/NIZO.log',
                     level=logging.DEBUG,
@@ -148,22 +151,22 @@ for t in types.values():
         if len(indirect_all) > 0:
             for p in indirect_all:
                 start = [p['concepts'][0]['name'], p['concepts'][0]['id']]
-                start.append([c.rev_map[s] for s in list(set(p['concepts'][0]['semanticTypes']) - set(["T9998", "T9997", "T9999"]))])
+                start.append([c.rev_map[s] for s in p['concepts'][0]['semanticTypes']])
                 middle = [p['concepts'][1]['name'], p['concepts'][1]['id']]
-                middle.append([c.rev_map[s] for s in list(set(p['concepts'][1]['semanticTypes']) - set(["T9998", "T9997", "T9999"]))])
+                middle.append([c.rev_map[s] for s in p['concepts'][1]['semanticTypes']])
                 middle_count = sum(c.getConceptCount([p['concepts'][1]['id']], c.Categories).values())
                 end = [p['concepts'][2]['name'], p['concepts'][2]['id']]
-                end.append([c.rev_map[s] for s in list(set(p['concepts'][2]['semanticTypes']) - set(["T9998", "T9997", "T9999"]))])
+                end.append([c.rev_map[s] for s in p['concepts'][2]['semanticTypes']])
                 score = p['score']
                 AB_predicates = [c.mapPredicate(x) for x in p['relationships'][0]['predicateIds']]
                 AB_pubs = c.getPubliciations(p['relationships'][0]['publicationIds'])
-                AB_sourceData = c.getSourceIdentifiers(AB_pubs, True)
+                AB_sourceData = c.getSourceIdentifiers(AB_pubs)
                 AB_clicks = ['=HYPERLINK("' + x + '")' for x in AB_sourceData['url'][0:3]]
                 for i in range(0, 3 - len(AB_clicks)):
                     AB_clicks.append("")
                 BC_predicates = [c.mapPredicate(x) for x in p['relationships'][1]['predicateIds']]
                 BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
-                BC_sourceData = c.getSourceIdentifiers(BC_pubs, True)
+                BC_sourceData = c.getSourceIdentifiers(BC_pubs)
                 BC_clicks = ['=HYPERLINK("' + x + '")' for x in BC_sourceData['url'][0:3]]
                 for i in range(0, 3 - len(BC_clicks)):
                     BC_clicks.append("")
