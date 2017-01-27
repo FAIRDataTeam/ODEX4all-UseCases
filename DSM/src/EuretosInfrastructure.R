@@ -9,6 +9,8 @@ library(jsonlite)
 library(magrittr)
 library(yaml)
 library(tidyr)
+library(qdap)
+
 
 config<-yaml.load_file("config.yml")
 ## connect to Euretos server with login credentials of 
@@ -53,6 +55,35 @@ getConceptID<-function(terms){
   colnames(out)<-c("geneId","EKP_Concept_Id","content.name","totalElements","totalPates","last","numberOfElements","first","size","number")
   return(out)
 }
+
+
+
+## Template
+# { "additionalFields": ["abstract"], "ids": ["210182840"] }
+
+## Get PubmedID for each provenance id information from within EKP
+
+getPubMedId<- function(provIds){
+  out<-NULL
+  query = "/external/publications"
+  for (i in 1:length(provIds)){
+    b<-paste0("{",'"additionalFields": ["abstract"]',",",'"ids":[',provIds[i],']',"}")
+    template<-fromJSON(b,simplifyVector = FALSE,flatten=TRUE)
+    pr <- POST(url = paste(base_url, query, sep =""), 
+               add_headers('X-token' = token),
+               body=template,
+               encode = "json", 
+               accept_json(),verbose())
+    a<-content(pr)
+    abs<-a[[1]]$abstract
+    aa<-bracketX(abs)
+    aa<-strsplit(aa,":")
+    aa<-tail(aa,n=1)
+    out<-rbind(out,aa)
+  }
+  return(out)
+}
+
 
 
 
