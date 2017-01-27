@@ -360,8 +360,9 @@ class connection:
         for p in provenances:
             out['sourceName'].append(p['sourceName'])
             #out['sourceScore'].append(p['measures'][0]['value'])
-            sourceDB = self.DBmap.MapRDRTtoName(p['accessMappings'][0]['researchDomain'], p['accessMappings'][0]['researchTarget'])
-            out['Database'].append(sourceDB)
+            if len(p['accessMappings']) > 0:
+                sourceDB = self.DBmap.MapRDRTtoName(p['accessMappings'][0]['researchDomain'], p['accessMappings'][0]['researchTarget'])
+                out['Database'].append(sourceDB)
             out['url'] = p['url']
             if sourceDB == "Pubmed":
                 out['sourceId'].append(p['documentId'])
