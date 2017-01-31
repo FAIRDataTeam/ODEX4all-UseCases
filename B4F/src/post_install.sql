@@ -13,3 +13,6 @@ urilbl_ac_init_db();
 
 -- re-rank the IRIs (should be done periodically)
 s_rank();
+
+-- grant permission (e.g. for RDF sponging)
+GRANT SPARQL_UPDATE to "SPARQL";
