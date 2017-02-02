@@ -1,0 +1,54 @@
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;cytoplasm;2018357;7.670900438920457
+bro1 (saccharomyces cerevisiae s288c);1899309;is part of;cytoplasm;2018357;7.645171603211795
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;cytoplasm;2018357;7.6134571900345875
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;cytoplasm;2018357;7.53950847092064
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;cytoplasm;2018357;7.487053715168014
+ubp3 (saccharomyces cerevisiae s288c);368510;is part of;cytoplasm;2018357;7.427381710072305
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;cytoplasm;2018357;7.413702012781113
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;tissue membrane;66144;7.394698913129917
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;tissue membrane;66144;7.337255664244047
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;tissue membrane;66144;7.2633069451301
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;tissue membrane;66144;7.210852189377474
+ump1 (saccharomyces cerevisiae s288c);1897002;is part of;cytoplasm;2018357;7.0949432501567005
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;cytoplasmic matrix;549139;6.9361945393948865
+bro1 (saccharomyces cerevisiae s288c);1899309;is part of;cytoplasmic matrix;549139;6.9104657036862225
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;cytoplasmic matrix;549139;6.804802571395069
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;juxtamembrane;2904591;6.735187402390233
+ump1 (saccharomyces cerevisiae s288c);1897002;is part of;cell nucleus;2005932;6.704241485997675
+ubp3 (saccharomyces cerevisiae s288c);368510;is part of;cytoplasmic matrix;549139;6.692675810546734
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;cytoplasmic matrix;549139;6.6789961132555415
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;protoplasm;1282678;6.467015818438435
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;golgi apparatus;2014468;6.293788021131233
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;nucleocytoplasm;3701187;6.164835962689578
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;endosomes;1994907;6.052383015821768
+bro1 (saccharomyces cerevisiae s288c);1899309;is part of;endosomes;1994907;6.0266541801131055
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;endosomes;1994907;5.994939766935898
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;endosomes;1994907;5.920991047821951
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;endosomes;1994907;5.868536292069325
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;microbody;110233;5.712112392874713
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;wall of endosome;3701277;5.564774920070009
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;peroxisomal;3539767;5.500325685451674
+vps34 (saccharomyces cerevisiae s288c);1889587;is physically related to;nuclear pore;138993;5.492929326043826
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;wall of endosome;3701277;5.490826200956062
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;wall of endosome;3701277;5.438371445203436
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;wall of late endosome;3701275;5.344447293935002
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;peroxisome vesicle;2935521;5.271934493817765
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;cytoplasmic mrna processing body;3701081;5.25466889905492
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;phagophore;3701106;5.107511835096565
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;fungal-type vacuole membrane;4625178;4.988385025906597
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;endosomal sorting complex required for transport location;4644053;4.828324703223656
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;endosomal sorting complex required for transport location;4644053;4.770881454337786
+bre5 (saccharomyces cerevisiae s288c);1899085;is part of;cytoplasmic foci;3701245;4.717046067981814
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;endosomal sorting complex required for transport location;4644053;4.644477979471213
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;internal side of plasma membrane;4620628;4.611787014016585
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;isolation membrane;2936089;4.555154931063189
+ucc1 (saccharomyces cerevisiae s288c);1890634;is part of;scf complex substrate recognition subunit;4655797;4.380283618094059
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;pre-autophagosomal structure;3701262;4.371935583802963
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;perivacuolar space;3701244;4.3688445068258215
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;phagophore assembly site;3701315;4.365731271401678
+stp22 (saccharomyces cerevisiae s288c);1889021;is part of;escrt i complex location;457048;4.153448988600982
+did4 (saccharomyces cerevisiae s288c);1899801;is part of;escrt iii complex location;458865;4.102845164245418
+ucc1 (saccharomyces cerevisiae s288c);1890634;is part of;scf ubiquitin ligase complex;4716384;4.084147133154448
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;phosphatidylinositol 3-kinase complex i;4680728;3.9935684827897275
+vps34 (saccharomyces cerevisiae s288c);1889587;is part of;phosphatidylinositol 3-kinase complex ii;4661239;3.894814329083301
+snf8 (saccharomyces cerevisiae s288c);1900406;is part of;escrt ii complex location;458170;3.6326597132939136

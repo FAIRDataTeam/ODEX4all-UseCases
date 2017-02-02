@@ -1,0 +1,841 @@
+protoplasm;1282678;affects;signaling pathways;4609969;89.0
+protoplasm;1282678;affects;cell physiology;2005967;89.0
+protoplasm;1282678;affects;cell proliferation;66010;60.0
+tissue membrane;66144;affects;signaling pathways;4609969;52.0
+protoplasm;1282678;affects;cell death;2006053;50.0
+nuclear pore;138993;affects;nucleocytoplasmic transport;332166;43.0
+nuclear pore;138993;does not affect;nucleocytoplasmic transport;332166;43.0
+protoplasm;1282678;affects;cell growth;2005912;43.0
+protoplasm;1282678;affects;cell survival;2006069;36.0
+protoplasm;1282678;affects;cell motility;2005993;34.0
+cytoplasmic matrix;549139;does not affect;apoptosis;1343330;32.0
+cytoplasmic matrix;549139;affects;apoptosis;1343330;32.0
+protoplasm;1282678;affects;cell cycle;4609275;30.0
+protoplasm;1282678;affects;exocytosis;2019691;27.0
+endosomes;1994907;affects;signaling pathways;4609969;22.0
+tissue membrane;66144;occurs in;localization within membrane;4665472;20.0
+tissue membrane;66144;affects;apoptosis;1343330;20.0
+cytoplasmic matrix;549139;affects;signaling pathways;4609969;20.0
+cell nucleus;2005932;occurs in;maintenance of protein location in nucleus;4720731;20.0
+tissue membrane;66144;affects;pathologic cytolysis;377966;18.0
+cytoplasmic matrix;549139;affects;cell physiology;2005967;18.0
+cytoplasm;2018357;affects;cell physiology;2005967;18.0
+tissue membrane;66144;affects;cell death;2006053;17.0
+tissue membrane;66144;affects;cell communication;2005966;17.0
+tissue membrane;66144;affects;cell adhesion;2005911;17.0
+golgi apparatus;2014468;affects;exocytosis;2019691;17.0
+microbody;110233;affects;metabolic process, cellular;457554;16.0
+cytoplasmic matrix;549139;affects;exocytosis;2019691;15.0
+cytoplasm;2018357;affects;apoptosis;1343330;15.0
+cytoplasm;2018357;does not affect;apoptosis;1343330;15.0
+tissue membrane;66144;affects;cell motility;2005993;14.0
+tissue membrane;66144;affects;cytokinesis of the fertilized ovum;6486139;13.0
+protoplasm;1282678;affects;cell fate;438347;13.0
+tissue membrane;66144;affects;cell proliferation;66010;12.0
+tissue membrane;66144;does not affect;cell proliferation;66010;12.0
+protoplasm;1282678;affects;phagocytosis;1998555;12.0
+tissue membrane;66144;affects;ion transport;1343641;11.0
+protoplasm;1282678;affects;endocytosis;2017128;11.0
+protoplasm;1282678;affects;cellular targeting;141194;11.0
+cytoplasm;2018357;affects;cell death;2006053;10.0
+protoplasm;1282678;affects;down-regulation;2017622;10.0
+protoplasm;1282678;affects;chemotaxis;2006111;10.0
+tissue membrane;66144;affects;phagocytosis;1998555;9.0
+cytoplasmic matrix;549139;affects;cell death;2006053;9.0
+endosomes;1994907;affects;endocytosis;2017128;9.0
+protoplasm;1282678;affects;cytoskeletal modeling;467216;9.0
+protoplasm;1282678;affects;cell adhesion;2005911;9.0
+tissue membrane;66144;affects;autophagy;366143;8.0
+tissue membrane;66144;affects;potassium ion transport;3538718;8.0
+tissue membrane;66144;does not affect;potassium ion transport;3538718;8.0
+tissue membrane;66144;affects;membrane potentials;2001352;8.0
+tissue membrane;66144;does not affect;membrane potentials;2001352;8.0
+golgi apparatus;2014468;affects;intracellular transport;141454;8.0
+protoplasm;1282678;affects;neurogenesis;35667;8.0
+protoplasm;1282678;affects;synaptic transmission;2002302;8.0
+tissue membrane;66144;affects;lymphocyte activation;2002537;7.0
+tissue membrane;66144;affects;cellular targeting;141194;7.0
+cytoplasmic matrix;549139;affects;cellular targeting;141194;7.0
+cytoplasmic matrix;549139;affects;neurotransmitter secretion;139618;7.0
+cytoplasm;2018357;affects;nuclear import;339344;7.0
+golgi apparatus;2014468;affects;secretory pathway;6386066;7.0
+nuclear pore;138993;affects;nuclear import;339344;7.0
+protoplasm;1282678;affects;autophagy;366143;7.0
+protoplasm;1282678;affects;cell communication;2005966;7.0
+cytoplasm;2018357;affects;signaling pathways;4609969;6.0
+cytoplasm;2018357;affects;nuclear export;339134;6.0
+endosomes;1994907;affects;cellular targeting;141194;6.0
+nuclear pore;138993;affects;protein import;4700943;6.0
+protoplasm;1282678;affects;cytokinesis of the fertilized ovum;6486139;6.0
+protoplasm;1282678;affects;cell cycle control;511229;6.0
+microbody;110233;affects;cellular lipid metabolic process;458647;6.0
+microbody;110233;affects;cell physiology;2005967;6.0
+microbody;110233;does not affect;cell physiology;2005967;6.0
+tissue membrane;66144;affects;pore complex assembly;4712242;5.0
+tissue membrane;66144;affects;t-cell activation;4710108;5.0
+tissue membrane;66144;affects;protein sorting;339626;5.0
+tissue membrane;66144;affects;endocytosis;2017128;5.0
+tissue membrane;66144;affects;protein transport;141365;5.0
+cytoplasmic matrix;549139;affects;autophagy;366143;5.0
+wall of endosome;3701277;occurs in;intralumenal vesicle formation;6389064;5.0
+cytoplasm;2018357;occurs in;cytoplasmic capsid assembly;7006942;5.0
+cytoplasm;2018357;occurs in;cytoplasmic microtubule depolymerization;4711870;5.0
+cytoplasm;2018357;occurs in;cytoplasmic sequestering of protein;457613;5.0
+cytoplasm;2018357;affects;cell growth;2005912;5.0
+golgi apparatus;2014468;occurs in;golgi calcium ion homeostasis;4656183;5.0
+cell nucleus;2005932;occurs in;nuclear capsid assembly;7006658;5.0
+cell nucleus;2005932;occurs in;mitotic spindle organization in nucleus;511612;5.0
+endosomes;1994907;occurs in;endosomal signal transduction;5058015;5.0
+endosomes;1994907;affects;biological acidification;457848;5.0
+endosomes;1994907;affects;cytokinesis;2018330;5.0
+endosomes;1994907;affects;retrograde transport;140665;5.0
+nuclear pore;138993;affects;signaling pathways;4609969;5.0
+protoplasm;1282678;occurs in;intracellular auxin transport;6165596;5.0
+protoplasm;1282678;affects;cell activation;4733362;5.0
+protoplasm;1282678;occurs in;intracellular protein transmembrane transport;4717482;5.0
+protoplasm;1282678;occurs in;intracellular nucleoside transport;4716981;5.0
+protoplasm;1282678;occurs in;intracellular ph reduction;4704771;5.0
+protoplasm;1282678;occurs in;intracellular sterol transport;4697980;5.0
+protoplasm;1282678;affects;insulin secretion;4690266;5.0
+protoplasm;1282678;occurs in;intracellular lipid transport;4678780;5.0
+protoplasm;1282678;affects;cell cycle progression;465571;5.0
+protoplasm;1282678;occurs in;intracellular copper ion transport;4638861;5.0
+protoplasm;1282678;occurs in;intracellular cholesterol transport;4635776;5.0
+protoplasm;1282678;occurs in;intracellular ph elevation;4634135;5.0
+protoplasm;1282678;occurs in;intracellular defense response;4621142;5.0
+protoplasm;1282678;occurs in;intracellular distribution of mitochondria;457488;5.0
+protoplasm;1282678;affects;b-cell differentiation;380556;5.0
+protoplasm;1282678;occurs in;egress of virus within host cell;3329921;5.0
+protoplasm;1282678;affects;cell division;2006074;5.0
+protoplasm;1282678;affects;mitosis;2002019;5.0
+protoplasm;1282678;affects;antigen presentation;1354513;5.0
+tissue membrane;66144;affects;platelet function;6424674;4.0
+tissue membrane;66144;affects;down-regulation;2017622;4.0
+tissue membrane;66144;affects;mitosis;2002019;4.0
+tissue membrane;66144;affects;antigen presentation;1354513;4.0
+cytoplasmic matrix;549139;affects;cell proliferation;66010;4.0
+cytoplasmic matrix;549139;does not affect;cytokinesis of the fertilized ovum;6486139;4.0
+cytoplasmic matrix;549139;affects;cytokinesis of the fertilized ovum;6486139;4.0
+cytoplasmic matrix;549139;affects;insulin secretion;4690266;4.0
+cytoplasmic matrix;549139;affects;endocytosis;2017128;4.0
+cytoplasmic matrix;549139;affects;cell survival;2006069;4.0
+cytoplasmic matrix;549139;affects;cell adhesion;2005911;4.0
+cytoplasm;2018357;affects;cell proliferation;66010;4.0
+cytoplasm;2018357;affects;nucleocytoplasmic transport;332166;4.0
+cytoplasm;2018357;affects;cell survival;2006069;4.0
+cytoplasm;2018357;does not affect;cell survival;2006069;4.0
+golgi apparatus;2014468;affects;signaling pathways;4609969;4.0
+golgi apparatus;2014468;affects;cell physiology;2005967;4.0
+golgi apparatus;2014468;affects;cellular targeting;141194;4.0
+golgi apparatus;2014468;affects;retrograde transport;140665;4.0
+cell nucleus;2005932;affects;cell physiology;2005967;4.0
+endosomes;1994907;affects;exocytosis;2019691;4.0
+endosomes;1994907;affects;receptor recycling;141550;4.0
+protoplasm;1282678;affects;t-cell activation;4710108;4.0
+protoplasm;1282678;affects;keratinocyte differentiation;4688903;4.0
+protoplasm;1282678;affects;receptor activation process;463504;4.0
+protoplasm;1282678;does not affect;receptor activation process;463504;4.0
+protoplasm;1282678;affects;action potentials;367082;4.0
+protoplasm;1282678;affects;cellular process;3539590;4.0
+protoplasm;1282678;affects;lymphocyte activation;2002537;4.0
+protoplasm;1282678;affects;membrane potentials;2001352;4.0
+protoplasm;1282678;does not affect;membrane potentials;2001352;4.0
+protoplasm;1282678;affects;ion transport;1343641;4.0
+microbody;110233;affects;signaling pathways;4609969;4.0
+tissue membrane;66144;affects;intercellular communication process;6388799;3.0
+tissue membrane;66144;affects;cell secretion;4681233;3.0
+tissue membrane;66144;affects;vesicle fusion;4636669;3.0
+tissue membrane;66144;affects;cell cycle;4609275;3.0
+tissue membrane;66144;does not affect;cell cycle;4609275;3.0
+tissue membrane;66144;affects;transmembrane transport;460182;3.0
+tissue membrane;66144;affects;proton transport;3538609;3.0
+tissue membrane;66144;affects;single organismal cell-cell adhesion;2930794;3.0
+tissue membrane;66144;affects;cytokinesis;2018330;3.0
+tissue membrane;66144;affects;platelet aggregation;1997942;3.0
+tissue membrane;66144;does not affect;platelet aggregation;1997942;3.0
+tissue membrane;66144;affects;cell transformation;1402508;3.0
+tissue membrane;66144;affects;receptor mediated endocytosis;139366;3.0
+cytoplasmic matrix;549139;affects;synaptic vesicle exocytosis;4735405;3.0
+cytoplasmic matrix;549139;affects;nuclear import;339344;3.0
+cytoplasmic matrix;549139;affects;nucleocytoplasmic transport;332166;3.0
+cytoplasmic matrix;549139;affects;cell motility;2005993;3.0
+cytoplasmic matrix;549139;affects;cell growth;2005912;3.0
+cytoplasm;2018357;affects;endocytosis;2017128;3.0
+cytoplasm;2018357;affects;cell motility;2005993;3.0
+cytoplasm;2018357;affects;mitosis;2002019;3.0
+cytoplasm;2018357;affects;phagocytosis;1998555;3.0
+cytoplasm;2018357;affects;cellular targeting;141194;3.0
+golgi apparatus;2014468;affects;cytokinesis of the fertilized ovum;6486139;3.0
+golgi apparatus;2014468;affects;acrosome assembly;4677789;3.0
+golgi apparatus;2014468;affects;protein sorting;339626;3.0
+golgi apparatus;2014468;affects;endocytosis;2017128;3.0
+golgi apparatus;2014468;affects;protein transport;141365;3.0
+golgi apparatus;2014468;affects;apoptosis;1343330;3.0
+endosomes;1994907;affects;cytokinesis of the fertilized ovum;6486139;3.0
+endosomes;1994907;affects;protein sorting;339626;3.0
+endosomes;1994907;affects;cell motility;2005993;3.0
+endosomes;1994907;affects;cell physiology;2005967;3.0
+endosomes;1994907;affects;intracellular transport;141454;3.0
+endosomes;1994907;affects;trafficking;141422;3.0
+endosomes;1994907;affects;chromosome pairing;139529;3.0
+endosomes;1994907;affects;antigen processing;1354541;3.0
+endosomes;1994907;affects;apoptosis;1343330;3.0
+protoplasm;1282678;affects;syncytium formation by plasma membrane fusion;511706;3.0
+protoplasm;1282678;affects;negative regulation of apoptosis;466874;3.0
+protoplasm;1282678;affects;t cell differentiation;4657734;3.0
+protoplasm;1282678;affects;biofilm formation;4643829;3.0
+protoplasm;1282678;affects;cell maturation;463741;3.0
+protoplasm;1282678;affects;metabolic process, cellular;457554;3.0
+protoplasm;1282678;affects;cross-presentation;3955516;3.0
+protoplasm;1282678;affects;pathologic cytolysis;377966;3.0
+protoplasm;1282678;affects;single organismal cell-cell adhesion;2930794;3.0
+protoplasm;1282678;affects;sperm motility;1994009;3.0
+protoplasm;1282678;affects;trafficking;141422;3.0
+protoplasm;1282678;affects;retrograde transport;140665;3.0
+protoplasm;1282678;affects;up-regulation (physiology);1402662;3.0
+microbody;110233;affects;peroxisome inheritance;512581;3.0
+microbody;110233;affects;autophagy;366143;3.0
+tissue membrane;66144;affects;membrane activity;66882;2.0
+tissue membrane;66144;affects;lactose transport;6381649;2.0
+tissue membrane;66144;affects;membrane disassembly;512558;2.0
+tissue membrane;66144;affects;monocyte activation;4718756;2.0
+tissue membrane;66144;affects;insulin secretion;4690266;2.0
+tissue membrane;66144;does not affect;insulin secretion;4690266;2.0
+tissue membrane;66144;affects;cytoskeletal modeling;467216;2.0
+tissue membrane;66144;affects;extracellular matrix degradation;464835;2.0
+tissue membrane;66144;affects;metabolic process, cellular;457554;2.0
+tissue membrane;66144;affects;glucose transport pathway;4402653;2.0
+tissue membrane;66144;affects;b-cell differentiation;380556;2.0
+tissue membrane;66144;affects;osmoregulation;380167;2.0
+tissue membrane;66144;affects;cell development;36472;2.0
+tissue membrane;66144;affects;chloride transport;3539375;2.0
+tissue membrane;66144;affects;erythrocyte deformability;2018948;2.0
+tissue membrane;66144;affects;cell survival;2006069;2.0
+tissue membrane;66144;does not affect;cell survival;2006069;2.0
+tissue membrane;66144;affects;drug kinetics;1998707;2.0
+tissue membrane;66144;affects;sperm motility;1994009;2.0
+tissue membrane;66144;affects;membrane flux;141792;2.0
+tissue membrane;66144;affects;intracellular transport;141454;2.0
+tissue membrane;66144;affects;acrosome reaction;141052;2.0
+tissue membrane;66144;affects;transcytosis;139882;2.0
+tissue membrane;66144;affects;neurotransmitter secretion;139618;2.0
+tissue membrane;66144;affects;chromosome pairing;139529;2.0
+tissue membrane;66144;does not affect;chromosome pairing;139529;2.0
+tissue membrane;66144;affects;respiratory burst;1369050;2.0
+tissue membrane;66144;affects;antigen processing;1354541;2.0
+tissue membrane;66144;affects;cell-mediated cytolysis;1048770;2.0
+cytoplasmic matrix;549139;affects;asymmetric cell division;511768;2.0
+cytoplasmic matrix;549139;affects;protein import;4700943;2.0
+cytoplasmic matrix;549139;affects;receptor activation process;463504;2.0
+cytoplasmic matrix;549139;affects;cell cycle;4609275;2.0
+cytoplasmic matrix;549139;affects;transmembrane transport;460182;2.0
+cytoplasmic matrix;549139;affects;biological acidification;457848;2.0
+cytoplasmic matrix;549139;affects;cell development;36472;2.0
+cytoplasmic matrix;549139;affects;cellular process;3539590;2.0
+cytoplasmic matrix;549139;affects;conjugation;2912487;2.0
+cytoplasmic matrix;549139;does not affect;conjugation;2912487;2.0
+cytoplasmic matrix;549139;affects;lymphocyte activation;2002537;2.0
+cytoplasm;2018357;affects;cytoplasmic transport;4674401;2.0
+cytoplasm;2018357;affects;cell cycle;4609275;2.0
+cytoplasm;2018357;does not affect;cell cycle;4609275;2.0
+cytoplasm;2018357;affects;biological acidification;457848;2.0
+cytoplasm;2018357;affects;metabolic process, cellular;457554;2.0
+cytoplasm;2018357;affects;mrna transport;457314;2.0
+cytoplasm;2018357;affects;autophagy;366143;2.0
+cytoplasm;2018357;affects;cytoplasmic streaming;2018432;2.0
+cytoplasm;2018357;affects;spermatogenesis;1993967;2.0
+cytoplasm;2018357;affects;intracellular transport;141454;2.0
+cytoplasm;2018357;affects;cell transformation;1402508;2.0
+cytoplasm;2018357;affects;rna transport;139836;2.0
+cytoplasm;2018357;affects;ion transport;1343641;2.0
+golgi apparatus;2014468;affects;cell motility;2005993;2.0
+golgi apparatus;2014468;affects;cell communication;2005966;2.0
+golgi apparatus;2014468;affects;trafficking;141422;2.0
+cell nucleus;2005932;affects;cell proliferation;66010;2.0
+cell nucleus;2005932;affects;cell cycle;4609275;2.0
+cell nucleus;2005932;affects;cell motility;2005993;2.0
+endosomes;1994907;affects;cell proliferation;66010;2.0
+endosomes;1994907;affects;autophagic vacuole assembly;6388981;2.0
+endosomes;1994907;affects;autophagy;366143;2.0
+endosomes;1994907;affects;cell survival;2006069;2.0
+endosomes;1994907;affects;cell death;2006053;2.0
+nuclear pore;138993;affects;nuclear export;339134;2.0
+nuclear pore;138993;affects;cell division;2006074;2.0
+nuclear pore;138993;affects;cell physiology;2005967;2.0
+nuclear pore;138993;affects;mitosis;2002019;2.0
+nuclear pore;138993;affects;protein transport;141365;2.0
+protoplasm;1282678;affects;release of sequestered calcium ion into cytoplasm;66463;2.0
+protoplasm;1282678;affects;cell growth regulation;66364;2.0
+protoplasm;1282678;affects;protein secretion;5836356;2.0
+protoplasm;1282678;affects;stem cell division;512395;2.0
+protoplasm;1282678;affects;stimulation of cell proliferation;511379;2.0
+protoplasm;1282678;affects;immune cell activation process;4692664;2.0
+protoplasm;1282678;affects;t-cell proliferation;4682290;2.0
+protoplasm;1282678;affects;cell secretion;4681233;2.0
+protoplasm;1282678;affects;t-cell development;463839;2.0
+protoplasm;1282678;affects;osteoblast differentiation;4628858;2.0
+protoplasm;1282678;affects;neuron migration;4625320;2.0
+protoplasm;1282678;affects;glucose transport pathway;4402653;2.0
+protoplasm;1282678;affects;cell aging;2005979;2.0
+protoplasm;1282678;affects;meiosis;2001579;2.0
+protoplasm;1282678;affects;intracellular transport;141454;2.0
+protoplasm;1282678;affects;calcium signaling;140888;2.0
+protoplasm;1282678;affects;virus replication;1403106;2.0
+protoplasm;1282678;affects;cell transformation;1402508;2.0
+protoplasm;1282678;affects;neurotransmitter secretion;139618;2.0
+protoplasm;1282678;affects;chromosome pairing;139529;2.0
+protoplasm;1282678;affects;mitochondrial transport;115905;2.0
+microbody;110233;affects;cell proliferation;66010;2.0
+microbody;110233;affects;neurogenesis;35667;2.0
+microbody;110233;affects;cellular process;3539590;2.0
+microbody;110233;affects;cell division;2006074;2.0
+microbody;110233;affects;cell aging;2005979;2.0
+microbody;110233;affects;cellular targeting;141194;2.0
+tissue membrane;66144;affects;mitochondrial fission;994056;1.0
+tissue membrane;66144;affects;light signal transduction;958746;1.0
+tissue membrane;66144;affects;auxotrophy;66800;1.0
+tissue membrane;66144;affects;release of sequestered calcium ion into cytoplasm;66463;1.0
+tissue membrane;66144;affects;lipid transport;66415;1.0
+tissue membrane;66144;affects;cell growth regulation;66364;1.0
+tissue membrane;66144;affects;membrane biogenesis;66262;1.0
+tissue membrane;66144;affects;cell fusion;6389329;1.0
+tissue membrane;66144;affects;secretory pathway;6386066;1.0
+tissue membrane;66144;affects;vesicle targeting;6383196;1.0
+tissue membrane;66144;affects;atp transport;5831436;1.0
+tissue membrane;66144;affects;modulation by symbiont of host erythrocyte aggregation;546939;1.0
+tissue membrane;66144;affects;establishment of protein localization;516106;1.0
+tissue membrane;66144;affects;iron ion transport;5149497;1.0
+tissue membrane;66144;affects;plasmid partitioning;512530;1.0
+tissue membrane;66144;affects;intraciliary transport;512058;1.0
+tissue membrane;66144;affects;syncytium formation by plasma membrane fusion;511706;1.0
+tissue membrane;66144;affects;cilium assembly;511523;1.0
+tissue membrane;66144;affects;cell morphogenesis;511113;1.0
+tissue membrane;66144;affects;lamellipodium assembly;510966;1.0
+tissue membrane;66144;affects;cell activation;4733362;1.0
+tissue membrane;66144;affects;cytoskeleton alteration [pe];471612;1.0
+tissue membrane;66144;affects;nitric oxide transport;4712878;1.0
+tissue membrane;66144;affects;oocyte maturation;4710083;1.0
+tissue membrane;66144;affects;cell-mediated immune response;4707606;1.0
+tissue membrane;66144;does not affect;protein import;4700943;1.0
+tissue membrane;66144;affects;cholesterol transport;4699060;1.0
+tissue membrane;66144;affects;acid secretion;4689716;1.0
+tissue membrane;66144;affects;fluid transport;4688974;1.0
+tissue membrane;66144;affects;positive regulation of mitosis;467612;1.0
+tissue membrane;66144;affects;b cell proliferation;4659943;1.0
+tissue membrane;66144;affects;cell plate formation;4651773;1.0
+tissue membrane;66144;affects;cell maintenance;464794;1.0
+tissue membrane;66144;affects;growth hormone secretion;4641172;1.0
+tissue membrane;66144;affects;t-cell development;463839;1.0
+tissue membrane;66144;affects;cell maturation;463741;1.0
+tissue membrane;66144;affects;receptor activation process;463504;1.0
+tissue membrane;66144;affects;sucrose transport;4629972;1.0
+tissue membrane;66144;affects;neuron migration;4625320;1.0
+tissue membrane;66144;affects;folic acid transport;4623680;1.0
+tissue membrane;66144;affects;anion transport;4617891;1.0
+tissue membrane;66144;affects;chemokinesis;4613885;1.0
+tissue membrane;66144;affects;axon guidance;4609575;1.0
+tissue membrane;66144;affects;biological acidification;457848;1.0
+tissue membrane;66144;affects;protein insertion into membrane;457840;1.0
+tissue membrane;66144;affects;water transport;3954889;1.0
+tissue membrane;66144;affects;mitotic anaphase;367761;1.0
+tissue membrane;66144;affects;action potentials;367082;1.0
+tissue membrane;66144;does not affect;action potentials;367082;1.0
+tissue membrane;66144;affects;axonal transport;366180;1.0
+tissue membrane;66144;affects;cellular process;3539590;1.0
+tissue membrane;66144;affects;quorum sensing;3539194;1.0
+tissue membrane;66144;affects;phosphate ion transport;3539138;1.0
+tissue membrane;66144;affects;sporulation resulting in formation of a cellular spore;3538627;1.0
+tissue membrane;66144;does not affect;sporulation resulting in formation of a cellular spore;3538627;1.0
+tissue membrane;66144;affects;nucleocytoplasmic transport;332166;1.0
+tissue membrane;66144;affects;syncytium formation;2950039;1.0
+tissue membrane;66144;affects;drug transport process;2949163;1.0
+tissue membrane;66144;affects;gas transport;2927151;1.0
+tissue membrane;66144;affects;sodium ion transport;2918367;1.0
+tissue membrane;66144;affects;glucose import;2913268;1.0
+tissue membrane;66144;affects;conjugation;2912487;1.0
+tissue membrane;66144;affects;iodide transport;2910975;1.0
+tissue membrane;66144;affects;viral release from host cell;2903489;1.0
+tissue membrane;66144;affects;bystander effect;205385;1.0
+tissue membrane;66144;affects;exocytosis;2019691;1.0
+tissue membrane;66144;does not affect;exocytosis;2019691;1.0
+tissue membrane;66144;affects;contact inhibition;2006520;1.0
+tissue membrane;66144;affects;cell degranulation;2006115;1.0
+tissue membrane;66144;affects;chemotaxis;2006111;1.0
+tissue membrane;66144;affects;cell division;2006074;1.0
+tissue membrane;66144;does not affect;cell division;2006074;1.0
+tissue membrane;66144;affects;cell aggregation;2006007;1.0
+tissue membrane;66144;affects;cell physiology;2005967;1.0
+tissue membrane;66144;does not affect;cell physiology;2005967;1.0
+tissue membrane;66144;affects;cell growth;2005912;1.0
+tissue membrane;66144;does not affect;cell growth;2005912;1.0
+tissue membrane;66144;affects;macrophage activation;2002597;1.0
+tissue membrane;66144;affects;synaptic transmission;2002302;1.0
+tissue membrane;66144;does not affect;synaptic transmission;2002302;1.0
+tissue membrane;66144;affects;nerve regeneration;2002137;1.0
+tissue membrane;66144;affects;platelet adhesion, function;1998110;1.0
+tissue membrane;66144;affects;trafficking;141422;1.0
+tissue membrane;66144;affects;calcium waves;141002;1.0
+tissue membrane;66144;affects;calcium signaling;140888;1.0
+tissue membrane;66144;affects;anterograde transport;140711;1.0
+tissue membrane;66144;affects;membrane assembly;140477;1.0
+tissue membrane;66144;does not affect;myelination;140452;1.0
+tissue membrane;66144;affects;myelination;140452;1.0
+tissue membrane;66144;affects;axonal guidance;139121;1.0
+tissue membrane;66144;affects;threshold potential;117365;1.0
+tissue membrane;66144;affects;mitochondrial transport;115905;1.0
+tissue membrane;66144;affects;cell recognition;115223;1.0
+tissue membrane;66144;affects;cell electrophysiology;115203;1.0
+tissue membrane;66144;affects;cap formation;1048711;1.0
+tissue membrane;66144;affects;spermiogenesis;1038314;1.0
+tissue membrane;66144;affects;cell respiration;1017647;1.0
+tissue membrane;66144;affects;stain reaction, nos;1008543;1.0
+cytoplasmic matrix;549139;affects;mitochondrial fission;994056;1.0
+cytoplasmic matrix;549139;affects;light signal transduction;958746;1.0
+cytoplasmic matrix;549139;affects;fatty acid transport;67422;1.0
+cytoplasmic matrix;549139;affects;release of sequestered calcium ion into cytoplasm;66463;1.0
+cytoplasmic matrix;549139;affects;secretory pathway;6386066;1.0
+cytoplasmic matrix;549139;affects;protein secretion;5836356;1.0
+cytoplasmic matrix;549139;affects;urea transport;5835139;1.0
+cytoplasmic matrix;549139;affects;intracellular protein transport;5831779;1.0
+cytoplasmic matrix;549139;affects;acetyl-coa transport;5830113;1.0
+cytoplasmic matrix;549139;affects;lysosomal transport;512465;1.0
+cytoplasmic matrix;549139;affects;establishment of mitotic spindle localization;511911;1.0
+cytoplasmic matrix;549139;affects;spindle assembly;511243;1.0
+cytoplasmic matrix;549139;affects;cell redox homeostasis;511239;1.0
+cytoplasmic matrix;549139;affects;sulfur utilization;4816719;1.0
+cytoplasmic matrix;549139;affects;cell activation;4733362;1.0
+cytoplasmic matrix;549139;affects;lymphocyte differentiation;4719269;1.0
+cytoplasmic matrix;549139;affects;pollen tube growth;4717792;1.0
+cytoplasmic matrix;549139;affects;t-cell activation;4710108;1.0
+cytoplasmic matrix;549139;affects;chloroplast fission;4703487;1.0
+cytoplasmic matrix;549139;affects;negative regulation of apoptosis;466874;1.0
+cytoplasmic matrix;549139;affects;mast cell activation;4647909;1.0
+cytoplasmic matrix;549139;affects;vesicle fusion;4636669;1.0
+cytoplasmic matrix;549139;affects;axon guidance;4609575;1.0
+cytoplasmic matrix;549139;affects;nuclear envelope disassembly;458096;1.0
+cytoplasmic matrix;549139;affects;metabolic process, cellular;457554;1.0
+cytoplasmic matrix;549139;affects;neurogenesis;35667;1.0
+cytoplasmic matrix;549139;affects;positive regulation of apoptosis;3539383;1.0
+cytoplasmic matrix;549139;affects;fat cell differentiation;2934337;1.0
+cytoplasmic matrix;549139;affects;sodium ion transport;2918367;1.0
+cytoplasmic matrix;549139;affects;cytokinesis;2018330;1.0
+cytoplasmic matrix;549139;affects;cell division;2006074;1.0
+cytoplasmic matrix;549139;affects;cell communication;2005966;1.0
+cytoplasmic matrix;549139;affects;synaptic transmission;2002302;1.0
+cytoplasmic matrix;549139;affects;membrane potentials;2001352;1.0
+cytoplasmic matrix;549139;does not affect;membrane potentials;2001352;1.0
+cytoplasmic matrix;549139;affects;phagocytosis;1998555;1.0
+cytoplasmic matrix;549139;affects;intracellular transport;141454;1.0
+cytoplasmic matrix;549139;does not affect;intracellular transport;141454;1.0
+cytoplasmic matrix;549139;affects;protein transport;141365;1.0
+cytoplasmic matrix;549139;affects;retrograde transport;140665;1.0
+cytoplasmic matrix;549139;affects;axonal guidance;139121;1.0
+cytoplasmic matrix;549139;affects;ion transport;1343641;1.0
+cytoplasmic matrix;549139;affects;cell conductance;117021;1.0
+wall of endosome;3701277;affects;cell morphogenesis;511113;1.0
+wall of endosome;3701277;affects;protein sorting;339626;1.0
+wall of endosome;3701277;affects;cellular targeting;141194;1.0
+wall of endosome;3701277;affects;apoptosis;1343330;1.0
+cytoplasmic mrna processing body;3701081;affects;establishment of rna localization;458695;1.0
+cytoplasmic mrna processing body;3701081;affects;chromosome pairing;139529;1.0
+cytoplasm;2018357;affects;mitochondrial fission;994056;1.0
+cytoplasm;2018357;affects;cell growth regulation;66364;1.0
+cytoplasm;2018357;does not affect;cytokinesis of the fertilized ovum;6486139;1.0
+cytoplasm;2018357;affects;focal adhesion assembly;6386891;1.0
+cytoplasm;2018357;affects;rna export from nucleus;517008;1.0
+cytoplasm;2018357;affects;iron ion transport;5149497;1.0
+cytoplasm;2018357;affects;chloroplast avoidance movement;512607;1.0
+cytoplasm;2018357;affects;hyphal growth;512519;1.0
+cytoplasm;2018357;affects;zinc homeostasis;512234;1.0
+cytoplasm;2018357;affects;asymmetric cell division;511768;1.0
+cytoplasm;2018357;affects;cell cycle checkpoints;511728;1.0
+cytoplasm;2018357;affects;cell cycle arrest;511150;1.0
+cytoplasm;2018357;affects;mitochondrial fusion;510944;1.0
+cytoplasm;2018357;affects;pollen tube growth;4717792;1.0
+cytoplasm;2018357;affects;egg activation;4711323;1.0
+cytoplasm;2018357;affects;cytoskeletal modeling;467216;1.0
+cytoplasm;2018357;affects;negative regulation of apoptosis;466874;1.0
+cytoplasm;2018357;affects;cell cycle phase;464460;1.0
+cytoplasm;2018357;affects;transmembrane transport;460182;1.0
+cytoplasm;2018357;does not affect;trna transport;458024;1.0
+cytoplasm;2018357;affects;septation initiation signaling;457368;1.0
+cytoplasm;2018357;affects;osmoregulation;380167;1.0
+cytoplasm;2018357;affects;pathologic cytolysis;377966;1.0
+cytoplasm;2018357;affects;mitotic anaphase;367761;1.0
+cytoplasm;2018357;affects;cellular process;3539590;1.0
+cytoplasm;2018357;affects;potassium ion transport;3538718;1.0
+cytoplasm;2018357;affects;sperm individualization;2948460;1.0
+cytoplasm;2018357;affects;single organismal cell-cell adhesion;2930794;1.0
+cytoplasm;2018357;affects;exocytosis;2019691;1.0
+cytoplasm;2018357;does not affect;exocytosis;2019691;1.0
+cytoplasm;2018357;affects;cell membrane permeability;2006169;1.0
+cytoplasm;2018357;affects;cell differentiation process;2006168;1.0
+cytoplasm;2018357;does not affect;cell division;2006074;1.0
+cytoplasm;2018357;affects;cell communication;2005966;1.0
+cytoplasm;2018357;affects;cell adhesion;2005911;1.0
+cytoplasm;2018357;affects;mitotic metaphase;2004149;1.0
+cytoplasm;2018357;affects;lymphocyte activation;2002537;1.0
+cytoplasm;2018357;affects;myelination;140452;1.0
+cytoplasm;2018357;affects;virus replication;1403106;1.0
+cytoplasm;2018357;affects;up-regulation (physiology);1402662;1.0
+cytoplasm;2018357;affects;neurotransmitter secretion;139618;1.0
+cytoplasm;2018357;affects;chromosome pairing;139529;1.0
+cytoplasm;2018357;does not affect;chromosome pairing;139529;1.0
+cytoplasm;2018357;affects;cell recognition;115223;1.0
+golgi apparatus;2014468;affects;cell growth regulation;66364;1.0
+golgi apparatus;2014468;affects;autophagic vacuole assembly;6388981;1.0
+golgi apparatus;2014468;affects;cytokine secretion;6381615;1.0
+golgi apparatus;2014468;affects;intracellular protein transport;5831779;1.0
+golgi apparatus;2014468;affects;cell cycle arrest;511150;1.0
+golgi apparatus;2014468;affects;microtubule depolymerization process;510977;1.0
+golgi apparatus;2014468;affects;insulin secretion;4690266;1.0
+golgi apparatus;2014468;affects;cell cycle progression;465571;1.0
+golgi apparatus;2014468;affects;cisternal progression;4639321;1.0
+golgi apparatus;2014468;affects;trichome differentiation;4631646;1.0
+golgi apparatus;2014468;affects;cell cycle;4609275;1.0
+golgi apparatus;2014468;affects;transmembrane transport;460182;1.0
+golgi apparatus;2014468;affects;pathologic cytolysis;377966;1.0
+golgi apparatus;2014468;affects;autophagy;366143;1.0
+golgi apparatus;2014468;affects;bile acid transport;2906977;1.0
+golgi apparatus;2014468;affects;cytokinesis;2018330;1.0
+golgi apparatus;2014468;affects;down-regulation;2017622;1.0
+golgi apparatus;2014468;affects;cell division;2006074;1.0
+golgi apparatus;2014468;affects;cell survival;2006069;1.0
+golgi apparatus;2014468;affects;cell death;2006053;1.0
+golgi apparatus;2014468;affects;receptor recycling;141550;1.0
+golgi apparatus;2014468;affects;membrane assembly;140477;1.0
+cell nucleus;2005932;affects;chromosome condensation;512018;1.0
+cell nucleus;2005932;affects;cell activation;4733362;1.0
+cell nucleus;2005932;does not affect;oocyte maturation;4710083;1.0
+cell nucleus;2005932;affects;cytoplasmic transport;4674401;1.0
+cell nucleus;2005932;affects;signaling pathways;4609969;1.0
+cell nucleus;2005932;affects;mrna transport;457314;1.0
+cell nucleus;2005932;affects;pathologic cytolysis;377966;1.0
+cell nucleus;2005932;affects;nuclear import;339344;1.0
+cell nucleus;2005932;affects;nucleocytoplasmic transport;332166;1.0
+cell nucleus;2005932;affects;endocytosis;2017128;1.0
+cell nucleus;2005932;affects;cell death;2006053;1.0
+cell nucleus;2005932;affects;cell communication;2005966;1.0
+cell nucleus;2005932;affects;cell growth;2005912;1.0
+cell nucleus;2005932;affects;spermatogenesis;1993967;1.0
+cell nucleus;2005932;affects;calcium signaling;140888;1.0
+cell nucleus;2005932;affects;antigen presentation;1354513;1.0
+cell nucleus;2005932;affects;apoptosis;1343330;1.0
+cell nucleus;2005932;does not affect;apoptosis;1343330;1.0
+cell nucleus;2005932;affects;cell-mediated cytolysis;1048770;1.0
+endosomes;1994907;affects;lipid transport;66415;1.0
+endosomes;1994907;affects;membrane biogenesis;66262;1.0
+endosomes;1994907;affects;intercellular communication process;6388799;1.0
+endosomes;1994907;affects;vesicle targeting;6383196;1.0
+endosomes;1994907;affects;cytokine secretion;6381615;1.0
+endosomes;1994907;affects;cellularization;5839102;1.0
+endosomes;1994907;affects;filopodium assembly;5836403;1.0
+endosomes;1994907;affects;intracellular protein transport;5831779;1.0
+endosomes;1994907;does not affect;endosome transport;512548;1.0
+endosomes;1994907;affects;endosome transport;512548;1.0
+endosomes;1994907;affects;hyphal growth;512519;1.0
+endosomes;1994907;affects;unidimensional cell growth;511508;1.0
+endosomes;1994907;affects;vacuolar transport;511242;1.0
+endosomes;1994907;affects;lamellipodium assembly;510966;1.0
+endosomes;1994907;affects;t-cell activation;4710108;1.0
+endosomes;1994907;affects;lipid storage;4669327;1.0
+endosomes;1994907;affects;pathologic cytolysis;377966;1.0
+endosomes;1994907;affects;axonal transport;366180;1.0
+endosomes;1994907;affects;neurogenesis;35667;1.0
+endosomes;1994907;affects;cellular process;3539590;1.0
+endosomes;1994907;affects;down-regulation;2017622;1.0
+endosomes;1994907;affects;contact inhibition;2006520;1.0
+endosomes;1994907;affects;cell division;2006074;1.0
+endosomes;1994907;affects;cell communication;2005966;1.0
+endosomes;1994907;affects;phagocytosis;1998555;1.0
+endosomes;1994907;affects;protein transport;141365;1.0
+endosomes;1994907;affects;organelle movement;140748;1.0
+endosomes;1994907;affects;anterograde transport;140711;1.0
+endosomes;1994907;does not affect;antigen presentation;1354513;1.0
+nuclear pore;138993;affects;cytokinesis of the fertilized ovum;6486139;1.0
+nuclear pore;138993;affects;nuclear migration;512509;1.0
+nuclear pore;138993;affects;mitotic checkpoints;511498;1.0
+nuclear pore;138993;affects;kinetochore-microtubule interaction;511054;1.0
+nuclear pore;138993;affects;cell cycle;4609275;1.0
+nuclear pore;138993;affects;mrna transport;457314;1.0
+nuclear pore;138993;affects;nuclear transport;382999;1.0
+nuclear pore;138993;affects;cellular process;3539590;1.0
+nuclear pore;138993;affects;cell survival;2006069;1.0
+nuclear pore;138993;affects;cell motility;2005993;1.0
+nuclear pore;138993;affects;cell growth;2005912;1.0
+nuclear pore;138993;affects;mitotic metaphase;2004149;1.0
+nuclear pore;138993;affects;intracellular transport;141454;1.0
+nuclear pore;138993;affects;cellular targeting;141194;1.0
+nuclear pore;138993;affects;up-regulation (physiology);1402662;1.0
+nuclear pore;138993;affects;rna transport;139836;1.0
+nuclear pore;138993;affects;apoptosis;1343330;1.0
+protoplasm;1282678;affects;mitotic arrest;6928239;1.0
+protoplasm;1282678;affects;fatty acid transport;67422;1.0
+protoplasm;1282678;affects;membrane activity;66882;1.0
+protoplasm;1282678;affects;induced platelet aggregation;6460569;1.0
+protoplasm;1282678;affects;natural killer cell function;6400203;1.0
+protoplasm;1282678;affects;autophagic vacuole assembly;6388981;1.0
+protoplasm;1282678;affects;intercellular communication process;6388799;1.0
+protoplasm;1282678;affects;secretory pathway;6386066;1.0
+protoplasm;1282678;affects;organic anion transport;6382091;1.0
+protoplasm;1282678;affects;cytokine secretion;6381615;1.0
+protoplasm;1282678;affects;intracellular protein transport;5831779;1.0
+protoplasm;1282678;occurs in;intracellular protein transport;5831779;1.0
+protoplasm;1282678;does not affect;filamentous growth;512302;1.0
+protoplasm;1282678;affects;chromosome condensation;512018;1.0
+protoplasm;1282678;does not affect;unidimensional cell growth;511508;1.0
+protoplasm;1282678;affects;nuclear division;511049;1.0
+protoplasm;1282678;affects;increased exocytosis [pe];473404;1.0
+protoplasm;1282678;affects;endothelial cell differentiation;4716338;1.0
+protoplasm;1282678;affects;cytoskeleton alteration [pe];471612;1.0
+protoplasm;1282678;affects;myoblast differentiation;4715746;1.0
+protoplasm;1282678;affects;egg activation;4711323;1.0
+protoplasm;1282678;affects;oocyte maturation;4710083;1.0
+protoplasm;1282678;affects;cholesterol transport;4699060;1.0
+protoplasm;1282678;affects;astrocyte activation;4690955;1.0
+protoplasm;1282678;affects;negative regulation of microtubule depolymerization;467668;1.0
+protoplasm;1282678;does not affect;inhibition of mitosis;467079;1.0
+protoplasm;1282678;affects;nutrient import;4669640;1.0
+protoplasm;1282678;affects;nerve cell survival;465968;1.0
+protoplasm;1282678;affects;growth hormone secretion;4641172;1.0
+protoplasm;1282678;affects;negative regulation of receptor activation;463652;1.0
+protoplasm;1282678;affects;cell ontogeny;463423;1.0
+protoplasm;1282678;affects;thymic t-cell selection;463378;1.0
+protoplasm;1282678;affects;t-cell transformation;463229;1.0
+protoplasm;1282678;affects;humoral immune response;4613857;1.0
+protoplasm;1282678;affects;axon guidance;4609575;1.0
+protoplasm;1282678;affects;biological acidification;457848;1.0
+protoplasm;1282678;affects;virus uncoating;3955074;1.0
+protoplasm;1282678;affects;osmoregulation;380167;1.0
+protoplasm;1282678;affects;cell development;36472;1.0
+protoplasm;1282678;affects;apoptotic program;3539493;1.0
+protoplasm;1282678;affects;phosphate ion transport;3539138;1.0
+protoplasm;1282678;affects;sporulation resulting in formation of a cellular spore;3538627;1.0
+protoplasm;1282678;does not affect;nuclear import;339344;1.0
+protoplasm;1282678;affects;syncytium formation;2950039;1.0
+protoplasm;1282678;affects;glucose import;2913268;1.0
+protoplasm;1282678;affects;conjugation;2912487;1.0
+protoplasm;1282678;affects;erythrocyte deformability;2018948;1.0
+protoplasm;1282678;affects;cytokinesis;2018330;1.0
+protoplasm;1282678;affects;immunocompetence;2013120;1.0
+protoplasm;1282678;affects;macrophage activation;2002597;1.0
+protoplasm;1282678;affects;pinocytosis;1998811;1.0
+protoplasm;1282678;affects;platelet adhesion, function;1998110;1.0
+protoplasm;1282678;affects;platelet aggregation;1997942;1.0
+protoplasm;1282678;affects;spermatogenesis;1993967;1.0
+protoplasm;1282678;affects;reuptake;141872;1.0
+protoplasm;1282678;affects;protein transport;141365;1.0
+protoplasm;1282678;affects;acrosome reaction;141052;1.0
+protoplasm;1282678;affects;myelination;140452;1.0
+protoplasm;1282678;affects;transcytosis;139882;1.0
+protoplasm;1282678;does not affect;neurotransmitter uptake;139512;1.0
+protoplasm;1282678;affects;receptor mediated endocytosis;139366;1.0
+protoplasm;1282678;affects;antigen processing;1354541;1.0
+protoplasm;1282678;affects;apoptosis;1343330;1.0
+protoplasm;1282678;does not affect;apoptosis;1343330;1.0
+protoplasm;1282678;affects;osteoblast function, nos;1041224;1.0
+protoplasm;1282678;does not affect;cell respiration;1017647;1.0
+protoplasm;1282678;affects;cell respiration;1017647;1.0
+microbody;110233;affects;membrane biogenesis;66262;1.0
+microbody;110233;affects;cytokinesis of the fertilized ovum;6486139;1.0
+microbody;110233;affects;organelle fission;5836833;1.0
+microbody;110233;affects;cell redox homeostasis;511239;1.0
+microbody;110233;affects;receptor activation process;463504;1.0
+microbody;110233;affects;neuron migration;4625320;1.0
+microbody;110233;affects;organelle fusion;4619279;1.0
+microbody;110233;affects;peroxisome proliferation;459036;1.0
+microbody;110233;affects;exocytosis;2019691;1.0
+microbody;110233;affects;down-regulation;2017622;1.0
+microbody;110233;affects;endocytosis;2017128;1.0
+microbody;110233;affects;cell death;2006053;1.0
+microbody;110233;affects;cell communication;2005966;1.0
+microbody;110233;affects;phagocytosis;1998555;1.0
+microbody;110233;affects;intracellular transport;141454;1.0
+microbody;110233;affects;protein transport;141365;1.0
+microbody;110233;affects;myelination;140452;1.0
+cytoplasm;2018357;affects;down-regulation;2017622;0.0
+cell nucleus;2005932;affects;cell adhesion;2005911;0.0
+endosomes;1994907;does not affect;acrosome assembly;4677789;0.0
+endosomes;1994907;affects;cell development;36472;0.0
+wortmannin;1366409;causes;apoptosis;1343330;9.0
+wortmannin;1366409;disrupts;apoptosis;1343330;9.0
+wortmannin;1366409;augments;apoptosis;1343330;9.0
+wortmannin;1366409;affects;apoptosis;1343330;9.0
+wortmannin;1366409;does not cause;apoptosis;1343330;9.0
+wortmannin;1366409;does not augment;apoptosis;1343330;9.0
+wortmannin;1366409;does not disrupt;apoptosis;1343330;9.0
+wortmannin;1366409;disrupts;cell proliferation;66010;5.0
+wortmannin;1366409;affects;cell proliferation;66010;5.0
+wortmannin;1366409;causes;cell proliferation;66010;5.0
+wortmannin;1366409;disrupts;signaling pathways;4609969;5.0
+wortmannin;1366409;affects;signaling pathways;4609969;5.0
+wortmannin;1366409;augments;signaling pathways;4609969;5.0
+wortmannin;1366409;causes;signaling pathways;4609969;5.0
+wortmannin;1366409;affects;signaling pathways;4609969;5.0
+wortmannin;1366409;augments;cell growth;2005912;5.0
+wortmannin;1366409;disrupts;cell growth;2005912;5.0
+wortmannin;1366409;disrupts;induced platelet aggregation;6460569;3.0
+wortmannin;1366409;disrupts;t-cell proliferation;4682290;3.0
+wortmannin;1366409;disrupts;cytoskeletal modeling;467216;3.0
+wortmannin;1366409;disrupts;pathologic cytolysis;377966;3.0
+wortmannin;1366409;disrupts;autophagy;366143;3.0
+wortmannin;1366409;causes;autophagy;366143;3.0
+wortmannin;1366409;affects;autophagy;366143;3.0
+wortmannin;1366409;does not affect;autophagy;366143;3.0
+wortmannin;1366409;affects;autophagy;366143;3.0
+wortmannin;1366409;augments;autophagy;366143;3.0
+wortmannin;1366409;does not disrupt;autophagy;366143;3.0
+wortmannin;1366409;causes;down-regulation;2017622;3.0
+wortmannin;1366409;affects;down-regulation;2017622;3.0
+wortmannin;1366409;does not affect;down-regulation;2017622;3.0
+wortmannin;1366409;produces;down-regulation;2017622;3.0
+wortmannin;1366409;causes;cell death;2006053;3.0
+wortmannin;1366409;augments;cell death;2006053;3.0
+wortmannin;1366409;does not augment;cell death;2006053;3.0
+wortmannin;1366409;disrupts;cell death;2006053;3.0
+wortmannin;1366409;does not affect;cell death;2006053;3.0
+wortmannin;1366409;disrupts;pinocytosis;1998811;3.0
+wortmannin;1366409;affects;up-regulation (physiology);1402662;3.0
+wortmannin;1366409;disrupts;up-regulation (physiology);1402662;3.0
+wortmannin;1366409;disrupts;autophagic vacuole assembly;6388981;2.0
+wortmannin;1366409;disrupts;catecholamine secretion;5832945;2.0
+wortmannin;1366409;disrupts;cell activation;4733362;2.0
+wortmannin;1366409;disrupts;oocyte maturation;4710083;2.0
+wortmannin;1366409;does not disrupt;oocyte maturation;4710083;2.0
+wortmannin;1366409;disrupts;cell secretion;4681233;2.0
+wortmannin;1366409;affects;negative regulation of apoptosis;466874;2.0
+wortmannin;1366409;augments;glucose transport pathway;4402653;2.0
+wortmannin;1366409;does not augment;glucose transport pathway;4402653;2.0
+wortmannin;1366409;disrupts;glucose transport pathway;4402653;2.0
+wortmannin;1366409;affects;glucose transport pathway;4402653;2.0
+wortmannin;1366409;does not disrupt;glucose transport pathway;4402653;2.0
+wortmannin;1366409;causes;glucose transport pathway;4402653;2.0
+wortmannin;1366409;does not affect;glucose transport pathway;4402653;2.0
+wortmannin;1366409;does not cause;glucose transport pathway;4402653;2.0
+wortmannin;1366409;disrupts;chemotaxis;2006111;2.0
+wortmannin;1366409;affects;chemotaxis;2006111;2.0
+wortmannin;1366409;does not disrupt;chemotaxis;2006111;2.0
+wortmannin;1366409;disrupts;cell survival;2006069;2.0
+wortmannin;1366409;causes;cell survival;2006069;2.0
+wortmannin;1366409;affects;cell survival;2006069;2.0
+wortmannin;1366409;affects;diapedesis;993480;1.0
+wortmannin;1366409;affects;diapedesis;993480;1.0
+wortmannin;1366409;disrupts;cell growth regulation;66364;1.0
+wortmannin;1366409;affects;amino acid transport;66003;1.0
+wortmannin;1366409;disrupts;cytokinesis of the fertilized ovum;6486139;1.0
+wortmannin;1366409;augments;cytokinesis of the fertilized ovum;6486139;1.0
+wortmannin;1366409;disrupts;basophil activation;6390477;1.0
+wortmannin;1366409;affects;secretory pathway;6386066;1.0
+wortmannin;1366409;disrupts;eosinophil chemotaxis;6381764;1.0
+wortmannin;1366409;affects;fructose transport;5837545;1.0
+wortmannin;1366409;does not affect;protein secretion;5836356;1.0
+wortmannin;1366409;does not affect;protein secretion;5836356;1.0
+wortmannin;1366409;disrupts;establishment of protein localization;516106;1.0
+wortmannin;1366409;disrupts;monocyte chemotaxis;5148894;1.0
+wortmannin;1366409;disrupts;chloroplast avoidance movement;512607;1.0
+wortmannin;1366409;causes;actin filament depolymerization;512543;1.0
+wortmannin;1366409;disrupts;chloroplast accumulation movement;511957;1.0
+wortmannin;1366409;affects;chloroplast accumulation movement;511957;1.0
+wortmannin;1366409;disrupts;stimulation of cell proliferation;511379;1.0
+wortmannin;1366409;causes;stimulation of cell proliferation;511379;1.0
+wortmannin;1366409;affects;actin filament polymerization;511271;1.0
+wortmannin;1366409;disrupts;vacuolar transport;511242;1.0
+wortmannin;1366409;causes;cell cycle arrest;511150;1.0
+wortmannin;1366409;augments;cell cycle arrest;511150;1.0
+wortmannin;1366409;augments;lamellipodium assembly;510966;1.0
+wortmannin;1366409;affects;histamine secretion;4716500;1.0
+wortmannin;1366409;disrupts;histamine secretion;4716500;1.0
+wortmannin;1366409;causes;histamine secretion;4716500;1.0
+wortmannin;1366409;affects;t-cell activation;4710108;1.0
+wortmannin;1366409;affects;insulin secretion;4690266;1.0
+wortmannin;1366409;augments;insulin secretion;4690266;1.0
+wortmannin;1366409;disrupts;insulin secretion;4690266;1.0
+wortmannin;1366409;does not affect;insulin secretion;4690266;1.0
+wortmannin;1366409;causes;insulin secretion;4690266;1.0
+wortmannin;1366409;affects;amino acid import;4685152;1.0
+wortmannin;1366409;disrupts;amino acid import;4685152;1.0
+wortmannin;1366409;augments;b cell proliferation;4659943;1.0
+wortmannin;1366409;disrupts;receptor activation process;463504;1.0
+wortmannin;1366409;does not affect;receptor activation process;463504;1.0
+wortmannin;1366409;affects;neuron migration;4625320;1.0
+wortmannin;1366409;disrupts;cell cycle;4609275;1.0
+wortmannin;1366409;disrupts;negative regulation of s phase;460370;1.0
+wortmannin;1366409;does not affect;metabolic process, cellular;457554;1.0
+wortmannin;1366409;disrupts;antibody-dependent cellular cytotoxicity;366818;1.0
+wortmannin;1366409;affects;neurogenesis;35667;1.0
+wortmannin;1366409;does not affect;symporter activity;3539867;1.0
+wortmannin;1366409;augments;positive regulation of apoptosis;3539383;1.0
+wortmannin;1366409;disrupts;programmed cell death, type ii;3538972;1.0
+wortmannin;1366409;disrupts;sporulation resulting in formation of a cellular spore;3538627;1.0
+wortmannin;1366409;causes;fat cell differentiation;2934337;1.0
+wortmannin;1366409;inhibits;glucose import;2913268;1.0
+wortmannin;1366409;affects;glucose import;2913268;1.0
+wortmannin;1366409;does not affect;glucose import;2913268;1.0
+wortmannin;1366409;does not inhibit;glucose import;2913268;1.0
+wortmannin;1366409;augments;glucose import;2913268;1.0
+wortmannin;1366409;disrupts;glucose import;2913268;1.0
+wortmannin;1366409;causes;exocytosis;2019691;1.0
+wortmannin;1366409;disrupts;exocytosis;2019691;1.0
+wortmannin;1366409;affects;exocytosis;2019691;1.0
+wortmannin;1366409;does not disrupt;exocytosis;2019691;1.0
+wortmannin;1366409;affects;exocytosis;2019691;1.0
+wortmannin;1366409;disrupts;endocytosis;2017128;1.0
+wortmannin;1366409;affects;endocytosis;2017128;1.0
+wortmannin;1366409;affects;endocytosis;2017128;1.0
+wortmannin;1366409;augments;endocytosis;2017128;1.0
+wortmannin;1366409;disrupts;cell division;2006074;1.0
+wortmannin;1366409;disrupts;cell motility;2005993;1.0
+wortmannin;1366409;augments;cell motility;2005993;1.0
+wortmannin;1366409;causes;cell motility;2005993;1.0
+wortmannin;1366409;does not affect;cell motility;2005993;1.0
+wortmannin;1366409;affects;cell motility;2005993;1.0
+wortmannin;1366409;affects;cell physiology;2005967;1.0
+wortmannin;1366409;causes;cell communication;2005966;1.0
+wortmannin;1366409;augments;cell communication;2005966;1.0
+wortmannin;1366409;disrupts;cell adhesion;2005911;1.0
+wortmannin;1366409;affects;cell adhesion;2005911;1.0
+wortmannin;1366409;augments;synaptic transmission;2002302;1.0
+wortmannin;1366409;inhibits;synaptic transmission;2002302;1.0
+wortmannin;1366409;disrupts;mitosis;2002019;1.0
+wortmannin;1366409;disrupts;phagocytosis;1998555;1.0
+wortmannin;1366409;affects;phagocytosis;1998555;1.0
+wortmannin;1366409;affects;phagocytosis;1998555;1.0
+wortmannin;1366409;does not affect;platelet adhesion, function;1998110;1.0
+wortmannin;1366409;disrupts;platelet adhesion, function;1998110;1.0
+wortmannin;1366409;disrupts;platelet aggregation;1997942;1.0
+wortmannin;1366409;does not affect;platelet aggregation;1997942;1.0
+wortmannin;1366409;affects;platelet aggregation;1997942;1.0
+wortmannin;1366409;affects;sperm capacitation;1993904;1.0
+wortmannin;1366409;disrupts;receptor recycling;141550;1.0
+wortmannin;1366409;causes;calcium waves;141002;1.0
+wortmannin;1366409;disrupts;transcytosis;139882;1.0
+wortmannin;1366409;affects;respiratory burst;1369050;1.0
+wortmannin;1366409;disrupts;respiratory burst;1369050;1.0
+wortmannin;1366409;augments;respiratory burst;1369050;1.0
+wortmannin;1366409;causes;respiratory burst;1369050;1.0
+wortmannin;1366409;does not augment;respiratory burst;1369050;1.0
+wortmannin;1366409;does not affect;mast cell migration;1048866;1.0
+wortmannin;1366409;disrupts;cap formation;1048711;1.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;peroxisome organization;512414;32.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;actin cytoskeleton organization;512238;32.0
+hat1 (saccharomyces cerevisiae s288c);1899218;carries out;chromatin silencing at telomere;511935;24.0
+pet122 (saccharomyces cerevisiae s288c);368547;carries out;mitochondrial respiratory chain complex iv biogenesis;4641754;22.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;nonselective vesicle endocytosis;3539139;22.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;endocytosis;2017128;22.0
+lsp1 (saccharomyces cerevisiae s288c);1899973;carries out;nonselective vesicle endocytosis;3539139;22.0
+lsp1 (saccharomyces cerevisiae s288c);1899973;carries out;endocytosis;2017128;22.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;protein retention in golgi apparatus;511322;12.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;vacuolar transport;511242;12.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;maintenance of protein location in golgi apparatus;4708326;12.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;peroxisome proliferation;459036;12.0
+lsp1 (saccharomyces cerevisiae s288c);1899973;carries out;negative regulation of protein kinase activity;515963;12.0
+lsp1 (saccharomyces cerevisiae s288c);1899973;carries out;inhibition of protein kinase activity;4618988;12.0
+hat1 (saccharomyces cerevisiae s288c);1899218;performs;microtubule/chromatin interaction;512393;12.0
+hat1 (saccharomyces cerevisiae s288c);1899218;performs;nuclear membrane vesicle binding to chromatin;511360;12.0
+pet122 (saccharomyces cerevisiae s288c);368547;carries out;regulation of translation;516512;5.0
+met14 (saccharomyces cerevisiae s288c);1900616;carries out;sulfate assimilation;3955449;5.0
+met14 (saccharomyces cerevisiae s288c);1900616;carries out;sulfate assimilation, phosphoadenylyl sulfate reduction by an oxidoreductase, acting on sulfur group of donors, nad or nadp as acceptor;2916956;5.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;cell cycle;4609275;5.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;meiotic cell cycle;2888208;5.0
+vps1 (saccharomyces cerevisiae s288c);1900422;carries out;cell division;2006074;5.0
+hat1 (saccharomyces cerevisiae s288c);1899218;carries out;cellular response to dna damage stimulus;3538722;5.0
