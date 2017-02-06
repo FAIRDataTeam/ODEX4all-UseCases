@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     net-tools \
     vim \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # set command-line args including defaults
