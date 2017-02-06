@@ -2,6 +2,7 @@ library(solr)
 library(httr)
 library(jsonlite)
 library(tm)
+library(tidytext)
 
 
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/Limagrain/src")
@@ -60,9 +61,17 @@ dfCorpus_title_terms_dwpi = Corpus(VectorSource(title_terms_dwpi))
 ## Eliminating extra white spaces
 
 reuters_abst<-tm_map(dfCorpus_abst,stripWhitespace)
+reuters_abst<-tm_map(reuters_abst,stemDocument)
+
+
 reuters_abst_dwpi<-tm_map(dfCorpus_abst_dwpi,stripWhitespace)
+reuters_abst_dwpi<-tm_map(reuters_abst_dwpi,stemDocument)
+
+
 
 reuters_title_terms_dwpi<-tm_map(dfCorpus_title_terms_dwpi,stripWhitespace)
+reuters_title_terms_dwpi<-tm_map(reuters_title_terms_dwpi,stemDocument)
+
 
 ## convert to lower case
 
@@ -84,8 +93,6 @@ dtm_abst_dwpi <- DocumentTermMatrix(reuters_abst_dwpi,list(dictionary=dic))
 dtm_title_terms_dwpi<-DocumentTermMatrix(reuters_title_terms_dwpi,list(dictionary=dic))
 
 
-
-## remove sparce terms which are atleast 80% sparce
 ## remove terms that occure in only 0.1% of all documents (in short less common words)
 dt_abst<-removeSparseTerms(dtm_abst, 0.99) # this is tunable 0.6 appears to be optimal
 dt_abst_dwpi<-removeSparseTerms(dtm_abst_dwpi, 0.99) # this is tunable 0.6 appears to be optimal
@@ -105,7 +112,7 @@ write.csv(as.matrix(dt_title_terms_dwpi),file="dtm_title_terms_dwpi.csv")
 
 findFreqTerms(dt_abst, 5)
 
-findAssocs(dt_abst_dwpi, "allele", 0.8)
+findAssocs(dt_abst_dwpi, "locus", 0.1)
 
 
 # to do intersect with dictionary 
@@ -118,7 +125,6 @@ findAssocs(dt_abst_dwpi, "allele", 0.8)
 
 ### find associations for a given term for example "germplasm"
 ## findAssocs(dtm_abst, "germplasm", 0.5)
-
 
 
 
