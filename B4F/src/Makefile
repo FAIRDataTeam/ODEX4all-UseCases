@@ -1,4 +1,4 @@
-.PHONY: all install-pkgs import-rdf post-install
+.PHONY: all install-pkgs import-rdf update-rdf post-install
 
 USER = dba
 PASS = dba
@@ -13,6 +13,9 @@ install-pkgs:
 
 import-rdf:
 	$(ISQL) import_rdf.sql >> $(LOG_FILE)
+
+update-rdf:
+	$(ISQL) update_rdf.sql >> $(LOG_FILE)
 
 post-install:
 	$(ISQL) post_install.sql >> $(LOG_FILE)
