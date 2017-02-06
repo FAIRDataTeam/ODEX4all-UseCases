@@ -1,4 +1,4 @@
-.PHONY: all install-pkgs get-onto import-rdf update-rdf post-install
+.PHONY: all install-pkgs get-onto import-rdf update-rdf post-install clean
 
 USER = dba
 PASS = dba
@@ -41,3 +41,6 @@ update-rdf:
 
 post-install:
 	$(ISQL) post_install.sql >> $(LOG_FILE)
+
+clean:
+	rm -f {faldo,so,sio,ro,vt,cmo,lpt,lbo}.rdf*
