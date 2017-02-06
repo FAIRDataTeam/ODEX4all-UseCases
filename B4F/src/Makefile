@@ -7,7 +7,7 @@ LOG_FILE = virtuoso.log
 ISQL = isql $(PORT) $(USER) $(PASS) verbose=off errors=stdout
 CURL = curl -fLH "Accept: application/rdf+xml"
 
-all: install-pkgs get-onto import-rdf post-install
+all: install-pkgs get-onto import-rdf update-rdf post-install
 
 install-pkgs:
 	$(ISQL) install_pkgs.sql > $(LOG_FILE)
