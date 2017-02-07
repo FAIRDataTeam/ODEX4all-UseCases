@@ -34,6 +34,12 @@ dic <- gsub("\\\x92"," ",dic)
 dic <- gsub("\\\xd7"," ",dic)
 
 
+## make dictionary of crop ontologies
+dic_CO<-read.csv("CO_322.csv",header=TRUE)
+dic_CO<-c(as.character(dic_CO$Trait.name),as.character(dic_CO$Attribute))
+
+## select only unique terms
+dic_CO<-unique(dic_CO)
 
 ## Step 2a: I create corpus here.
 
@@ -87,26 +93,49 @@ reuters_abst_dwpi <- tm_map(reuters_abst_dwpi, removeWords, stopwords("english")
 reuters_title_terms_dwpi <- tm_map(reuters_title_terms_dwpi, removeWords, stopwords("english"))
 
 
-## create a document term matrix
+## create a document term matrix with dic (keywords)
 dtm_abst <- DocumentTermMatrix(reuters_abst,list(dictionary=dic))
 dtm_abst_dwpi <- DocumentTermMatrix(reuters_abst_dwpi,list(dictionary=dic))
 dtm_title_terms_dwpi<-DocumentTermMatrix(reuters_title_terms_dwpi,list(dictionary=dic))
 
 
+
+## create a document term matrix with dic_CO (CO terms based on "trait name" and "attribute" terms)
+dtm_abst_CO <- DocumentTermMatrix(reuters_abst,list(dictionary=dic_CO))
+dtm_abst_dwpi_CO <- DocumentTermMatrix(reuters_abst_dwpi,list(dictionary=dic_CO))
+dtm_title_terms_dwpi_CO<-DocumentTermMatrix(reuters_title_terms_dwpi,list(dictionary=dic_CO))
+
+
+
+
 ## remove terms that occure in only 0.1% of all documents (in short less common words)
 dt_abst<-removeSparseTerms(dtm_abst, 0.99) # this is tunable 0.6 appears to be optimal
 dt_abst_dwpi<-removeSparseTerms(dtm_abst_dwpi, 0.99) # this is tunable 0.6 appears to be optimal
-
 dt_title_terms_dwpi<-removeSparseTerms(dtm_title_terms_dwpi, 0.99) # this is tunable 0.6 appears to be optimal
+
+## remove terms that occure in only 0.1% of all documents (in short less common words)
+dt_abst_CO<-removeSparseTerms(dtm_abst_CO, 0.99) # this is tunable 0.6 appears to be optimal
+dt_abst_dwpi_CO<-removeSparseTerms(dtm_abst_dwpi_CO, 0.99) # this is tunable 0.6 appears to be optimal
+dt_title_terms_dwpi_CO<-removeSparseTerms(dtm_title_terms_dwpi_CO, 0.99) # this is tunable 0.6 appears to be optimal
+
+
 
 
 row.names(dt_abst)<-patList$Publication.Number
 row.names(dt_abst_dwpi)<-patList$Publication.Number
 row.names(dt_title_terms_dwpi)<-patList$Publication.Number
 
-write.csv(as.matrix(dt_abst),file="dtm_Abstracts.csv")
-write.csv(as.matrix(dt_abst_dwpi),file="dtm_Abstracts_dwpi.csv")
-write.csv(as.matrix(dt_title_terms_dwpi),file="dtm_title_terms_dwpi.csv")
+row.names(dt_abst_CO)<-patList$Publication.Number
+row.names(dt_abst_dwpi_CO)<-patList$Publication.Number
+row.names(dt_title_terms_dwpi_CO)<-patList$Publication.Number
+
+
+intersect(colnames(as.matrix(dt_abst_dwpi)),colnames(as.matrix(dt_abst_dwpi_CO)))
+
+
+write.csv(as.matrix(dt_abst),file="dtm_Abstracts_CO.csv")
+write.csv(as.matrix(dt_abst_dwpi),file="dtm_Abstracts_dwpi_CO.csv")
+write.csv(as.matrix(dt_title_terms_dwpi),file="dtm_title_terms_dwpi_CO.csv")
 
 
 
