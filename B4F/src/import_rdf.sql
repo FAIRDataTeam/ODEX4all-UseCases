@@ -7,9 +7,7 @@ SET u{FILE_NAME} *.gz ;
 SET u{LOG_LEVEL} 2 ;
 
 -- delete named graphs
--- SPARQL CLEAR GRAPH <http://www.animalgenome.org/QTLdb/pig> ;
--- SPARQL CLEAR GRAPH <http://www.ensembl.org/pig> ;
--- SPARQL CLEAR GRAPH <http://www.uniprot.org/proteomes/pig> ;
+-- SPARQL CLEAR GRAPH <graph-iri> ;
 
 -- register RDF files to load; graph URIs in *.graph files
 DELETE FROM DB.DBA.load_list ;
