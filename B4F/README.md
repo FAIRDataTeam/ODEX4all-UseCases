@@ -7,11 +7,11 @@ cd src
 docker build -t vos .
 ```
 
-**2. Start the server.**
+**2. Start the Virtuoso server.**
 
 `docker run --name b4f -v $PWD:/tmp/share -p 8890:8890 -d vos`
 
-**3. Build & deploy pig QTLdb-LD.**
+**3. Prepare & ingest RDF data.**
 
 ```
 tar xvzf ../data/pigQTLdb-ld.tar.gz -C ../data
@@ -23,7 +23,7 @@ docker exec b4f make all
 
 Use `dba` for both account name and password.
 
-**5. Query pig QTLdb-LD via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or [Faceted Browser](http://localhost:8890/fct/) (no login required).**
+**5. Run queries via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or browse data via [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
 RDF graphs (IRIs):
   * Pig QTLdb: `http://www.animalgenome.org/QTLdb/pig`
