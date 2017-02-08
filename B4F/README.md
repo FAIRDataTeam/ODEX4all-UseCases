@@ -25,9 +25,20 @@ Use `dba` for both account name and password.
 
 **5. Run queries via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or browse data via [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
-RDF graphs (IRIs):
+RDF graphs:IRIs (_A-Box_)
   * Pig QTLdb: `http://www.animalgenome.org/QTLdb/pig`
   * Ensembl: `http://www.ensembl.org/pig`
   * UniProt: `http://www.uniprot.org/proteomes/pig`
+
+RDF graphs:IRIs (_T-Box_)
+  * FALDO: `http://biohackathon.org/resource/faldo.rdf`
+  * SO[FA]: `http://purl.obolibrary.org/obo/so.owl`
+  * SIO: `http://semanticscience.org/ontology/sio.owl`
+  * RO: `http://purl.obolibrary.org/obo/ro.owl`
+  * VT: `http://purl.obolibrary.org/obo/vt.owl`
+  * CMO: `http://purl.obolibrary.org/obo/cmo.owl`
+  * LPT: `http://purl.bioontology.org/ontology/LPT`
+  * LBO: `http://purl.bioontology.org/ontology/LBO`
+  * Uniprot Core: `http://purl.uniprot.org/core/`
 
 For further details visit the [wiki](https://github.com/DTL-FAIRData/ODEX4all-UseCases/wiki/Breed4Food) page.
