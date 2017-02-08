@@ -28,4 +28,7 @@ curl --stderr - -LH "Accept: application/rdf+xml" -o lpt.rdf "http://data.bioont
 curl --stderr - -LH "Accept: application/rdf+xml" -o lbo.rdf "http://data.bioontology.org/ontologies/LBO/download?apikey=8b5b7825-538d-40e0-9e9e-5ab9274a9aeb&download_format=rdf" \
 	&& echo "http://purl.bioontology.org/ontology/LBO" > lbo.rdf.graph
 
+curl --stderr - -LH "Accept: application/rdf+xml" -o uniprot_core.rdf "http://purl.uniprot.org/core/" \
+	&& echo "http://purl.uniprot.org/core/" > uniprot_core.rdf.graph
+
 gzip -9 *.rdf
