@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Batch script to download required ontologies in *.rdf.gz files and
-# to write graph URIs in *.graph files for RDF bulk loading.
-#
+# Batch script to download (compressed) data in RDF and to write graph URIs into *.graph files
+# required for loading RDF into Virtuoso RDF Quad Store.
 
+# download ontologies
 curl --stderr - -LH "Accept: application/rdf+xml" -o faldo.rdf "http://biohackathon.org/resource/faldo.rdf" \
 	&& echo "http://biohackathon.org/resource/faldo.rdf" > faldo.rdf.graph
 
@@ -32,3 +32,13 @@ curl --stderr - -LH "Accept: application/rdf+xml" -o uniprot_core.rdf "http://pu
 	&& echo "http://purl.uniprot.org/core/" > uniprot_core.rdf.graph
 
 gzip -9 *.rdf
+
+# download pig genome and proteome from Ensembl and UniProt Reference Proteomes, respectively
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-86/rdf/sus_scrofa/sus_scrofa.ttl.gz" \
+	&& echo "http://www.ensembl.org/pig" > sus_scrofa.ttl.graph
+
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-86/rdf/sus_scrofa/sus_scrofa_xrefs.ttl.gz" \
+	&& echo "http://www.ensembl.org/pig" > sus_scrofa.ttl.graph
+
+curl --stderr - -L -o uniprot_pig.rdf.gz "http://www.uniprot.org/uniprot/?format=rdf&compress=yes&query=proteome:UP000008227" \
+	&& echo "http://www.uniprot.org/proteomes/pig" > uniprot_pig.rdf.graph
