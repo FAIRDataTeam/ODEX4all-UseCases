@@ -16,7 +16,7 @@ docker build -t vos .
 ```
 tar xvzf ../data/pigQTLdb-ld.tar.gz -C ../data
 mv ../data/rdf/* .
-docker exec b4f make all
+docker exec b4f make all # check virtuoso.log for potential errors
 ```
 
 **4. [Login](http://localhost:8890/conductor) to running Virtuoso instance for admin tasks.**
