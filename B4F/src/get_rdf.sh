@@ -3,6 +3,8 @@
 # Batch script to download (compressed) data in RDF and to write graph URIs into *.graph files
 # required for loading RDF into Virtuoso RDF Quad Store.
 
+ENSEMBL_VERSION=86
+
 # download ontologies
 curl --stderr - -LH "Accept: application/rdf+xml" -o faldo.rdf "http://biohackathon.org/resource/faldo.rdf" \
 	&& echo "http://biohackathon.org/resource/faldo.rdf" > faldo.rdf.graph
@@ -33,12 +35,19 @@ curl --stderr - -LH "Accept: application/rdf+xml" -o uniprot_core.rdf "http://pu
 
 gzip -9 *.rdf
 
-# download pig genome and proteome from Ensembl and UniProt Reference Proteomes, respectively
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-86/rdf/sus_scrofa/sus_scrofa.ttl.gz" \
+# download pig genome and proteome data from Ensembl and UniProt Reference Proteomes, respectively
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/sus_scrofa/sus_scrofa.ttl.gz" \
 	&& echo "http://www.ensembl.org/pig" > sus_scrofa.ttl.graph
 
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-86/rdf/sus_scrofa/sus_scrofa_xrefs.ttl.gz" \
-	&& echo "http://www.ensembl.org/pig" > sus_scrofa.ttl.graph
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/sus_scrofa/sus_scrofa_xrefs.ttl.gz" \
+	&& echo "http://www.ensembl.org/pig" > sus_scrofa_xrefs.ttl.graph
 
 curl --stderr - -L -o uniprot_pig.rdf.gz "http://www.uniprot.org/uniprot/?format=rdf&compress=yes&query=proteome:UP000008227" \
 	&& echo "http://www.uniprot.org/proteomes/pig" > uniprot_pig.rdf.graph
+
+# download human genome data from Ensembl
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/homo_sapiens/homo_sapiens.ttl.gz" \
+        && echo "http://www.ensembl.org/human" > homo_sapiens.ttl.graph
+
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/homo_sapiens/homo_sapiens_xrefs.ttl.gz" \
+        && echo "http://www.ensembl.org/human" > homo_sapiens_xrefs.ttl.graph
