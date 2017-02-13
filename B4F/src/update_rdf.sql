@@ -3,6 +3,7 @@
 --
 
 SET u{ENSEMBL_GRAPH_URI} http://www.ensembl.org/pig ;
+SET u{ENSEMBL_RELEASE} 86 ;
 SET u{QTLDB_GRAPH_URI} http://www.animalgenome.org/QTLdb/pig ;
 
 SPARQL
@@ -46,7 +47,7 @@ INSERT INTO <$u{ENSEMBL_GRAPH_URI}> {
 WHERE {
    GRAPH <$u{QTLDB_GRAPH_URI}> {
       ?chr1 a obo:SO_0000340 .
-      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/86/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
+      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/$u{ENSEMBL_RELEASE}/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
    }
 } ;
 
@@ -77,7 +78,7 @@ INSERT INTO <$u{QTLDB_GRAPH_URI}> {
 WHERE {
    GRAPH <$u{QTLDB_GRAPH_URI}> {
       ?chr1 a obo:SO_0000340 .
-      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/86/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
+      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/$u{ENSEMBL_RELEASE}/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
    }
 } ;
 
