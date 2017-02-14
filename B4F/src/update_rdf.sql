@@ -196,9 +196,9 @@ INSERT INTO <$u{ENSEMBL-HSA_URI}> {
       obo:RO_0002331 ?omim
 } WHERE {
    GRAPH <$u{BIO2RDF_URI}> {
-      ?gene2 ^<http://BIO2RDF_URI.org/omim_vocabulary:x-ensembl> ?omim ;
-         <http://BIO2RDF_URI.org/BIO2RDF_URI_vocabulary:identifier> ?o .
-      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/', ?o)) AS ?gene1)
+      ?gene2 ^<http://bio2rdf.org/omim_vocabulary:x-ensembl> ?omim ;
+         <http://bio2rdf.org/bio2rdf_vocabulary:identifier> ?gene_id .
+      BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/', ?gene_id)) AS ?gene1)
    }
    GRAPH <$u{ENSEMBL-HSA_URI}> {
       ?gene1 a obo:SO_0001217
