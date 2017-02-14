@@ -3,7 +3,9 @@
 # Batch script to download (compressed) data in RDF and to write graph URIs into *.graph files
 # required for loading RDF into Virtuoso RDF Quad Store.
 
-ENSEMBL_VERSION=86
+ENSEMBL_RELEASE=86
+#UNIPROT_RELEASE
+BIO2RDF_RELEASE=4
 
 # download ontologies
 curl --stderr - -LH "Accept: application/rdf+xml" -o faldo.rdf "http://biohackathon.org/resource/faldo.rdf" \
@@ -36,18 +38,22 @@ curl --stderr - -LH "Accept: application/rdf+xml" -o uniprot_core.rdf "http://pu
 gzip -9 *.rdf
 
 # download pig genome and proteome data from Ensembl and UniProt Reference Proteomes, respectively
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/sus_scrofa/sus_scrofa.ttl.gz" \
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_RELEASE}/rdf/sus_scrofa/sus_scrofa.ttl.gz" \
 	&& echo "http://www.ensembl.org/pig" > sus_scrofa.ttl.graph
 
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/sus_scrofa/sus_scrofa_xrefs.ttl.gz" \
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_RELEASE}/rdf/sus_scrofa/sus_scrofa_xrefs.ttl.gz" \
 	&& echo "http://www.ensembl.org/pig" > sus_scrofa_xrefs.ttl.graph
 
 curl --stderr - -L -o uniprot_pig.rdf.gz "http://www.uniprot.org/uniprot/?format=rdf&compress=yes&query=proteome:UP000008227" \
 	&& echo "http://www.uniprot.org/proteomes/pig" > uniprot_pig.rdf.graph
 
 # download human genome data from Ensembl
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/homo_sapiens/homo_sapiens.ttl.gz" \
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_RELEASE}/rdf/homo_sapiens/homo_sapiens.ttl.gz" \
         && echo "http://www.ensembl.org/human" > homo_sapiens.ttl.graph
 
-curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_VERSION}/rdf/homo_sapiens/homo_sapiens_xrefs.ttl.gz" \
+curl --stderr - -LO "ftp://ftp.ensembl.org/pub/release-${ENSEMBL_RELEASE}/rdf/homo_sapiens/homo_sapiens_xrefs.ttl.gz" \
         && echo "http://www.ensembl.org/human" > homo_sapiens_xrefs.ttl.graph
+
+# download OMIM genotype-phenotype data via Bio2RDF
+curl --stderr - -LO "http://download.bio2rdf.org/release/${BIO2RDF_RELEASE}/omim/omim.nq.gz" \
+        && echo "http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4" > omim.nq.graph
