@@ -1,5 +1,5 @@
 -- 
--- Fix database cross-references in Ensembl RDF graph.
+-- Fix database cross-references in Ensembl RDF graphs.
 --
 
 SET u{ENSEMBL_RELEASE} 86 ;
@@ -10,9 +10,21 @@ SET u{BIO2RDF_URI} http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4 ;
 --SET u{QTLDB_RELEASE} 30 ;
 SET u{QTLDB_URI} http://www.animalgenome.org/QTLdb/pig ;
 
+
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 WITH <$u{ENSEMBL-SSC_URI}>
+DELETE { ?s rdfs:seeAlso ?o }
+INSERT { ?s rdfs:seeAlso ?fixed }
+WHERE {
+   ?s rdfs:seeAlso ?o .
+   FILTER regex(?o, 'http://identifiers.org/hgnc') .
+   BIND(uri(replace(str(?o), '%253A', ':')) AS ?fixed)
+} ;
+
+SPARQL
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+WITH <$u{ENSEMBL-HSA_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
 INSERT { ?s rdfs:seeAlso ?fixed }
 WHERE {
@@ -28,6 +40,12 @@ INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
 WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
 
 SPARQL
+WITH <$u{ENSEMBL-HSA_URI}>
+DELETE { ?s <http://semanticscience.org/resource/SIO:000630> ?o }
+INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
+WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
+
+SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 WITH <$u{ENSEMBL-SSC_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
@@ -38,6 +56,16 @@ WHERE {
    BIND(uri(replace(str(?o), '%253A', ':')) AS ?fixed)
 } ;
 
+SPARQL
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+WITH <$u{ENSEMBL-HSA_URI}>
+DELETE { ?s rdfs:seeAlso ?o }
+INSERT { ?s rdfs:seeAlso ?fixed }
+WHERE {
+   ?s rdfs:seeAlso ?o .
+   FILTER regex(?o, 'http://identifiers.org/go') .
+   BIND(uri(replace(str(?o), '%253A', ':')) AS ?fixed)
+} ;
 
 -- 
 -- Add chromosome type to Ensembl RDF graph.
