@@ -244,3 +244,34 @@ INSERT INTO <$u{ENSEMBL-HSA_URI}> {
 --   ?gene1 owl:sameAs ?gene2;
 --      obo:RO_0002331 ?omim
 --} ;
+
+--
+-- Append OMIM IDs to rdfs:label(s) for human genes where applicable (e.g. 'VSX2' -> 'VSX2 [omim:142993]').
+--
+
+SPARQL
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+WITH <$u{ENSEMBL-HSA_URI}>
+DELETE { ?gene rdfs:label ?lb }
+INSERT { ?gene rdfs:label ?new }
+WHERE {
+   ?gene rdfs:label ?lb ;
+      obo:RO_0002331 ?omim .
+   BIND(concat(?lb, ' [', replace(str(?omim), '.+/', ''), ']') AS ?new)
+} ;
+
+--
+-- Restore original rdfs:label(s) for genes.
+--
+--SPARQL
+--PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+--PREFIX obo: <http://purl.obolibrary.org/obo/>
+--WITH <$u{ENSEMBL-HSA_URI}>
+--DELETE { ?gene rdfs:label ?lb }
+--INSERT { ?gene rdfs:label ?new }
+--WHERE {
+--   ?gene rdfs:label ?lb ;
+--      obo:RO_0002331 ?omim .
+--   BIND(replace(?lb, ' \\[.+', '') as ?new)
+--} ;
