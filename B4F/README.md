@@ -23,12 +23,13 @@ docker exec b4f make all # check virtuoso.log for potential errors
 
 Use `dba` for both account name and password.
 
-**5. Run queries via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or browse data via [Faceted Browser](http://localhost:8890/fct/) (no login required).**
+**5. Run [queries](https://github.com/DTL-FAIRData/ODEX4all-UseCases/wiki/Breed4Food:-example-SPARQL-queries) via Virtuoso [SPARQL endpoint](http://localhost:8890/sparql) or browse data via [Faceted Browser](http://localhost:8890/fct/) (no login required).**
 
 RDF graphs:IRIs (_A-Box_)
   * Pig QTLdb: `http://www.animalgenome.org/QTLdb/pig`
-  * Ensembl: `http://www.ensembl.org/pig`
+  * Ensembl: `http://www.ensembl.org/pig`, `http://www.ensembl.org/human`
   * UniProt: `http://www.uniprot.org/proteomes/pig`
+  * OMIM: `http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4`
 
 RDF graphs:IRIs (_T-Box_)
   * FALDO: `http://biohackathon.org/resource/faldo.rdf`
