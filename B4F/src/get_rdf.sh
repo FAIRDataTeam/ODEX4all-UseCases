@@ -4,7 +4,7 @@
 # required for loading RDF into Virtuoso RDF Quad Store.
 
 ENSEMBL_RELEASE=86
-#UNIPROT_RELEASE
+#UNIPROT_RELEASE=2016_11
 BIO2RDF_RELEASE=4
 
 # download ontologies
