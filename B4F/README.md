@@ -18,6 +18,7 @@ tar xvzf ../data/pigQTLdb-ld.tar.gz -C ../data
 mv ../data/rdf/* .
 docker exec b4f make all # check virtuoso.log for potential errors
 ```
+ (other `make` rules: `install-pkgs`, `import-rdf`, `update-rdf`, `post-install`, `clean`)
 
 **4. [Login](http://localhost:8890/conductor) to running Virtuoso instance for admin tasks.**
 
