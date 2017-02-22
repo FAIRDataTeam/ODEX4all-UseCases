@@ -162,6 +162,8 @@ INSERT INTO <$u{QTLDB_URI}> {
 --   'teat number, left'  - http://purl.obolibrary.org/obo/CMO_0000472
 --   'teat number, right' - http://purl.obolibrary.org/obo/CMO_0000473
 --
+-- Note: Remove the 'trait filter' to pre-compute the gene-QTL overlaps for all traits.
+--
 
 SPARQL
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
