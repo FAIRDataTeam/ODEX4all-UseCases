@@ -2,18 +2,19 @@
 -- Fix database cross-references in Ensembl RDF graphs.
 --
 
+SET u{BASE_URI} http://localhost:8890 ;
 SET u{ENSEMBL_RELEASE} 86 ;
-SET u{ENSEMBL-SSC_URI} http://www.ensembl.org/pig ;
-SET u{ENSEMBL-HSA_URI} http://www.ensembl.org/human ;
+SET u{ENSEMBL-SSC_G_URI} http://www.ensembl.org/pig ;
+SET u{ENSEMBL-HSA_G_URI} http://www.ensembl.org/human ;
 --SET u{BIO2RDF_RELEASE} 4 ;
-SET u{BIO2RDF_URI} http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4 ;
+SET u{BIO2RDF_G_URI} http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4 ;
 --SET u{QTLDB_RELEASE} 30 ;
-SET u{QTLDB_URI} http://www.animalgenome.org/QTLdb/pig ;
+SET u{QTLDB_G_URI} http://www.animalgenome.org/QTLdb/pig ;
 
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-WITH <$u{ENSEMBL-SSC_URI}>
+WITH <$u{ENSEMBL-SSC_G_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
 INSERT { ?s rdfs:seeAlso ?fixed }
 WHERE {
@@ -24,7 +25,7 @@ WHERE {
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-WITH <$u{ENSEMBL-HSA_URI}>
+WITH <$u{ENSEMBL-HSA_G_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
 INSERT { ?s rdfs:seeAlso ?fixed }
 WHERE {
@@ -34,20 +35,20 @@ WHERE {
 } ;
 
 SPARQL
-WITH <$u{ENSEMBL-SSC_URI}>
+WITH <$u{ENSEMBL-SSC_G_URI}>
 DELETE { ?s <http://semanticscience.org/resource/SIO:000630> ?o }
 INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
 WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
 
 SPARQL
-WITH <$u{ENSEMBL-HSA_URI}>
+WITH <$u{ENSEMBL-HSA_G_URI}>
 DELETE { ?s <http://semanticscience.org/resource/SIO:000630> ?o }
 INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
 WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-WITH <$u{ENSEMBL-SSC_URI}>
+WITH <$u{ENSEMBL-SSC_G_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
 INSERT { ?s rdfs:seeAlso ?fixed }
 WHERE {
@@ -58,7 +59,7 @@ WHERE {
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-WITH <$u{ENSEMBL-HSA_URI}>
+WITH <$u{ENSEMBL-HSA_G_URI}>
 DELETE { ?s rdfs:seeAlso ?o }
 INSERT { ?s rdfs:seeAlso ?fixed }
 WHERE {
@@ -73,11 +74,11 @@ WHERE {
 
 SPARQL
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-INSERT INTO <$u{ENSEMBL-SSC_URI}> {
+INSERT INTO <$u{ENSEMBL-SSC_G_URI}> {
    ?chr2 a obo:SO_0000340
 }  
 WHERE {
-   GRAPH <$u{QTLDB_URI}> {
+   GRAPH <$u{QTLDB_G_URI}> {
       ?chr1 a obo:SO_0000340 .
       BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/$u{ENSEMBL_RELEASE}/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
    }
@@ -88,14 +89,14 @@ WHERE {
 --
 --SPARQL
 --PREFIX obo: <http://purl.obolibrary.org/obo/>
---WITH  <$u{ENSEMBL-SSC_URI}>
+--WITH  <$u{ENSEMBL-SSC_G_URI}>
 --DELETE WHERE { ?s a obo:SO_0000340 } ;
 
 
 -- 
 -- Cross-link chromosomes in two RDF graphs.
 --   graph URI: http://www.animalgenome.org/QTLdb/pig
---     chromosome URI: e.g. http://localhost:8890/genome/Sus_scrofa/chromosome/17
+--     chromosome URI: e.g. http://.../genome/Sus_scrofa/chromosome/17
 --
 --   graph URI: http://www.ensembl.org/pig
 --     chromosome URI: e.g. http://rdf.ebi.ac.uk/resource/ensembl/86/sus_scrofa/Sscrofa10.2/17
@@ -104,11 +105,11 @@ WHERE {
 SPARQL
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-INSERT INTO <$u{QTLDB_URI}> {
+INSERT INTO <$u{QTLDB_G_URI}> {
    ?chr1 owl:sameAs ?chr2
 }   
 WHERE {
-   GRAPH <$u{QTLDB_URI}> {
+   GRAPH <$u{QTLDB_G_URI}> {
       ?chr1 a obo:SO_0000340 .
       BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/$u{ENSEMBL_RELEASE}/sus_scrofa/Sscrofa10.2/', replace(str(?chr1), '.+/', ''))) AS ?chr2)
    }
@@ -119,7 +120,7 @@ WHERE {
 --
 --SPARQL
 --PREFIX owl: <http://www.w3.org/2002/07/owl#>
---WITH  <$u{QTLDB_URI}>
+--WITH  <$u{QTLDB_G_URI}>
 --DELETE WHERE { ?s owl:sameAs ?o } ;
 
 
@@ -129,9 +130,9 @@ WHERE {
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX pig-chr: <http://localhost:8890/genome/Sus_scrofa/chromosome/>
+PREFIX pig-chr: <$u{BASE_URI}/genome/Sus_scrofa/chromosome/>
 PREFIX ena: <http://identifiers.org/ena.embl/>
-INSERT INTO <$u{QTLDB_URI}> {
+INSERT INTO <$u{QTLDB_G_URI}> {
    pig-chr:1 rdfs:seeAlso ena:CM000812.4 .
    pig-chr:2 rdfs:seeAlso ena:CM000813.4 .
    pig-chr:3 rdfs:seeAlso ena:CM000814.4 .
@@ -154,6 +155,16 @@ INSERT INTO <$u{QTLDB_URI}> {
    pig-chr:Y rdfs:seeAlso ena:CM001155.2
 } ;
 
+--
+-- Delete triples
+--
+--SPARQL
+--PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+--PREFIX ena: <http://identifiers.org/ena.embl/>
+--WITH <$u{QTLDB_G_URI}>
+--DELETE { ?s rdfs:seeAlso ?o }
+--WHERE { ?s rdfs:seeAlso ?o . FILTER regex(?o, ena:) } ;
+
 
 --
 -- Add genes that overlap with QTLs associated with the traits:
@@ -170,11 +181,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX faldo: <http://biohackathon.org/resource/faldo#>
-INSERT INTO <$u{QTLDB_URI}> {
+INSERT INTO <$u{QTLDB_G_URI}> {
    ?qtl obo:SO_overlaps ?gene
 }
 WHERE {
-   GRAPH <$u{QTLDB_URI}> {
+   GRAPH <$u{QTLDB_G_URI}> {
       ?qtl a obo:SO_0000771 ;
          faldo:location ?loc ;
          obo:RO_0002610 ?trait .
@@ -185,7 +196,7 @@ WHERE {
       ?end faldo:position ?end_pos .
       ?chr owl:sameAs ?chr2 .
    }
-   GRAPH <$u{ENSEMBL-SSC_URI}> {
+   GRAPH <$u{ENSEMBL-SSC_G_URI}> {
       ?loc2 ?p ?chr2 ;
          faldo:begin ?begin2 ;
          faldo:end ?end2 ;
@@ -210,7 +221,7 @@ WHERE {
 --
 --SPARQL
 --PREFIX obo: <http://purl.obolibrary.org/obo/>
---WITH  <$u{QTLDB_URI}>
+--WITH  <$u{QTLDB_G_URI}>
 --DELETE WHERE { ?s obo:SO_overlaps ?o } ;
 
 
@@ -221,16 +232,16 @@ WHERE {
 SPARQL
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-INSERT INTO <$u{ENSEMBL-HSA_URI}> {
+INSERT INTO <$u{ENSEMBL-HSA_G_URI}> {
    ?gene1 owl:sameAs ?gene2 ;
       obo:RO_0002331 ?omim
 } WHERE {
-   GRAPH <$u{BIO2RDF_URI}> {
+   GRAPH <$u{BIO2RDF_G_URI}> {
       ?gene2 ^<http://bio2rdf.org/omim_vocabulary:x-ensembl> ?omim ;
          <http://bio2rdf.org/bio2rdf_vocabulary:identifier> ?gene_id .
       BIND(uri(concat('http://rdf.ebi.ac.uk/resource/ensembl/', ?gene_id)) AS ?gene1)
    }
-   GRAPH <$u{ENSEMBL-HSA_URI}> {
+   GRAPH <$u{ENSEMBL-HSA_G_URI}> {
       ?gene1 a obo:SO_0001217
    }
 } ;
@@ -241,7 +252,7 @@ INSERT INTO <$u{ENSEMBL-HSA_URI}> {
 --SPARQL
 --PREFIX obo: <http://purl.obolibrary.org/obo/>
 --PREFIX owl: <http://www.w3.org/2002/07/owl#>
---WITH  <$u{ENSEMBL-HSA_URI}>
+--WITH  <$u{ENSEMBL-HSA_G_URI}>
 --DELETE WHERE {
 --   ?gene1 owl:sameAs ?gene2;
 --      obo:RO_0002331 ?omim
@@ -254,7 +265,7 @@ INSERT INTO <$u{ENSEMBL-HSA_URI}> {
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-WITH <$u{ENSEMBL-HSA_URI}>
+WITH <$u{ENSEMBL-HSA_G_URI}>
 DELETE { ?gene rdfs:label ?lb }
 INSERT { ?gene rdfs:label ?new }
 WHERE {
@@ -269,7 +280,7 @@ WHERE {
 --SPARQL
 --PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 --PREFIX obo: <http://purl.obolibrary.org/obo/>
---WITH <$u{ENSEMBL-HSA_URI}>
+--WITH <$u{ENSEMBL-HSA_G_URI}>
 --DELETE { ?gene rdfs:label ?lb }
 --INSERT { ?gene rdfs:label ?new }
 --WHERE {
