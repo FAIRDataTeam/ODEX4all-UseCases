@@ -4,6 +4,9 @@ prefix dcat: <http://www.w3.org/ns/dcat#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> a dctypes:DataSet ;
+  dct:title "pigQTLdb-ld" ;
+  dct:description "Linked Data version of the pigQTLdb." ;
+  dct:publisher <https://github.com/DTL-FAIRData/ODEX4all-UseCases/#org> .
 
 
