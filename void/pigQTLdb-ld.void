@@ -4,10 +4,18 @@ prefix dcat: <http://www.w3.org/ns/dcat#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix pav: <http://purl.org/pav/>
 
 <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> a dctypes:Dataset ;
   dct:title "pigQTLdb-ld"@en ;
   dct:description "Linked Data version of the pigQTLdb."@en ;
   dct:publisher <https://github.com/DTL-FAIRData/ODEX4all-UseCases/#org> .
 
-
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#version0.1> a dctypes:Dataset ;
+  dct:isVersionOf <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> ;
+  pav:version "0.1" ;
+  dct:title "pigQTLdb-ld 0.1"@en ;
+  dct:description "Version 0.1 of the pigQTLdb-ld data set."@en ;
+  dct:publisher <https://github.com/DTL-FAIRData/ODEX4all-UseCases/#org> ;
+  dct:creator [ foaf:page <https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/B4F/src/get_rdf.sh> ] .
