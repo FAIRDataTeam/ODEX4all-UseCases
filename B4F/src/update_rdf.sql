@@ -35,16 +35,18 @@ WHERE {
 } ;
 
 SPARQL
+PREFIX sio: <http://semanticscience.org/resource/>
 WITH <$u{ENSEMBL-SSC_G_URI}>
-DELETE { ?s <http://semanticscience.org/resource/SIO:000630> ?o }
-INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
-WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
+DELETE { ?s sio:SIO:000630 ?o }
+INSERT { ?s sio:SIO_000630> ?o }
+WHERE { ?s sio:SIO:000630> ?o } ;
 
 SPARQL
 WITH <$u{ENSEMBL-HSA_G_URI}>
-DELETE { ?s <http://semanticscience.org/resource/SIO:000630> ?o }
-INSERT { ?s <http://semanticscience.org/resource/SIO_000630> ?o }
-WHERE { ?s <http://semanticscience.org/resource/SIO:000630> ?o } ;
+PREFIX sio: <http://semanticscience.org/resource/>
+DELETE { ?s sio:SIO:000630 ?o }
+INSERT { ?s sio:SIO_000630> ?o }
+WHERE { ?s sio:SIO:000630> ?o } ;
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -67,6 +69,60 @@ WHERE {
    FILTER regex(?o, 'http://identifiers.org/go') .
    BIND(uri(replace(str(?o), '%253A', ':')) AS ?fixed)
 } ;
+
+
+--
+-- Fix SO predicates
+--
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-SSC_G_URI}>
+DELETE { ?s obo:SO_translates_to ?o }
+INSERT { ?s so:translates_to ?o }
+WHERE { ?s obo:SO_translates_to ?o } ;
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-SSC_G_URI}>
+DELETE { ?s obo:SO_has_part ?o }
+INSERT { ?s so:has_part ?o }
+WHERE { ?s obo:SO_has_part ?o } ;
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-SSC_G_URI}>
+DELETE { ?s obo:SO_transcribed_from ?o }
+INSERT { ?s so:transcribed_from  ?o }
+WHERE { ?s obo:SO_transcribed_from ?o } ;
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-HSA_G_URI}>
+DELETE { ?s obo:SO_translates_to ?o }
+INSERT { ?s so:translates_to ?o }
+WHERE { ?s obo:SO_translates_to ?o } ;
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-HSA_G_URI}>
+DELETE { ?s obo:SO_has_part ?o }
+INSERT { ?s so:has_part ?o }
+WHERE { ?s obo:SO_has_part ?o } ;
+
+SPARQL
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
+WITH <$u{ENSEMBL-HSA_G_URI}>
+DELETE { ?s obo:SO_transcribed_from ?o }
+INSERT { ?s so:transcribed_from  ?o }
+WHERE { ?s obo:SO_transcribed_from ?o } ;
+
 
 -- 
 -- Add chromosome type to Ensembl RDF graph.
@@ -180,9 +236,10 @@ SPARQL
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
 PREFIX faldo: <http://biohackathon.org/resource/faldo#>
 INSERT INTO <$u{QTLDB_G_URI}> {
-   ?qtl obo:SO_overlaps ?gene
+   ?qtl so:overlaps ?gene
 }
 WHERE {
    GRAPH <$u{QTLDB_G_URI}> {
@@ -220,9 +277,9 @@ WHERE {
 -- Delete triples
 --
 --SPARQL
---PREFIX obo: <http://purl.obolibrary.org/obo/>
+--PREFIX so: <http://purl.obolibrary.org/obo/so#>
 --WITH  <$u{QTLDB_G_URI}>
---DELETE WHERE { ?s obo:SO_overlaps ?o } ;
+--DELETE WHERE { ?s so:overlaps ?o } ;
 
 
 --
