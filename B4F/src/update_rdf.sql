@@ -236,9 +236,10 @@ SPARQL
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX so: <http://purl.obolibrary.org/obo/so#>
 PREFIX faldo: <http://biohackathon.org/resource/faldo#>
 INSERT INTO <$u{QTLDB_G_URI}> {
-   ?qtl obo:SO_overlaps ?gene
+   ?qtl so:overlaps ?gene
 }
 WHERE {
    GRAPH <$u{QTLDB_G_URI}> {
@@ -276,9 +277,9 @@ WHERE {
 -- Delete triples
 --
 --SPARQL
---PREFIX obo: <http://purl.obolibrary.org/obo/>
+--PREFIX so: <http://purl.obolibrary.org/obo/so#>
 --WITH  <$u{QTLDB_G_URI}>
---DELETE WHERE { ?s obo:SO_overlaps ?o } ;
+--DELETE WHERE { ?s so:overlaps ?o } ;
 
 
 --
