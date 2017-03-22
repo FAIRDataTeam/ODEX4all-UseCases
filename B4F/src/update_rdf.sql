@@ -252,7 +252,7 @@ WHERE {
       ?chr owl:sameAs ?chr2 .
    }
    GRAPH <$u{ENSEMBL-SSC_G_URI}> {
-      ?loc2 ?p ?chr2 ;
+      ?loc2 faldo:reference ?chr2 ;
          faldo:begin ?begin2 ;
          faldo:end ?end2 ;
          ^faldo:location ?gene .
