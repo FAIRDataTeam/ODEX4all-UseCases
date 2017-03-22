@@ -221,13 +221,14 @@ INSERT INTO <$u{QTLDB_G_URI}> {
 
 
 --
--- Add genes that overlap with QTLs associated with the traits:
+-- Add gene-QTL associations (triples) based on overlapping sequence regions.
+-- Note: This query might take more than 30 min (using a machine with 4 CPUs, 16 GB RAM).
+-- Uncomment the code line corresponding to a 'trait filter' to compute the gene-QTL
+-- associations only for a subset of traits, for example:
 --   'nipple quantity'    - http://purl.obolibrary.org/obo/VT_1000206
 --   'teat number'        - http://purl.obolibrary.org/obo/CMO_0000445
 --   'teat number, left'  - http://purl.obolibrary.org/obo/CMO_0000472
 --   'teat number, right' - http://purl.obolibrary.org/obo/CMO_0000473
---
--- Note: Remove the 'trait filter' to pre-compute the gene-QTL overlaps for all traits.
 --
 
 SPARQL
@@ -260,7 +261,7 @@ WHERE {
       ?begin2 faldo:position ?begin_pos2 .
       ?end2 faldo:position ?end_pos2 .
    }
-   FILTER(?trait IN (obo:VT_1000206, obo:CMO_0000445, obo:CMO_0000472, obo:CMO_0000473)) .
+#   FILTER(?trait IN (obo:VT_1000206, obo:CMO_0000445, obo:CMO_0000472, obo:CMO_0000473))
    FILTER((xsd:integer(?begin_pos) > xsd:integer(?begin_pos2) &&
            xsd:integer(?begin_pos) < xsd:integer(?end_pos2)) ||
           (xsd:integer(?end_pos) > xsd:integer(?begin_pos2) &&
