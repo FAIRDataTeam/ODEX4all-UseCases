@@ -2,6 +2,7 @@
 -- Fix database cross-references in Ensembl RDF graphs.
 --
 
+log_enable(2) ; -- disable transaction logging & enable row-by-row autocommit
 SET u{BASE_URI} http://localhost:8890 ;
 SET u{ENSEMBL_RELEASE} 86 ;
 SET u{ENSEMBL-SSC_G_URI} http://www.ensembl.org/pig ;
@@ -10,7 +11,6 @@ SET u{ENSEMBL-HSA_G_URI} http://www.ensembl.org/human ;
 SET u{BIO2RDF_G_URI} http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R4 ;
 --SET u{QTLDB_RELEASE} 30 ;
 SET u{QTLDB_G_URI} http://www.animalgenome.org/QTLdb/pig ;
-
 
 SPARQL
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
