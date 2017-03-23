@@ -244,7 +244,7 @@ WHERE {
    GRAPH <$u{QTLDB_G_URI}> {
       ?qtl a obo:SO_0000771 ;
          faldo:location ?loc ;
-         obo:RO_0002610 ?trait .
+         obo:RO_0003308 ?trait .
       ?loc faldo:begin ?begin ;
          faldo:end ?end .
       ?begin faldo:reference ?chr ;
