@@ -13,13 +13,10 @@ setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/Limagrain/src")
 patList<-read.csv("../data/excel2016-06-21-10-09-28.csv",header = TRUE)
 
 
-
-#### Step 2a: Load files to create dictionary
+#### Step 2a: Load files to create dictionary and clean it 
 
 dic_key<- read.csv("../data/keywords.csv",header=FALSE)
 dic_key<-as.character(dic_key[,1])
-
-
 
 
 ##### remove leading and training white spaces
@@ -49,7 +46,6 @@ dic_CO<-unique(dic_CO)
 
 ##### Combined dictionary keywords + CO terms 
 dic_CO_Key<-c(dic_key,dic_CO)
-
 
 
 ##### I create dictionary from title terms DWPI
@@ -89,37 +85,62 @@ dd<-dd[,2]
 dfd<-dictionary(dd)
 
 ##### Dump of the dictionary consisting of keywords list, Crop Ontology terms and Title terms DWPI
-
 print(dic_CO_key_title)
 
-#### Step 3: Create corpus here.
+
+#### Step 3: Create corpus here with multi-word dictionary terms
 abst_dwpi<- as.character(patList$Abstract...DWPI)
 
-#### find and replace exact dictionary terms to its corpus
 abst_dwpi <- phrasetotoken(abst_dwpi, dfd)
 
+mydfm <- dfm(abst_dwpi)
 
 
-#### atleast now I have multiple words in a matrix
-mydfm <- dfm(abst_dwpi, keptFeatures = "*_*")
+#### now keep only the keywords from the dictionary ignoring frequent words occuring in the corpus
+mydfm<-as_data_frame(mydfm)
+dtm_tib<-mydfm[,which((colnames(mydfm)%in%key))]
 
 
-#### now keep only the keywords from the dictionary
-tidy (mydfm) %>%cast_sparse(document,term,count) -> dtm
+#### remove stop words from "english"
+dtm_tib<-dtm_tib[,which(!(colnames(dtm_tib)%in%stopwords("english")))]
 
-#### get terms that exists only in dictionary
-dtm<-dtm[,which(colnames(dtm)%in%key)]
 
-#### assign documents to the dtm
+#### assign document names to the DocumentTermMatrix
+rownames(dtm_tib)<- as.character(patList$Publication.Number)
 
-rownames(dtm)<- as.character(patList$Publication.Number)
 
+#### remove user defined terms
+#### Dictionary needs cleaning, as we have a combination of CO terms, keywords list and title terms which are non specific
+#### we need to have this post processing step, else this step is not necessary
+#### Stemming is dangerous as it would not stem scienfitic terms correctly !
+
+
+dtm_tib <- select(dtm_tib,-2,-1,-one,-new,-use,-4,-9,-set,-desired,-001,-3318,-740,-print,-printer,-inkjet,-wt)
+
+
+#### data transformation
+dfm<-as.dfm(dtm_tib)
+dtm<-as.DocumentTermMatrix(dfm)
 
 
 ##### remove terms that occure in only 0.1% of all documents (in short less common words)
 dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 0.6 appears to be optimal
 
+write.csv(as.matrix(dtm),file ="dtm_Abstracts_dwpi_CO_Key_Title.csv")
 
+
+#### cross validations
+#### Check for term "dna_extraction"
+as.matrix(dtm[,905])
+
+#### Three times in document "US20130210006A1"
+abst_dwpi[266]
+
+#### Three times in document "WO2013119962A1"
+abst_dwpi[281]
+
+#### it occurs 1's in document "US20150191771A1"
+abst_dwpi[288]
 
 
 ##### create term frequency
@@ -129,8 +150,6 @@ head(termFreq)
 tf <- data.frame(term = names(termFreq), freq = termFreq)
 tf <- tf[order(-tf[,2]),]
 head(tf)
-
-
 
 
 #### Step 5: Visualize word cloud of terms
@@ -145,11 +164,11 @@ wordcloud(words = tf$term, freq = tf$freq, min.freq = 1,
 #### Step 6 : Explore frequent terms and their associations
 
 ##### frequent terms
-findFreqTerms(dt_abst_dwpi_CO_Key_Title, lowfreq = 3)
+findFreqTerms(dtm, lowfreq = 3)
 
 
 ##### frequent associations
-findAssocs(dt_abst_dwpi_CO_Key_Title, terms = "freedom", corlimit = 0.3)
+findAssocs(dtm, terms = "dna_extraction", corlimit = 0.3)
 
 
 ##### plot word frequency
@@ -158,44 +177,10 @@ d<-barplot(tf[1:10,]$freq, las = 2, names.arg = tf[1:10,]$term,
            ylab = "Word frequencies")
 
 
-
-
-## Reduce the number of features and the only way is to eliminate corelated features  as we do not know class
-
-require(mlbench)
-require(caret)
-
-# calculate correlation matrix
-correlationMatrix <- cor(d[,1:229])
-# summarize the correlation matrix
-
-# find attributes that are highly corrected (ideally >0.75)
-highlyCorrelated <- findCorrelation(correlationMatrix, cutoff=0.2)
-
-## Remove highly correlated terms
-d<-d[,-highlyCorrelated]
-
-
-# print indexes of highly correlated attributes
-print(highlyCorrelated)
-
-d<-dd[,colSums(dd)>700]
-
-findFreqTerms(dt_abst_dwpi_CO_Key_Title, 200)
-
-findAssocs(dt_abst_dwpi_CO_Key_Title, "kernel", 0.1)
-
-
-# to do intersect with dictionary 
-
-
-
-## Find terms that occure atleast 5 times or more
-## findFreqTerms(dtm_abst, 5)
-
-
-### find associations for a given term for example "germplasm"
-## findAssocs(dtm_abst, "germplasm", 0.5)
-
+#### Observations: Some document are not relevant to maize for example:
+#### Document number : "US20050078133A1" it deals with inkjet printer
+#### Document identifiers are different with same content for exaample:
+#### Document number "US20130266945A1" and "US9228241B2" and 
+#### in total there are 30 instances like this with varying level of redundancy  
 
 
