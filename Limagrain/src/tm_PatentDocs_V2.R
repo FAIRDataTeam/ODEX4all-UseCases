@@ -96,6 +96,7 @@ abst_dwpi <- phrasetotoken(abst_dwpi, dfd)
 mydfm <- dfm(abst_dwpi)
 
 
+#### Step 4: Data Transformation
 #### now keep only the keywords from the dictionary ignoring frequent words occuring in the corpus
 mydfm<-as_data_frame(mydfm)
 dtm_tib<-mydfm[,which((colnames(mydfm)%in%key))]
@@ -114,8 +115,8 @@ rownames(dtm_tib)<- as.character(patList$Publication.Number)
 #### we need to have this post processing step, else this step is not necessary
 #### Stemming is dangerous as it would not stem scienfitic terms correctly !
 
-
-dtm_tib <- select(dtm_tib,-2,-1,-one,-new,-use,-4,-9,-set,-desired,-001,-3318,-740,-print,-printer,-inkjet,-wt)
+removeTerms=c("2","1","4","9","001","3318","740")
+dtm_tib<-dtm_tib[which(!(colnames(dtm_tib)%in%removeTerms))]
 
 
 #### data transformation
@@ -124,14 +125,15 @@ dtm<-as.DocumentTermMatrix(dfm)
 
 
 ##### remove terms that occure in only 0.1% of all documents (in short less common words)
-dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 0.6 appears to be optimal
+dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 
 
+#### Step 4: Create a document term matrix with (keywords, CO terms, title terms combined together)
 write.csv(as.matrix(dtm),file ="dtm_Abstracts_dwpi_CO_Key_Title.csv")
 
 
 #### cross validations
 #### Check for term "dna_extraction"
-as.matrix(dtm[,905])
+as.matrix(dtm[,901])
 
 #### Three times in document "US20130210006A1"
 abst_dwpi[266]
@@ -155,16 +157,16 @@ head(tf)
 #### Step 5: Visualize word cloud of terms
 
 set.seed(1234)
-wordcloud(words = tf$term, freq = tf$freq, min.freq = 1,
+suppressWarnings(wordcloud(words = tf$term, freq = tf$freq, min.freq = 100,
           max.words=8000, random.order=FALSE, rot.per=0.35, 
-          colors=brewer.pal(8, "Dark2"))
+          colors=brewer.pal(8, "Dark2")))
 
 
 
 #### Step 6 : Explore frequent terms and their associations
 
 ##### frequent terms
-findFreqTerms(dtm, lowfreq = 3)
+findFreqTerms(dtm, lowfreq = 500)
 
 
 ##### frequent associations
