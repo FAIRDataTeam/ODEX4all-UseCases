@@ -1,8 +1,0 @@
-
-<https://www.eu-sol.wur.nl/passport/SelectAccessionByAccessionID.do?accessionID=EA00258> <http://www.w3.org/2003/01/geo/wgs84_pos#lat_long> "N520517,E543943" ;
-	<http://rs.tdwg.org/dwc/terms/scientificName> <http://openlifedata.org/taxonomy:4081> ;
-	<http://purl.org/germplasm/germplasmTerm#donorsID> <http://purl.org/cgngenis/accenumb/CGN14319> ;
-	<http://purl.org/germplasm/germplasmTerm#biologicalStatus> <http://purl.org/germplasm/germplasmType#cultivatedHabitat> ;
-	<http://purl.org/germplasm/germplasmTerm#acquisitionDate> "13/10/2015" ;
-	<http://purl.org/germplasm/germplasmTerm#CollectingEvent> <http://purl.org/germplasm/germplasmType#landrace> ;
-	<http://purl.org/germplasm/germplasmTerm#germplasmID> "EA00258" .
