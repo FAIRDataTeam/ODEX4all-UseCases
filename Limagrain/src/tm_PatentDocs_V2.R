@@ -48,6 +48,7 @@ dic_CO<-unique(dic_CO)
 dic_CO_Key<-c(dic_key,dic_CO)
 
 
+
 ##### I create dictionary from title terms DWPI
 title<-as.character(patList$Title...DWPI)
 ll<-NULL
@@ -74,6 +75,14 @@ dic_CO_key_title<-trim(dic_CO_key_title)
 ##### transform to lower and get unique set of terms
 dic_CO_key_title<-unique(tolower(dic_CO_key_title))
 
+#write.csv(dic_CO_key_title,file="dic_CO__key_title.csv")
+# do processing in Open Refine by removing all special characters and numbers. 
+# These steps are documented in the JSON Object created by OpenRefine  
+
+dic_CO_key_title<- read.csv("dictionary_CO_Title_Key_From_OpenRefine.csv",header=FALSE)
+dic_CO_key_title<- as.character(dic_CO_key_title[,1])
+dic_CO_key_title<- unique(dic_CO_key_title)
+
 ##### create key value pair 
 val<-dic_CO_key_title
 key<-gsub(" ","_",val)
@@ -96,27 +105,17 @@ abst_dwpi <- phrasetotoken(abst_dwpi, dfd)
 mydfm <- dfm(abst_dwpi)
 
 
-#### Step 4: Data Transformation
 #### now keep only the keywords from the dictionary ignoring frequent words occuring in the corpus
 mydfm<-as_data_frame(mydfm)
 dtm_tib<-mydfm[,which((colnames(mydfm)%in%key))]
 
 
-#### remove stop words from "english"
+#### now remove stop words from "english"
 dtm_tib<-dtm_tib[,which(!(colnames(dtm_tib)%in%stopwords("english")))]
 
 
 #### assign document names to the DocumentTermMatrix
 rownames(dtm_tib)<- as.character(patList$Publication.Number)
-
-
-#### remove user defined terms
-#### Dictionary needs cleaning, as we have a combination of CO terms, keywords list and title terms which are non specific
-#### we need to have this post processing step, else this step is not necessary
-#### Stemming is dangerous as it would not stem scienfitic terms correctly !
-
-removeTerms=c("2","1","4","9","001","3318","740")
-dtm_tib<-dtm_tib[which(!(colnames(dtm_tib)%in%removeTerms))]
 
 
 #### data transformation
@@ -125,24 +124,16 @@ dtm<-as.DocumentTermMatrix(dfm)
 
 
 ##### remove terms that occure in only 0.1% of all documents (in short less common words)
-dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 
+dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 0.6 appears to be optimal
 
-#### Step 4: Create a document term matrix with (keywords, CO terms, title terms combined together)
-write.csv(as.matrix(dtm),file ="dtm_Abstracts_dwpi_CO_Key_Title.csv")
-
+write.csv(as.matrix(dtm),file="dtm_Abstracts_dwpi_CO_Key_Title.csv")
 
 #### cross validations
 #### Check for term "dna_extraction"
-as.matrix(dtm[,901])
+as.matrix(dtm[,895])
 
-#### Three times in document "US20130210006A1"
-abst_dwpi[266]
 
-#### Three times in document "WO2013119962A1"
-abst_dwpi[281]
-
-#### it occurs 1's in document "US20150191771A1"
-abst_dwpi[288]
+#### it occurs 1's in document "US20150191771A1" and 3's in document "WO2013119962A1" 3's in document US20130210006A1
 
 
 ##### create term frequency
@@ -154,19 +145,21 @@ tf <- tf[order(-tf[,2]),]
 head(tf)
 
 
+
+
 #### Step 5: Visualize word cloud of terms
 
 set.seed(1234)
-suppressWarnings(wordcloud(words = tf$term, freq = tf$freq, min.freq = 100,
+wordcloud(words = tf$term, freq = tf$freq, min.freq = 1,
           max.words=8000, random.order=FALSE, rot.per=0.35, 
-          colors=brewer.pal(8, "Dark2")))
+          colors=brewer.pal(8, "Dark2"))
 
 
 
 #### Step 6 : Explore frequent terms and their associations
 
 ##### frequent terms
-findFreqTerms(dtm, lowfreq = 500)
+findFreqTerms(dtm, lowfreq = 3)
 
 
 ##### frequent associations
@@ -179,10 +172,18 @@ d<-barplot(tf[1:10,]$freq, las = 2, names.arg = tf[1:10,]$term,
            ylab = "Word frequencies")
 
 
-#### Observations: Some document are not relevant to maize for example:
-#### Document number : "US20050078133A1" it deals with inkjet printer
-#### Document identifiers are different with same content for exaample:
-#### Document number "US20130266945A1" and "US9228241B2" and 
-#### in total there are 30 instances like this with varying level of redundancy  
+
+
+# to do intersect with dictionary 
+
+
+
+## Find terms that occure atleast 5 times or more
+## findFreqTerms(dtm_abst, 5)
+
+
+### find associations for a given term for example "germplasm"
+## findAssocs(dtm_abst, "germplasm", 0.5)
+
 
 
