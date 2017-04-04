@@ -25,7 +25,7 @@ for i in rdr:
     start_genes.append(c.getID(i[1].lower())['content'][0]['id'])
 infile.close()
 
-start_genes = start_genes[1:10] #<-- Remove for ultimate test. Using it now to debug
+start_genes = start_genes #<-- Remove for ultimate test. Using it now to debug
 
 c.setDirectory("IOS")
 ## Get all relevant concepts directly associated with it
@@ -44,13 +44,13 @@ for d in diseases:
 output_file.close()
 
 # First three diseases are uninformative
-disease_ids = disease_ids[3:]
+#disease_ids = disease_ids[3:]
 
 # Anatomical Structure, Cell, Cell Component, Tissue
 #output_file = open("parkinson_adjacent_anatomy.csv", "w")
 output_file = open("genes_functions.csv", "w")
 csv_writer = csv.writer(output_file, delimiter = ";")
-anatomy = c.getDirectlyConnected([start_genes], ["T038", "067"])
+anatomy = c.getDirectlyConnected(start_genes, ["T038", "T067"])
 anatomy_ids = []
 for a in anatomy:
     #csv_writer.writerow([a['concepts'][1]['name'], a['relationships'][0]['concept1Id'], a['score'], a['relationships'][0]['tripleIds']])
@@ -65,7 +65,7 @@ output_file.close()
 #output_file = open("parkinson_adjacent_chemicals.csv", "w")
 output_file = open("genes_chemicals.csv", "w")
 csv_writer = csv.writer(output_file, delimiter = ";")
-chemicals = c.getDirectlyConnected([start_genes], ["T125", "T126", "T110"])
+chemicals = c.getDirectlyConnected(start_genes, ["T125", "T126", "T110"])
 chemical_ids = []
 for ch in chemicals:
     #csv_writer.writerow([ch['concepts'][1]['name'], ch['relationships'][0]['concept1Id'], ch['score'], ch['relationships'][0]['tripleIds']])
@@ -110,8 +110,22 @@ for p in physiology:
 output_file.close()
 
 # Get all human (& maybe model animal??) genes associated with the genes mentioned above
-indirect_disease = c.getDirectlyConnected(disease_ids, ["T043"], linkweight= "PWS")
-indirect_anatomy = c.getDirectlyConnected(anatomy_ids, ["T043"], linkweight= "PWS")
-indirect_chemicals = c.getDirectlyConnected(chemical_ids, ["T043"], linkweight= "PWS")
-indirect_physiology = c.getDirectlyConnected(physiology_ids, ["T043"], linkweight= "PWS")
-indirect_genes = c.getDirectlyConnected(gene_ids[0:10], ["T043"], linkweight= "PWS")
+indirect_disease = c.getDirectlyConnected(disease_ids, ["T032"], linkweight= "PWS")
+indirect_anatomy = c.getDirectlyConnected(anatomy_ids, ["T032"], linkweight= "PWS")
+indirect_chemicals = c.getDirectlyConnected(chemical_ids, ["T032"], linkweight= "PWS")
+indirect_physiology = c.getDirectlyConnected(physiology_ids, ["T032"], linkweight= "PWS")
+indirect_genes = c.getDirectlyConnected(gene_ids[0:10], ["T032"], linkweight= "PWS")
+
+all = indirect_disease + indirect_anatomy + indirect_chemicals + indirect_physiology + indirect_genes
+
+output_file = open("indirect_all.csv", "w")
+csv_writer = csv.writer(output_file, delimiter = ";")
+for p in all:
+    #csv_writer.writerow([p['concepts'][1]['name'], p['relationships'][0]['concept1Id'], p['score'], p['relationships'][0]['tripleIds']])
+    triple_data = c.getTriples(p['relationships'][0]['tripleIds'])
+    for t in triple_data:
+        csv_writer.writerow([p['concepts'][0]['name'], p['concepts'][0]['id'], t['predicateName'], p['concepts'][1]['name'],
+                             p['relationships'][0]['concept1Id'], p['score']])
+    physiology_ids.append(p['relationships'][0]['concept1Id'])
+output_file.close()
+
