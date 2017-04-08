@@ -1,0 +1,740 @@
+[
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column",
+    "columnName": "Column"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column x to combinedTerms",
+    "oldColumnName": "x",
+    "newColumnName": "combinedTerms"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value.split(' ')",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "001",
+                "l": "001"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value.split(' ')",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1",
+                "l": "1"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value.split(' ')",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2",
+                "l": "2"
+              }
+            },
+            {
+              "v": {
+                "v": "1046",
+                "l": "1046"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value.split(' ')",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "92",
+                "l": "92"
+              }
+            },
+            {
+              "v": {
+                "v": "96",
+                "l": "96"
+              }
+            },
+            {
+              "v": {
+                "v": "4",
+                "l": "4"
+              }
+            },
+            {
+              "v": {
+                "v": "5",
+                "l": "5"
+              }
+            },
+            {
+              "v": {
+                "v": "6",
+                "l": "6"
+              }
+            },
+            {
+              "v": {
+                "v": "9",
+                "l": "9"
+              }
+            },
+            {
+              "v": {
+                "v": "a",
+                "l": "a"
+              }
+            },
+            {
+              "v": {
+                "v": "609",
+                "l": "609"
+              }
+            },
+            {
+              "v": {
+                "v": "201",
+                "l": "201"
+              }
+            },
+            {
+              "v": {
+                "v": "4sq601",
+                "l": "4sq601"
+              }
+            },
+            {
+              "v": {
+                "v": "4sq602",
+                "l": "4sq602"
+              }
+            },
+            {
+              "v": {
+                "v": "3318",
+                "l": "3318"
+              }
+            },
+            {
+              "v": {
+                "v": "740",
+                "l": "740"
+              }
+            },
+            {
+              "v": {
+                "v": "6uq025",
+                "l": "6uq025"
+              }
+            },
+            {
+              "v": {
+                "v": "67",
+                "l": "67"
+              }
+            },
+            {
+              "v": {
+                "v": "3072",
+                "l": "3072"
+              }
+            },
+            {
+              "v": {
+                "v": "128",
+                "l": "128"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column combinedTerms",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "combinedTerms",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "4",
+          "5",
+          "6",
+          "9",
+          "a",
+          "f.",
+          "g",
+          "t"
+        ],
+        "to": "4"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "back crossing",
+          "back-crossing",
+          "backcrossing"
+        ],
+        "to": "back crossing"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "corn spiroplasma stunt severity",
+          "corn stunt spiroplasma severity"
+        ],
+        "to": "corn spiroplasma stunt severity"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "pre breeding",
+          "prebreeding"
+        ],
+        "to": "pre breeding"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "fertility restoring gene",
+          "fertility restoring genes"
+        ],
+        "to": "fertility restoring gene"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "estimate",
+          "estimates"
+        ],
+        "to": "estimate"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "back cross breeding",
+          "backcross breeding"
+        ],
+        "to": "back cross breeding"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "selection pressure",
+          "selection pressures"
+        ],
+        "to": "selection pressure"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "in-bred",
+          "inbred"
+        ],
+        "to": "in-bred"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "multi environment testing",
+          "multienvironment testing"
+        ],
+        "to": "multi environment testing"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "insect resistance",
+          "insect-resistance"
+        ],
+        "to": "insect resistance"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "evapo transpiration",
+          "evapotranspiration"
+        ],
+        "to": "evapo transpiration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "seed's",
+          "seeds"
+        ],
+        "to": "seed's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "floury-2",
+          "floury2"
+        ],
+        "to": "floury-2"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "grain`s",
+          "grains"
+        ],
+        "to": "grain`s"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "design ii",
+          "design iii"
+        ],
+        "to": "design ii"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "fertility restoration",
+          "fertility-restoration"
+        ],
+        "to": "fertility restoration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "translocation",
+          "translocations"
+        ],
+        "to": "translocation"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "transposon",
+          "transposons"
+        ],
+        "to": "transposon"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "resistance",
+          "resistances"
+        ],
+        "to": "resistance"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "plant`s",
+          "plants"
+        ],
+        "to": "plant`s"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "qu gene",
+          "qugene"
+        ],
+        "to": "qu gene"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "selection response",
+          "selection responses"
+        ],
+        "to": "selection response"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "turcicum leaf blight  severity",
+          "turcicum leaf blight severity"
+        ],
+        "to": "turcicum leaf blight  severity"
+      }
+    ]
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "3318",
+                "l": "3318"
+              }
+            },
+            {
+              "v": {
+                "v": "201",
+                "l": "201"
+              }
+            },
+            {
+              "v": {
+                "v": "740",
+                "l": "740"
+              }
+            },
+            {
+              "v": {
+                "v": "4",
+                "l": "4"
+              }
+            },
+            {
+              "v": {
+                "v": "6uq025",
+                "l": "6uq025"
+              }
+            },
+            {
+              "v": {
+                "v": "3072",
+                "l": "3072"
+              }
+            },
+            {
+              "v": {
+                "v": "4sq601",
+                "l": "4sq601"
+              }
+            },
+            {
+              "v": {
+                "v": "4sq602",
+                "l": "4sq602"
+              }
+            },
+            {
+              "v": {
+                "v": "67",
+                "l": "67"
+              }
+            },
+            {
+              "v": {
+                "v": "609",
+                "l": "609"
+              }
+            },
+            {
+              "v": {
+                "v": "128",
+                "l": "128"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "67",
+                "l": "67"
+              }
+            },
+            {
+              "v": {
+                "v": "4",
+                "l": "4"
+              }
+            },
+            {
+              "v": {
+                "v": "128",
+                "l": "128"
+              }
+            },
+            {
+              "v": {
+                "v": "609",
+                "l": "609"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "combinedTerms",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "combinedTerms"
+        },
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column combinedTerms",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+    },
+    "columnName": "combinedTerms",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "linear mixed model",
+          "mixed linear model"
+        ],
+        "to": "linear mixed model"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "index selection",
+          "selection index"
+        ],
+        "to": "index selection"
+      }
+    ]
+  }
+]

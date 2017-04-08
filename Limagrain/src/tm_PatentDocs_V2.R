@@ -105,12 +105,13 @@ abst_dwpi <- phrasetotoken(abst_dwpi, dfd)
 mydfm <- dfm(abst_dwpi)
 
 
+#### Data Transformation
 #### now keep only the keywords from the dictionary ignoring frequent words occuring in the corpus
 mydfm<-as_data_frame(mydfm)
 dtm_tib<-mydfm[,which((colnames(mydfm)%in%key))]
 
 
-#### now remove stop words from "english"
+#### remove stop words from "english"
 dtm_tib<-dtm_tib[,which(!(colnames(dtm_tib)%in%stopwords("english")))]
 
 
@@ -130,15 +131,19 @@ dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 0.6 appears to be optimal
 
 ##### Get selected metadata information
 dfm<-as.matrix(dtm)
+
+meta<-patList[,c("Publication.Number","Title","Publication.Date","Assignee.Applicant","Inventor","Priority.Date...Earliest")]
 rownames(meta)<-meta[,1]
 dtm<-merge(dfm,meta,by="row.names")
 
+### rearrange columnnames for metadata
+dtm<-dtm[,c(901:906,1:900)]
 
 write.csv(as.matrix(dtm),file="dtm_Abstracts_dwpi_CO_Key_Title.csv")
 
-#### cross validations
+#### Data Validation Code
 #### Check for term "dna_extraction"
-as.matrix(dtm[,"dna_extraction"])
+#as.matrix(dtm[,"dna_extraction"])
 
 
 #### it occurs 1's in document "US20150191771A1" and 3's in document "WO2013119962A1" 3's in document US20130210006A1
