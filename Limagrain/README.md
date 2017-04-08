@@ -15,5 +15,4 @@ Corpus is not in this folder for confidentiality reasons.
 ### Jupyter notebook : 
 #### tm_PatentDocs_V2.ipynb Gives detailed explaination and analysis of the workflow including results at each steps
 #### tm_PatentDocs_V2.R is its equavalent script including "cross validation of data" steps commented out 
-
-### Document Term Matrix: dtm_Abstracts_dwpi_CO_Key_Title.csv
+#### dtm_Abstracts_dwpi_CO_Key_Title.csv Result in the form of Document Term Matrix to be further taken up by Limagrain.
