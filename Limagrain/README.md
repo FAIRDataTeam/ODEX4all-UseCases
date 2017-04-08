@@ -1,5 +1,7 @@
 ## Explaination of files:
 
+Based on the [User Requirements](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/userRequirements). The following folder structure give an overview and explaination of files.
+
 ### data folder: 
 consists of Crop Ontology terms, Title Terms (List provided by Limagrain), Keywords list (provided by Limagrain).
 Corpus is not in this folder for confidentiality reasons.
