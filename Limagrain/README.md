@@ -2,11 +2,11 @@
 
 Based on the [User Requirements](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/userRequirements). The following folder structure give an overview and explaination of files.
 
-### data folder: 
+### [data folder](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/data): 
 consists of Crop Ontology terms, Title Terms (List provided by Limagrain), Keywords list (provided by Limagrain).
 Corpus is not in this folder for confidentiality reasons.
 
-### src folder:  
+### [src folder](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/src):  
 #### [CO_322.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/CO_322.csv): Crop ontology terms for maize downloaded from Crop Ontology website (http://www.cropontology.org/)
 
 #### [Limagrain.png](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/Limagrain.png): Workflow of the notebook.
