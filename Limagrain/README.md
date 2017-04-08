@@ -1,4 +1,4 @@
-## Explaination of files:
+## Readme:
 
 Based on the [User Requirements](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/userRequirements). The following folder structure give an overview and explaination of files.
 
