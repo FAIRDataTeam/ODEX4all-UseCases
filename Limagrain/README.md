@@ -5,7 +5,7 @@ consists of Crop Ontology terms, Title Terms (List provided by Limagrain), Keywo
 Corpus is not in this folder for confidentiality reasons.
 
 ### src folder:  
-#### CO_322.csv: Crop ontology terms for maize downloaded from Crop Ontology website (http://www.cropontology.org/)
+#### CO_322.csv{{https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/CO_322.csv}}: Crop ontology terms for maize downloaded from Crop Ontology website (http://www.cropontology.org/)
 
 #### Limagrain.png: Workflow of the notebook.
 
