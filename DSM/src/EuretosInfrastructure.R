@@ -75,11 +75,8 @@ getPubMedId<- function(provIds){
                encode = "json", 
                accept_json(),verbose())
     a<-content(pr)
-    abs<-a[[1]]$abstract
-    aa<-bracketX(abs)
-    aa<-strsplit(aa,":")
-    aa<-tail(aa,n=1)
-    out<-rbind(out,aa)
+    abs<-a[[1]]$documentId
+    out<-rbind(out,abs)
   }
   return(out)
 }
