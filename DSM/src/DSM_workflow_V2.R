@@ -44,13 +44,11 @@ end <- getConceptID("butanols")
 end<-end[,"EKP_Concept_Id"] #EKP ID of resistance to chemicals
 
 ## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
-indirectRelationButanol<-getIndirectRelation(start[1],end)
+indirectRelationButanol<-getIndirectRelation(start,end)
 
 
 ### Formatting and data cleaning
-dfs1<-as.matrix(getTableFromJson(indirectRelationButanol))
-
-
+dfs<-as.matrix(getTableFromJson(indirectRelationButanol))
 
 
 
@@ -62,22 +60,29 @@ pred<-pred[,c(2,3)]
 colnames(pred)<-c("pred","names")
 
 
-subject_name<-getConceptName(dfs1[,"Subject"])
-dfs<-cbind(dfs1,subject_name[,2])
+subject_name<-getConceptName(dfs[,"Subject"])
+dfs<-cbind(dfs,subject_name[,2])
 
 object_name<-getConceptName(dfs[,"Object"])
 dfs<-cbind(dfs,object_name[,2])
+dfs<-as.data.frame(dfs)
+
 
 predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
-pbs<-getPubMedId(dfs$Publications)
+pbs<-getPubMedId(dfs[,"Publications"])
 
-tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
+tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],pbs)
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=",",row.names = FALSE)
+write.table(tripleName,file="/home/anandgavai/odex4all_usecases/ODEX4all-UseCases/DSM/src/triples.csv",sep=",",row.names = FALSE)
 
 date()
+
+
+
+
+
 
 #### Post processing: Results ################
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
