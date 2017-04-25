@@ -1,0 +1,15 @@
+,DSMGenes,AssociationScoreButanol,GeneHasRelationShipResistance2Chemicals,RelationshipBtwGenesButanol,Publications
+1,pre9 (saccharomyces cerevisiae s288c),9.2428,Yes,binds with,STRING-db4932.YPL144W
+2,ubp3 (saccharomyces cerevisiae s288c),12.6691,No,is functionally related to,16337885
+3,stp22 (saccharomyces cerevisiae s288c),12.8554,No,is functionally related to,STRING-db4932.YER074W
+4,snf8 (saccharomyces cerevisiae s288c),13.19,No,binds with,STRING-db4932.YNR051C
+5,swi6 (saccharomyces cerevisiae s288c),12.7715,No,stimulates,NA
+6,nkp2 (saccharomyces cerevisiae s288c),14.0659,Yes,is higher than,9538205
+7,htl1 (saccharomyces cerevisiae s288c),9.524,No,interacts with,NA
+8,ssk2 (saccharomyces cerevisiae s288c),12.9894,No,binds with,26913077
+9,hsp60 (saccharomyces cerevisiae s288c),12.4739,No,is adjacent to,113983
+10,bro1 (saccharomyces cerevisiae s288c),11.27,No,coexists with,STRING-db4932.YDR028C
+11,get2 (saccharomyces cerevisiae s288c),12.8413,No,coexists with,STRING-db4932.YBR127C
+12,snt309 (saccharomyces cerevisiae s288c),12.7228,Yes,affects,S000151875|YPL262W|ethanol
+13,dhh1 (saccharomyces cerevisiae s288c),12.7778,No,is functionally related to,S000185113|YHR044C|glycine
+14,rtg1 (saccharomyces cerevisiae s288c),9.8168,Yes,binds with,S000153189|YKL211C|butan-1-ol (1%)
