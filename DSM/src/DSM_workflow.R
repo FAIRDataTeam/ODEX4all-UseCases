@@ -4,6 +4,8 @@ library(sqldf)
 library(splitstackshape)
 library(stringr)
 library(compare)
+detach(package:RMySQL)
+
 setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
 date()
 ## Objective: To identify genotype-phenotype trait association in yeast
@@ -25,16 +27,12 @@ yeast_genes<-read.csv("20170119_GeneList_DSM.txt",header=TRUE,sep="\t")
 #phenotype <- separate(data = phenotype, col = V1, into = c("terms", "class"), sep = "\tequals\t")
 
 
-
-
 ## Step 1a : Get the starting concept identifiers
 ## start<-getStartConceptID(as.character(yeast_genes[,1]))
 
 start<-getConceptID(tolower(as.character(yeast_genes[,"SGD_ID"])))
 
 start<-start[,"EKP_Concept_Id"]
-start<-head(start)
-## start<-start[1:3]
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
@@ -95,35 +93,42 @@ dfs<-cbind(dfs,object_name[,2])
 
 predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
-#pbs<-getPubMedId(dfs$Publications)
+pbs<-getPubMedId(dfs$Publications)
 
 tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
 write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=",",row.names = FALSE)
 
-date()
+
 
 #### Post processing: Results ################
-setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
-start<-as.data.frame(start)
 
-triples<-read.csv("triples.csv",header=TRUE)
+### Summaring the result for the data #####
 
-freqSubject<-table(triples$Subject)
+gr2c<-filter(dfs1,Subject==start)  ## genes involving resistance to chemicals 
 
-freqObject<-table(triples$Object)
-concept_Subject<-names(freqSubject)  
-idxSub<-which (concept_Subject %in% start$content.name)
+gr2b<-filter(dfs2,Subject==start)  ## genes involving resistance to chemicals 
 
-s<-as.data.frame(sort(freqSubject[idxSub],decreasing = TRUE))
-o<-as.data.frame(as.matrix(freqObject))
 
-freqObject[idxObj]
+interRC_RB<-intersect(gr2c[,1],gr2b[,1])
+
+### Genes pre9
 
 
 
+DSM_Genes <- getConceptName(gr2b[,"Subject"])
 
+relationship <- sqldf('select * from gr2b left join pred on pred.pred=gr2b.Predicate')
+relationship<- relationship$names
 
+represent<-cbind(DSM_Genes,gr2b$Score,relationship)
+pubmedID<-getPubMedId(gr2b$Publications)
 
+represent<-cbind(represent,relationship,pubmedID)
 
+represent<-represent[,c("name","gr2b$Score","relationship","V2")]
+
+names(represent)<-c("DSMGenes","AssociationScoreButanol","RelationshipBtwGenesButanol","Publications")
+
+                

@@ -75,11 +75,19 @@ getPubMedId<- function(provIds){
                encode = "json", 
                accept_json(),verbose())
     a<-content(pr)
-    abs<-a[[1]]$documentId
-    out<-rbind(out,abs)
-  }
-  return(out)
+    id<-a[[1]]$id
+    abs<-NULL
+    if(is.null(a[[1]]$documentId)){
+      a[[1]]$documentId <- "NA"
+      abs<-cbind(id, a[[1]]$documentId)     
+    }else{
+        abs<-cbind(id, a[[1]]$documentId)    
+    }
+        out<-rbind(out,abs)
+    }
+    return(out)
 }
+
 
 
 
@@ -113,6 +121,19 @@ getIndirectRelation<-function(start,end){
   }
   return(pages)
   }
+
+
+
+anotherFormat<-function(pages){
+  re1<-NULL
+  for (i in 1:length(test[[2]])){
+    toJSON(test[[2]][[i]]) %>% select(relationships)  -> rel
+    re<- unlist(fromJSON(rel))
+    re1 <- rbind(re1,re) 
+    }  
+}
+
+
 
 
 # Function that returns table from json objects as returned by EKP
