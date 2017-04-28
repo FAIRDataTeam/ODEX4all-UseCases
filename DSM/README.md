@@ -1,16 +1,28 @@
+# DSM Workflow
 
+This repo contains notebook ranging from basic usages of this script that is mapped with [EKP](http://www.euretos.com/EKPlatform.php) (Euretos Knowledge Platform) API.
 
-### This workflow consists following steps the main objective is to identify genotype-phenotype relationship for the DSM usecase on yeast
+## How to use
 
+### R
 
-### Step 1a : Get the starting concept identifiers
+The python notebooks are written in [Jupyter](http://jupyter.org/).
 
-### Step 1b: Get the ending concept identifiers for "resistance to chemicals"
+- **View** We can view the notebooks on either
+  [github](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/DSM_workflow.ipynb)
 
-### Step 2: Get Indirect relationships from EKP for ending terms "resistance to chemicals"
+- **Run** We can run and modify these notebooks if both [R](https://www.r-project.org/) and [jupyter](http://jupyter.org/) are installed together with its required. These scripts are tested on Ubuntu but should work as well on Windows (not tested).
 
-### Step 3: Map human redable triples from the reference database 
+  If you have a EKP, here is an easier way to run the notebooks:
+  
+  1. Create a config.yaml file with received username and passwords from EKP. 
+  
+  2. Create a file with SGD identifiers and replace this with and its name [20170119_GeneList_DSM.txt](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/20170119_GeneList_DSM.txt)
 
-### Step 4: Integrate SGD phenotype data and biological process with the results from EKP
+  1.  Launch a [DSM_Workflow.R](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/DSM_workflow.R) instance by either with R or using the iPython notebook in an interactive way.
 
-https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/DSM_workflow.png
+  2.  Once launch is succeed a complete list of concepts related with Butanol Tolerance will be created for example [ConceptsRelatedwithButanolTriples.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/ConceptsRelatedwithButanolTriples.csv)
+
+## General Workflow
+### Steps carried out within this workflow
+1. 
