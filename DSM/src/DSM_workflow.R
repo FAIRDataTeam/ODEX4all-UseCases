@@ -6,7 +6,7 @@ library(stringr)
 library(compare)
 detach(package:RMySQL)
 
-setwd("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src")
+setwd("../src")
 date()
 ## Objective: To identify genotype-phenotype trait association in yeast
 ### Develop a workflow to identify genes indirectly associated with a certain yeast phenotype (butanol tolerance) using EKP and visualize them in an interactive knowledge graph.
@@ -14,7 +14,7 @@ date()
 
 ### Load the API scripts with login credentials
 
-source("/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/EuretosInfrastructure.R")
+source("../src/EuretosInfrastructure.R")
 options(warn=-1)
 
 ### DSM workflow starts here: 
