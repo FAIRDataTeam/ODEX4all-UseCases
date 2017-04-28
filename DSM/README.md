@@ -33,4 +33,4 @@ The python notebooks are written in [Jupyter](http://jupyter.org/).
 5. The resulting relationships are combined together to generate the output [ConceptsRelatedwithButanolTriples.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/ConceptsRelatedwithButanolTriples.csv)
 6. Results are summarized using post processing script that is at the bottom of [DSM_Workflow.R](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/DSM_workflow.R)
 7. Final results consists of information on Genes, Intermetiate Concepts, Score (PWS from EKP) and Provenance (PubMed IDs) for further analysis.
-
+8. A graphical format of the workflow can be found [DSM_workflow.png](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/DSM/src/DSM_workflow.png)
