@@ -30,7 +30,7 @@ The python notebooks are written in [Jupyter](http://jupyter.org/).
 2. [Workflow_Rice.R](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Bayer/src/Workflow_Rice.R) is the file where actual analysis happens.
 3. Concepts for gene identifiers (fetched from QTARO, but not restricted to) are searched within the EKP for their relationship with "Grain number".
 4. Next concepts are for these gene identifiers are searched again within EKP for their indirect relationship with "Grain Number".
-5. The resulting relationships are combined together to generate the output [ConceptsRelatedGrainNumberTriples.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Bayer/src/ConceptsRelatedwithGrainNumberTriples.csv)
+5. The resulting relationships are combined together to generate the output [ConceptsRelatedGrainNumberTriples.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Bayer/src/ConceptsRelatedGrainNumberTriples.csv)
 6. Results are summarized using post processing script that is at the bottom of [Workflow_Rice.R](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Bayer/src/Workflow_Rice.R)
 7. Final results consists of information on Genes, Intermetiate Concepts, Score (PWS from EKP) and Provenance (Gramene id's) for further analysis.
 8. A graphical format of the workflow can be found [Workflow_Rice.png](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Bayer/src/Workflow_Rice.png)
