@@ -12,7 +12,7 @@ library(tidyr)
 library(qdap)
 
 
-config<-yaml.load_file("config.yml")
+config<-yaml.load_file("../src/config.yml")
 ## connect to Euretos server with login credentials of 
 login <- "http://178.63.49.197:8080/spine-ws/login/authenticate"
 pars <- list(
@@ -40,19 +40,20 @@ out<-NULL
 getConceptID<-function(terms){
   query = "/external/concepts/search"
   for (i in 1:length(terms)){
-    b<-paste("{",'"queryString":"term:',as.character(terms[i]),'","searchType":"STRING"',"}",sep="")
+    b<-paste("{",'"queryString":"term:',as.character(terms[i]),'","searchType":"TOKEN"',"}",sep="")
     pr <- POST(url = paste(base_url, query, sep =""), 
                add_headers('X-token' = token),
                body=fromJSON(b),
                encode = "json", 
                accept_json(),verbose())
     a<-content(pr)
-    #print (a)
-    #a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
     a<-cbind(terms[i],t(unlist(a)))
-    out<-rbind(out,a)
+    if(a[,"totalElements"]!=0){
+      out<-rbind(out,c(terms[i],a[,"content.id"],a[,"content.name"],a[,"content.name"],a[,"totalElements"],
+                       a[,"totalPages"],a[,"numberOfElements"],a[,"first"],a[,"size"],a[,"number"]))
+    }
   }
-  colnames(out)<-c("geneId","EKP_Concept_Id","content.name","totalElements","totalPates","last","numberOfElements","first","size","number")
+  colnames(out)<-c("geneId","EKP_Concept_Id","content.name","totalElements","totalPages","last","numberOfElements","first","size","number")
   return(out)
 }
 
@@ -163,9 +164,9 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
 
 
 ### Function to retrieve resistance to chemicals
-getResistanceEKPID<-function(){
+getTraitEKPID<-function(){
   query="/external/concepts/search"
-  template<-paste("{",'"queryString":"term:',"'apo:0000087'",'","searchType":"STRING"',"}",sep="")
+  template<-paste("{",'"queryString":"term:',"'grain number'",'","searchType":"TOKEN"',"}",sep="")
   pr <- POST(url = paste(base_url, query, sep =""), 
              add_headers('X-token' = token),
              body=fromJSON(template),

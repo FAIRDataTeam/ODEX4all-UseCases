@@ -1,39 +1,24 @@
 
 
-## Solr Setup
-1. Start solr server: 
-Run from commandline solr start
+Based on the [User Requirements](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/userRequirements). The following folder structure give an overview and explaination of files.
 
-## Go to url 
+### [data folder](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/data): 
+consists of Crop Ontology terms, Title Terms (List provided by Limagrain), Keywords list (provided by Limagrain).
+Corpus is not in this folder for confidentiality reasons.
 
-http://localhost:8983/solr/#/
+### [src folder](https://github.com/DTL-FAIRData/ODEX4all-UseCases/tree/master/Limagrain/src):  
+#### [CO_322.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/CO_322.csv): Crop ontology terms for maize downloaded from Crop Ontology website (http://www.cropontology.org/)
 
-## Select terms in the dropdown menu on the left side
+#### [Limagrain.png](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/Limagrain.png): Workflow of the notebook.
 
-## Step 1: Create Dictionary from within Solr
-These terms are extracted from following ontologies to form dictionary
+#### [dic_CO_key_title.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/dic_CO__key_title.csv): Dictionary of combined terms
 
-### http://planteome.org/
+#### [dictionary_CO_Title_Key_Form_OpenRefine.json](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/dictionaryCleaningOpenRefineSteps.json): Steps required to clean the dictionary, this can be opened in tool called Open Refine (http://openrefine.org/). This file is reusable for any dictionary that may require necessary cleaning.
 
-### http://archive.gramene.org/plant_ontology/#to
+### Jupyter notebook : 
+#### [tm_PatentDocs_V2.ipynb](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/tm_PatentDocs_V2.ipynb) Gives detailed explaination and analysis of the workflow including results at each steps
 
-### http://www.cropontology.org/ontology/CO_322/Maize
+#### [tm_PatentDocs_V2.R](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/tm_PatentDocs_V2.R) is its equavalent script including "cross validation of data" steps commented out 
 
-
-## Step 2:
-Use JATE (Java Automated Text Extraction) from within Solr
-
-
-## Step 3:
-Create Document term matrix
-
-
-## Step 4:
-Identify Term correlation using ML algorithm
-
-## Step 5:
-Use validation data set to cross reference to identify prior art
-
-## Step 6:
-Optional: Sementify model data
+#### [dtm_Abstracts_dwpi_CO_Key_Title.csv](https://github.com/DTL-FAIRData/ODEX4all-UseCases/blob/master/Limagrain/src/dtm_Abstracts_dwpi_CO_Key_Title.csv) Result in the form of Document Term Matrix to be further taken up by Limagrain.
 

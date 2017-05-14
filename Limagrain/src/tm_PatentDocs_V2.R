@@ -105,17 +105,19 @@ abst_dwpi <- phrasetotoken(abst_dwpi, dfd)
 mydfm <- dfm(abst_dwpi)
 
 
+#### Data Transformation
 #### now keep only the keywords from the dictionary ignoring frequent words occuring in the corpus
 mydfm<-as_data_frame(mydfm)
 dtm_tib<-mydfm[,which((colnames(mydfm)%in%key))]
 
 
-#### now remove stop words from "english"
+#### remove stop words from "english"
 dtm_tib<-dtm_tib[,which(!(colnames(dtm_tib)%in%stopwords("english")))]
 
 
 #### assign document names to the DocumentTermMatrix
 rownames(dtm_tib)<- as.character(patList$Publication.Number)
+
 
 
 #### data transformation
@@ -126,57 +128,65 @@ dtm<-as.DocumentTermMatrix(dfm)
 ##### remove terms that occure in only 0.1% of all documents (in short less common words)
 dtm<-removeSparseTerms(dtm, 0.99) # this is tunable 0.6 appears to be optimal
 
+
+##### Get selected metadata information
+dfm<-as.matrix(dtm)
+
+meta<-patList[,c("Publication.Number","Title","Publication.Date","Assignee.Applicant","Inventor","Priority.Date...Earliest")]
+rownames(meta)<-meta[,1]
+dtm<-merge(dfm,meta,by="row.names")
+
+### rearrange columnnames for metadata
+dtm<-dtm[,c(901:906,1:900)]
+
 write.csv(as.matrix(dtm),file="dtm_Abstracts_dwpi_CO_Key_Title.csv")
 
-#### cross validations
+#### Data Validation Code
 #### Check for term "dna_extraction"
-as.matrix(dtm[,895])
+#as.matrix(dtm[,"dna_extraction"])
 
 
 #### it occurs 1's in document "US20150191771A1" and 3's in document "WO2013119962A1" 3's in document US20130210006A1
 
 
 ##### create term frequency
-termFreq <- colSums(as.matrix(dtm))
-head(termFreq)
+#termFreq <- colSums(as.matrix(dtm))
+#head(termFreq)
 
-tf <- data.frame(term = names(termFreq), freq = termFreq)
-tf <- tf[order(-tf[,2]),]
-head(tf)
+#tf <- data.frame(term = names(termFreq), freq = termFreq)
+#tf <- tf[order(-tf[,2]),]
+#head(tf)
 
 
 
 
 #### Step 5: Visualize word cloud of terms
 
-set.seed(1234)
-wordcloud(words = tf$term, freq = tf$freq, min.freq = 1,
-          max.words=8000, random.order=FALSE, rot.per=0.35, 
-          colors=brewer.pal(8, "Dark2"))
+#set.seed(1234)
+#wordcloud(words = tf$term, freq = tf$freq, min.freq = 1,
+#          max.words=8000, random.order=FALSE, rot.per=0.35, 
+#          colors=brewer.pal(8, "Dark2"))
 
 
 
 #### Step 6 : Explore frequent terms and their associations
 
 ##### frequent terms
-findFreqTerms(dtm, lowfreq = 3)
+#findFreqTerms(dtm, lowfreq = 3)
 
 
 ##### frequent associations
-findAssocs(dtm, terms = "dna_extraction", corlimit = 0.3)
+#findAssocs(dtm, terms = "dna_extraction", corlimit = 0.3)
 
 
 ##### plot word frequency
-d<-barplot(tf[1:10,]$freq, las = 2, names.arg = tf[1:10,]$term,
+#d<-barplot(tf[1:10,]$freq, las = 2, names.arg = tf[1:10,]$term,
            col ="lightblue", main ="Most frequent words",
            ylab = "Word frequencies")
 
 
 
-
 # to do intersect with dictionary 
-
-
 
 ## Find terms that occure atleast 5 times or more
 ## findFreqTerms(dtm_abst, 5)
