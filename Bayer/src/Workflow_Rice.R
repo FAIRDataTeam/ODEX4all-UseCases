@@ -52,7 +52,19 @@ start<-start[,"EKP_Concept_Id"]
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
 
 trait<-c("TO:0000590","TO:0000382","TO:0000396","TO:0000397","TO:0000734","TO:0000402","TO:0002759","TO:0000447")
+#                                                "5899980"
 traits<-c("grain number","grain size","grain weight","seed yield","grain length","grain width")
+
+#                   EKP_Id
+# grain size            : 5899980
+# grain thickness       : 5900661
+# grain number          : 4343608
+# kernal number         : 5900190
+# GRNB                  : 5900394
+#fruit number           : 5900077
+#grain number per plant : 5900828
+
+
 
 ### manually curated traid ekp ids in the absensce of taxonomy
 
@@ -65,7 +77,7 @@ for (i in 1:length(traits)){
 }
 
 
-end<-end[2]
+end<-end[1]
 
 #end<-end["content.id"] #EKP ID TO terms from Bayer
 

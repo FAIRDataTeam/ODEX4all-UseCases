@@ -191,6 +191,28 @@ getTraitEKPID<-function(trait){
 }
 
 
+### Get neighbours
+
+{"ids": ["5899980"], "relationshipWeightAlgorithm": "pws", "filterGroups": []}
+
+
+getNeighbours<-function(){
+  query="/external/direct-connections-with-scores"
+  template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
+  template<- cat(paste0("{",'"ids":','["',as.character("5899980"),'"]',",",'"relationshipWeightAlgorithm": "pws"',",",'"filterGroups":[]',"}",sep=""))
+        
+  pr <- POST(url = paste(base_url, query, sep =""), 
+             add_headers('X-token' = token),
+             body=fromJSON(template),
+             encode = "json", 
+             accept_json(),verbose())
+  a<-content(pr)
+  
+}
+
+
+
+
 ### Function to retrieve butanol tolerance
 getButanolID<-function(){
   query="/external/concepts/search"
