@@ -1,0 +1,233 @@
+<sources>	<source>		<rd>0</rd>		<rt>0</rt>		<name>Euretos</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>1</rt>		<name>AIR</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>2</rt>		<name>AOD</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>3</rt>		<name>AOT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>4</rt>		<name>CCS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>5</rt>		<name>CHV</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>6</rt>		<name>COSTAR</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>7</rt>		<name>CSP</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>8</rt>		<name>CST</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>9</rt>		<name>DXP</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>10</rt>		<name>FMA</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>11</rt>		<name>GO</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>12</rt>		<name>HCPCS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>13</rt>		<name>HGNC</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>14</rt>		<name>HL7V2.5</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>15</rt>		<name>HL7V3.0</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>16</rt>		<name>ICD10PCS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>17</rt>		<name>ICD9CM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>18</rt>		<name>ICPC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>19</rt>		<name>LCH</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>20</rt>		<name>LNC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>21</rt>		<name>LNC_NPUAP</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>22</rt>		<name>LNC_OPTIMAL</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>23</rt>		<name>MCM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>24</rt>		<name>MEDLINEPLUS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>25</rt>		<name>MSH</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>26</rt>		<name>MTH</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>27</rt>		<name>MTHCH</name>	</source>	<source>		<rd>0</rd>		<rt>28</rt>		<name>MTHFDA</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>29</rt>		<name>MTHHH</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>30</rt>		<name>MTHHL7V2.5</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>31</rt>		<name>MTHICD9</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>32</rt>		<name>MTHMST</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>33</rt>		<name>MTHSPL</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>34</rt>		<name>NCBI</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>35</rt>		<name>NCI</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>36</rt>		<name>NDFRT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>37</rt>		<name>OMIM</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>38</rt>		<name>PDQ</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>39</rt>		<name>QMR</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>40</rt>		<name>RAM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>41</rt>		<name>RXNORM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>42</rt>		<name>SCTUSX</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>43</rt>		<name>SOP</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>44</rt>		<name>SPN</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>45</rt>		<name>SRC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>46</rt>		<name>USPMG</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>47</rt>		<name>UWDA</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>48</rt>		<name>VANDF</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>49</rt>		<name>Pubmed</name>
+		<publicationtype>journal article</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>50</rt>		<name>UniProt</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>51</rt>		<name>Chemspider</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>52</rt>		<name>UMLS</name>
+		<publicationtype>curated database</publicationtype>	</source>	<source>		<rd>0</rd>		<rt>53</rt>		<name>ConceptWiki</name>
+		<publicationtype>thesaurus</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>54</rt>		<name>Euretos_CellLine_Collection</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+		<source>		<rd>0</rd>		<rt>55</rt>		<name>Chembl</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>56</rt>		<name>MRREL</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>57</rt>		<name>ENTREZGENE</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>58</rt>		<name>CTD</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>59</rt>		<name>GeneOntology</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>60</rt>		<name>ClinicalTrials</name>
+		<publicationtype>clinical trial</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>61</rt>		<name>HumanProteinAtlas</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>62</rt>		<name>PlantOntology</name>
+		<publicationtype>thesaurus</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>63</rt>		<name>TAIR</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>64</rt>		<name>Enzymedb</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>65</rt>		<name>HMDB</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>66</rt>		<name>SGD</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>67</rt>		<name>TraitOntology</name>
+		<publicationtype>thesuarus</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>68</rt>		<name>EnvironmentOntology</name>
+		<publicationtype>thesuarus</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>69</rt>		<name>Phytozome</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>70</rt>		<name>CROP</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>71</rt>		<name>Expression Atlas</name>
+		<publicationtype>curated database</publicationtype>	</source>
+		<source>		<rd>0</rd>		<rt>72</rt>		<name>Experimental Factor Ontology</name>
+		<publicationtype>ontology</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>73</rt>		<name>Uberon</name>
+		<publicationtype>ontology</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>74</rt>		<name>BINDdb</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>75</rt>		<name>PantherDB</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>76</rt>		<name>humancyc</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>77</rt>		<name>mirTarBase</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>78</rt>		<name>PID</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>79</rt>		<name>Reactome</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>80</rt>		<name>Recon X</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>81</rt>		<name>IntAct</name>
+		<publicationtype>curated database</publicationtype>
+	</source>	
+	
+	<source>		<rd>0</rd>		<rt>82</rt>		<name>PhosphoSite</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>83</rt>		<name>BIND</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>84</rt>		<name>Tranfac</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>85</rt>		<name>BioGrid</name>
+		<publicationtype>curated database</publicationtype>	</source>		
+	<source>		<rd>0</rd>		<rt>86</rt>		<name>DIP</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>87</rt>		<name>CORUM</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>88</rt>		<name>Drugbank</name>
+		<publicationtype>curated database</publicationtype>	</source>		
+	<source>		<rd>0</rd>		<rt>89</rt>		<name>ClinVar</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>90</rt>		<name>Ensembl</name>
+		<publicationtype>curated database</publicationtype>	</source>
+	<source>		<rd>0</rd>		<rt>91</rt>		<name>DisGeNet</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>92</rt>		<name>HPRD</name>
+		<publicationtype>curated database</publicationtype>	</source>		
+	<source>		<rd>0</rd>		<rt>93</rt>		<name>Human Phenotype Ontology</name>
+		<publicationtype>ontology</publicationtype>	</source>	
+	<source>		<rd>0</rd>		<rt>94</rt>		<name>Cross species Phenotype Ontology</name>
+		<publicationtype>ontology</publicationtype>	</source>	
+<source>		<rd>0</rd>		<rt>97</rt>		<name>IMSR</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+<source>		<rd>0</rd>		<rt>98</rt>		<name>MGI</name>
+		<publicationtype>curated database</publicationtype>	</source>
+<source>		<rd>0</rd>		<rt>100</rt>		<name>GEO</name>
+		<publicationtype>curated database</publicationtype>	</source>	
+	
+<source>		<rd>0</rd>		<rt>101</rt>		<name>Chebi</name>
+		<publicationtype>ontology</publicationtype>	</source>	
+<source>		<rd>0</rd>		<rt>102</rt>		<name>VT ontology</name>
+		<publicationtype>ontology</publicationtype>	</source>
+<source>		<rd>0</rd>		<rt>110</rt>		<name>PIG QTL db</name>
+		<publicationtype>annotated database</publicationtype>	</source>	
+
+<source>		<rd>0</rd>		<rt>111</rt>		<name>Clinical Measurement Ontology</name>
+		<publicationtype>ontology</publicationtype>	</source>		
+<source>		<rd>0</rd>		<rt>112</rt>		<name>YeastCyc</name>
+		<publicationtype>annotated database</publicationtype>	</source>	
+<source>		<rd>0</rd>		<rt>113</rt>		<name>STRING</name>
+		<publicationtype>annotated database</publicationtype>	</source>	
+<source>		<rd>0</rd>		<rt>114</rt>		<name>Foodb</name>
+		<publicationtype>annotated database</publicationtype>	</source>	
+	<source>		<rd>1</rd>		<rt>0</rt>		<name>CCC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>2</rd>		<rt>0</rt>		<name>JABL</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>3</rd>		<rt>0</rt>		<name>LNC_MDS30</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>4</rd>		<rt>0</rt>		<name>MMSL</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>5</rd>		<rt>0</rt>		<name>OMS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>6</rd>		<rt>0</rt>		<name>UMD</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>7</rd>		<rt>0</rt>		<name>BI</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>8</rd>		<rt>0</rt>		<name>CPM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>9</rd>		<rt>0</rt>		<name>WHO</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>10</rd>		<rt>0</rt>		<name>ALT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>11</rd>		<rt>0</rt>		<name>CCPSS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>12</rd>		<rt>0</rt>		<name>CPT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>13</rd>		<rt>0</rt>		<name>DDB</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>14</rd>		<rt>0</rt>		<name>DSM3R</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>15</rd>		<rt>0</rt>		<name>DSM4</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>16</rd>		<rt>0</rt>		<name>GS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>17</rd>		<rt>0</rt>		<name>HCDT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>18</rd>		<rt>0</rt>		<name>HCPT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>19</rd>		<rt>0</rt>		<name>ICD10</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>20</rd>		<rt>0</rt>		<name>ICD10AE</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>21</rd>		<rt>0</rt>		<name>ICD10AM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>22</rd>		<rt>0</rt>		<name>ICD10AMAE</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>23</rd>		<rt>0</rt>		<name>ICNP</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>24</rd>		<rt>0</rt>		<name>ICPC2EENG</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>25</rd>		<rt>0</rt>		<name>ICPC2ICD10ENG</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>26</rd>		<rt>0</rt>		<name>ICPC2P</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>27</rd>		<rt>0</rt>		<name>LNC_AD8</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>28</rd>		<rt>0</rt>		<name>LNC_BRADEN</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>29</rd>		<rt>0</rt>		<name>LNC_CAM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>30</rd>		<rt>0</rt>		<name>LNC_FACIT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>31</rd>		<rt>0</rt>		<name>LNC_FLACC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>32</rd>		<rt>0</rt>		<name>LNC_MLHFQ</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>33</rd>		<rt>0</rt>		<name>LNC_NEUROQOL</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>34</rd>		<rt>0</rt>		<name>LNC_OASIS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>35</rd>		<rt>0</rt>		<name>LNC_RHO</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>36</rd>		<rt>0</rt>		<name>LNC_SPERTUS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>37</rd>		<rt>0</rt>		<name>LNC_VR_12</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>38</rd>		<rt>0</rt>		<name>LNC_WHO</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>39</rd>		<rt>0</rt>		<name>MDDB</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>40</rd>		<rt>0</rt>		<name>MDR</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>41</rd>		<rt>0</rt>		<name>MEDCIN</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>42</rd>		<rt>0</rt>		<name>MMX</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>43</rd>		<rt>0</rt>		<name>MTHICPC2EAE</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>44</rd>		<rt>0</rt>		<name>MTHICPC2ICD107B</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>45</rd>		<rt>0</rt>		<name>MTHICPC2ICD10AE</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>46</rd>		<rt>0</rt>		<name>NAN</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>47</rd>		<rt>0</rt>		<name>NDDF</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>48</rd>		<rt>0</rt>		<name>NEU</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>49</rd>		<rt>0</rt>		<name>NIC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>50</rd>		<rt>0</rt>		<name>NOC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>51</rd>		<rt>0</rt>		<name>PCDS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>52</rd>		<rt>0</rt>		<name>PNDS</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>53</rd>		<rt>0</rt>		<name>PPAC</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>54</rd>		<rt>0</rt>		<name>PSY</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>55</rd>		<rt>0</rt>		<name>RCD</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>56</rd>		<rt>0</rt>		<name>RCDAE</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>57</rd>		<rt>0</rt>		<name>RCDSA</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>58</rd>		<rt>0</rt>		<name>RCDSY</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>59</rd>		<rt>0</rt>		<name>ULT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>60</rd>		<rt>0</rt>		<name>ICD10CM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>61</rd>		<rt>0</rt>		<name>ICF</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>62</rd>		<rt>0</rt>		<name>ICF-CY</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>63</rd>		<rt>0</rt>		<name>LNC_ASQ_3</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>64</rd>		<rt>0</rt>		<name>LNC_MDS20</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>65</rd>		<rt>0</rt>		<name>LNC_PHQ_9</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>66</rd>		<rt>0</rt>		<name>SNM</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>67</rd>		<rt>0</rt>		<name>SNMI</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>68</rd>		<rt>0</rt>		<name>SNOMEDCT</name>
+		<publicationtype>thesaurus</publicationtype>	</source>	<source>		<rd>69</rd>		<rt>0</rt>		<name>SURFACEOME</name>
+		<publicationtype>private data</publicationtype>	</source>
+	<source>		<rd>70</rd>		<rt>0</rt>		<name>KEGG</name>
+		<publicationtype>private data</publicationtype>	</source>
+</sources>

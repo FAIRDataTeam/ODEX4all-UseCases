@@ -5,6 +5,10 @@ import logging
 import datetime
 import os
 
+#TODO: Source DB's fixen
+#TODO: Source scores fixen
+#TODO: Intermediate centrality ontbreekt nu nog in output --> ook scheiden op basis van type?
+
 os.chdir("/Users/Wytze/git/ODEX4all-UseCases/")
 
 logging.basicConfig(filename='EKP/logs/NIZO.log',
@@ -84,19 +88,27 @@ csv_writer.writerow(["Starting concept", "Starting concept ID", "Starting concep
 paths = c.getDirectRelationship(list(commensals_mapped.values()), list(healthbenefits_mapped.values()))
 for p in paths:
     start = [p['concepts'][0]['name'], p['concepts'][0]['id']]
-    start.append(", ".join([c.rev_map[s] for s in list(set(p['concepts'][0]['semanticTypes']) - set(["T9998", "T9997", "T9999"]))]))
+    start.append(", ".join([c.rev_map[s] for s in p['concepts'][0]['semanticTypes']]))
     end = [p['concepts'][1]['name'], p['concepts'][1]['id']]
-    end.append(", ".join([c.rev_map[s] for s in list(set(p['concepts'][1]['semanticTypes']) - set(["T9998", "T9997", "T9999"]))]))
+    end.append(", ".join([c.rev_map[s] for s in p['concepts'][1]['semanticTypes']]))
     score = p['score']
     AB_predicates = [c.mapPredicate(x) for x in p['relationships'][0]['predicateIds']]
     AB_pubs = c.getPubliciations(p['relationships'][0]['publicationIds'])
-    AB_sourceData = c.getSourceIdentifiers(AB_pubs, True)
-    AB_clicks = ['=HYPERLINK("' + x + '")' for x in AB_sourceData['url'][0:3]]
+    AB_sourceData = c.getSourceIdentifiers(AB_pubs)
+    AB_clicks = ['=HYPERLINK("' + x['url'] + '")' for x in AB_sourceData]
     for i in range(0, 3 - len(AB_clicks)):
         AB_clicks.append("")
+    AB_sourceNames = []
+    AB_DBs = []
+    AB_sourceIDs = []
+    AB_sourceScores = []
+    for a in AB_sourceData:
+        AB_sourceNames += a['sourceName']
+        AB_DBs += a['Database']
+        AB_sourceIDs += a['sourceId']
+        AB_sourceScores += a['sourceScore']
     csv_writer.writerow(start + [", ".join(AB_predicates)] + end + [str(score).replace('.', ',')] + AB_clicks +
-                        [", ".join(AB_sourceData['sourceName'])] + [", ".join(AB_sourceData['Database'])] +
-                        [", ".join(AB_sourceData['sourceId'])]  + [", ".join(AB_sourceData['sourceScore'])])
+                        [", ".join(AB_sourceNames)] + [", ".join(AB_DBs)] + [", ".join(AB_sourceIDs)] + [", ".join(AB_sourceScores)])
 output.close()
 
 # AB_clicks = ['=HYPERLINK("' + x + '")' for x in AB_sourceIds[0:3]]
@@ -126,26 +138,10 @@ for t in types.values():
          "End concept", "End concept ID", "End concept ST",
          "Path score", "Source DB AB", "Source score AB", "SourceNames AB", "All AB Source IDs",
          "Source DB BC", "Source score BC", "SourceNames BC", "All BC Source IDs"])
-    intermediate_filter = c.createFilter([t])
     for h in healthbenefits_mapped.values():
         print(datetime.datetime.today().strftime("%H:%M:%S") + " getting " + h)
         indirect_all = []
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values()), [h], intermediate_filter)
-        if type(indirect) is list:
-            indirect_all += indirect
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values())[10:19], [h], intermediate_filter)
-        if type(indirect) is list:
-            indirect_all += indirect
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values())[20:29], [h], intermediate_filter)
-        if type(indirect) is list:
-            indirect_all += indirect
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values())[30:39], [h], intermediate_filter)
-        if type(indirect) is list:
-            indirect_all += indirect
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values())[40:49], [h], intermediate_filter)
-        if type(indirect) is list:
-            indirect_all += indirect
-        indirect = c.getIndirectRelationship(list(commensals_mapped.values())[50:59], [h], intermediate_filter)
+        indirect = c.getIndirectRelationship(list(commensals_mapped.values()), [h], [t])
         if type(indirect) is list:
             indirect_all += indirect
         if len(indirect_all) > 0:
@@ -161,16 +157,34 @@ for t in types.values():
                 AB_predicates = [c.mapPredicate(x) for x in p['relationships'][0]['predicateIds']]
                 AB_pubs = c.getPubliciations(p['relationships'][0]['publicationIds'])
                 AB_sourceData = c.getSourceIdentifiers(AB_pubs)
-                AB_clicks = ['=HYPERLINK("' + x + '")' for x in AB_sourceData['url'][0:3]]
+                AB_clicks = ['=HYPERLINK("' + x['url'] + '")' for x in AB_sourceData]
                 for i in range(0, 3 - len(AB_clicks)):
                     AB_clicks.append("")
                 BC_predicates = [c.mapPredicate(x) for x in p['relationships'][1]['predicateIds']]
                 BC_pubs = c.getPubliciations(p['relationships'][1]['publicationIds'])
                 BC_sourceData = c.getSourceIdentifiers(BC_pubs)
-                BC_clicks = ['=HYPERLINK("' + x + '")' for x in BC_sourceData['url'][0:3]]
+                BC_clicks = ['=HYPERLINK("' + x['url'] + '")' for x in BC_sourceData]
                 for i in range(0, 3 - len(BC_clicks)):
                     BC_clicks.append("")
-                csv_writer.writerow(start + [AB_predicates]+ AB_clicks + middle + [BC_predicates] + BC_clicks + end + [str(score).replace('.', ',')] +
-                                    [", ".join(AB_sourceData['Database'])]+ [", ".join(AB_sourceData['sourceScore'])] + [", ".join(AB_sourceData['sourceName'])] + [", ".join(AB_sourceData['sourceId'])] +
-                                    [", ".join(BC_sourceData['Database'])] + [", ".join(BC_sourceData['sourceScore'])] + [", ".join(BC_sourceData['sourceName'])] + [", ".join(BC_sourceData['sourceId'])])
+                AB_sourceNames = []
+                AB_DBs = []
+                AB_sourceIDs = []
+                AB_sourceScores = []
+                for a in AB_sourceData:
+                    AB_sourceNames += a['sourceName']
+                    AB_DBs += a['Database']
+                    AB_sourceIDs += a['sourceId']
+                    AB_sourceScores += a['sourceScore']
+                BC_sourceNames = []
+                BC_DBs = []
+                BC_sourceIDs = []
+                BC_sourceScores = []
+                for b in BC_sourceData:
+                    BC_sourceNames += b['sourceName']
+                    BC_DBs += b['Database']
+                    BC_sourceIDs += b['sourceId']
+                    BC_sourceScores += b['sourceScore']
+                csv_writer.writerow(start + [", ".join(AB_predicates)]+ AB_clicks[0:3] + middle + [", ".join(BC_predicates)] + BC_clicks[0:3] + end + [str(score).replace('.', ',')] +
+                                    [", ".join(AB_DBs)]+ [", ".join(AB_sourceScores)] + [", ".join(AB_sourceNames)] + [", ".join(AB_sourceIDs)] +
+                                    [", ".join(BC_DBs)] + [", ".join(BC_sourceScores)] + [", ".join(BC_sourceNames)] + [", ".join(BC_sourceIDs)])
     output.close()

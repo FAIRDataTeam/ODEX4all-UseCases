@@ -386,9 +386,13 @@ class connection:
 
     # Get source identifiers for relationships, and clickable links. For now, only PubMed links are supported.
     def getSourceIdentifiers(self, provenances):
-        out = {'sourceName' : [], 'Database' : [], 'sourceId' : [], 'sourceScore' : []}
+        output = []
         for p in provenances:
-            out['sourceName'].append(p['sourceName'])
+            out = {'sourceName': [], 'Database': [], 'sourceId': [], 'sourceScore': []}
+            if 'sourceName' in p.keys():
+                out['sourceName'].append(p['sourceName'])
+            else:
+                out['sourceName'] = "No source name available"
             #out['sourceScore'].append(p['measures'][0]['value'])
             if len(p['accessMappings']) > 0:
                 sourceDB = self.DBmap.MapRDRTtoName(p['accessMappings'][0]['researchDomain'], p['accessMappings'][0]['researchTarget'])
@@ -404,7 +408,8 @@ class connection:
                 out['url'] = p['url']
             else:
                 out['url'] = "no url"
-        return out
+            output.append(out)
+        return output
 
     # Create a curl command which you can test a query with
     def createCurl(self, query, call):
