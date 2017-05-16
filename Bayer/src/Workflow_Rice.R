@@ -10,11 +10,13 @@ detach(package:RMySQL)
 ## Objective: To identify genotype-phenotype trait association in yeast
 ### Develop a workflow to identify genes indirectly associated with a certain yeast phenotype (butanol tolerance) using EKP and visualize them in an interactive knowledge graph.
 
+#### qtaro.abr.affrc.go.jp/qtab/table
+setwd("~/odex4all_usecases/ODEX4all-UseCases/Bayer/data")
+
+
 source("..//src/EuretosInfrastructure.R")
 options(warn=-1)
 
-#### qtaro.abr.affrc.go.jp/qtab/table
-setwd("~/odex4all_usecases/ODEX4all-UseCases/Bayer/data")
 
 rice_genes <-read.csv("GeneInformationTable_Qtaro.csv",header=TRUE)
 
@@ -30,11 +32,12 @@ rice_genes <-read.csv("GeneInformationTable_Qtaro.csv",header=TRUE)
 #"GN" (EKP concept:(vague many hits within EKP))
 
 
-rice_genes <- select(rice_genes,gene_symbol,character_major)  
-rice_genes<- filter(rice_genes, character_major == "Morphological trait")
-rice_genes<- tolower(as.character(rice_genes[,"gene_symbol"]))
+rice_genes <- select(rice_genes,locus_id,character_major)  
+rice_genes <- filter(rice_genes, character_major == "Morphological trait")
+rice_genes <- tolower(as.character(rice_genes[,"locus_id"]))
 rice_genes <- unique(rice_genes)
-
+rice_genes <- rice_genes[!is.na(rice_genes)]
+rice_genes <-rice_genes[rice_genes != "-"]
 
 
 ## Filter for grain size and grain number is not done yet 
@@ -47,8 +50,24 @@ start<-start[,"EKP_Concept_Id"]
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
-end <- unlist(getTraitEKPID())
-end<-end["content.id"] #EKP ID of resistance to chemicals
+
+trait<-c("TO:0000590","TO:0000382","TO:0000396","TO:0000397","TO:0000734","TO:0000402","TO:0002759","TO:0000447")
+traits<-c("grain number","grain size","grain weight","seed yield","grain length","grain width")
+
+### manually curated traid ekp ids in the absensce of taxonomy
+
+
+end<-NULL
+for (i in 1:length(traits)){
+  tmp <- getTraitEKPID(traits[i])
+  tmpContent<-tmp[,"content.id"]
+  end<-rbind(end,tmpContent)
+}
+
+
+end<-end[2]
+
+#end<-end["content.id"] #EKP ID TO terms from Bayer
 
 
 
