@@ -72,7 +72,7 @@ getPubMedId<- function(provIds){
   out<-NULL
   query = "/external/publications"
   for (i in 1:length(provIds)){
-    b<-paste0("{",'"additionalFields": ["abstract"]',",",'"ids":[',provIds[i],']',"}")
+    b<-paste0("{",'"additionalFields": ["abstract","url"]',",",'"ids":[',provIds[i],']',"}")
     template<-fromJSON(b,simplifyVector = FALSE,flatten=TRUE)
     pr <- POST(url = paste(base_url, query, sep =""), 
                add_headers('X-token' = token),
@@ -82,19 +82,16 @@ getPubMedId<- function(provIds){
     a<-content(pr)
     id<-a[[1]]$id
     abs<-NULL
-    if(is.null(a[[1]]$documentId)){
-      a[[1]]$documentId <- "NA"
-      abs<-cbind(id, a[[1]]$documentId)     
+    if(is.null(a[[1]]$url)){
+      a[[1]]$url <- "NA"
+      abs<-cbind(id, a[[1]]$url)     
     }else{
-        abs<-cbind(id, a[[1]]$documentId)    
+        abs<-cbind(id, a[[1]]$url)    
     }
         out<-rbind(out,abs)
     }
     return(out)
 }
-
-
-
 
 
 ## Template
@@ -106,6 +103,8 @@ getPubMedId<- function(provIds){
 
 
 ## Get indirect relationships at this URL
+## external-path-serch-controller
+
 getIndirectRelation<-function(start,end){
   d<-NULL
   query = "/external/concept-to-concept/indirect"
@@ -121,11 +120,13 @@ getIndirectRelation<-function(start,end){
                  encode = "json", 
                  accept_json(),verbose())
       a<-content(pr)
-      pages[[i+1]]<-a$content
+      if(length(a$content)!=0){
+        pages[[i+1]]<-a$content
+      }
     }
   }
   return(pages)
-  }
+}
 
 
 
@@ -144,10 +145,10 @@ anotherFormat<-function(pages){
 # Function that returns table from json objects as returned by EKP
 getTableFromJson<-function(indirectRelationResultsFromEKP){
   df<-fromJSON(toJSON(indirectRelationResultsFromEKP),flatten=TRUE)
-  do.call(rbind,df) %>% as.data.frame ->b
+  # do.call(rbind,df) %>% as.data.frame ->b
   
   ### parse only the relationships
-  rel<-b[,"relationships"]
+  rel<-df[,"relationships"]
   
   for (i in 1:length(rel)){
       rel[[i]]<-c(rel[[i]],score=as.list(b$score[i]))
@@ -167,7 +168,7 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
 }
 
 
-### Function to retrieve resistance to chemicals
+### Function to retrieve trait
 out<-NULL
 getTraitEKPID<-function(trait){
   query="/external/concepts/search"
@@ -180,12 +181,8 @@ getTraitEKPID<-function(trait){
              accept_json(),verbose())
   a<-content(pr)
   a<-cbind(trait,t(unlist(a)))
-  if ("content.taxonomies" %in% colnames(a)){
-    if(a[,"totalElements"]!=0 & a[,"content.taxonomies"] %in% c("oryza sativa japonica","oryza sativa subsp. japonica") ){
-      out<-rbind(out,c(trait,a[,"content.id"],a[,"content.name"],a[,"content.name"],a[,"totalElements"],
-                       a[,"totalPages"],a[,"numberOfElements"],a[,"first"],a[,"size"],a[,"number"]))
-    }
-  }
+  out<-rbind(out,c(trait,a[,"content.id"],a[,"content.name"],a[,"content.name"],a[,"totalElements"],
+  a[,"totalPages"],a[,"numberOfElements"],a[,"first"],a[,"size"],a[,"number"]))
   #colnames(out)<-c("geneId","EKP_Concept_Id","content.name","totalElements","totalPages","last","numberOfElements","first","size","number")
   return(out)
 }
@@ -193,36 +190,19 @@ getTraitEKPID<-function(trait){
 
 ### Get neighbours
 
-{"ids": ["5899980"], "relationshipWeightAlgorithm": "pws", "filterGroups": []}
+#{"ids": ["5899980"], "relationshipWeightAlgorithm": "pws", "filterGroups": []}
 
-
-getNeighbours<-function(){
+getNeighbours<-function(traitEKPID){
   query="/external/direct-connections-with-scores"
-  template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
-  template<- cat(paste0("{",'"ids":','["',as.character("5899980"),'"]',",",'"relationshipWeightAlgorithm": "pws"',",",'"filterGroups":[]',"}",sep=""))
-        
+  template<- paste0("{",'"ids":','["',as.character(traitEKPID),'"]',",",'"relationshipWeightAlgorithm": "pws"',",",'"filterGroups":[]',"}",sep="")
+  template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
   pr <- POST(url = paste(base_url, query, sep =""), 
              add_headers('X-token' = token),
-             body=fromJSON(template),
+             body=template,
              encode = "json", 
              accept_json(),verbose())
   a<-content(pr)
   
-}
-
-
-
-
-### Function to retrieve butanol tolerance
-getButanolID<-function(){
-  query="/external/concepts/search"
-  template<-paste("{",'"queryString":"term:',"'c0089147'",'","searchType":"STRING"',"}",sep="")
-  pr <- POST(url = paste(base_url, query, sep =""), 
-             add_headers('X-token' = token),
-             body=fromJSON(template),
-             encode = "json", 
-             accept_json(),verbose())
-  a<-content(pr)
 }
 
 
