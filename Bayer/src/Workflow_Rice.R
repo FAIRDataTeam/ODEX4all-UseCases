@@ -51,9 +51,9 @@ start<-start[,"EKP_Concept_Id"]
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
 
-trait<-c("TO:0000590","TO:0000382","TO:0000396","TO:0000397","TO:0000734","TO:0000402","TO:0002759","TO:0000447")
+traits<-c("TO:0000590","TO:0000382","TO:0000396","TO:0000397","TO:0000734","TO:0000402","TO:0002759","TO:0000447")
 #                                                "5899980"
-traits<-c("grain number","grain size","grain weight","seed yield","grain length","grain width")
+#traits<-c("grain number","grain size","grain weight","seed yield","grain length","grain width")
 
 #                   EKP_Id
 # grain size            : 5899980
@@ -66,32 +66,99 @@ traits<-c("grain number","grain size","grain weight","seed yield","grain length"
 
 
 
-### manually curated traid ekp ids in the absensce of taxonomy
-
-
+### Trait ekp ids 
 end<-NULL
 for (i in 1:length(traits)){
   tmp <- getTraitEKPID(traits[i])
-  tmpContent<-tmp[,"content.id"]
+  tmpContent<-cbind(traits[i],tmp)
   end<-rbind(end,tmpContent)
 }
+end<-end[,c(2,3,4)]
+colnames(end)<-c("TOid","TOEKPid","TOContentName")
+
+head(end)
 
 
-end<-end[1]
+### Now get the neighbours of traits because there are no indirect relations between genes and traits that can be found within EKP
+neighbours<-NULL
+for (i in 1:length(end)){
+  tmp <- unlist(getNeighbours(end[i]))
+  tmp<-tmp[which(names(unlist(tmp))%in% "content.neighbour.id"==TRUE)]
+  addEKPId<-cbind(end[i],tmp)
+  neighbours<-rbind(neighbours,addEKPId)  
+}
+colnames(neighbours)<-c("TOEKPid","NeighbourEKPid")
+rownames(neighbours)<-NULL
+write.csv(neighbours,file="NeighbouringTraitEKPid.csv",row.names = FALSE)
 
-#end<-end["content.id"] #EKP ID TO terms from Bayer
+
+## Step 2a: Get Indirect relationships between "rice genes"(start) and "Trait Neighbours"(end)
+## grain size testing
+
+## 
+## end<-"5900394"
+## start <- "3942239"
+## use these identifiers for 
+# "TO:0000396" "5900965" "grain yield trait"    
+# "TO:0002759" "5900394" "grain number"         
+# "TO:0000447" "5900594" "filled grain number" 
+
+genes2TraitNeighbour<-getIndirectRelation(start,end[c(3,7,8),"TOEKPid"])
+save(genes2TraitNeighbour, file = "genes2TraitNeighbour.rda")
+
+
+store <- paste0('"', paste(start, collapse="\", \""), '"')
+
+document1 <- fromJSON(txt="5900965.json")$content
+document2 <- fromJSON(txt="5900394.json")$content
+document3 <- fromJSON(txt="5900594.json")$content
+
+document <- list(document1,document2,document3)
 
 
 
-## Step 2a: Get Indirect relationships between "rice genes"(start) and "grain number"(end)
-genes2GrainNumber<-getIndirectRelation(start,end)
-save(genes2GrainNumber, file = "genes2GrainNumber.rda")
 
 
-load("genes2GrainNumber.rda")
+
+### Now use the neighbours of the Traits where the relationship was not identified
+## use these identifiers for 
+## "TO:0000590" "5899973" "dehulled grain weight"
+## "TO:0000382" "5900098" "1000-seed weight"  
+## "TO:0000397" "5899980" "grain size"           
+## "TO:0000734" "5900194" "grain length" 
+## "TO:0000402" "5899965" "grain width"  
+
+!!!!!!! use the excel sheet
+genes2TraitNeighbourNot<-getIndirectRelation(start,end[c(1,2,4,5,6),"TOEKPid"])
+save(genes2TraitNeighbourNot, file = "genes2TraitNeighbourNot.rda")
+
+
+
+
+
+neig<-read.csv("NeighbouringTraitEKPid.csv",stringsAsFactors = FALSE,header=TRUE)
+tstStr<-c("5899973","5900098","5899980","5900194","5899965")
+
+sel<-subset(neig,TOEKPid %in% tstStr)
+sel<- sel$NeighbourEKPid
+selStore <-paste0('"', paste(sel, collapse="\", \""), '"')
+
+start <- paste0('"', paste(start, collapse="\", \""), '"')
+
+tt<-getIndirectRelation(start,sel)
+save(tt, file = "genes2TraitNeigbbours.rda")
+
+genes2TraitNeighbour<-tt
+
+
+#########################################################################################################################3
+load("genes2TraitNeighbour.rda")
+
+
+genes2TraitNeighbour <- fromJSON(txt="Indirect41Neighbours.json")$content
 
 ### Formatting and data cleaning
-dfs<-as.matrix(getTableFromJson(genes2GrainNumber))
+dfs<-as.matrix(getTableFromJson(genes2TraitNeighbour))
 dfs[,"Predicate"]<-str_replace_all(dfs[,"Predicate"], "[^[:alnum:]]","")
 dfs[,"Predicate"]<-str_replace_all(dfs[,"Predicate"], "c","")
 dfs[,"Publications"]<-str_replace_all(dfs[,"Publications"], "[^[:alnum:]]","")
@@ -119,7 +186,7 @@ pbs<-getPubMedId(dfs$Publications)
 tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="/home/anandgavai/odex4all_usecases/ODEX4all-UseCases/Bayer/src/triples.csv",sep=",",row.names = FALSE)
+write.table(tripleName,file="/home/anandgavai/odex4all_usecases/ODEX4all-UseCases/Bayer/data/Results_TO:0000396_TO:0002759_TO:0000447.csv",sep=",",row.names = FALSE)
 
 
 ### cross validation
