@@ -79,7 +79,7 @@ colnames(end)<-c("TOid","TOEKPid","TOContentName")
 head(end)
 
 
-### Now get the neighbours of traits because there are no indirect relations between genes and traits that can be found within EKP
+### Now get the neighbours of traits because there have no indirect relations between genes and traits that can be found within EKP
 neighbours<-NULL
 for (i in 1:length(end)){
   tmp <- unlist(getNeighbours(end[i]))
@@ -103,21 +103,29 @@ write.csv(neighbours,file="NeighbouringTraitEKPid.csv",row.names = FALSE)
 # "TO:0002759" "5900394" "grain number"         
 # "TO:0000447" "5900594" "filled grain number" 
 
-genes2TraitNeighbour<-getIndirectRelation(start,end[c(3,7,8),"TOEKPid"])
-save(genes2TraitNeighbour, file = "genes2TraitNeighbour.rda")
+
+### Gets the JSON objects from EKP API
+system("bash Get_TO:0000396.sh")
+system("bash Get_TO:0000396.sh")
+system("bash Get_TO:0000396.sh")
+
+
+#genes2TraitNeighbour<-getIndirectRelation(start,end[c(3,7,8),"TOEKPid"])
+#save(genes2TraitNeighbour, file = "genes2TraitNeighbour.rda")
 
 
 store <- paste0('"', paste(start, collapse="\", \""), '"')
 
-document1 <- fromJSON(txt="5900965.json")$content
-document2 <- fromJSON(txt="5900394.json")$content
-document3 <- fromJSON(txt="5900594.json")$content
 
-document <- list(document1,document2,document3)
+### Read the JSON objects just created
+document1 <- fromJSON(txt="int_TO:0000396.json",flatten=TRUE)$content
+document2 <- fromJSON(txt="int_TO:0002759.json",flatten=TRUE)$content
+document3 <- fromJSON(txt="int_TO:0000447.json",flatten=TRUE)$content
 
-
-
-
+### Combine the documents together
+genes2Traits <- list(document1,document2,document3)
+df<-fromJSON(toJSON(genes2Traits),flatten=TRUE)
+do.call(rbind,df) %>% as.data.frame -> genes2Traits
 
 
 ### Now use the neighbours of the Traits where the relationship was not identified
@@ -128,10 +136,9 @@ document <- list(document1,document2,document3)
 ## "TO:0000734" "5900194" "grain length" 
 ## "TO:0000402" "5899965" "grain width"  
 
-!!!!!!! use the excel sheet
-genes2TraitNeighbourNot<-getIndirectRelation(start,end[c(1,2,4,5,6),"TOEKPid"])
-save(genes2TraitNeighbourNot, file = "genes2TraitNeighbourNot.rda")
-
+###!!!!!!! use the excel sheet
+###genes2TraitNeighbourNot<-getIndirectRelation(start,end[c(1,2,4,5,6),"TOEKPid"])
+###save(genes2TraitNeighbourNot, file = "genes2TraitNeighbourNot.rda")
 
 
 
@@ -141,24 +148,21 @@ tstStr<-c("5899973","5900098","5899980","5900194","5899965")
 
 sel<-subset(neig,TOEKPid %in% tstStr)
 sel<- sel$NeighbourEKPid
-selStore <-paste0('"', paste(sel, collapse="\", \""), '"')
-
-start <- paste0('"', paste(start, collapse="\", \""), '"')
-
-tt<-getIndirectRelation(start,sel)
-save(tt, file = "genes2TraitNeigbbours.rda")
-
-genes2TraitNeighbour<-tt
+#selStore <-paste0('"', paste(sel, collapse="\", \""), '"')
+#start <- paste0('"', paste(start, collapse="\", \""), '"')
 
 
-#########################################################################################################################3
-load("genes2TraitNeighbour.rda")
 
+### Now call get indirect relationships for remaining traits (proxy for their neighbours)
+system ("bash Get_TO:0000590_TO:0000382_TO:0000397_TO:0000734_TO:0000402.sh")
 
-genes2TraitNeighbour <- fromJSON(txt="Indirect41Neighbours.json")$content
+genes2TraitNeighbour <- fromJSON(txt="int_TO:0000590_TO:0000382_TO:0000397_TO:0000734_TO:0000402.json")$content
+
+## Combine the two traits
+overallTraitRelations<-rbind(genes2Traits,genes2TraitNeighbour)
 
 ### Formatting and data cleaning
-dfs<-as.matrix(getTableFromJson(genes2TraitNeighbour))
+dfs<-as.matrix(getTableFromJson(overallTraitRelations))
 dfs[,"Predicate"]<-str_replace_all(dfs[,"Predicate"], "[^[:alnum:]]","")
 dfs[,"Predicate"]<-str_replace_all(dfs[,"Predicate"], "c","")
 dfs[,"Publications"]<-str_replace_all(dfs[,"Publications"], "[^[:alnum:]]","")
@@ -174,19 +178,19 @@ colnames(pred)<-c("pred","names")
 
 
 subject_name<-getConceptName(dfs[,"Subject"])
-dfs<-cbind(dfs,subject_name[,2])
+dfs<-cbind(dfs,subject_name[,1])
 
 object_name<-getConceptName(dfs[,"Object"])
-dfs<-cbind(dfs,object_name[,2])
+dfs<-cbind(dfs,object_name[,1])
 
 predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predicate')
 
 pbs<-getPubMedId(dfs$Publications)
 
-tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
+tripleName<-cbind(subject_name,as.character(predicate_name[,"names"]),object_name,pbs,dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="/home/anandgavai/odex4all_usecases/ODEX4all-UseCases/Bayer/data/Results_TO:0000396_TO:0002759_TO:0000447.csv",sep=",",row.names = FALSE)
+write.table(tripleName,file="/home/anandgavai/odex4all_usecases/ODEX4all-UseCases/Bayer/data/Results_TO:0000396_TO:0002759_TO:0000447_TO:0000590_TO:0000382_TO:0000397_TO:0000734_TO:0000402.csv",sep=",",row.names = FALSE)
 
 
 ### cross validation
