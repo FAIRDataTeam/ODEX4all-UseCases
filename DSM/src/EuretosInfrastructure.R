@@ -123,6 +123,26 @@ getIndirectRelation<-function(start,end){
   }
 
 
+#********************8
+################
+#getIndirectRelation<-function(start,end){
+#  d<-NULL
+#  query = "/external/concept-to-concept/indirect"
+#      template<-paste("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences","sc:Physiology"]',",",'"leftInputs":[',start,']',",",'"rightInputs":[',as.character(end),']',"}")
+#      template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
+#      pr <- POST(url = paste(base_url, query, sep =""), 
+#                 add_headers('X-token' = token),
+#                 body=template,
+#                 encode = "json", 
+#                 accept_json(),verbose())
+#      a<-content(pr)
+#  return(a$content)
+#}
+
+############################
+##**************************
+
+
 
 anotherFormat<-function(pages){
   re1<-NULL

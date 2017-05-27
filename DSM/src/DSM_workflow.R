@@ -6,7 +6,7 @@ library(stringr)
 library(compare)
 detach(package:RMySQL)
 
-setwd("../src")
+setwd("~/ODEX4all-UseCases/DSM/src")
 date()
 ## Objective: To identify genotype-phenotype trait association in yeast
 ### Develop a workflow to identify genes indirectly associated with a certain yeast phenotype (butanol tolerance) using EKP and visualize them in an interactive knowledge graph.
@@ -33,6 +33,7 @@ yeast_genes<-read.csv("20170119_GeneList_DSM.txt",header=TRUE,sep="\t")
 start<-getConceptID(tolower(as.character(yeast_genes[,"SGD_ID"])))
 
 start<-start[,"EKP_Concept_Id"]
+#start <- paste0('"', paste(start, collapse="\", \""), '"')
 
 
 ## Step 1b: Get the ending concept identifiers for "resistance to chemicals"
@@ -47,12 +48,18 @@ end2<-end2["content.id"] # EKP ID of butanol
 
 ## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
 resistance2Chemicals<-getIndirectRelation(start,end)
+r2C <- fromJSON(txt="resistance2Chemicals.json",flatten=TRUE)$content
 save(resistance2Chemicals, file = "resistance2Chemicals.rda")
+
+
+
 
 ## Step 2b: Get Indirect relationships between "yeast genes"(start) and "resistance to Butanol"(end)
 resistance2Butanol<-getIndirectRelation(start,end2)
 save(resistance2Butanol, file = "resistance2Butanol.rda")
 
+
+load("resistance2Chemicals.rda")
 ### Formatting and data cleaning
 dfs1<-as.matrix(getTableFromJson(resistance2Chemicals))
 dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "[^[:alnum:]]","")
@@ -62,6 +69,7 @@ dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "c","")
 dfs1<- data.frame(dfs1, stringsAsFactors=FALSE)
 
 
+load("resistance2Butanol.rda")
 ### Formatting and data cleaning
 dfs2<-as.matrix(getTableFromJson(resistance2Butanol))
 dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "[^[:alnum:]]","")
@@ -98,7 +106,7 @@ pbs<-getPubMedId(dfs$Publications)
 tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="/home/anandgavai/AARestructure/ODEX4all-UseCases/DSM/src/triples.csv",sep=",",row.names = FALSE)
+write.table(tripleName,file="~/ODEX4all-UseCases/DSM/ConceptsRelatedwithButanolTriples.csv",sep=",",row.names = FALSE)
 
 
 
