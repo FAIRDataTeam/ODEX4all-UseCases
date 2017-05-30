@@ -116,7 +116,9 @@ getIndirectRelation<-function(start,end){
                  encode = "json", 
                  accept_json(),verbose())
       a<-content(pr)
-      pages[[i+1]]<-a$content
+      if(length(a$content)!=0){
+        pages[[i+1]]<-a$content
+      }
     }
   }
   return(pages)
@@ -165,7 +167,7 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
   rel<-b[,"relationships"]
   
   for (i in 1:length(rel)){
-      rel[[i]]<-c(rel[[i]],score=as.list(b$score[i]))
+      rel[[i]]<-c(rel[[i]],score=b$score[i])
   }
   
   ### collapse into a data frame
@@ -173,12 +175,20 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
   colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate","Score")
   
   dfs<-as.data.frame(dfs)
+  
+  triple<-NULL
+  for (i in 1:dim(dfs)[1]){
+             s<-unlist(dfs[i,"Subject"])
+             p<- unique(unlist(dfs[i,"Predicate"]))
+             o<- unlist(dfs[i,"Object"])
+             pub<- unlist(dfs[i,"publicationIds"])
+             score <-unlist(dfs[i,"Score"])
+             trip <-as.data.frame(cbind(s,p,o,pub,score))
+             triple<-rbind(triple,trip)
+  }
   ### Select subject,predicate and object columns
-  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(unlist(dfs[,"Predicate"])),as.character.default(unlist(dfs[,"publicationIds"])),unlist(dfs[,"Score"]))
-  colnames(dfs)<-c("Subject","Object","Predicate","Publications","Score")
-  dfs<-dfs[,c(1,3,2,4,5)]
-  dfs<-cSplit(dfs,"Predicate",",","long")
-  dfs<-cSplit(dfs,"Publications",",","long")
+  colnames(triple)<-c("Subject","Predicate","Object","Publications","Score")
+  return (triple)
 }
 
 

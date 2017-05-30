@@ -48,7 +48,7 @@ end2<-end2["content.id"] # EKP ID of butanol
 
 ## Step 2a: Get Indirect relationships between "yeast genes"(start) and "resistance to chemicals"(end)
 resistance2Chemicals<-getIndirectRelation(start,end)
-r2C <- fromJSON(txt="resistance2Chemicals.json",flatten=TRUE)$content
+#r2C <- fromJSON(txt="resistance2Chemicals.json",flatten=TRUE)$content
 save(resistance2Chemicals, file = "resistance2Chemicals.rda")
 
 
@@ -56,26 +56,19 @@ save(resistance2Chemicals, file = "resistance2Chemicals.rda")
 
 ## Step 2b: Get Indirect relationships between "yeast genes"(start) and "resistance to Butanol"(end)
 resistance2Butanol<-getIndirectRelation(start,end2)
+#r2B <- fromJSON(txt="resistance2Butanol.json",flatten=TRUE)$content
 save(resistance2Butanol, file = "resistance2Butanol.rda")
 
 
 load("resistance2Chemicals.rda")
 ### Formatting and data cleaning
 dfs1<-as.matrix(getTableFromJson(resistance2Chemicals))
-dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "[^[:alnum:]]","")
-dfs1[,"Predicate"]<-str_replace_all(dfs1[,"Predicate"], "c","")
-dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "[^[:alnum:]]","")
-dfs1[,"Publications"]<-str_replace_all(dfs1[,"Publications"], "c","")
 dfs1<- data.frame(dfs1, stringsAsFactors=FALSE)
 
 
 load("resistance2Butanol.rda")
 ### Formatting and data cleaning
 dfs2<-as.matrix(getTableFromJson(resistance2Butanol))
-dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "[^[:alnum:]]","")
-dfs2[,"Predicate"]<-str_replace_all(dfs2[,"Predicate"], "c","")
-dfs2[,"Publications"]<-str_replace_all(dfs2[,"Publications"], "[^[:alnum:]]","")
-dfs2[,"Publications"]<-str_replace_all(dfs2[,"Publications"], "c","")
 dfs2<- data.frame(dfs2, stringsAsFactors=FALSE)
 
 
@@ -106,7 +99,7 @@ pbs<-getPubMedId(dfs$Publications)
 tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
 colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
 
-write.table(tripleName,file="~/ODEX4all-UseCases/DSM/ConceptsRelatedwithButanolTriples.csv",sep=",",row.names = FALSE)
+write.table(tripleName,file="~/ODEX4all-UseCases/DSM/src/ConceptsRelatedwithButanolTriples.csv",sep=",",row.names = FALSE)
 
 
 
