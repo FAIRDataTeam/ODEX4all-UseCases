@@ -80,7 +80,7 @@ getPubMedId<- function(provIds){
                encode = "json", 
                accept_json(),verbose())
     a<-content(pr)
-    id<-a[[1]]$id
+    url<-a[[1]]$url
     abs<-NULL
     if(is.null(a[[1]]$url)){
       a[[1]]$url <- "NA"
@@ -102,9 +102,9 @@ getPubMedId<- function(provIds){
 
 
 
-## Get indirect relationships at this URL
-## external-path-serch-controller
 
+## external-path-serch-controller
+## Get indirect relationships at this URL
 getIndirectRelation<-function(start,end){
   d<-NULL
   query = "/external/concept-to-concept/indirect"
@@ -114,7 +114,32 @@ getIndirectRelation<-function(start,end){
       #template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
       template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"positiveFilters":["sc:Chemicals & Drugs","sc:Genes & Molecular Sequences","sc:Physiology"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
       template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
-                 pr <- POST(url = paste(base_url, query, sep =""), 
+      pr <- POST(url = paste(base_url, query, sep =""), 
+                 add_headers('X-token' = token),
+                 body=template,
+                 encode = "json", 
+                 accept_json(),verbose())
+      a<-content(pr)
+      if(length(a$content)!=0){
+        pages[[i+1]]<-a$content
+      }
+    }
+  }
+  return(pages)
+}
+
+## external-path-serch-controller
+## Get Direct relationships at this URL
+getDirectRelation<-function(start,end){
+  d<-NULL
+  query = "/external/concept-to-concept/direct"
+  pages<-list()
+  for (i in 1:length(start)){
+    for (j in 1:length(end)){
+      #template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      template<-paste0("{",'"additionalFields": ["publicationIds", "tripleIds", "predicateIds", "semanticCategory", "semanticTypes", "taxonomies"]',",",'"leftInputs":[',start[i],']',",",'"rightInputs":[',end[j],']',"}")
+      template<-fromJSON(template,simplifyVector = FALSE,flatten=TRUE)
+      pr <- POST(url = paste(base_url, query, sep =""), 
                  add_headers('X-token' = token),
                  body=template,
                  encode = "json", 
@@ -142,16 +167,17 @@ anotherFormat<-function(pages){
 
 
 
+
 # Function that returns table from json objects as returned by EKP
 getTableFromJson<-function(indirectRelationResultsFromEKP){
   df<-fromJSON(toJSON(indirectRelationResultsFromEKP),flatten=TRUE)
-  # do.call(rbind,df) %>% as.data.frame ->b
+  do.call(rbind,df) %>% as.data.frame ->b
   
   ### parse only the relationships
-  rel<-df[,"relationships"]
+  rel<-b[,"relationships"]
   
   for (i in 1:length(rel)){
-      rel[[i]]<-c(rel[[i]],score=as.list(b$score[i]))
+    rel[[i]]<-c(rel[[i]],score=b$score[i])
   }
   
   ### collapse into a data frame
@@ -159,13 +185,22 @@ getTableFromJson<-function(indirectRelationResultsFromEKP){
   colnames(dfs)<-c("Subject","Object","ekpTripleID","publicationIds","Predicate","Score")
   
   dfs<-as.data.frame(dfs)
+  
+  triple<-NULL
+  for (i in 1:dim(dfs)[1]){
+    s<-unlist(dfs[i,"Subject"])
+    p<- unique(unlist(dfs[i,"Predicate"]))
+    o<- unlist(dfs[i,"Object"])
+    pub<- unlist(dfs[i,"publicationIds"])
+    score <-unlist(dfs[i,"Score"])
+    trip <-as.data.frame(cbind(s,p,o,pub,score))
+    triple<-rbind(triple,trip)
+  }
   ### Select subject,predicate and object columns
-  dfs<-cbind(unlist(dfs[,"Subject"]),unlist(dfs[,"Object"]),as.character.default(unlist(dfs[,"Predicate"])),as.character.default(unlist(dfs[,"publicationIds"])),unlist(dfs[,"Score"]))
-  colnames(dfs)<-c("Subject","Object","Predicate","Publications","Score")
-  dfs<-dfs[,c(1,3,2,4,5)]
-  dfs<-cSplit(dfs,"Predicate",",","long")
-  dfs<-cSplit(dfs,"Publications",",","long")
+  colnames(triple)<-c("Subject","Predicate","Object","Publications","Score")
+  return (triple)
 }
+
 
 
 ### Function to retrieve trait
@@ -221,7 +256,7 @@ getConceptName<-function(ids){
     a<-content(pr)
     #print (a)
     a<-do.call(rbind, lapply(a, data.frame, stringsAsFactors=FALSE))
-    out<-rbind(out,a)
+    out<-rbind(out,a$name)
   }
   return(out)
 }

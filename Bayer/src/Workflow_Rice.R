@@ -2,7 +2,6 @@
 ## Objective: To identify genotype-phenotype trait association in Rice
 ### Develop a workflow to identify genes indirectly associated with rice traits (Grain Size, Grain number etc) using EKP and visualize them in an interactive knowledge graph.
 
-
 ## Load necessary libraries
 library(dplyr)
 library(tidyr)
@@ -10,7 +9,6 @@ library(sqldf)
 library(splitstackshape)
 library(stringr)
 library(compare)
-
 
 
 
@@ -71,7 +69,6 @@ head(end)
 
 genes2Trait<-getIndirectRelation(start,end[c(3,7,8),"TOEKPid"])
 save(genes2Trait, file = "genes2Trait.rda")
-
 head(genes2Trait)
 
 
@@ -79,7 +76,10 @@ head(genes2Trait)
 ### Step 2b: Get Indirect relationships for "Trait Neighbours"(end) and save intermediate results
 
 neig<-read.csv("NeighbouringTraitEKPid.csv",stringsAsFactors = FALSE,header=TRUE)
-genes2TraitNeighbours<-getIndirectRelation(start,end[c(3,7,8),"TOEKPid"])
+ne<-end[c(1,2,4,5,6),"TOEKPid"]
+end2<-neig[which(neig$TOEKPid%in%ne),"NeighbourEKPid"]
+
+genes2TraitNeighbours<-getIndirectRelation(start,end2)
 save(genes2TraitNeighbours, file = "genes2TraitNeighbours.rda")
 
 head(genes2TraitNeighbours)
@@ -95,7 +95,7 @@ head(Trait2TraitNeighbours)
 
 
 ### Step 2d: Get Direct relationship between genes and traits and save intermediate results
-genes2TraitsDirect<-getIndirectRelation(start,end[,"TOEKPid"])
+genes2TraitsDirect<-getDirectRelation(start,end[,"TOEKPid"])
 save(genes2TraitsDirect, file = "genes2TraitsDirect.rda")
 
 head(genes2TraitsDirect)
