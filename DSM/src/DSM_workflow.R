@@ -96,8 +96,8 @@ predicate_name<-sqldf('select * from dfs left join pred on pred.pred=dfs.Predica
 
 pbs<-getPubMedId(dfs$Publications)
 
-tripleName<-cbind(subject_name[,"name"],as.character(predicate_name[,"names"]),object_name[,"name"],dfs[,"Publications"],dfs[,"Score"])
-colnames(tripleName)<-c("Subject","Predicate","Object","Provenance","Score")
+tripleName<-cbind(dfs[,1],subject_name[,"name"],dfs[,2],as.character(predicate_name[,"names"]),dfs[,3],object_name[,"name"],dfs[,"Publications"],pbs[,2],dfs[,"Score"])
+colnames(tripleName)<-c("SubjectEKPId","SubjectName","PredicateEKPId","PredicateName","ObjectEKPId","ObjectName","ProvenanceEKPID","Provenance","Score")
 
 write.table(tripleName,file="~/ODEX4all-UseCases/DSM/src/ConceptsRelatedwithButanolTriples.csv",sep=",",row.names = FALSE)
 

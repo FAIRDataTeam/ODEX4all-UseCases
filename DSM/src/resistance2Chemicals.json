@@ -1,0 +1,676 @@
+{
+  "content": [
+    {
+      "concepts": [
+        {
+          "id": "3888543",
+          "name": "ald6 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "631695",
+          "name": "2,5-cyclohexadien-1-one, 4-[6-(4-methyl-1-piperazinyl)[2,5'-bi-1h-benzimidazol]-2'(3'h)-ylidene]-",
+          "semanticCategory": "Chemicals & Drugs",
+          "semanticTypes": [
+            "T104"
+          ],
+          "taxonomies": []
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3888543",
+          "concept1Id": "631695",
+          "tripleIds": [
+            "148499503"
+          ],
+          "publicationIds": [
+            "231483877"
+          ],
+          "predicateIds": [
+            "10773565"
+          ]
+        },
+        {
+          "concept0Id": "631695",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "146889364"
+          ],
+          "publicationIds": [
+            "231345581"
+          ],
+          "predicateIds": [
+            "10773566"
+          ]
+        }
+      ],
+      "score": 8.723944676568285
+    },
+    {
+      "concepts": [
+        {
+          "id": "2480408",
+          "name": "ubp3 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5816410",
+          "name": "o-carbamimidamido-l-homoserine sulfate (1:1)",
+          "semanticCategory": "Chemicals & Drugs",
+          "semanticTypes": [
+            "T104"
+          ],
+          "taxonomies": []
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "2480408",
+          "concept1Id": "5816410",
+          "tripleIds": [
+            "147314735"
+          ],
+          "publicationIds": [
+            "231384007"
+          ],
+          "predicateIds": [
+            "10773565"
+          ]
+        },
+        {
+          "concept0Id": "5816410",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "146931329"
+          ],
+          "publicationIds": [
+            "231359875"
+          ],
+          "predicateIds": [
+            "10773566"
+          ]
+        }
+      ],
+      "score": 8.724651723993738
+    },
+    {
+      "concepts": [
+        {
+          "id": "3885475",
+          "name": "pre9 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "4810790",
+          "name": "l-azetidine-2-carboxylic acid",
+          "semanticCategory": "Chemicals & Drugs",
+          "semanticTypes": [
+            "T104"
+          ],
+          "taxonomies": []
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3885475",
+          "concept1Id": "4810790",
+          "tripleIds": [
+            "148069919"
+          ],
+          "publicationIds": [
+            "231443314"
+          ],
+          "predicateIds": [
+            "10773565"
+          ]
+        },
+        {
+          "concept0Id": "4810790",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "146983066"
+          ],
+          "publicationIds": [
+            "231371724"
+          ],
+          "predicateIds": [
+            "10773566"
+          ]
+        }
+      ],
+      "score": 8.77742074947443
+    },
+    {
+      "concepts": [
+        {
+          "id": "2480609",
+          "name": "get2 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "6541126",
+          "name": "oxaliplatin",
+          "semanticCategory": "Chemicals & Drugs",
+          "semanticTypes": [
+            "T104"
+          ],
+          "taxonomies": []
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "2480609",
+          "concept1Id": "6541126",
+          "tripleIds": [
+            "147279050"
+          ],
+          "publicationIds": [
+            "231373409"
+          ],
+          "predicateIds": [
+            "10773565"
+          ]
+        },
+        {
+          "concept0Id": "6541126",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "146932031"
+          ],
+          "publicationIds": [
+            "231360201"
+          ],
+          "predicateIds": [
+            "10773566"
+          ]
+        }
+      ],
+      "score": 8.835466202029545
+    },
+    {
+      "concepts": [
+        {
+          "id": "3887820",
+          "name": "did4 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "2480692",
+          "name": "yel068c (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3887820",
+          "concept1Id": "2480692",
+          "tripleIds": [
+            "148601860",
+            "148657217"
+          ],
+          "publicationIds": [
+            "231486140",
+            "231486721"
+          ],
+          "predicateIds": [
+            "10773577",
+            "10773577"
+          ]
+        },
+        {
+          "concept0Id": "2480692",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "147246210"
+          ],
+          "publicationIds": [
+            "231361671",
+            "205792271"
+          ],
+          "predicateIds": [
+            "10773616"
+          ]
+        }
+      ],
+      "score": 8.842602279611327
+    },
+    {
+      "concepts": [
+        {
+          "id": "3887820",
+          "name": "did4 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "3885357",
+          "name": "ybr242w (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3887820",
+          "concept1Id": "3885357",
+          "tripleIds": [
+            "148599680",
+            "148716162"
+          ],
+          "publicationIds": [
+            "231486140",
+            "231487500"
+          ],
+          "predicateIds": [
+            "10773577",
+            "10773577"
+          ]
+        },
+        {
+          "concept0Id": "3885357",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "147671285",
+            "147671255"
+          ],
+          "publicationIds": [
+            "231380885",
+            "207459503",
+            "231380890",
+            "212577041"
+          ],
+          "predicateIds": [
+            "10773617",
+            "10773616"
+          ]
+        }
+      ],
+      "score": 8.842602279611327
+    },
+    {
+      "concepts": [
+        {
+          "id": "3877933",
+          "name": "ucc1 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "3878836",
+          "name": "ylr225c (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3877933",
+          "concept1Id": "3878836",
+          "tripleIds": [
+            "42608120",
+            "42607314"
+          ],
+          "publicationIds": [
+            "191070925",
+            "191071166"
+          ],
+          "predicateIds": [
+            "10773561",
+            "10773561"
+          ]
+        },
+        {
+          "concept0Id": "3878836",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "146885997",
+            "146885959"
+          ],
+          "publicationIds": [
+            "231344768",
+            "208657108",
+            "231344791",
+            "206885534"
+          ],
+          "predicateIds": [
+            "10773616",
+            "10773617"
+          ]
+        }
+      ],
+      "score": 8.8481845387026
+    },
+    {
+      "concepts": [
+        {
+          "id": "3878933",
+          "name": "gep5 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "3879239",
+          "name": "sul2 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3878933",
+          "concept1Id": "3879239",
+          "tripleIds": [
+            "42620519",
+            "42620491"
+          ],
+          "publicationIds": [
+            "191074667",
+            "191074678"
+          ],
+          "predicateIds": [
+            "10773561",
+            "10773561"
+          ]
+        },
+        {
+          "concept0Id": "3879239",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "148443707"
+          ],
+          "publicationIds": [
+            "231470443",
+            "210637362"
+          ],
+          "predicateIds": [
+            "10773616"
+          ]
+        }
+      ],
+      "score": 8.888056786989244
+    },
+    {
+      "concepts": [
+        {
+          "id": "3887284",
+          "name": "vma7 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "3885419",
+          "name": "ygr018c (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "3887284",
+          "concept1Id": "3885419",
+          "tripleIds": [
+            "42561984",
+            "42561936"
+          ],
+          "publicationIds": [
+            "191055455",
+            "191055471"
+          ],
+          "predicateIds": [
+            "10773561",
+            "10773561"
+          ]
+        },
+        {
+          "concept0Id": "3885419",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "148046195"
+          ],
+          "publicationIds": [
+            "231433791",
+            "211468248"
+          ],
+          "predicateIds": [
+            "10773616"
+          ]
+        }
+      ],
+      "score": 8.910543857135004
+    },
+    {
+      "concepts": [
+        {
+          "id": "2479785",
+          "name": "thp2 (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "2480366",
+          "name": "yhr127w (saccharomyces cerevisiae s288c)",
+          "semanticCategory": "Genes & Molecular Sequences",
+          "semanticTypes": [
+            "T028"
+          ],
+          "taxonomies": [
+            "saccharomyces cerevisiae s288c"
+          ]
+        },
+        {
+          "id": "5886311",
+          "name": "resistance to chemicals",
+          "semanticCategory": "Physiology",
+          "semanticTypes": [
+            "T032"
+          ],
+          "taxonomies": []
+        }
+      ],
+      "relationships": [
+        {
+          "concept0Id": "2479785",
+          "concept1Id": "2480366",
+          "tripleIds": [
+            "148548938",
+            "148549596"
+          ],
+          "publicationIds": [
+            "231485568",
+            "231485472"
+          ],
+          "predicateIds": [
+            "10773577",
+            "10773577"
+          ]
+        },
+        {
+          "concept0Id": "2480366",
+          "concept1Id": "5886311",
+          "tripleIds": [
+            "147275480"
+          ],
+          "publicationIds": [
+            "231368105",
+            "206885534"
+          ],
+          "predicateIds": [
+            "10773616"
+          ]
+        }
+      ],
+      "score": 8.918251572345994
+    }
+  ],
+  "last": true,
+  "totalElements": 10,
+  "totalPages": 1,
+  "numberOfElements": 10,
+  "first": true,
+  "sort": null,
+  "size": 10,
+  "number": 0
+}
