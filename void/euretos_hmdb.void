@@ -18,4 +18,13 @@ prefix pav: <http://purl.org/pav/>
   dct:title "ODEX_RDF_STORE_HMDB 20170822"@en ;
   dct:description "Version 20170822 of the Euretos ODEX_RDF_STORE_HMDB data set."@en ;
   dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
-  dct:creator [ foaf:page <https://www.linkedin.com/in/obeckerhof/> ] .
+  dct:creator <https://www.wikidata.org/wiki/Q38120753> ;
+  dcat:distribution <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#version20170822#distrib> .
+
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#version20170822#distrib> a dctypes:Dataset, dcat:Distribution ;
+  dct:title "SAIL repository of ODEX_RDF_STORE_HMDB 20170822"@en ;
+  dct:description "Binary SAIL RDF repository of ODEX_RDF_STORE_HMDB 20170822"@en ;
+  dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
+  dct:creator <https://www.wikidata.org/wiki/Q38120753> ;
+  dct:license <http://www.ebi.ac.uk/swo/license/SWO_1000002> ;
+  dct:format "application/octet-stream" .
