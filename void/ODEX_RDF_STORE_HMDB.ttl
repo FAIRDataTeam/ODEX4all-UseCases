@@ -7,21 +7,21 @@ prefix dct: <http://purl.org/dc/terms/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix pav: <http://purl.org/pav/>
 
-<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#summary> a dctypes:Dataset ;
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#summary> a dctypes:Dataset ;
   dct:title "Euretos ODEX_RDF_STORE_HMDB"@en ;
   dct:description "RDF data set of the HMDB database created by Euretos for the ODEX4All project."@en ;
   dct:publisher <https://www.wikidata.org/wiki/Q38120213> .
 
-<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#version20170822> a dctypes:Dataset ;
-  dct:isVersionOf <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> ;
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#version20170822> a dctypes:Dataset ;
+  dct:isVersionOf <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#summary> ;
   pav:version "20170822" ;
   dct:title "ODEX_RDF_STORE_HMDB 20170822"@en ;
   dct:description "Version 20170822 of the Euretos ODEX_RDF_STORE_HMDB data set."@en ;
   dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
   dct:creator <https://www.wikidata.org/wiki/Q38120753> ;
-  dcat:distribution <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#version20170822#distrib> .
+  dcat:distribution <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#version20170822#distrib> .
 
-<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#version20170822#distrib> a dctypes:Dataset, dcat:Distribution ;
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#version20170822#distrib> a dctypes:Dataset, dcat:Distribution ;
   dct:title "SAIL repository of ODEX_RDF_STORE_HMDB 20170822"@en ;
   dct:description "Binary SAIL RDF repository of ODEX_RDF_STORE_HMDB 20170822"@en ;
   dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
