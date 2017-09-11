@@ -1,0 +1,33 @@
+
+prefix : <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_PigQTL.ttl#>
+prefix void: <http://rdfs.org/ns/void#>
+prefix dctypes: <http://purl.org/dc/dcmitype/>
+prefix dcat: <http://www.w3.org/ns/dcat#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix pav: <http://purl.org/pav/>
+
+:summary a dctypes:Dataset ;
+  dct:title "Euretos ODEX_RDF_STORE_PigQTL"@en ;
+  dct:description "RDF data set of the HMDB database created by Euretos for the ODEX4All project."@en ;
+  dct:publisher <https://www.wikidata.org/wiki/Q38120213> .
+
+:version20170822 a dctypes:Dataset ;
+  dct:isVersionOf :summary ;
+  pav:version "20170822" ;
+  dct:title "ODEX_RDF_STORE_PigQTL 20170822"@en ;
+  dct:description "Version 20170822 of the Euretos ODEX_RDF_STORE_PigQTL data set."@en ;
+  dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
+  dct:creator <https://www.wikidata.org/wiki/Q38120753> ;
+  dcat:distribution :distrib .
+
+:distrib a dctypes:Dataset, dcat:Distribution ;
+  dct:title "SAIL repository of ODEX_RDF_STORE_PigQTL 20170822"@en ;
+  dct:description "Binary SAIL RDF repository of ODEX_RDF_STORE_PigQTL 20170822"@en ;
+  dct:publisher <https://www.wikidata.org/wiki/Q38120213> ;
+  dct:creator <https://www.wikidata.org/wiki/Q38120753> ;
+  dct:license <http://www.ebi.ac.uk/swo/license/SWO_1000002> ;
+  dct:format "application/octet-stream" .
+  
