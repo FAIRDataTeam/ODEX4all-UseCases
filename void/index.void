@@ -8,6 +8,40 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/pigQTLdb-ld.void#summary> a dctypes:DataSet .
 
 # Euretos data sets
-<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/euretos_hmdb.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Aracyc.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Asco_PhenotypeOntology.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Biosystems.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Chebi.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_CMO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_CROP.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_CTD.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Disgenet.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Ensembl_Compara.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Ensembl_Plants.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Entrezgene.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Enzyme.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_EO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_GO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Gramene.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_GWAS.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMDB.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HMPP.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HPO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_HPRD.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_MGD.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_OMA.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Phytozome.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_PID.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_PigQTL.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_PO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_Reactome.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_STRING.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_TAIR.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_TO.void#summary> a dctypes:DataSet .
+<https://raw.githubusercontent.com/DTL-FAIRData/ODEX4all-UseCases/master/void/ODEX_RDF_STORE_VTO.void#summary> a dctypes:DataSet .
 
 # gene ID mapping data sets
+<https://zenodo.org/record/887617/files/Ensembl_Sc_dataset.void.ttl#ensembl_saccharomyces_cerevisia> a dctypes:DataSet .
+<https://zenodo.org/record/887624/files/Ensembl_Os_dataset.void.ttl#ensembl_oryza_sativa> a dctypes:DataSet .
+<https://zenodo.org/record/887634/files/Ensembl_Sl_dataset.void.ttl#ensembl_solanum_lycopersicum> a dctypes:DataSet .
+<https://zenodo.org/record/887636/files/Ensembl_Ss_dataset.void.ttl#ensembl_sus_scrofa> a dctypes:DataSet .
